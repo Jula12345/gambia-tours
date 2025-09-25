@@ -1,0 +1,6 @@
+body { font-family: 'Montserrat', Arial, sans-serif; background: #f7f8fa; margin: 0; }
+.container { max-width: 900px; margin: 2em auto; padding: 2em; background: #fff; border-radius: 18px; box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
+nav { background: linear-gradient(90deg, #FFD600 60%, #FFB300 100%); padding: 1em 2em; box-shadow: 0 2px 8px rgba(0,0,0,0.07); border-radius: 0 0 18px 18px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; }
+nav a { color: #333; margin: 0 1em; text-decoration: none; font-weight: 700; font-size: 1.1em; padding: 0.5em 1em; border-radius: 8px; transition: background 0.2s, color 0.2s; }
+nav a:hover { background: #fffde7; color: #FFB300; }
+@media (max-width: 600px) { .container { padding: 1em; } nav { padding: 0.5em; border-radius: 0 0 10px 10px; } nav a { display: block; margin: 0.5em 0; font-size: 1em; } }

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservation Form - Gambia Tours</title>
+  <link rel="stylesheet" href="https://gambiantour.com/style.css">
+</head>
+<body>
+  <nav>
+  <a href="https://gambiantour.com/index.html">Home</a>
+  <a href="https://gambiantour.com/tours.html">Tours</a>
+  <a href="https://gambiantour.com/day-trips.html">Day Trip Tours</a>
+  <a href="https://gambiantour.com/reservation.html">Reservation Form</a>
+  <a href="https://gambiantour.com/blog.html">Blog</a>
+  </nav>
+  <div class="container">
+    <!-- ...converted reservation form content... -->
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="tour">Select Tour:</label>
+      <select id="tour" name="tour">
+        <option value="city">City Tours</option>
+        <option value="bird">Bird Watching Adventure</option>
+        <option value="package">Package Tours</option>
+        <option value="river">River Excursion</option>
+        <option value="cultural">Cultural Experience</option>
+        <option value="wildlife">Wildlife Safari</option>
+        <option value="beach">Beach Relaxation</option>
+        <option value="custom">Custom Tour</option>
+        <option value="banjul-market">Day Trip: Banjul Albert Market & Shopping</option>
+        <option value="snake-farm">Day Trip: Snake Farm Adventure</option>
+        <option value="tanji-market">Day Trip: Tanji Fishing Market Visit</option>
+        <option value="crocodile-pool">Day Trip: Crocodile Pool Trip</option>
+      </select>
+      <label for="start_date">Start Date:</label>
+      <input type="date" id="start_date" name="start_date" required>
+      <label for="end_date">End Date:</label>
+      <input type="date" id="end_date" name="end_date" required>
+      <label for="message">Additional Message:</label>
+      <textarea id="message" name="message" rows="3"></textarea>
+      <button type="submit">Reserve</button>
+    </form>
+  </div>
+  <script src="https://gambiantour.com/main.js"></script>
+</body>
+</html>
