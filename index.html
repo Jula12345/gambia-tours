@@ -11,26 +11,36 @@
   <link rel="stylesheet" href="https://gambiantour.com/style.css">
 </head>
 <body>
-  <!-- Navbar -->
-  <nav>
-  <a href="https://gambiantour.com/index.html">Home</a>
-  <a href="https://gambiantour.com/tours.html">Tours</a>
-  <a href="https://gambiantour.com/day-trips.html">Day Trip Tours</a>
-  <a href="https://gambiantour.com/reservation.html">Reservation Form</a>
-  <a href="https://gambiantour.com/blog.html">Blog</a>
+  <!-- Navbar with Logo and Burger -->
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <img src="https://gambiantour.com/photos/logo.png" alt="Gambia Tours Logo" style="height:40px;vertical-align:middle;"> <span class="logo-text">Gambia Tours</span>
+    </div>
+    <button class="burger" aria-label="Open menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="navbar-links" id="navbarLinks">
+      <a href="https://gambiantour.com/index.html">Home</a>
+      <a href="https://gambiantour.com/tours.html">Tours</a>
+      <a href="https://gambiantour.com/day-trips.html">Day Trip Tours</a>
+      <a href="https://gambiantour.com/reservation.html">Reservation Form</a>
+      <a href="https://gambiantour.com/blog.html">Blog</a>
+    </div>
   </nav>
   <!-- Main Content (converted from PHP) -->
   <div class="container">
     <!-- Hero Section -->
     <section class="hero">
-      <h1>Welcome to Gambia Tours</h1>
-      <p>Discover unforgettable adventures in The Gambia & Senegal. City tours, bird watching, cultural experiences, and more!</p>
-      <a href="https://gambiantour.com/reservation.html" class="btn-primary">Book Now</a>
+  <h1>Welcome to Gambia Tours</h1>
+  <p>Discover unforgettable adventures in The Gambia & Senegal. City tours, bird watching, cultural experiences, and more!<br>
+  <strong>We are your trusted local experts for travel, holidays, and authentic experiences in West Africa.</strong></p>
+  <a href="https://gambiantour.com/reservation.html" class="btn-primary">Book Now</a>
     </section>
 
     <!-- Featured Tours -->
     <section class="featured-tours">
-      <h2>Featured Tours</h2>
+  <h2>Featured Tours</h2>
+  <p>Choose from our most popular tours, designed to showcase the best of Gambia and Senegal. Our guides are passionate locals who love sharing their culture and nature with you.</p>
       <div class="tour-cards">
         <div class="tour-card">
           <img src="https://gambiantour.com/photos/WhatsApp%20Image%202025-08-25%20at%2013.05.39%20(2).jpeg" alt="City Tour">
@@ -55,7 +65,8 @@
 
     <!-- Testimonials -->
     <section class="testimonials">
-      <h2>What Our Customers Say</h2>
+  <h2>What Our Customers Say</h2>
+  <p>We pride ourselves on excellent service and memorable experiences. Here’s what our guests say:</p>
       <div class="testimonial-cards">
         <div class="testimonial-card">
           <p>“Amazing experience! The guides were knowledgeable and friendly.”</p>
@@ -74,7 +85,8 @@
 
     <!-- FAQ Section -->
     <section class="faq">
-      <h2>Frequently Asked Questions</h2>
+  <h2>Frequently Asked Questions</h2>
+  <p>Find answers to common questions about booking, customizing tours, and traveling in The Gambia.</p>
       <div class="faq-list">
         <div class="faq-item">
           <h3>How do I book a tour?</h3>
@@ -93,7 +105,8 @@
 
     <!-- Contact Info -->
     <section class="contact-info">
-      <h2>Contact Us</h2>
+  <h2>Contact Us</h2>
+  <p>We’re here to help you plan your perfect trip. Reach out for any questions or special requests.</p>
       <p><strong>Email:</strong> info@gambiantour.com</p>
       <p><strong>Phone:</strong> +220 123 4567</p>
       <p><strong>WhatsApp:</strong> <a href="https://wa.me/2201234567" target="_blank">Chat Now</a></p>
@@ -106,7 +119,8 @@
 
     <!-- Newsletter Signup -->
     <section class="newsletter">
-      <h2>Sign Up for Our Newsletter</h2>
+  <h2>Sign Up for Our Newsletter</h2>
+  <p>Get travel tips, exclusive offers, and updates on new tours delivered to your inbox.</p>
       <form class="newsletter-form">
         <input type="email" placeholder="Your email address" required>
         <button type="submit">Subscribe</button>
@@ -114,6 +128,7 @@
     </section>
   </div>
   </div>
+  <script src="https://gambiantour.com/main.js"></script>
   <script src="https://gambiantour.com/main.js"></script>
 </body>
 </html>

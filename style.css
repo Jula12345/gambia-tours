@@ -1,9 +1,31 @@
 body { font-family: 'Montserrat', Arial, sans-serif; background: #f7f8fa; margin: 0; }
 .container { max-width: 900px; margin: 2em auto; padding: 2em; background: #fff; border-radius: 18px; box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
-nav { background: linear-gradient(90deg, #FFD600 60%, #FFB300 100%); padding: 1em 2em; box-shadow: 0 2px 8px rgba(0,0,0,0.07); border-radius: 0 0 18px 18px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; }
-nav a { color: #333; margin: 0 1em; text-decoration: none; font-weight: 700; font-size: 1.1em; padding: 0.5em 1em; border-radius: 8px; transition: background 0.2s, color 0.2s; }
-nav a:hover { background: #fffde7; color: #FFB300; }
-@media (max-width: 600px) { .container { padding: 1em; } nav { padding: 0.5em; border-radius: 0 0 10px 10px; } nav a { display: block; margin: 0.5em 0; font-size: 1em; } }
+
+/* Modern Navbar with Logo and Burger */
+.navbar { background: linear-gradient(90deg, #FFD600 60%, #FFB300 100%); padding: 1em 2em; box-shadow: 0 2px 8px rgba(0,0,0,0.07); border-radius: 0 0 18px 18px; display: flex; align-items: center; justify-content: space-between; position: relative; }
+.navbar-logo { display: flex; align-items: center; gap: 0.7em; }
+.logo-text { font-weight: 900; font-size: 1.3em; color: #333; letter-spacing: 1px; }
+.navbar-links { display: flex; gap: 1em; align-items: center; }
+.navbar-links a { color: #333; text-decoration: none; font-weight: 700; font-size: 1.1em; padding: 0.5em 1em; border-radius: 8px; transition: background 0.2s, color 0.2s; }
+.navbar-links a:hover { background: #fffde7; color: #FFB300; }
+.burger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 0.5em; margin-left: 1em; }
+.burger span { display: block; width: 28px; height: 4px; background: #333; border-radius: 2px; transition: 0.3s; }
+
+@media (max-width: 900px) {
+	.navbar { padding: 1em 0.5em; }
+}
+@media (max-width: 700px) {
+	.navbar-links { gap: 0.5em; }
+}
+@media (max-width: 600px) {
+	.navbar { flex-direction: row; padding: 0.5em 0.5em; border-radius: 0 0 10px 10px; }
+	.navbar-logo { gap: 0.5em; }
+	.logo-text { font-size: 1.1em; }
+	.burger { display: flex; }
+	.navbar-links { display: none; position: absolute; top: 60px; left: 0; width: 100vw; background: linear-gradient(90deg, #FFD600 60%, #FFB300 100%); flex-direction: column; align-items: flex-start; gap: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.07); border-radius: 0 0 10px 10px; z-index: 10; }
+	.navbar-links.open { display: flex; }
+	.navbar-links a { display: block; width: 100%; margin: 0; font-size: 1em; padding: 1em 2em; border-radius: 0; border-bottom: 1px solid #fffde7; }
+}
 
 /* Modern Section Spacing */
 section { margin-bottom: 2.5em; }
