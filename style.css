@@ -4,3 +4,185 @@ nav { background: linear-gradient(90deg, #FFD600 60%, #FFB300 100%); padding: 1e
 nav a { color: #333; margin: 0 1em; text-decoration: none; font-weight: 700; font-size: 1.1em; padding: 0.5em 1em; border-radius: 8px; transition: background 0.2s, color 0.2s; }
 nav a:hover { background: #fffde7; color: #FFB300; }
 @media (max-width: 600px) { .container { padding: 1em; } nav { padding: 0.5em; border-radius: 0 0 10px 10px; } nav a { display: block; margin: 0.5em 0; font-size: 1em; } }
+
+/* Modern Section Spacing */
+section { margin-bottom: 2.5em; }
+
+/* Hero Section - Modern Gradient & Animation */
+.hero { text-align: center; padding: 3em 1em 2em 1em; background: linear-gradient(120deg, #FFD600 60%, #FFB300 100%); border-radius: 18px; margin-bottom: 2em; box-shadow: 0 6px 32px rgba(255,179,0,0.08); animation: fadeIn 1s; }
+.hero h1 { font-size: 2.7em; margin-bottom: 0.5em; color: #333; font-weight: 800; letter-spacing: 1px; }
+.hero p { font-size: 1.25em; color: #444; margin-bottom: 1.5em; }
+.btn-primary { background: linear-gradient(90deg, #FFB300 60%, #FFD600 100%); color: #fff; padding: 0.9em 2.2em; border: none; border-radius: 10px; font-size: 1.15em; font-weight: 700; cursor: pointer; text-decoration: none; box-shadow: 0 2px 8px rgba(255,179,0,0.12); transition: background 0.2s, box-shadow 0.2s; }
+.btn-primary:hover { background: #FFD600; color: #333; box-shadow: 0 4px 16px rgba(255,179,0,0.18); }
+
+/* Tour Cards - Modern Card Layout */
+.tour-cards { display: flex; flex-wrap: wrap; gap: 2em; justify-content: center; margin-bottom: 2em; }
+.tour-card { background: linear-gradient(120deg, #fffde7 80%, #fff 100%); border-radius: 16px; box-shadow: 0 2px 16px rgba(0,0,0,0.09); padding: 1.2em; width: 280px; text-align: center; transition: box-shadow 0.2s, transform 0.2s; position: relative; overflow: hidden; }
+.tour-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 10px; margin-bottom: 1em; box-shadow: 0 2px 8px rgba(255,179,0,0.08); }
+.tour-card h3 { margin: 0.5em 0; color: #FFB300; font-size: 1.25em; font-weight: 700; }
+.tour-card p { color: #444; font-size: 1em; margin-bottom: 1em; }
+.tour-card:hover { box-shadow: 0 8px 32px rgba(255,179,0,0.18); transform: translateY(-4px) scale(1.03); }
+.btn-secondary { background: linear-gradient(90deg, #FFD600 60%, #FFB300 100%); color: #333; padding: 0.6em 1.7em; border: none; border-radius: 8px; font-size: 1em; font-weight: 600; cursor: pointer; text-decoration: none; box-shadow: 0 1px 4px rgba(255,179,0,0.10); transition: background 0.2s, box-shadow 0.2s; }
+.btn-secondary:hover { background: #FFB300; color: #fff; box-shadow: 0 2px 8px rgba(255,179,0,0.18); }
+
+/* Testimonials - Modern Card Style */
+.testimonials { background: linear-gradient(120deg, #fffde7 80%, #fff 100%); border-radius: 16px; padding: 2em 1em; margin-bottom: 2em; box-shadow: 0 2px 16px rgba(255,179,0,0.08); }
+.testimonials h2 { text-align: center; color: #FFB300; margin-bottom: 1em; font-weight: 700; }
+.testimonial-cards { display: flex; flex-wrap: wrap; gap: 1.5em; justify-content: center; }
+.testimonial-card { background: #fff; border-radius: 10px; box-shadow: 0 1px 8px rgba(255,179,0,0.08); padding: 1em; width: 230px; text-align: center; font-style: italic; color: #444; transition: box-shadow 0.2s, transform 0.2s; }
+.testimonial-card span { display: block; margin-top: 0.5em; color: #FFB300; font-weight: 600; font-size: 0.95em; }
+.testimonial-card:hover { box-shadow: 0 4px 16px rgba(255,179,0,0.18); transform: scale(1.04); }
+
+/* FAQ - Modern Card Style */
+.faq { background: linear-gradient(120deg, #f7f8fa 80%, #fff 100%); border-radius: 16px; padding: 2em 1em; margin-bottom: 2em; box-shadow: 0 2px 16px rgba(255,179,0,0.07); }
+.faq h2 { text-align: center; color: #FFB300; margin-bottom: 1em; font-weight: 700; }
+.faq-list { display: flex; flex-direction: column; gap: 1em; }
+.faq-item { background: #fff; border-radius: 10px; box-shadow: 0 1px 8px rgba(255,179,0,0.07); padding: 1em; transition: box-shadow 0.2s; }
+.faq-item h3 { margin: 0 0 0.5em 0; color: #FFB300; font-size: 1.1em; font-weight: 700; }
+.faq-item p { margin: 0; color: #444; }
+.faq-item:hover { box-shadow: 0 4px 16px rgba(255,179,0,0.14); }
+
+/* Contact Info & Social - Modern Style */
+.contact-info { background: linear-gradient(120deg, #fffde7 80%, #fff 100%); border-radius: 16px; padding: 2em 1em; margin-bottom: 2em; text-align: center; box-shadow: 0 2px 16px rgba(255,179,0,0.08); }
+.contact-info h2 { color: #FFB300; margin-bottom: 1em; font-weight: 700; }
+.contact-info p { color: #444; margin: 0.5em 0; }
+.contact-info a { color: #FFB300; text-decoration: underline; }
+.social-links { margin-top: 1em; display: flex; gap: 1em; justify-content: center; }
+.social-links a { color: #fff; background: linear-gradient(90deg, #FFB300 60%, #FFD600 100%); padding: 0.5em 1em; border-radius: 8px; font-weight: 600; text-decoration: none; box-shadow: 0 1px 4px rgba(255,179,0,0.10); transition: background 0.2s, box-shadow 0.2s; }
+.social-links a:hover { background: #FFD600; color: #333; box-shadow: 0 2px 8px rgba(255,179,0,0.18); }
+
+/* Newsletter - Modern Style */
+.newsletter { background: linear-gradient(120deg, #f7f8fa 80%, #fff 100%); border-radius: 16px; padding: 2em 1em; margin-bottom: 2em; text-align: center; box-shadow: 0 2px 16px rgba(255,179,0,0.07); }
+.newsletter h2 { color: #FFB300; margin-bottom: 1em; font-weight: 700; }
+.newsletter-form { display: flex; flex-direction: column; gap: 1em; align-items: center; }
+.newsletter-form input[type="email"] { padding: 0.7em; border-radius: 8px; border: 1px solid #FFB300; width: 90%; max-width: 320px; font-size: 1em; box-shadow: 0 1px 4px rgba(255,179,0,0.07); }
+.newsletter-form button { background: linear-gradient(90deg, #FFB300 60%, #FFD600 100%); color: #fff; border: none; border-radius: 8px; padding: 0.7em 2em; font-size: 1em; font-weight: 600; cursor: pointer; box-shadow: 0 1px 4px rgba(255,179,0,0.10); transition: background 0.2s, box-shadow 0.2s; }
+.newsletter-form button:hover { background: #FFD600; color: #333; box-shadow: 0 2px 8px rgba(255,179,0,0.18); }
+
+/* Reservation Form - Modern Style */
+.reservation-form { background: linear-gradient(120deg, #fffde7 80%, #fff 100%); border-radius: 16px; padding: 2em 1em; margin-bottom: 2em; box-shadow: 0 2px 16px rgba(255,179,0,0.08); }
+.reservation-form h1 { color: #FFB300; margin-bottom: 1em; text-align: center; font-weight: 700; }
+.reservation-form form { display: flex; flex-direction: column; gap: 1em; max-width: 400px; margin: 0 auto; }
+.reservation-form label { font-weight: 600; color: #333; }
+.reservation-form input, .reservation-form select, .reservation-form textarea { padding: 0.7em; border-radius: 8px; border: 1px solid #FFB300; font-size: 1em; box-shadow: 0 1px 4px rgba(255,179,0,0.07); }
+.reservation-form button { background: linear-gradient(90deg, #FFB300 60%, #FFD600 100%); color: #fff; border: none; border-radius: 8px; padding: 0.7em 2em; font-size: 1em; font-weight: 600; cursor: pointer; box-shadow: 0 1px 4px rgba(255,179,0,0.10); transition: background 0.2s, box-shadow 0.2s; }
+.reservation-form button:hover { background: #FFD600; color: #333; box-shadow: 0 2px 8px rgba(255,179,0,0.18); }
+
+/* Blog - Modern Card Style */
+.blog-list { background: linear-gradient(120deg, #f7f8fa 80%, #fff 100%); border-radius: 16px; padding: 2em 1em; margin-bottom: 2em; box-shadow: 0 2px 16px rgba(255,179,0,0.07); }
+.blog-list h1 { color: #FFB300; margin-bottom: 1em; text-align: center; font-weight: 700; }
+.blog-post { background: #fff; border-radius: 10px; box-shadow: 0 1px 8px rgba(255,179,0,0.07); padding: 1em; margin-bottom: 1em; transition: box-shadow 0.2s; }
+.blog-post h2 { color: #FFB300; margin-bottom: 0.5em; font-weight: 700; }
+.blog-post p { color: #444; margin-bottom: 0.5em; }
+.blog-post span { color: #888; font-size: 0.95em; }
+.blog-post:hover { box-shadow: 0 4px 16px rgba(255,179,0,0.14); }
+
+/* Animations */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+
+/* Responsive Styles - Modern */
+@media (max-width: 900px) {
+	.container { max-width: 98vw; padding: 1em; }
+	.tour-cards, .testimonial-cards { gap: 1em; }
+}
+@media (max-width: 700px) {
+	.tour-cards, .testimonial-cards { flex-direction: column; align-items: center; }
+	.tour-card, .testimonial-card { width: 98vw; max-width: 340px; }
+}
+@media (max-width: 600px) {
+	.hero { padding: 2em 0.5em 1em 0.5em; }
+	.hero h1 { font-size: 2em; }
+	.featured-tours h2, .testimonials h2, .faq h2, .contact-info h2, .newsletter h2 { font-size: 1.3em; }
+	.container { padding: 0.5em; }
+	nav { flex-direction: column; padding: 0.5em; border-radius: 0 0 10px 10px; }
+	nav a { display: block; margin: 0.5em 0; font-size: 1em; }
+	.tour-card img { height: 120px; }
+	.reservation-form form { max-width: 98vw; }
+	.newsletter-form input[type="email"] { max-width: 98vw; }
+}
+
+/* Hero Section */
+.hero { text-align: center; padding: 3em 1em 2em 1em; background: linear-gradient(90deg, #FFD600 60%, #FFB300 100%); border-radius: 18px; margin-bottom: 2em; }
+.hero h1 { font-size: 2.5em; margin-bottom: 0.5em; color: #333; }
+.hero p { font-size: 1.2em; color: #444; margin-bottom: 1.5em; }
+.btn-primary { background: #FFB300; color: #fff; padding: 0.8em 2em; border: none; border-radius: 8px; font-size: 1.1em; font-weight: 700; cursor: pointer; text-decoration: none; transition: background 0.2s; }
+.btn-primary:hover { background: #FFD600; color: #333; }
+
+/* Tour Cards */
+.tour-cards { display: flex; flex-wrap: wrap; gap: 2em; justify-content: center; margin-bottom: 2em; }
+.tour-card { background: #fffde7; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 1em; width: 270px; text-align: center; transition: box-shadow 0.2s; }
+.tour-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 1em; }
+.tour-card h3 { margin: 0.5em 0; color: #FFB300; font-size: 1.2em; }
+.tour-card p { color: #444; font-size: 1em; margin-bottom: 1em; }
+.btn-secondary { background: #FFD600; color: #333; padding: 0.5em 1.5em; border: none; border-radius: 8px; font-size: 1em; font-weight: 600; cursor: pointer; text-decoration: none; transition: background 0.2s; }
+.btn-secondary:hover { background: #FFB300; color: #fff; }
+
+/* Testimonials */
+.testimonials { background: #fffde7; border-radius: 12px; padding: 2em 1em; margin-bottom: 2em; }
+.testimonials h2 { text-align: center; color: #FFB300; margin-bottom: 1em; }
+.testimonial-cards { display: flex; flex-wrap: wrap; gap: 1.5em; justify-content: center; }
+.testimonial-card { background: #fff; border-radius: 8px; box-shadow: 0 1px 6px rgba(0,0,0,0.05); padding: 1em; width: 220px; text-align: center; font-style: italic; color: #444; }
+.testimonial-card span { display: block; margin-top: 0.5em; color: #FFB300; font-weight: 600; font-size: 0.95em; }
+
+/* FAQ */
+.faq { background: #f7f8fa; border-radius: 12px; padding: 2em 1em; margin-bottom: 2em; }
+.faq h2 { text-align: center; color: #FFB300; margin-bottom: 1em; }
+.faq-list { display: flex; flex-direction: column; gap: 1em; }
+.faq-item { background: #fff; border-radius: 8px; box-shadow: 0 1px 6px rgba(0,0,0,0.04); padding: 1em; }
+.faq-item h3 { margin: 0 0 0.5em 0; color: #FFB300; font-size: 1.1em; }
+.faq-item p { margin: 0; color: #444; }
+
+/* Contact Info & Social */
+.contact-info { background: #fffde7; border-radius: 12px; padding: 2em 1em; margin-bottom: 2em; text-align: center; }
+.contact-info h2 { color: #FFB300; margin-bottom: 1em; }
+.contact-info p { color: #444; margin: 0.5em 0; }
+.contact-info a { color: #FFB300; text-decoration: underline; }
+.social-links { margin-top: 1em; display: flex; gap: 1em; justify-content: center; }
+.social-links a { color: #fff; background: #FFB300; padding: 0.5em 1em; border-radius: 6px; font-weight: 600; text-decoration: none; transition: background 0.2s; }
+.social-links a:hover { background: #FFD600; color: #333; }
+
+/* Newsletter */
+.newsletter { background: #f7f8fa; border-radius: 12px; padding: 2em 1em; margin-bottom: 2em; text-align: center; }
+.newsletter h2 { color: #FFB300; margin-bottom: 1em; }
+.newsletter-form { display: flex; flex-direction: column; gap: 1em; align-items: center; }
+.newsletter-form input[type="email"] { padding: 0.7em; border-radius: 6px; border: 1px solid #FFB300; width: 90%; max-width: 320px; font-size: 1em; }
+.newsletter-form button { background: #FFB300; color: #fff; border: none; border-radius: 6px; padding: 0.7em 2em; font-size: 1em; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+.newsletter-form button:hover { background: #FFD600; color: #333; }
+
+/* Reservation Form */
+.reservation-form { background: #fffde7; border-radius: 12px; padding: 2em 1em; margin-bottom: 2em; }
+.reservation-form h1 { color: #FFB300; margin-bottom: 1em; text-align: center; }
+.reservation-form form { display: flex; flex-direction: column; gap: 1em; max-width: 400px; margin: 0 auto; }
+.reservation-form label { font-weight: 600; color: #333; }
+.reservation-form input, .reservation-form select, .reservation-form textarea { padding: 0.7em; border-radius: 6px; border: 1px solid #FFB300; font-size: 1em; }
+.reservation-form button { background: #FFB300; color: #fff; border: none; border-radius: 6px; padding: 0.7em 2em; font-size: 1em; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+.reservation-form button:hover { background: #FFD600; color: #333; }
+
+/* Blog */
+.blog-list { background: #f7f8fa; border-radius: 12px; padding: 2em 1em; margin-bottom: 2em; }
+.blog-list h1 { color: #FFB300; margin-bottom: 1em; text-align: center; }
+.blog-post { background: #fff; border-radius: 8px; box-shadow: 0 1px 6px rgba(0,0,0,0.04); padding: 1em; margin-bottom: 1em; }
+.blog-post h2 { color: #FFB300; margin-bottom: 0.5em; }
+.blog-post p { color: #444; margin-bottom: 0.5em; }
+.blog-post span { color: #888; font-size: 0.95em; }
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+	.container { max-width: 98vw; padding: 1em; }
+	.tour-cards, .testimonial-cards { gap: 1em; }
+}
+@media (max-width: 700px) {
+	.tour-cards, .testimonial-cards { flex-direction: column; align-items: center; }
+	.tour-card, .testimonial-card { width: 98vw; max-width: 340px; }
+}
+@media (max-width: 600px) {
+	.hero { padding: 2em 0.5em 1em 0.5em; }
+	.hero h1 { font-size: 2em; }
+	.featured-tours h2, .testimonials h2, .faq h2, .contact-info h2, .newsletter h2 { font-size: 1.3em; }
+	.container { padding: 0.5em; }
+	nav { flex-direction: column; padding: 0.5em; border-radius: 0 0 10px 10px; }
+	nav a { display: block; margin: 0.5em 0; font-size: 1em; }
+	.tour-card img { height: 120px; }
+	.reservation-form form { max-width: 98vw; }
+	.newsletter-form input[type="email"] { max-width: 98vw; }
+}
