@@ -1,9 +1,9 @@
 // Inject modern navbar into all pages
 const navbarHTML = `
 <nav class="navbar">
-	<div class="navbar-logo">
+	<a href="https://gambiantour.com/index.html" class="navbar-logo" style="text-decoration:none;">
 		<img src="https://gambiantour.com/photos/logo.png" alt="Gambia Tours Logo" style="height:40px;vertical-align:middle;"> <span class="logo-text">Gambia Tours</span>
-	</div>
+	</a>
 	<button class="burger" aria-label="Open menu" onclick="toggleMenu()">
 		<span></span><span></span><span></span>
 	</button>
