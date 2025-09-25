@@ -13,34 +13,36 @@
       <h1>Reservation Form</h1>
       <p>Fill out the form below to reserve your tour. We’ll get back to you with confirmation and details. For custom requests, use the notes section.</p>
       <form>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" required>
-        <label for="tour">Select Tour:</label>
-        <select id="tour" name="tour">
-          <option value="city">City Tours</option>
-          <option value="bird">Bird Watching Adventure</option>
-          <option value="package">Package Tours</option>
-          <option value="river">River Excursion</option>
-          <option value="cultural">Cultural Experience</option>
-          <option value="wildlife">Wildlife Safari</option>
-          <option value="beach">Beach Relaxation</option>
-          <option value="custom">Custom Tour</option>
-          <option value="banjul-market">Day Trip: Banjul Albert Market & Shopping</option>
-          <option value="snake-farm">Day Trip: Snake Farm Adventure</option>
-          <option value="tanji-market">Day Trip: Tanji Fishing Market Visit</option>
-          <option value="crocodile-pool">Day Trip: Crocodile Pool Trip</option>
-        </select>
-        <label for="start_date">Start Date:</label>
-        <input type="date" id="start_date" name="start_date" required>
-        <label for="end_date">End Date:</label>
-        <input type="date" id="end_date" name="end_date" required>
-        <label for="notes">Additional Notes:</label>
-        <textarea id="notes" name="notes" rows="3" placeholder="Let us know about special requests, group size, or anything else."></textarea>
-        <button type="submit">Submit Reservation</button>
+        <form action="https://formspree.io/f/xwkgygqg" method="POST">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          <label for="phone">Phone Number:</label>
+          <input type="tel" id="phone" name="phone" required>
+          <label for="tour">Select Tour:</label>
+          <select id="tour" name="tour">
+            <option value="city">City Tours</option>
+            <option value="bird">Bird Watching Adventure</option>
+            <option value="package">Package Tours</option>
+            <option value="river">River Excursion</option>
+            <option value="cultural">Cultural Experience</option>
+            <option value="wildlife">Wildlife Safari</option>
+            <option value="beach">Beach Relaxation</option>
+            <option value="custom">Custom Tour</option>
+            <option value="banjul-market">Day Trip: Banjul Albert Market & Shopping</option>
+            <option value="snake-farm">Day Trip: Snake Farm Adventure</option>
+            <option value="tanji-market">Day Trip: Tanji Fishing Market Visit</option>
+            <option value="crocodile-pool">Day Trip: Crocodile Pool Trip</option>
+          </select>
+          <label for="start_date">Start Date:</label>
+          <input type="date" id="start_date" name="start_date" required>
+          <label for="end_date">End Date:</label>
+          <input type="date" id="end_date" name="end_date" required>
+          <label for="notes">Additional Notes:</label>
+          <textarea id="notes" name="notes" rows="3" placeholder="Let us know about special requests, group size, or anything else."></textarea>
+          <button type="submit">Submit Reservation</button>
+        </form>
       </form>
     </section>
       <label for="end_date">End Date:</label>
