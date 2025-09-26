@@ -56,15 +56,23 @@ section { margin-bottom: 2.5em; }
 
 /* Booking Prompt in Sections */
 .booking-prompt {
-	text-align: center;
-	margin: 1.5em 0 2em 0;
-	font-size: 1.1em;
-}
-.booking-prompt .btn-secondary {
-	margin-left: 1em;
-	font-size: 1.1em;
-	padding: 0.7em 2em;
-}
+		text-align: center;
+		margin: 1.5em 0 2em 0;
+		font-size: 1.1em;
+	}
+	.booking-prompt-btn {
+		margin-top: 1em;
+	}
+	.booking-prompt .btn-secondary {
+		font-size: 1.1em;
+		padding: 0.7em 2em;
+	}
+	@media (max-width: 600px) {
+		.booking-prompt-btn {
+			margin-top: 1.2em;
+			margin-bottom: 0.5em;
+		}
+	}
 .hero h1 { font-size: 2.7em; margin-bottom: 0.5em; color: #333; font-weight: 800; letter-spacing: 1px; }
 .hero p { font-size: 1.25em; color: #444; margin-bottom: 1.5em; }
 .btn-primary { background: linear-gradient(90deg, #FFB300 60%, #FFD600 100%); color: #fff; padding: 0.9em 2.2em; border: none; border-radius: 10px; font-size: 1.15em; font-weight: 700; cursor: pointer; text-decoration: none; box-shadow: 0 2px 8px rgba(255,179,0,0.12); transition: background 0.2s, box-shadow 0.2s; }
