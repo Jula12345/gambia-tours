@@ -1,4 +1,4 @@
-body { font-family: 'Montserrat', Arial, sans-serif; background: #f7f8fa; margin: 0; }
+body { font-family: 'Montserrat', Arial, sans-serif; background: linear-gradient(180deg, #FFD600 0%, #FFB300 40%, #FF6E40 100%); margin: 0; min-height: 100vh; }
 .container { max-width: 900px; margin: 2em auto; padding: 2em; background: #fff; border-radius: 18px; box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
 
 /* Modern Navbar with Logo and Burger */
@@ -31,7 +31,40 @@ body { font-family: 'Montserrat', Arial, sans-serif; background: #f7f8fa; margin
 section { margin-bottom: 2.5em; }
 
 /* Hero Section - Modern Gradient & Animation */
-.hero { text-align: center; padding: 3em 1em 2em 1em; background: linear-gradient(120deg, #FFD600 60%, #FFB300 100%); border-radius: 18px; margin-bottom: 2em; box-shadow: 0 6px 32px rgba(255,179,0,0.08); animation: fadeIn 1s; }
+.hero { text-align: center; padding: 3em 1em 2em 1em; background: linear-gradient(120deg, #FFD600 60%, #FFB300 80%, #FF6E40 100%); border-radius: 18px; margin-bottom: 2em; box-shadow: 0 6px 32px rgba(255,179,0,0.08); animation: fadeIn 1s; position: relative; }
+/* Floating Book Now Button */
+.floating-book-btn {
+	position: fixed;
+	bottom: 32px;
+	right: 32px;
+	background: linear-gradient(90deg, #FFD600 60%, #FFB300 100%);
+	color: #fff;
+	padding: 1em 2em;
+	border-radius: 50px;
+	font-size: 1.2em;
+	font-weight: 800;
+	box-shadow: 0 4px 24px rgba(255,110,64,0.18);
+	z-index: 1000;
+	text-decoration: none;
+	transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.floating-book-btn:hover {
+	background: #FF6E40;
+	color: #fffde7;
+	box-shadow: 0 8px 32px rgba(255,110,64,0.28);
+}
+
+/* Booking Prompt in Sections */
+.booking-prompt {
+	text-align: center;
+	margin: 1.5em 0 2em 0;
+	font-size: 1.1em;
+}
+.booking-prompt .btn-secondary {
+	margin-left: 1em;
+	font-size: 1.1em;
+	padding: 0.7em 2em;
+}
 .hero h1 { font-size: 2.7em; margin-bottom: 0.5em; color: #333; font-weight: 800; letter-spacing: 1px; }
 .hero p { font-size: 1.25em; color: #444; margin-bottom: 1.5em; }
 .btn-primary { background: linear-gradient(90deg, #FFB300 60%, #FFD600 100%); color: #fff; padding: 0.9em 2.2em; border: none; border-radius: 10px; font-size: 1.15em; font-weight: 700; cursor: pointer; text-decoration: none; box-shadow: 0 2px 8px rgba(255,179,0,0.12); transition: background 0.2s, box-shadow 0.2s; }
