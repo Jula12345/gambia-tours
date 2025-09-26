@@ -72,6 +72,40 @@ section { margin-bottom: 2.5em; }
 
 /* Tour Cards - Modern Card Layout */
 .tour-cards { display: flex; flex-wrap: wrap; gap: 2em; justify-content: center; margin-bottom: 2em; }
+@media (max-width: 700px) {
+	.tour-cards {
+		flex-direction: column;
+		gap: 1.2em;
+		align-items: center;
+	}
+	.tour-card {
+		width: 98vw;
+		max-width: 340px;
+		padding: 1em 0.5em;
+	}
+	.tour-card img {
+		height: 120px;
+	}
+}
+@media (max-width: 600px) {
+	.btn-primary {
+		font-size: 1em;
+		padding: 0.7em 1.2em;
+	}
+	.btn-secondary {
+		font-size: 1em;
+		padding: 0.7em 1.2em;
+	}
+}
+@media (max-width: 600px) {
+	.floating-book-btn {
+		bottom: 16px;
+		right: 16px;
+		padding: 0.8em 1.2em;
+		font-size: 1em;
+		border-radius: 40px;
+	}
+}
 .tour-card { background: linear-gradient(120deg, #fffde7 80%, #fff 100%); border-radius: 16px; box-shadow: 0 2px 16px rgba(0,0,0,0.09); padding: 1.2em; width: 280px; text-align: center; transition: box-shadow 0.2s, transform 0.2s; position: relative; overflow: hidden; }
 .tour-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 10px; margin-bottom: 1em; box-shadow: 0 2px 8px rgba(255,179,0,0.08); }
 .tour-card h3 { margin: 0.5em 0; color: #FFB300; font-size: 1.25em; font-weight: 700; }
