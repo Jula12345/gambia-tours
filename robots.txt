@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://gambiantour.com/sitemap.xml
+
+# Allow Google and other search engines to crawl all pages
+Crawl-delay: 1
