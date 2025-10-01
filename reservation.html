@@ -12,448 +12,113 @@
   <div class="container">
     <section class="reservation-form">
       <h1>Reservation Form</h1>
-      <p>Fill out the form below to reserve your tour. We’ll get back to you with confirmation and details. For custom requests, use the notes section.</p>
+      <p>Fill out the form below to reserve your tour. We'll get back to you with confirmation and details. For custom requests, use the notes section.</p>
       <form action="https://formspree.io/f/xjkakeqa" method="POST">
-        <!-- Personal Information -->
-        <div class="form-section">
-          <h3>Personal Information</h3>
-          <label for="name">Full Name:</label>
-          <input type="text" id="name" name="name" required>
-          
-          <label for="email">Email Address:</label>
-          <input type="email" id="email" name="email" required>
-          
-          <label for="phone">Phone Number (with country code):</label>
-          <input type="tel" id="phone" name="phone" required placeholder="+220 123 4567">
-          
-          <label for="group_size">Number of People:</label>
-          <select id="group_size" name="group_size" required>
-            <option value="">Select group size</option>
-            <option value="1">1 person</option>
-            <option value="2">2 people</option>
-            <option value="3">3 people</option>
-            <option value="4">4 people</option>
-            <option value="5">5 people</option>
-            <option value="6">6 people</option>
-            <option value="7">7 people</option>
-            <option value="8">8 people</option>
-            <option value="9+">9+ people (contact for group rates)</option>
-          </select>
-        </div>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="phone">Phone Number (with country code):</label>
+        <input type="tel" id="phone" name="phone" required placeholder="+220 123 4567">
+        
+        <label for="group_size">Number of People:</label>
+        <select id="group_size" name="group_size" required>
+          <option value="">Select group size</option>
+          <option value="1">1 person</option>
+          <option value="2">2 people</option>
+          <option value="3">3 people</option>
+          <option value="4">4 people</option>
+          <option value="5">5 people</option>
+          <option value="6">6 people</option>
+          <option value="7">7 people</option>
+          <option value="8">8 people</option>
+          <option value="9+">9+ people (contact for group rates)</option>
+        </select>
 
-        <!-- Tour Selection -->
-        <div class="form-section">
-          <h3>Tour Selection</h3>
-          <label for="tour">Select Your Experience:</label>
-          <select id="tour" name="tour" required>
-            <option value="">Choose your adventure</option>
-            <optgroup label="Popular Tours">
-              <option value="bird-watching">🦅 Bird Watching at Abuko (8 hours) - $45/person</option>
-              <option value="city-cultural">🏛️ Banjul City Cultural Tour (6 hours) - $35/person</option>
-              <option value="village-life">🏘️ Authentic Village Experience (6.5 hours) - $40/person</option>
-            </optgroup>
-            <optgroup label="Package Tours">
-              <option value="7-day-adventure">🌟 7-Day Gambia Adventure - From $650/person</option>
-              <option value="senegal-gambia">🌍 Senegal & Gambia Combo - Custom pricing</option>
-            </optgroup>
-            <optgroup label="Day Trips">
-              <option value="river-cruise">🌅 River Gambia Sunset Cruise (3 hours) - $30/person</option>
-              <option value="crocodile-pool">🐊 Kachikally Crocodile Pool (4 hours) - $25/person</option>
-              <option value="tanji-fishing">🐟 Tanji Fishing Village (4 hours) - $25/person</option>
-              <option value="serrekunda-market">🛍️ Serrekunda Market Tour (3 hours) - $20/person</option>
-            </optgroup>
-            <optgroup label="Specialized Tours">
-              <option value="cooking-class">🍲 Traditional Cooking Class (4 hours) - $30/person</option>
-              <option value="craft-workshop">🎨 Artisan Craft Workshop (3 hours) - $25/person</option>
-              <option value="sacred-sites">🙏 Sacred Sites & Spirituality (3 hours) - $20/person</option>
-            </optgroup>
-            <optgroup label="Other">
-              <option value="custom">✨ Custom Tour (tell us your interests)</option>
-            </optgroup>
-          </select>
-          
-          <label for="start_date">Preferred Start Date:</label>
-          <input type="date" id="start_date" name="start_date" required>
-          
-          <label for="end_date">End Date (for multi-day tours):</label>
-          <input type="date" id="end_date" name="end_date">
-          
-          <label for="preferred_time">Preferred Start Time:</label>
-          <select id="preferred_time" name="preferred_time">
-            <option value="">Any time</option>
-            <option value="early-morning">Early Morning (6:00-7:00 AM)</option>
-            <option value="morning">Morning (8:00-10:00 AM)</option>
-            <option value="midday">Midday (11:00 AM-1:00 PM)</option>
-            <option value="afternoon">Afternoon (2:00-4:00 PM)</option>
-            <option value="evening">Evening (5:00-7:00 PM)</option>
-          </select>
-        </div>
+        <label for="tour">Select Your Experience:</label>
+        <select id="tour" name="tour" required>
+          <option value="">Choose your adventure</option>
+          <optgroup label="Popular Tours">
+            <option value="bird-watching">🦅 Bird Watching at Abuko (8 hours) - $45/person</option>
+            <option value="city-cultural">🏛️ Banjul City Cultural Tour (6 hours) - $35/person</option>
+            <option value="village-life">🏘️ Authentic Village Experience (6.5 hours) - $40/person</option>
+          </optgroup>
+          <optgroup label="Package Tours">
+            <option value="7-day-adventure">🌟 7-Day Gambia Adventure - From $650/person</option>
+            <option value="senegal-gambia">🌍 Senegal & Gambia Combo - Custom pricing</option>
+          </optgroup>
+          <optgroup label="Day Trips">
+            <option value="river-cruise">🌅 River Gambia Sunset Cruise (3 hours) - $30/person</option>
+            <option value="crocodile-pool">🐊 Kachikally Crocodile Pool (4 hours) - $25/person</option>
+            <option value="tanji-fishing">🐟 Tanji Fishing Village (4 hours) - $25/person</option>
+            <option value="serrekunda-market">🛍️ Serrekunda Market Tour (3 hours) - $20/person</option>
+          </optgroup>
+          <optgroup label="Specialized Tours">
+            <option value="cooking-class">🍲 Traditional Cooking Class (4 hours) - $30/person</option>
+            <option value="craft-workshop">🎨 Artisan Craft Workshop (3 hours) - $25/person</option>
+            <option value="sacred-sites">🙏 Sacred Sites & Spirituality (3 hours) - $20/person</option>
+          </optgroup>
+          <optgroup label="Other">
+            <option value="custom">✨ Custom Tour (tell us your interests)</option>
+          </optgroup>
+        </select>
+        
+        <label for="start_date">Preferred Start Date:</label>
+        <input type="date" id="start_date" name="start_date" required>
+        
+        <label for="end_date">End Date (for multi-day tours):</label>
+        <input type="date" id="end_date" name="end_date">
+        
+        <label for="preferred_time">Preferred Start Time:</label>
+        <select id="preferred_time" name="preferred_time">
+          <option value="">Any time</option>
+          <option value="early-morning">Early Morning (6:00-7:00 AM)</option>
+          <option value="morning">Morning (8:00-10:00 AM)</option>
+          <option value="midday">Midday (11:00 AM-1:00 PM)</option>
+          <option value="afternoon">Afternoon (2:00-4:00 PM)</option>
+          <option value="evening">Evening (5:00-7:00 PM)</option>
+        </select>
 
-        <!-- Airport Transfer Services -->
-        <div class="form-section">
-          <h3>✈️ Airport Transfer Services</h3>
-          <p class="section-description">Add convenient airport pickup and drop-off to your booking</p>
+        <label>
+          <input type="checkbox" name="airport_transfer" value="yes"> 
+          ✈️ Airport Transfer Service ($50 per vehicle or $45/person with welcome tour)
+        </label>
+        
+        <div id="airport_details" style="display:none; margin-top: 10px;">
+          <label for="flight_number">Flight Number:</label>
+          <input type="text" name="flight_number" placeholder="e.g., TK 1354">
           
-          <div class="transfer-options">
-            <label class="checkbox-label">
-              <input type="checkbox" id="airport_pickup" name="airport_services" value="pickup">
-              <span class="checkmark"></span>
-              Airport Pickup Service
-            </label>
-            
-            <label class="checkbox-label">
-              <input type="checkbox" id="airport_dropoff" name="airport_services" value="dropoff">
-              <span class="checkmark"></span>
-              Airport Drop-off Service
-            </label>
-            
-            <label class="checkbox-label">
-              <input type="checkbox" id="welcome_tour" name="airport_services" value="welcome-tour">
-              <span class="checkmark"></span>
-              Welcome Tour Package (Pickup + 2-hour cultural introduction)
-            </label>
-          </div>
-
-          <div id="airport-details" class="airport-details" style="display:none;">
-            <h4>Flight & Transfer Details</h4>
-            
-            <div class="flight-info">
-              <label for="arrival_flight">Arrival Flight Number:</label>
-              <input type="text" id="arrival_flight" name="arrival_flight" placeholder="e.g., TK 1354, BA 203">
-              
-              <label for="arrival_datetime">Arrival Date & Time:</label>
-              <input type="datetime-local" id="arrival_datetime" name="arrival_datetime">
-              
-              <label for="departure_flight">Departure Flight Number:</label>
-              <input type="text" id="departure_flight" name="departure_flight" placeholder="e.g., TK 1355, BA 204">
-              
-              <label for="departure_datetime">Departure Date & Time:</label>
-              <input type="datetime-local" id="departure_datetime" name="departure_datetime">
-            </div>
-            
-            <label for="accommodation">Hotel/Accommodation Name:</label>
-            <input type="text" id="accommodation" name="accommodation" placeholder="e.g., Kairaba Beach Hotel, Private Residence">
-            
-            <label for="accommodation_address">Full Address or Location:</label>
-            <textarea id="accommodation_address" name="accommodation_address" rows="2" placeholder="Complete address including area (Serrekunda, Kololi, Bakau, etc.)"></textarea>
-            
-            <div class="transfer-pricing">
-              <h4>Transfer Service Pricing:</h4>
-              <div class="pricing-options">
-                <div class="price-item">
-                  <strong>Direct Transfer:</strong> $50 per vehicle (up to 4 passengers)
-                </div>
-                <div class="price-item">
-                  <strong>Welcome Tour Package:</strong> $45 per person (includes 2-hour cultural tour)
-                </div>
-                <div class="price-item">
-                  <strong>Large Groups:</strong> 5+ passengers - contact for vehicle upgrade pricing
-                </div>
-              </div>
-            </div>
-          </div>
+          <label for="arrival_time">Arrival Date & Time:</label>
+          <input type="datetime-local" name="arrival_time">
+          
+          <label for="hotel_name">Hotel/Accommodation:</label>
+          <input type="text" name="hotel_name" placeholder="Hotel name or address">
         </div>
+        <label for="dietary_requirements">Dietary Requirements/Allergies:</label>
+        <input type="text" id="dietary_requirements" name="dietary_requirements" placeholder="Vegetarian, allergies, etc.">
+        
+        <label for="notes">Additional Notes & Special Requests:</label>
+        <textarea id="notes" name="notes" rows="4" placeholder="Tell us about any special occasions, specific requests, or anything else that would help us customize your experience."></textarea>
 
-        <!-- Additional Information -->
-        <div class="form-section">
-          <h3>Additional Information</h3>
-          
-          <label for="experience_level">Your Experience Level:</label>
-          <select id="experience_level" name="experience_level">
-            <option value="first-time">First time in Gambia</option>
-            <option value="beginner">Some travel experience</option>
-            <option value="experienced">Experienced traveler</option>
-            <option value="expert">Photography/birding expert</option>
-          </select>
-          
-          <label for="special_interests">Special Interests:</label>
-          <div class="interest-checkboxes">
-            <label class="checkbox-label">
-              <input type="checkbox" name="interests" value="photography">
-              <span class="checkmark"></span>
-              Photography
-            </label>
-            <label class="checkbox-label">
-              <input type="checkbox" name="interests" value="birdwatching">
-              <span class="checkmark"></span>
-              Bird Watching
-            </label>
-            <label class="checkbox-label">
-              <input type="checkbox" name="interests" value="culture">
-              <span class="checkmark"></span>
-              Cultural Learning
-            </label>
-            <label class="checkbox-label">
-              <input type="checkbox" name="interests" value="history">
-              <span class="checkmark"></span>
-              History
-            </label>
-            <label class="checkbox-label">
-              <input type="checkbox" name="interests" value="nature">
-              <span class="checkmark"></span>
-              Nature & Wildlife
-            </label>
-            <label class="checkbox-label">
-              <input type="checkbox" name="interests" value="cooking">
-              <span class="checkmark"></span>
-              Cooking & Food
-            </label>
-          </div>
-          
-          <label for="dietary_requirements">Dietary Requirements/Allergies:</label>
-          <input type="text" id="dietary_requirements" name="dietary_requirements" placeholder="Vegetarian, allergies, etc.">
-          
-          <label for="mobility_requirements">Mobility Requirements:</label>
-          <select id="mobility_requirements" name="mobility_requirements">
-            <option value="none">No special requirements</option>
-            <option value="limited-walking">Limited walking ability</option>
-            <option value="wheelchair">Wheelchair accessible required</option>
-            <option value="senior-friendly">Senior-friendly pace</option>
-          </select>
-          
-          <label for="notes">Additional Notes & Special Requests:</label>
-          <textarea id="notes" name="notes" rows="4" placeholder="Tell us about any special occasions (anniversary, birthday), specific requests, photography equipment you're bringing, or anything else that would help us customize your experience."></textarea>
-        </div>
-
-        <!-- Contact Preferences -->
-        <div class="form-section">
-          <h3>Contact Preferences</h3>
-          <label for="preferred_contact">Preferred Contact Method:</label>
-          <select id="preferred_contact" name="preferred_contact">
-            <option value="whatsapp">WhatsApp (fastest response)</option>
-            <option value="email">Email</option>
-            <option value="phone">Phone call</option>
-          </select>
-          
-          <label for="contact_time">Best Time to Contact You:</label>
-          <select id="contact_time" name="contact_time">
-            <option value="anytime">Anytime</option>
-            <option value="morning">Morning (8 AM - 12 PM)</option>
-            <option value="afternoon">Afternoon (12 PM - 6 PM)</option>
-            <option value="evening">Evening (6 PM - 10 PM)</option>
-          </select>
-        </div>
-
-        <div class="form-submit">
-          <button type="submit" class="submit-btn">Submit Reservation Request</button>
-          <p class="form-note">We'll respond within 2 hours with availability confirmation and detailed information. For immediate assistance, WhatsApp us at +48 573 332 911</p>
-        </div>
+        <button type="submit">Submit Reservation Request</button>
+        <p>We'll respond within 2 hours with availability confirmation and detailed information. For immediate assistance, WhatsApp us at +48 573 332 911</p>
       </form>
     </section>
   </div>
 
-  <!-- Enhanced Form Styling -->
-  <style>
-    .form-section {
-      margin-bottom: 2rem;
-      padding: 1.5rem;
-      background: #f8f9fa;
-      border-radius: 10px;
-      border-left: 4px solid #28a745;
-    }
-
-    .form-section h3 {
-      color: #28a745;
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
-    }
-
-    .section-description {
-      color: #666;
-      font-style: italic;
-      margin-bottom: 1rem;
-    }
-
-    .transfer-options {
-      display: grid;
-      gap: 0.5rem;
-      margin: 1rem 0;
-    }
-
-    .checkbox-label {
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      padding: 0.5rem;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
-
-    .checkbox-label:hover {
-      background-color: rgba(40, 167, 69, 0.1);
-    }
-
-    .checkbox-label input[type="checkbox"] {
-      margin-right: 0.5rem;
-      transform: scale(1.2);
-    }
-
-    .airport-details {
-      margin-top: 1rem;
-      padding: 1rem;
-      background: white;
-      border-radius: 8px;
-      border: 2px solid #e9ecef;
-    }
-
-    .airport-details h4 {
-      color: #2c3e50;
-      margin-bottom: 1rem;
-    }
-
-    .flight-info {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .transfer-pricing {
-      margin-top: 1.5rem;
-      padding: 1rem;
-      background: #e8f5e8;
-      border-radius: 5px;
-    }
-
-    .pricing-options {
-      display: grid;
-      gap: 0.5rem;
-    }
-
-    .price-item {
-      padding: 0.5rem;
-      background: white;
-      border-radius: 3px;
-      font-size: 0.9rem;
-    }
-
-    .interest-checkboxes {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 0.5rem;
-      margin: 1rem 0;
-    }
-
-    .submit-btn {
-      background: linear-gradient(135deg, #28a745, #20c997);
-      color: white;
-      border: none;
-      padding: 1rem 2rem;
-      font-size: 1.1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-      width: 100%;
-      margin-bottom: 1rem;
-    }
-
-    .submit-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
-    }
-
-    .form-submit {
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    .form-note {
-      font-size: 0.9rem;
-      color: #666;
-      font-style: italic;
-    }
-
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
-      .form-section {
-        margin-bottom: 1rem;
-        padding: 1rem;
-      }
-
-      .flight-info {
-        grid-template-columns: 1fr;
-      }
-
-      .interest-checkboxes {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-
-  <!-- Enhanced Form JavaScript -->
   <script>
-    // Airport services toggle functionality
-    function toggleAirportDetails() {
-      const checkboxes = document.querySelectorAll('input[name="airport_services"]');
-      const detailsSection = document.getElementById('airport-details');
-      
-      let anyChecked = false;
-      checkboxes.forEach(checkbox => {
-        if (checkbox.checked) {
-          anyChecked = true;
-        }
-      });
-      
-      detailsSection.style.display = anyChecked ? 'block' : 'none';
-    }
-
-    // Add event listeners to airport service checkboxes
-    document.addEventListener('DOMContentLoaded', function() {
-      const airportCheckboxes = document.querySelectorAll('input[name="airport_services"]');
-      airportCheckboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', toggleAirportDetails);
-      });
-
-      // Set minimum date to today
-      const today = new Date().toISOString().split('T')[0];
-      document.getElementById('start_date').setAttribute('min', today);
-      document.getElementById('end_date').setAttribute('min', today);
-
-      // Auto-update end date when start date changes
-      document.getElementById('start_date').addEventListener('change', function() {
-        const startDate = this.value;
-        document.getElementById('end_date').setAttribute('min', startDate);
-      });
-
-      // Form validation enhancement
-      const form = document.querySelector('form');
-      form.addEventListener('submit', function(e) {
-        const groupSize = document.getElementById('group_size').value;
-        const tour = document.getElementById('tour').value;
-        
-        if (!groupSize || !tour) {
-          e.preventDefault();
-          alert('Please select both group size and tour type before submitting.');
-          return false;
-        }
-
-        // Show loading state
-        const submitBtn = document.querySelector('.submit-btn');
-        submitBtn.textContent = 'Submitting Request...';
-        submitBtn.disabled = true;
-      });
-
-      // Dynamic pricing display (optional feature)
-      function updatePricing() {
-        const tour = document.getElementById('tour').value;
-        const groupSize = parseInt(document.getElementById('group_size').value) || 0;
-        
-        // Add pricing calculation logic here if needed
-        // This could show estimated total cost
-      }
-
-      document.getElementById('tour').addEventListener('change', updatePricing);
-      document.getElementById('group_size').addEventListener('change', updatePricing);
+    // Simple airport details toggle
+    document.querySelector('input[name="airport_transfer"]').addEventListener('change', function() {
+      document.getElementById('airport_details').style.display = this.checked ? 'block' : 'none';
     });
 
-    // Navbar loading
+    // Load navbar
     fetch('navbar.html')
       .then(response => response.text())
       .then(data => {
         document.getElementById('navbar-placeholder').innerHTML = data;
-      })
-      .catch(error => {
-        console.log('Navbar loading failed:', error);
       });
   </script>
 </body>
