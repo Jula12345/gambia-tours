@@ -132,6 +132,72 @@
         padding: 1rem;
       }
     }
+    
+    /* Tour Highlights Styling */
+    .tour-highlights {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+      text-align: left;
+    }
+    
+    .tour-highlights li {
+      padding: 0.3rem 0;
+      color: #666;
+      font-size: 0.9rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    
+    .tour-highlights li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #2c5530;
+      font-weight: bold;
+    }
+    
+    /* Programs Section */
+    .programs {
+      background: #f8f9fa;
+      padding: 3rem 0;
+      margin: 3rem 0;
+    }
+    
+    .program-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .program-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .program-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .program-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .program-card h3 {
+      color: #2c5530;
+      margin-bottom: 1rem;
+    }
+    
+    .program-card p {
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
   </style>
 </head>
 <body>
@@ -149,8 +215,8 @@
 
     <!-- Featured Tours -->
     <section class="featured-tours">
-      <h2>Featured Tours</h2>
-      <p>Choose from our most popular tours, designed to showcase the best of Gambia and Senegal. Our guides are passionate locals who love sharing their culture and nature with you.</p>
+      <h2>Our Signature Tours</h2>
+      <p>Experience the best of The Gambia with our expertly crafted tours. Each tour is designed to immerse you in the culture, nature, and adventure of West Africa. Book your journey today!</p>
       <div class="booking-prompt">
         <span>Ready to book?</span>
         <div class="booking-prompt-btn">
@@ -159,22 +225,118 @@
       </div>
       <div class="tour-cards">
         <div class="tour-card">
-          <img src="https://gambiantour.com/photos/WhatsApp%20Image%202025-08-25%20at%2013.05.41%20(1).jpeg" alt="Package Tours">
-          <h3>Package Tours</h3>
-          <p>Multi-day adventures with everything included.</p>
-          <a href="https://gambiantour.com/package-tours.html" class="btn-secondary">See Details</a>
+          <img src="https://gambiantour.com/photos/WhatsApp%20Image%202025-08-25%20at%2013.05.39%20(3).jpeg" alt="Banjul City Tour">
+          <h3>🏛️ Banjul City Tour</h3>
+          <ul class="tour-highlights">
+            <li>Guided walk through historic Banjul</li>
+            <li>Visit Albert Market & colonial sites</li>
+            <li>Local lunch included</li>
+          </ul>
+          <p>Discover the vibrant capital, its bustling markets, and rich history. Perfect for first-time visitors!</p>
+          <a href="https://gambiantour.com/reservation.html" class="btn-secondary">Book This Tour</a>
         </div>
         <div class="tour-card">
           <img src="https://gambiantour.com/photos/WhatsApp%20Image%202025-08-25%20at%2013.05.40%20(2).jpeg" alt="Bird Watching">
-          <h3>Bird Watching Adventure</h3>
-          <p>Discover rare birds in Gambia's lush habitats.</p>
+          <h3>🦅 Bird Watching Adventure</h3>
+          <ul class="tour-highlights">
+            <li>Visit Abuko Nature Reserve</li>
+            <li>Spot 40-60 species in 8 hours</li>
+            <li>Equipment & expert guide provided</li>
+          </ul>
+          <p>Discover rare birds in Gambia's lush habitats with our expert birding guides.</p>
           <a href="https://gambiantour.com/bird-watching.html" class="btn-secondary">See Details</a>
         </div>
         <div class="tour-card">
-          <img src="https://gambiantour.com/photos/WhatsApp%20Image%202025-08-25%20at%2013.05.39%20(2).jpeg" alt="City Tour">
-          <h3>City Tours</h3>
-          <p>Explore Banjul, Serekunda, and more with local guides.</p>
-          <a href="https://gambiantour.com/city-tours.html" class="btn-secondary">See Details</a>
+          <img src="https://gambiantour.com/photos/WhatsApp%20Image%202025-08-25%20at%2013.05.40%20(5).jpeg" alt="Serekunda Market">
+          <h3>🛍️ Serekunda Market Experience</h3>
+          <ul class="tour-highlights">
+            <li>Explore Gambia's largest market</li>
+            <li>Meet local artisans</li>
+            <li>Shopping & cultural immersion</li>
+          </ul>
+          <p>Shop for crafts, taste local snacks, and experience the energy of Serekunda.</p>
+          <a href="https://gambiantour.com/reservation.html" class="btn-secondary">Book This Tour</a>
+        </div>
+        <div class="tour-card">
+          <img src="https://gambiantour.com/photos/WhatsApp%20Image%202025-08-25%20at%2013.05.40%20(6).jpeg" alt="River Excursion">
+          <h3>🚤 River Excursion</h3>
+          <ul class="tour-highlights">
+            <li>Boat trip on the Gambia River</li>
+            <li>Wildlife spotting: hippos, birds</li>
+            <li>Picnic on the riverbank</li>
+          </ul>
+          <p>Enjoy a relaxing day on the water with expert guides and stunning scenery.</p>
+          <a href="https://gambiantour.com/reservation.html" class="btn-secondary">Book This Tour</a>
+        </div>
+        <div class="tour-card">
+          <img src="https://gambiantour.com/photos/WhatsApp%20Image%202025-08-25%20at%2013.05.40%20(7).jpeg" alt="Cultural Experience">
+          <h3>🎭 Cultural Experience</h3>
+          <ul class="tour-highlights">
+            <li>Visit local villages</li>
+            <li>Traditional music & dance</li>
+            <li>Meet community leaders</li>
+          </ul>
+          <p>Connect with Gambian culture through authentic village visits and interactive experiences.</p>
+          <a href="https://gambiantour.com/reservation.html" class="btn-secondary">Book This Tour</a>
+        </div>
+        <div class="tour-card">
+          <img src="https://gambiantour.com/photos/WhatsApp%20Image%202025-08-25%20at%2013.05.40%20(8).jpeg" alt="Wildlife Safari">
+          <h3>🦁 Wildlife Safari</h3>
+          <ul class="tour-highlights">
+            <li>See monkeys, hippos, crocodiles</li>
+            <li>Guided nature walks</li>
+            <li>Photography opportunities</li>
+          </ul>
+          <p>Explore Gambia's natural wonders and spot incredible wildlife in their habitats.</p>
+          <a href="https://gambiantour.com/reservation.html" class="btn-secondary">Book This Tour</a>
+        </div>
+        <div class="tour-card">
+          <img src="https://gambiantour.com/photos/WhatsApp%20Image%202025-08-25%20at%2013.08.06.jpeg" alt="Beach Relaxation">
+          <h3>🏖️ Beach Relaxation</h3>
+          <ul class="tour-highlights">
+            <li>Relax on pristine beaches</li>
+            <li>Beachside lunch & drinks</li>
+            <li>Optional water sports</li>
+          </ul>
+          <p>Unwind on Gambia's beautiful coastline with sun, sand, and local hospitality.</p>
+          <a href="https://gambiantour.com/reservation.html" class="btn-secondary">Book This Tour</a>
+        </div>
+        <div class="tour-card">
+          <img src="https://gambiantour.com/photos/WhatsApp%20Image%202025-08-25%20at%2013.05.41%20(1).jpeg" alt="Package Tours">
+          <h3>📦 Multi-Day Package Tours</h3>
+          <ul class="tour-highlights">
+            <li>3, 5, or 7-day adventures</li>
+            <li>Accommodation & meals included</li>
+            <li>Multiple destinations</li>
+          </ul>
+          <p>Complete multi-day adventures with everything included for the perfect getaway.</p>
+          <a href="https://gambiantour.com/package-tours.html" class="btn-secondary">See Packages</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programs & Itineraries -->
+    <section class="programs">
+      <h2>📋 Tour Programs & Itineraries</h2>
+      <p>Explore our detailed itineraries with hour-by-hour schedules, pricing, and everything you need to plan your perfect trip.</p>
+      <div class="program-cards">
+        <div class="program-card">
+          <div class="program-icon">🦅</div>
+          <h3>Abuko Bird Watching Itinerary</h3>
+          <p>8-hour detailed schedule with 40-60 species spotting</p>
+          <a href="https://gambiantour.com/itineraries.html" class="btn-secondary">View Itinerary</a>
+        </div>
+        <div class="program-card">
+          <div class="program-icon">🏛️</div>
+          <h3>Banjul City Tour Program</h3>
+          <p>6-hour capital exploration with historic sites</p>
+          <a href="https://gambiantour.com/itineraries.html" class="btn-secondary">View Program</a>
+        </div>
+        <div class="program-card">
+          <div class="program-icon">🌟</div>
+          <h3>7-Day Adventure Package</h3>
+          <p>Complete week-long journey with multiple activities</p>
+          <a href="https://gambiantour.com/itineraries.html" class="btn-secondary">View Schedule</a>
         </div>
       </div>
     </section>
