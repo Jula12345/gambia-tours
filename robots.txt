@@ -1,8 +1,25 @@
 User-agent: *
 Allow: /
 
-# Sitemap location
-Sitemap: https://gambiantour.com/sitemap.xml
+# Sitemaps
+Sitemap: https://www.gambiantour.com/sitemap.xml
 
-# Allow Google and other search engines to crawl all pages
+# Crawl-delay for politeness
 Crawl-delay: 1
+
+# Allow important image directories
+Allow: /photos/*.jpg
+Allow: /photos/*.jpeg
+Allow: /photos/*.png
+Allow: /photos/*.webp
+
+# Block unnecessary files (but allow main content)
+Disallow: /style.css
+Disallow: /navbar.html
+
+# Popular search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /

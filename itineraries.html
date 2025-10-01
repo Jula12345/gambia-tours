@@ -9,6 +9,88 @@
   <link rel="canonical" href="https://www.gambiantour.com/itineraries.html">
   <link rel="stylesheet" href="https://gambiantour.com/style.css">
   
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Gambia Tour Itineraries",
+    "description": "Complete day-by-day tour itineraries for Gambian adventures",
+    "itemListElement": [
+      {
+        "@type": "TouristTrip",
+        "name": "7-Day Gambia Adventure",
+        "description": "Complete Gambian experience package covering wildlife safaris, cultural tours, river cruises, beach relaxation, and village experiences",
+        "itinerary": {
+          "@type": "TouristAttraction",
+          "name": "Multi-day Gambia Tour"
+        },
+        "duration": "P7D",
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.gambiantour.com/reservation.html"
+        },
+        "provider": {
+          "@type": "TravelAgency",
+          "name": "Gambia Tours",
+          "url": "https://www.gambiantour.com"
+        }
+      },
+      {
+        "@type": "TouristTrip", 
+        "name": "Abuko Bird Watching Tour",
+        "description": "8-hour wildlife paradise adventure at Abuko Nature Reserve with 40-60 bird species spotting",
+        "duration": "PT8H",
+        "itinerary": {
+          "@type": "TouristAttraction",
+          "name": "Abuko Nature Reserve",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "GM"
+          }
+        },
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.gambiantour.com/reservation.html"
+        },
+        "provider": {
+          "@type": "TravelAgency",
+          "name": "Gambia Tours"
+        }
+      },
+      {
+        "@type": "TouristTrip",
+        "name": "Banjul City Cultural Tour", 
+        "description": "6-hour capital discovery journey through historic landmarks, markets, and cultural sites",
+        "duration": "PT6H",
+        "itinerary": {
+          "@type": "TouristAttraction",
+          "name": "Banjul City",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Banjul",
+            "addressCountry": "GM"
+          }
+        },
+        "offers": {
+          "@type": "Offer", 
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.gambiantour.com/reservation.html"
+        },
+        "provider": {
+          "@type": "TravelAgency",
+          "name": "Gambia Tours"
+        }
+      }
+    ]
+  }
+  </script>
+  
   <!-- Modern styling enhancements -->
   <style>
     .itineraries-hero {
@@ -463,6 +545,37 @@
         gap: 1rem;
       }
     }
+    
+    /* Breadcrumb Navigation */
+    .breadcrumb {
+      font-size: 0.9rem;
+      color: #666;
+      background: #f8f9fa;
+      padding: 0.8rem 1rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+    
+    .breadcrumb a {
+      color: #2c5530;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .breadcrumb a:hover {
+      color: #1a331c;
+      text-decoration: underline;
+    }
+    
+    .breadcrumb-separator {
+      color: #999;
+      margin: 0 0.5rem;
+    }
+    
+    .breadcrumb-current {
+      color: #333;
+      font-weight: 500;
+    }
   </style>
   
   <!-- Open Graph Tags -->
@@ -480,6 +593,13 @@
 </head>
 <body>
   <div id="navbar-placeholder"></div>
+  
+  <!-- Breadcrumb Navigation -->
+  <nav class="breadcrumb" style="margin: 1rem auto; max-width: 1200px; padding: 0 1rem;">
+    <a href="https://www.gambiantour.com/" title="Gambia Tours Homepage">Home</a> 
+    <span class="breadcrumb-separator"> › </span>
+    <span class="breadcrumb-current">Tour Itineraries</span>
+  </nav>
   
   <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
     <section class="itineraries-hero">
