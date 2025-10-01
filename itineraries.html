@@ -12,7 +12,7 @@
   <!-- Modern styling enhancements -->
   <style>
     .itineraries-hero {
-      background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+      background: linear-gradient(135deg, #1a2e1d 0%, #2c5530 100%);
       color: white;
       padding: 4rem 2rem;
       text-align: center;
@@ -20,6 +20,18 @@
       margin-bottom: 2rem;
       position: relative;
       overflow: hidden;
+    }
+    
+    .itineraries-hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      pointer-events: none;
+      z-index: 0;
     }
     
     .itineraries-hero::before {
@@ -37,10 +49,10 @@
       font-size: 3rem;
       font-weight: bold;
       color: #ffffff;
-      text-shadow: 0 3px 6px rgba(0,0,0,0.4);
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.8), 0 0 10px rgba(0,0,0,0.5);
       margin-bottom: 1rem;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
     
     .hero-stats {
@@ -50,7 +62,7 @@
       margin: 2rem 0;
       flex-wrap: wrap;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
     
     .stat-item {
@@ -79,7 +91,7 @@
       margin-top: 2rem;
       flex-wrap: wrap;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
     
     .cta-button {
@@ -110,26 +122,34 @@
     }
     
     .hero-subtitle {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       margin: 1rem 0;
-      color: #f8f9fa;
-      font-weight: 500;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      color: #ffffff;
+      font-weight: 600;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.5);
       position: relative;
-      z-index: 1;
+      z-index: 2;
+      background: rgba(0,0,0,0.3);
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      display: inline-block;
     }
     
     .hero-description {
-      font-size: 1.1rem;
-      line-height: 1.7;
-      margin: 1.5rem 0;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin: 2rem 0;
       color: #ffffff;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.5);
       max-width: 800px;
       margin-left: auto;
       margin-right: auto;
       position: relative;
-      z-index: 1;
+      z-index: 2;
+      background: rgba(0,0,0,0.2);
+      padding: 1rem 2rem;
+      border-radius: 15px;
+      font-weight: 500;
     }
     
     .category-grid {
@@ -275,11 +295,13 @@
       }
       
       .hero-subtitle {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
+        padding: 0.4rem 0.8rem;
       }
       
       .hero-description {
-        font-size: 1rem;
+        font-size: 1.1rem;
+        padding: 0.8rem 1.5rem;
       }
       
       .hero-stats {
