@@ -361,6 +361,65 @@
         padding: 2rem 0;
       }
     }
+
+    /* Viator Booking Widget Section */
+    .viator-booking {
+      background: linear-gradient(135deg, #2c5530, #3a6b3e);
+      color: white;
+      padding: 3rem 0;
+      margin: 2rem 0;
+      text-align: center;
+      border-radius: 15px;
+    }
+    
+    .viator-booking h2 {
+      color: white;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+    
+    .viator-booking p {
+      color: #e8f5e8;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+    
+    .viator-widget-container {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem auto;
+      max-width: 900px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    
+    .widget-backup {
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      color: #e8f5e8;
+    }
+    
+    .widget-backup a {
+      color: #ffffff;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+    
+    .widget-backup a:hover {
+      color: #f0f0f0;
+    }
+    
+    @media (max-width: 768px) {
+      .viator-booking {
+        margin: 1rem 0;
+        padding: 2rem 1rem;
+      }
+      
+      .viator-widget-container {
+        margin: 1rem;
+        padding: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -513,6 +572,21 @@
           <a href="https://gambiantour.com/itineraries.html" class="btn-secondary">View Schedule</a>
         </div>
       </div>
+    </section>
+
+    <!-- Viator Booking Widget -->
+    <section class="viator-booking">
+      <h2>🎯 Book Your Tours Instantly</h2>
+      <p>Secure online booking with instant confirmation through our trusted booking platform</p>
+      <div class="viator-widget-container">
+        <div 
+            data-vi-partner-id="U00730160"
+            data-vi-widget-ref="W-4c66898a-9bb6-4cf3-9eb8-f66532a80f88"
+            data-vi-search-term="Gambia"
+        ></div>
+        <script async src="https://www.viator.com/orion/partner/widget.js"></script>
+      </div>
+      <p class="widget-backup">Having trouble with the booking widget? <a href="https://gambiantour.com/reservation.html">Use our direct reservation form</a> or <a href="https://wa.me/48504224794">WhatsApp us</a> for instant booking!</p>
     </section>
 
     <!-- Testimonials -->
