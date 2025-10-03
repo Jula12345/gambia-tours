@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Google Search Console verification -->
   <meta name="google-site-verification" content="TlkN5pUiupvVXX96E">
-  <title>Gambia Tours | West Africa Travel & Holiday Packages</title>
-  <meta name="description" content="Book unforgettable tours, day trips, and holiday packages in The Gambia and Senegal. Enjoy city sightseeing, bird watching, culinary classes, and more with Gambia Tours.">
-  <meta name="keywords" content="Gambia tours, West Africa travel, holiday packages, Senegal tours, bird watching, city sightseeing, culinary classes, Serekunda market, African adventure, book Gambia tour, travel agency">
+  <title>Gambia Tours | Wycieczki do Gambii | West Africa Travel & Holiday Packages</title>
+  <meta name="description" content="Book unforgettable tours, day trips, and holiday packages in The Gambia and Senegal. Polish-speaking guides available. Wycieczki do Gambii z polskim przewodnikiem. Bird watching, cultural experiences, and more!">
+  <meta name="keywords" content="Gambia tours, wycieczki do Gambii, West Africa travel, holiday packages, Senegal tours, bird watching, city sightseeing, culinary classes, Serekunda market, African adventure, book Gambia tour, travel agency, polski przewodnik, Gambia z Polski, wakacje w Gambii, wycieczki z Polski do Afryki, polskojęzyczny przewodnik, turystyka w Gambii">
   <meta name="author" content="Gambia Tours">
   
   <!-- Open Graph / Facebook -->
@@ -497,6 +497,102 @@
         font-size: 1.5rem;
       }
     }
+
+    /* Polish Welcome Section */
+    .polish-welcome {
+      background: linear-gradient(135deg, #dc143c 0%, #ffffff 50%, #dc143c 100%);
+      padding: 3rem 0;
+      margin: 2rem 0;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(220, 20, 60, 0.15);
+    }
+
+    .polish-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      text-align: center;
+    }
+
+    .polish-welcome h2 {
+      color: #dc143c;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      font-weight: bold;
+    }
+
+    .polish-intro {
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+    }
+
+    .polish-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .polish-feature {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border-left: 4px solid #dc143c;
+    }
+
+    .polish-feature h3 {
+      color: #dc143c;
+      margin-bottom: 0.8rem;
+      font-size: 1.3rem;
+    }
+
+    .polish-feature p {
+      color: #555;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .polish-booking {
+      margin-top: 2.5rem;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .polish-booking .booking-text {
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .polish-welcome {
+        padding: 2rem 0;
+        margin: 1rem 0;
+      }
+
+      .polish-content {
+        padding: 0 1rem;
+      }
+
+      .polish-welcome h2 {
+        font-size: 2rem;
+      }
+
+      .polish-highlights {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .polish-feature {
+        padding: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -535,6 +631,34 @@
       </div>
       
       <a href="https://gambiantour.com/reservation.html" class="btn-primary btn-hero-book">Book Your Adventure Now</a>
+    </section>
+
+    <!-- Polish Tourist Welcome Section -->
+    <section class="polish-welcome">
+      <div class="polish-content">
+        <h2>🇵🇱 Witamy Polskich Turystów w Gambii!</h2>
+        <p class="polish-intro">
+          Odkryj magię Gambii z polskojęzycznym przewodnikiem! Nasza firma specjalizuje się w organizacji niezapomnianych wycieczek dla polskich turystów, oferując pełną obsługę w języku polskim.
+        </p>
+        <div class="polish-highlights">
+          <div class="polish-feature">
+            <h3>🗣️ Polskojęzyczny przewodnik</h3>
+            <p>Doświadczeni przewodnicy mówiący płynnie po polsku</p>
+          </div>
+          <div class="polish-feature">
+            <h3>🏨 Kompleksowa obsługa</h3>
+            <p>Zakwaterowanie, transport i wszystkie posiłki w cenie</p>
+          </div>
+          <div class="polish-feature">
+            <h3>🌍 Wycieczki kulturowe</h3>
+            <p>Poznaj autentyczną kulturę i tradycje Gambii</p>
+          </div>
+        </div>
+        <div class="polish-booking">
+          <p class="booking-text">Zarezerwuj swoje wakacje w Gambii już dziś!</p>
+          <a href="https://gambiantour.com/reservation.html" class="btn-primary">Zarezerwuj Wycieczkę</a>
+        </div>
+      </div>
     </section>
 
     <!-- Featured Tours -->
