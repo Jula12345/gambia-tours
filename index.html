@@ -420,6 +420,83 @@
         padding: 1rem;
       }
     }
+
+    /* Languages Section Styling */
+    .languages-section {
+      background: linear-gradient(135deg, #f8f9fa, #e8f5e8);
+      padding: 2rem;
+      margin: 2rem 0;
+      border-radius: 15px;
+      border: 2px solid #2c5530;
+      text-align: center;
+    }
+    
+    .languages-section h3 {
+      color: #2c5530;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+    
+    .languages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .language-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(44, 85, 48, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .language-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(44, 85, 48, 0.2);
+    }
+    
+    .language-item .flag {
+      font-size: 2rem;
+    }
+    
+    .language-item span:last-child {
+      color: #2c5530;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    
+    .languages-note {
+      color: #666;
+      font-style: italic;
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    
+    @media (max-width: 768px) {
+      .languages-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+      }
+      
+      .languages-section {
+        padding: 1.5rem;
+        margin: 1rem 0;
+      }
+      
+      .language-item .flag {
+        font-size: 1.5rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -432,6 +509,31 @@
       <h1>Welcome to Gambia Tours</h1>
       <p>Discover unforgettable adventures in The Gambia & Senegal. City tours, bird watching, cultural experiences, and more!<br>
       <strong>We are your trusted local experts for travel, holidays, and authentic experiences in West Africa.</strong></p>
+      
+      <!-- Languages Section -->
+      <div class="languages-section">
+        <h3>🗣️ Our Guides Speak Your Language</h3>
+        <div class="languages-grid">
+          <div class="language-item">
+            <span class="flag">🇬🇧</span>
+            <span>English</span>
+          </div>
+          <div class="language-item">
+            <span class="flag">🇵🇱</span>
+            <span>Polish</span>
+          </div>
+          <div class="language-item">
+            <span class="flag">🇫🇷</span>
+            <span>French</span>
+          </div>
+          <div class="language-item">
+            <span class="flag">🇪🇸</span>
+            <span>Spanish</span>
+          </div>
+        </div>
+        <p class="languages-note">Our experienced local guides are multilingual, ensuring clear communication and cultural insights in your preferred language!</p>
+      </div>
+      
       <a href="https://gambiantour.com/reservation.html" class="btn-primary btn-hero-book">Book Your Adventure Now</a>
     </section>
 
@@ -747,6 +849,7 @@
       <p><strong>Phone:</strong> +48504224794</p>
       <p><strong>Local Guide (Gambia):</strong> +2203209610</p>
       <p><strong>WhatsApp:</strong> <a href="https://wa.me/48504224794" target="_blank">Chat Now</a></p>
+      <p><strong>Languages:</strong> English, Polish, French, Spanish - Communicate in your preferred language!</p>
       <div class="social-links">
         <a href="https://facebook.com/gambiantour" target="_blank">Facebook</a>
         <a href="https://instagram.com/gambiantour" target="_blank">Instagram</a>
