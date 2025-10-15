@@ -5,7 +5,7 @@
   <!-- Homepage with Polish SEO optimization -->
   <url>
     <loc>https://www.gambiantour.com/</loc>
-    <lastmod>2025-10-03</lastmod>
+    <lastmod>2025-10-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gambiantour.com/" />
@@ -16,14 +16,14 @@
   <!-- Blog Section - New Polish content -->
   <url>
     <loc>https://www.gambiantour.com/blog/</loc>
-    <lastmod>2025-10-03</lastmod>
+    <lastmod>2025-10-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://www.gambiantour.com/blog/bird-watching-gambia-guide.html</loc>
-    <lastmod>2025-10-03</lastmod>
+    <lastmod>2025-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
