@@ -25,6 +25,18 @@
     ExpiresByType image/svg+xml "access plus 1 year"
 </IfModule>
 
+# XML/Sitemap MIME Types (CRITICAL for Google Search Console)
+<IfModule mod_mime.c>
+    AddType application/xml .xml
+    AddType text/xml .xml
+</IfModule>
+
+# Force correct Content-Type for sitemap.xml
+<Files "sitemap.xml">
+    ForceType application/xml
+    Header set Content-Type "application/xml; charset=utf-8"
+</Files>
+
 # Security headers
 <IfModule mod_headers.c>
     Header always set X-Frame-Options DENY
