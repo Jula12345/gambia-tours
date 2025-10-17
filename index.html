@@ -12,8 +12,8 @@
   <link rel="alternate" hreflang="x-default" href="https://www.gambiantour.com/" />
   
   <title>Gambia Tours | Wycieczki do Gambii | West Africa Travel & Holiday Packages</title>
-  <meta name="description" content="Book unforgettable tours, day trips, and holiday packages in The Gambia and Senegal. Polish-speaking guides available. Wycieczki do Gambii z polskim przewodnikiem. Bird watching, cultural experiences, and more!">
-  <meta name="keywords" content="Gambia tours, wycieczki do Gambii, West Africa travel, holiday packages, Senegal tours, bird watching, city sightseeing, culinary classes, Serekunda market, African adventure, book Gambia tour, travel agency, polski przewodnik, Gambia z Polski, wakacje w Gambii, wycieczki z Polski do Afryki, polskojęzyczny przewodnik, turystyka w Gambii">
+  <meta name="description" content="Gambia Tourism Season Opens November 1st! Book tours with Polish-speaking guides. International flights resume November 2025. Early bird 15% discount. Wycieczki do Gambii z polskim przewodnikiem - sezon turystyczny 2025!">
+  <meta name="keywords" content="Gambia tours November 2025, tourism season opening, wycieczki do Gambii listopad, international flights to Gambia, Polish speaking guides, early bird discount, Gambia holiday packages, West Africa travel, polski przewodnik Gambia, sezon turystyczny Gambia 2025, November flights Europe Gambia, tourism season 2025-2026, wakacje w Gambii listopad">
   <meta name="author" content="Gambia Tours">
   
   <!-- Open Graph / Facebook -->
@@ -599,6 +599,166 @@
         padding: 1rem;
       }
     }
+
+    /* Tourism News & Seasonal Promotions */
+    .tourism-news {
+      background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+      padding: 3rem 0;
+      margin: 2rem 0;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tourism-news::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      opacity: 0.3;
+    }
+
+    .news-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .breaking-news {
+      text-align: center;
+    }
+
+    .news-badge {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .tourism-news h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .news-highlight {
+      font-size: 1.3rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+      opacity: 0.95;
+    }
+
+    .news-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2.5rem 0;
+    }
+
+    .news-item {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 1.5rem;
+      border-radius: 15px;
+      text-align: left;
+    }
+
+    .news-item h3 {
+      margin-bottom: 0.8rem;
+      font-size: 1.2rem;
+    }
+
+    .news-item p {
+      margin: 0;
+      opacity: 0.9;
+      line-height: 1.5;
+    }
+
+    .news-cta {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .news-cta .btn-primary, .news-cta .btn-secondary {
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      border: 2px solid white;
+    }
+
+    .news-cta .btn-primary {
+      background: white;
+      color: #ff6b35;
+    }
+
+    .news-cta .btn-primary:hover {
+      background: rgba(255, 255, 255, 0.9);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .news-cta .btn-secondary {
+      background: transparent;
+      color: white;
+    }
+
+    .news-cta .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .tourism-news {
+        padding: 2rem 0;
+      }
+
+      .tourism-news h2 {
+        font-size: 2rem;
+      }
+
+      .news-highlight {
+        font-size: 1.1rem;
+      }
+
+      .news-details {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .news-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .news-cta .btn-primary, .news-cta .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
   </style>
 
   <!-- Structured Data for SEO -->
@@ -721,6 +881,40 @@
         <div class="polish-booking">
           <p class="booking-text">Zarezerwuj swoje wakacje w Gambii już dziś!</p>
           <a href="https://gambiantour.com/reservation.html" class="btn-primary">Zarezerwuj Wycieczkę</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tourism News & Seasonal Promotions -->
+    <section class="tourism-news">
+      <div class="news-container">
+        <div class="breaking-news">
+          <div class="news-badge">🎉 BREAKING NEWS</div>
+          <h2>Gambia Tourism Season Opens November 1st, 2025!</h2>
+          <p class="news-highlight">
+            <strong>Official tourism season launches with international flights resuming from major European destinations.</strong>
+            Perfect weather, peak wildlife season, and our special early bird offers await your arrival!
+          </p>
+          
+          <div class="news-details">
+            <div class="news-item">
+              <h3>✈️ International Flights Resume</h3>
+              <p>Direct routes from London, Brussels, Amsterdam, Barcelona starting November 2025</p>
+            </div>
+            <div class="news-item">
+              <h3>🌤️ Perfect Weather Season</h3>
+              <p>24-30°C daily, 8+ hours sunshine, ideal conditions for all outdoor activities</p>
+            </div>
+            <div class="news-item">
+              <h3>🎁 Early Bird Special - 15% OFF</h3>
+              <p>Book by October 31st for November-December travel and save 15% + free airport transfer</p>
+            </div>
+          </div>
+          
+          <div class="news-cta">
+            <a href="/blog/gambia-tourism-season-2025-november-opening.html" class="btn-primary">Read Full Details</a>
+            <a href="https://gambiantour.com/reservation.html" class="btn-secondary">Book Early Bird Offer</a>
+          </div>
         </div>
       </div>
     </section>

@@ -29,6 +29,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  
+  <!-- NEW: Tourism Season Opening Blog Post -->
+  <url>
+    <loc>https://www.gambiantour.com/blog/gambia-tourism-season-2025-november-opening.html</loc>
+    <lastmod>2025-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
   <url>
     <loc>https://www.gambiantour.com/reservation.html</loc>
     <lastmod>2025-10-01</lastmod>
