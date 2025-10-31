@@ -1274,9 +1274,27 @@
     
     // Language toggle function
     function togglePolishSection() {
+      console.log('Toggle function called'); // Debug log
       const polishSection = document.querySelector('.polish-welcome');
-      polishSection.classList.toggle('show');
+      console.log('Polish section found:', polishSection); // Debug log
+      
+      if (polishSection) {
+        polishSection.classList.toggle('show');
+        
+        // Update button text
+        const button = document.querySelector('button[onclick="togglePolishSection()"]');
+        if (polishSection.classList.contains('show')) {
+          button.textContent = 'Hide Polish / Ukryj Polski';
+        } else {
+          button.textContent = 'View in Polish / Zobacz po Polsku';
+        }
+      } else {
+        console.log('Polish section not found!');
+      }
     }
+    
+    // Make function available globally
+    window.togglePolishSection = togglePolishSection;
   </script>
   
   <script src="https://gambiantour.com/main.js"></script>
