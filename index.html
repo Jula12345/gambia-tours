@@ -511,11 +511,6 @@
       margin: 2rem 0;
       border-radius: 15px;
       box-shadow: 0 8px 25px rgba(220, 20, 60, 0.15);
-      display: none; /* Hide Polish section by default for better SEO */
-    }
-    
-    .polish-welcome.show {
-      display: block;
     }
 
     .polish-content {
@@ -829,7 +824,7 @@
   
   <!-- Language Toggle -->
   <div style="text-align: center; padding: 10px; background-color: #f8f9fa;">
-    <button onclick="togglePolishSection()" style="padding: 8px 16px; background-color: #dc143c; color: white; border: none; border-radius: 5px; cursor: pointer;">
+    <button onclick="scrollToPolish()" style="padding: 8px 16px; background-color: #dc143c; color: white; border: none; border-radius: 5px; cursor: pointer;">
       View in Polish / Zobacz po Polsku
     </button>
   </div>
@@ -1272,29 +1267,19 @@
         document.getElementById('navbar-placeholder').innerHTML = data;
       });
     
-    // Language toggle function
-    function togglePolishSection() {
-      console.log('Toggle function called'); // Debug log
+    // Scroll to Polish section function
+    function scrollToPolish() {
       const polishSection = document.querySelector('.polish-welcome');
-      console.log('Polish section found:', polishSection); // Debug log
-      
       if (polishSection) {
-        polishSection.classList.toggle('show');
-        
-        // Update button text
-        const button = document.querySelector('button[onclick="togglePolishSection()"]');
-        if (polishSection.classList.contains('show')) {
-          button.textContent = 'Hide Polish / Ukryj Polski';
-        } else {
-          button.textContent = 'View in Polish / Zobacz po Polsku';
-        }
-      } else {
-        console.log('Polish section not found!');
+        polishSection.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
       }
     }
     
     // Make function available globally
-    window.togglePolishSection = togglePolishSection;
+    window.scrollToPolish = scrollToPolish;
   </script>
   
   <script src="https://gambiantour.com/main.js"></script>
