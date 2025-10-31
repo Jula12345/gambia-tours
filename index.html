@@ -642,11 +642,30 @@
       margin-bottom: 1rem;
       font-weight: 500;
     }
+    
+    .polish-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
     @media (max-width: 768px) {
       .polish-welcome {
         padding: 2rem 0;
         margin: 1rem 0;
+      }
+      
+      .polish-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .polish-actions .btn-primary,
+      .polish-actions .btn-secondary {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
       }
 
       .polish-content {
@@ -954,7 +973,10 @@
         </div>
         <div class="polish-booking">
           <p class="booking-text">Zarezerwuj swoje wakacje w Gambii już dziś!</p>
-          <a href="https://gambiantour.com/reservation.html" class="btn-primary">Zarezerwuj Wycieczkę</a>
+          <div class="polish-actions">
+            <a href="https://gambiantour.com/reservation.html" class="btn-primary">Zarezerwuj Wycieczkę</a>
+            <a href="https://gambiantour.com/blog/polski/" class="btn-secondary">Polski Blog o Gambii</a>
+          </div>
         </div>
       </div>
     </section>
@@ -988,6 +1010,7 @@
           <div class="news-cta">
             <a href="/blog/gambia-tourism-season-2025-november-opening.html" class="btn-primary">Read Full Details</a>
             <a href="https://gambiantour.com/reservation.html" class="btn-secondary">Book Early Bird Offer</a>
+            <a href="https://gambiantour.com/blog/polski/" class="btn-outline">Polski Blog 🇵🇱</a>
           </div>
         </div>
       </div>
