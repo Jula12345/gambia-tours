@@ -11,9 +11,9 @@
   <link rel="alternate" hreflang="pl" href="https://www.gambiantour.com/" />
   <link rel="alternate" hreflang="x-default" href="https://www.gambiantour.com/" />
   
-  <title>Gambia Tours | Wycieczki do Gambii | West Africa Travel & Holiday Packages</title>
-  <meta name="description" content="Gambia Tourism Season Opens November 1st! Book tours with Polish-speaking guides. International flights resume November 2025. Early bird 15% discount. Wycieczki do Gambii z polskim przewodnikiem - sezon turystyczny 2025!">
-  <meta name="keywords" content="Gambia tours November 2025, tourism season opening, wycieczki do Gambii listopad, international flights to Gambia, Polish speaking guides, early bird discount, Gambia holiday packages, West Africa travel, polski przewodnik Gambia, sezon turystyczny Gambia 2025, November flights Europe Gambia, tourism season 2025-2026, wakacje w Gambii listopad">
+  <title>Gambia Tours | West Africa Travel & Holiday Packages | Polish Speaking Guides</title>
+  <meta name="description" content="Gambia Tourism Season Opens November 1st! Book authentic tours with professional Polish-speaking guides. International flights resume November 2025. Early bird 15% discount on all packages. Cultural experiences, wildlife safaris, and adventure tours.">
+  <meta name="keywords" content="Gambia tours, West Africa travel, Polish speaking guides, bird watching, cultural experiences, wildlife safari, holiday packages, tourism season 2025">
   <meta name="author" content="Gambia Tours">
   
   <!-- Open Graph / Facebook -->
@@ -511,6 +511,11 @@
       margin: 2rem 0;
       border-radius: 15px;
       box-shadow: 0 8px 25px rgba(220, 20, 60, 0.15);
+      display: none; /* Hide Polish section by default for better SEO */
+    }
+    
+    .polish-welcome.show {
+      display: block;
     }
 
     .polish-content {
@@ -822,6 +827,13 @@
 <body>
   <div id="navbar-placeholder"></div>
   
+  <!-- Language Toggle -->
+  <div style="text-align: center; padding: 10px; background-color: #f8f9fa;">
+    <button onclick="togglePolishSection()" style="padding: 8px 16px; background-color: #dc143c; color: white; border: none; border-radius: 5px; cursor: pointer;">
+      View in Polish / Zobacz po Polsku
+    </button>
+  </div>
+  
   <!-- Main Content -->
   <div class="container">
     <!-- Hero Section -->
@@ -832,7 +844,7 @@
       
       <!-- Languages Section -->
       <div class="languages-section">
-        <h3>🗣️ Our Guides Speak Your Language</h3>
+        <h3>Our Guides Speak Your Language</h3>
         <div class="languages-grid">
           <div class="language-item">
             <span class="flag">🇬🇧</span>
@@ -860,21 +872,21 @@
     <!-- Polish Tourist Welcome Section -->
     <section class="polish-welcome">
       <div class="polish-content">
-        <h2>🇵🇱 Witamy Polskich Turystów w Gambii!</h2>
+        <h2>Witamy Polskich Turystów w Gambii!</h2>
         <p class="polish-intro">
           Odkryj magię Gambii z polskojęzycznym przewodnikiem! Nasza firma specjalizuje się w organizacji niezapomnianych wycieczek dla polskich turystów, oferując pełną obsługę w języku polskim.
         </p>
         <div class="polish-highlights">
           <div class="polish-feature">
-            <h3>🗣️ Polskojęzyczny przewodnik</h3>
+            <h3>Polskojęzyczny przewodnik</h3>
             <p>Doświadczeni przewodnicy mówiący płynnie po polsku</p>
           </div>
           <div class="polish-feature">
-            <h3>🏨 Kompleksowa obsługa</h3>
+            <h3>Kompleksowa obsługa</h3>
             <p>Zakwaterowanie, transport i wszystkie posiłki w cenie</p>
           </div>
           <div class="polish-feature">
-            <h3>🌍 Wycieczki kulturowe</h3>
+            <h3>Wycieczki kulturowe</h3>
             <p>Poznaj autentyczną kulturę i tradycje Gambii</p>
           </div>
         </div>
@@ -933,7 +945,7 @@
         <!-- Featured: Multi-Day Package Tours (moved to top) -->
         <div class="tour-card featured-package">
           <img src="https://gambiantour.com/photos/WhatsApp%20Image%202025-08-25%20at%2013.05.41%20(1).jpeg" alt="Multi-Day Package Tours">
-          <h3>📦 Multi-Day Package Tours</h3>
+          <h3>Multi-Day Package Tours</h3>
           <ul class="tour-highlights">
             <li>3, 5, 7, or 14-day adventures</li>
             <li>Accommodation & all meals included</li>
@@ -947,7 +959,7 @@
         
         <div class="tour-card">
           <img src="https://gambiantour.com/photos/culture.jpeg" alt="Cultural Experience">
-          <h3>🎭 Cultural Experience</h3>
+          <h3>Cultural Experience</h3>
           <ul class="tour-highlights">
             <li>Visit local villages</li>
             <li>Traditional music & dance</li>
@@ -960,7 +972,7 @@
         
         <div class="tour-card">
           <img src="https://gambiantour.com/photos/WhatsApp%20Image%202025-08-25%20at%2013.05.40%20(2).jpeg" alt="Bird Watching">
-          <h3>🦅 Bird Watching Adventure</h3>
+          <h3>Bird Watching Adventure</h3>
           <ul class="tour-highlights">
             <li>Visit Abuko Nature Reserve</li>
             <li>Spot 40-60 species in 8 hours</li>
@@ -971,8 +983,8 @@
         </div>
         
         <div class="tour-card">
-          <img src="https://gambiantour.com/photos/banjul.HEIC" alt="Banjul City Tour">
-          <h3>🏛️ Banjul City Tour</h3>
+          <img src="https://gambiantour.com/photos/culture.jpeg" alt="Banjul City Tour - Traditional Architecture">
+          <h3>Banjul City Tour</h3>
           <ul class="tour-highlights">
             <li>Guided walk through historic Banjul</li>
             <li>Visit Albert Market & colonial sites</li>
@@ -984,7 +996,7 @@
         
         <div class="tour-card">
           <img src="https://gambiantour.com/photos/19786.JPEG" alt="Serekunda Market">
-          <h3>🛍️ Serekunda Market Experience</h3>
+          <h3>Serekunda Market Experience</h3>
           <ul class="tour-highlights">
             <li>Explore Gambia's largest market</li>
             <li>Meet local artisans</li>
@@ -996,7 +1008,7 @@
         
         <div class="tour-card">
           <img src="https://gambiantour.com/photos/WhatsApp%20Image%202025-08-25%20at%2013.05.40%20(6).jpeg" alt="River Excursion">
-          <h3>🚤 River Excursion</h3>
+          <h3>River Excursion</h3>
           <ul class="tour-highlights">
             <li>Boat trip on the Gambia River</li>
             <li>Wildlife spotting: hippos, birds</li>
@@ -1008,7 +1020,7 @@
         
         <div class="tour-card">
           <img src="https://gambiantour.com/photos/WhatsApp%20Image%202025-08-25%20at%2013.05.40%20(8).jpeg" alt="Wildlife Safari">
-          <h3>🦁 Wildlife Safari</h3>
+          <h3>Wildlife Safari</h3>
           <ul class="tour-highlights">
             <li>See monkeys, hippos, crocodiles</li>
             <li>Guided nature walks</li>
@@ -1020,7 +1032,7 @@
         
         <div class="tour-card">
           <img src="https://gambiantour.com/photos/sunset.jpeg" alt="Beach Relaxation">
-          <h3>🏖️ Beach Relaxation</h3>
+          <h3>Beach Relaxation</h3>
           <ul class="tour-highlights">
             <li>Relax on pristine beaches</li>
             <li>Beachside lunch & drinks</li>
@@ -1034,7 +1046,7 @@
 
     <!-- Programs & Itineraries -->
     <section class="programs">
-      <h2>📋 Tour Programs & Itineraries</h2>
+      <h2>Tour Programs & Itineraries</h2>
       <p>Explore our detailed itineraries with hour-by-hour schedules, pricing, and everything you need to plan your perfect trip.</p>
       <div class="program-cards">
         <div class="program-card">
@@ -1060,7 +1072,7 @@
 
     <!-- Viator Booking Widget -->
     <section class="viator-booking">
-      <h2>🎯 Book Your Tours Instantly</h2>
+      <h2>Book Your Tours Instantly</h2>
       <p>Secure online booking with instant confirmation through our trusted booking platform</p>
       <div class="viator-widget-container">
         <div 
@@ -1151,7 +1163,7 @@
 
     <!-- Payment Information -->
     <section class="payment-info">
-      <h2>💳 Payment & Booking Information</h2>
+      <h2>Payment & Booking Information</h2>
       <div class="payment-grid">
         <div class="payment-methods">
           <h3>💰 Accepted Payment Methods</h3>
@@ -1259,6 +1271,12 @@
       .then(data => {
         document.getElementById('navbar-placeholder').innerHTML = data;
       });
+    
+    // Language toggle function
+    function togglePolishSection() {
+      const polishSection = document.querySelector('.polish-welcome');
+      polishSection.classList.toggle('show');
+    }
   </script>
   
   <script src="https://gambiantour.com/main.js"></script>
