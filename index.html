@@ -33,6 +33,30 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://www.gambiantour.com/">
   
+  <!-- Google Analytics 4 (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID', {
+      page_title: 'Gambia Tours - West Africa Travel',
+      page_location: window.location.href,
+      custom_map: {
+        'dimension1': 'tour_type',
+        'dimension2': 'visitor_country'
+      }
+    });
+    
+    // Enhanced ecommerce tracking for tour bookings
+    gtag('config', 'GA_MEASUREMENT_ID', {
+      'send_page_view': true,
+      'anonymize_ip': true,
+      'allow_google_signals': true,
+      'allow_ad_personalization_signals': false
+    });
+  </script>
+  
   <!-- Structured Data -->
   <script type="application/ld+json">
   {
@@ -1407,6 +1431,115 @@
     
     // Make function available globally
     window.scrollToPolish = scrollToPolish;
+    
+    // Google Analytics Enhanced Event Tracking
+    document.addEventListener('DOMContentLoaded', function() {
+      // Track Book Now button clicks
+      const bookButtons = document.querySelectorAll('.floating-book-btn, .btn-primary, a[href*="reservation"]');
+      bookButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          gtag('event', 'click', {
+            event_category: 'engagement',
+            event_label: 'book_now_button',
+            value: 1
+          });
+        });
+      });
+      
+      // Track phone number clicks
+      const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+      phoneLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          gtag('event', 'contact', {
+            event_category: 'engagement', 
+            event_label: 'phone_click',
+            value: 1
+          });
+        });
+      });
+      
+      // Track email clicks  
+      const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
+      emailLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          gtag('event', 'contact', {
+            event_category: 'engagement',
+            event_label: 'email_click', 
+            value: 1
+          });
+        });
+      });
+      
+      // Track tour card interactions
+      const tourCards = document.querySelectorAll('.tour-card');
+      tourCards.forEach(card => {
+        card.addEventListener('click', function() {
+          const tourName = card.querySelector('h3')?.textContent || 'Unknown Tour';
+          gtag('event', 'select_content', {
+            content_type: 'tour',
+            content_id: tourName.toLowerCase().replace(/\s+/g, '_'),
+            event_category: 'engagement',
+            event_label: 'tour_card_click'
+          });
+        });
+      });
+      
+      // Track scroll depth
+      let scrollDepth = 0;
+      window.addEventListener('scroll', function() {
+        const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+        
+        if (scrollPercent >= 25 && scrollDepth < 25) {
+          scrollDepth = 25;
+          gtag('event', 'scroll', {
+            event_category: 'engagement',
+            event_label: 'scroll_25_percent'
+          });
+        } else if (scrollPercent >= 50 && scrollDepth < 50) {
+          scrollDepth = 50;
+          gtag('event', 'scroll', {
+            event_category: 'engagement', 
+            event_label: 'scroll_50_percent'
+          });
+        } else if (scrollPercent >= 75 && scrollDepth < 75) {
+          scrollDepth = 75;
+          gtag('event', 'scroll', {
+            event_category: 'engagement',
+            event_label: 'scroll_75_percent'
+          });
+        } else if (scrollPercent >= 100 && scrollDepth < 100) {
+          scrollDepth = 100;
+          gtag('event', 'scroll', {
+            event_category: 'engagement',
+            event_label: 'scroll_100_percent'
+          });
+        }
+      });
+      
+      // Track newsletter signup
+      const newsletterForm = document.querySelector('.newsletter-form');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+          gtag('event', 'sign_up', {
+            method: 'newsletter',
+            event_category: 'conversion',
+            event_label: 'newsletter_signup'
+          });
+        });
+      }
+      
+      // Track external link clicks
+      const externalLinks = document.querySelectorAll('a[href^="http"]:not([href*="gambiantour.com"])');
+      externalLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          gtag('event', 'click', {
+            event_category: 'outbound',
+            event_label: 'external_link',
+            transport_type: 'beacon'
+          });
+        });
+      });
+    });
   </script>
   
   <script src="https://gambiantour.com/main.js"></script>
