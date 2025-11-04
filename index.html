@@ -1416,6 +1416,8 @@
       .then(response => response.text())
       .then(data => {
         document.getElementById('navbar-placeholder').innerHTML = data;
+        // Initialize mobile menu functionality after navbar is loaded
+        initializeMobileMenu();
       });
     
     // Scroll to Polish section function
@@ -1431,6 +1433,59 @@
     
     // Make function available globally
     window.scrollToPolish = scrollToPolish;
+    
+    // Initialize mobile menu functionality
+    function initializeMobileMenu() {
+      // Make toggleMenu function global
+      window.toggleMenu = function() {
+        const navbarLinks = document.getElementById('navbarLinks');
+        const burgerButton = document.getElementById('burgerButton');
+        
+        if (navbarLinks && burgerButton) {
+          // Toggle both elements
+          navbarLinks.classList.toggle('active');
+          burgerButton.classList.toggle('active');
+        }
+      };
+      
+      // Close menu when clicking on a link (mobile)
+      const links = document.querySelectorAll('.navbar-links a');
+      links.forEach(link => {
+        link.addEventListener('click', function() {
+          const navbarLinks = document.getElementById('navbarLinks');
+          const burgerButton = document.getElementById('burgerButton');
+          
+          // Close menu on mobile
+          if (window.innerWidth <= 767 && navbarLinks && burgerButton) {
+            navbarLinks.classList.remove('active');
+            burgerButton.classList.remove('active');
+          }
+        });
+      });
+      
+      // Close menu when clicking outside (mobile)
+      document.addEventListener('click', function(event) {
+        const navbar = document.querySelector('.navbar');
+        const navbarLinks = document.getElementById('navbarLinks');
+        const burgerButton = document.getElementById('burgerButton');
+        
+        if (navbar && navbarLinks && burgerButton && !navbar.contains(event.target) && window.innerWidth <= 767) {
+          navbarLinks.classList.remove('active');
+          burgerButton.classList.remove('active');
+        }
+      });
+      
+      // Handle window resize - close menu if switching to desktop
+      window.addEventListener('resize', function() {
+        const navbarLinks = document.getElementById('navbarLinks');
+        const burgerButton = document.getElementById('burgerButton');
+        
+        if (window.innerWidth > 767 && navbarLinks && burgerButton) {
+          navbarLinks.classList.remove('active');
+          burgerButton.classList.remove('active');
+        }
+      });
+    }
     
     // Google Analytics Enhanced Event Tracking
     document.addEventListener('DOMContentLoaded', function() {
