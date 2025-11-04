@@ -2,7 +2,7 @@
   <div class="navbar-logo">
     <img src="https://gambiantour.com/photos/logo.png" alt="Gambia Tours Logo" style="height:40px;vertical-align:middle;"> <span class="logo-text">Gambia Tours</span>
   </div>
-  <button class="burger" aria-label="Open menu" onclick="toggleMenu()">
+  <button class="burger" id="burgerButton" aria-label="Toggle menu" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </button>
   <div class="navbar-links" id="navbarLinks">
@@ -18,6 +18,49 @@
 <script>
 function toggleMenu() {
   const navbarLinks = document.getElementById('navbarLinks');
+  const burgerButton = document.getElementById('burgerButton');
+  
+  // Toggle both elements
   navbarLinks.classList.toggle('active');
+  burgerButton.classList.toggle('active');
 }
+
+// Close menu when clicking on a link (mobile)
+document.addEventListener('DOMContentLoaded', function() {
+  const links = document.querySelectorAll('.navbar-links a');
+  links.forEach(link => {
+    link.addEventListener('click', function() {
+      const navbarLinks = document.getElementById('navbarLinks');
+      const burgerButton = document.getElementById('burgerButton');
+      
+      // Close menu on mobile
+      if (window.innerWidth <= 767) {
+        navbarLinks.classList.remove('active');
+        burgerButton.classList.remove('active');
+      }
+    });
+  });
+});
+
+// Close menu when clicking outside (mobile)
+document.addEventListener('click', function(event) {
+  const navbar = document.querySelector('.navbar');
+  const navbarLinks = document.getElementById('navbarLinks');
+  const burgerButton = document.getElementById('burgerButton');
+  
+  if (navbar && !navbar.contains(event.target) && window.innerWidth <= 767) {
+    navbarLinks.classList.remove('active');
+    burgerButton.classList.remove('active');
+  }
+});
+
+// Handle window resize - close menu if switching to desktop
+window.addEventListener('resize', function() {
+  if (window.innerWidth > 767) {
+    const navbarLinks = document.getElementById('navbarLinks');
+    const burgerButton = document.getElementById('burgerButton');
+    navbarLinks.classList.remove('active');
+    burgerButton.classList.remove('active');
+  }
+});
 </script>
