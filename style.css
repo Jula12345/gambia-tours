@@ -2,16 +2,44 @@ body { font-family: 'Montserrat', Arial, sans-serif; background: linear-gradient
 .container { max-width: 900px; margin: 2em auto; padding: 2em; background: #fff; border-radius: 18px; box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
 
 /* Modern Navbar with Logo and Burger - Fully Responsive */
-.navbar { 
-  background: linear-gradient(90deg, #FFD600 60%, #FFB300 100%); 
-  padding: 1em 2em; 
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07); 
-  border-radius: 0 0 18px 18px; 
-  display: flex; 
-  align-items: center; 
-  justify-content: space-between; 
-  position: relative; 
-  min-height: 60px;
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+/* Language Switcher */
+.language-switcher {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.lang-link {
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid #ddd;
+}
+
+.lang-link:hover {
+  background: #f0f8ff;
+  border-color: #FFB300;
+  transform: translateY(-1px);
+}
+
+.lang-link.active {
+  background: #FFB300;
+  color: white;
+  border-color: #FFB300;
 }
 
 .navbar-logo { 
@@ -155,6 +183,18 @@ body { font-family: 'Montserrat', Arial, sans-serif; background: linear-gradient
   }
   .navbar-links a:last-child {
     border-bottom: none;
+  }
+
+  .language-switcher {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    justify-content: flex-start;
+  }
+
+  .lang-link {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+    margin: 0 0.2rem;
   }
 }
 
