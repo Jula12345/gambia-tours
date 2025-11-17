@@ -1,11 +1,83 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gambia & Senegal Adventure - 14 Days | Gambia Tours</title>
     <meta name="description" content="Premium 14-day adventure tour: Gambia and Senegal with multilingual guides. Safari, culture, wildlife and authentic experiences in West Africa.">
-    <meta name="keywords" content="Gambia tours, Senegal safari, West Africa adventure, 14 days Gambia, cultural tours, wildlife safari, multilingual guide">
+                      navbarLinks.classList.toggle('active');
+                    burgerButton.classList.toggle('active');
+                }
+            };
+            
+            const links = document.querySelectorAll('.navbar-links a');
+            links.forEach(link => {
+                link.addEventListener('click', function() {
+                    const navbarLinks = document.getElementById('navbarLinks');
+                    const burgerButton = document.getElementById('burgerButton');
+                    
+                    if (window.innerWidth <= 767 && navbarLinks && burgerButton) {
+                        navbarLinks.classList.remove('active');
+                        burgerButton.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // Language switching function
+        function switchLanguage(lang) {
+            // Update button styles
+            document.querySelectorAll('[id^="btn-"]').forEach(btn => {
+                btn.style.background = '#ccc';
+                btn.style.color = '#333';
+            });
+            document.getElementById('btn-' + lang).style.background = '#FFB300';
+            document.getElementById('btn-' + lang).style.color = 'white';
+
+            // Content translations
+            const translations = {
+                en: {
+                    'main-title': '🇬🇲 Gambia & Senegal Adventure',
+                    'subtitle': 'Premium 14-Day Cultural & Wildlife Experience',
+                    'description': '<strong>Discover West Africa with Expert Local Guides</strong>',
+                    'print-btn': '📄 Print Program',
+                    'highlight-title': '🎯 Premium West Africa Adventure',
+                    'highlight-desc': 'Complete 14-day program combining culture, nature and adventure in Gambia and Senegal with multilingual support and professional local service.',
+                    'daily-program-title': '📅 Day by Day Program',
+                    'day-1-title': 'Day 1 – Arrival – Banjul and Coast',
+                    'day-1-desc': 'Arrival at Banjul Airport. Welcome by local team and private transfer by air-conditioned 4×4 vehicle to the coast (approx. 30–45 minutes). After accommodation, guide will provide brief information about customs, currency and safety. Time for a sunset beach walk and optional welcome dinner (advance reservation required).'
+                },
+                pl: {
+                    'main-title': '🇬🇲 Gambia & Senegal Przygoda',
+                    'subtitle': 'Premium 14-Dniowe Doświadczenie Kulturowe i Przyrodnicze',
+                    'description': '<strong>Odkryj Afrykę Zachodnią z Ekspertami Lokalnymi Przewodnikami</strong>',
+                    'print-btn': '📄 Drukuj Program',
+                    'highlight-title': '🎯 Premium Przygoda w Afryce Zachodniej',
+                    'highlight-desc': 'Kompletny 14-dniowy program łączący kulturę, naturę i przygodę w Gambii i Senegalu z wielojęzycznym wsparciem i profesjonalną lokalną obsługą.',
+                    'daily-program-title': '📅 Program Dnia po Dniu',
+                    'day-1-title': 'Dzień 1 – Przylot – Banjul i Wybrzeże',
+                    'day-1-desc': 'Przylot do Banjul. Powitanie przez lokalny zespół i prywatny transfer klimatyzowanym samochodem 4×4 na wybrzeże (ok. 30–45 minut). Po zakwaterowaniu przewodnik przedstawi krótkie informacje o zwyczajach, walucie i bezpieczeństwie. Czas na spacer po plaży o zachodzie słońca i opcjonalną kolację powitalną (rezerwacja z wyprzedzeniem).'
+                },
+                nl: {
+                    'main-title': '🇬🇲 Gambia & Senegal Avontuur',
+                    'subtitle': 'Premium 14-Daagse Culturele & Wildlife Ervaring',
+                    'description': '<strong>Ontdek West-Afrika met Expert Lokale Gidsen</strong>',
+                    'print-btn': '📄 Print Programma',
+                    'highlight-title': '🎯 Premium West-Afrika Avontuur',
+                    'highlight-desc': 'Compleet 14-daags programma dat cultuur, natuur en avontuur in Gambia en Senegal combineert met meertalige ondersteuning en professionele lokale service.',
+                    'daily-program-title': '📅 Dag voor Dag Programma',
+                    'day-1-title': 'Dag 1 – Aankomst – Banjul en Kust',
+                    'day-1-desc': 'Aankomst op Banjul Airport. Welkom door lokaal team en privé transfer met airconditioned 4×4 voertuig naar de kust (ongeveer 30–45 minuten). Na accommodatie zal de gids korte informatie geven over gewoonten, valuta en veiligheid. Tijd voor een strandwandeling bij zonsondergang en optioneel welkomstdiner (vooraf reserveren vereist).'
+                }
+            };
+
+            // Update content
+            Object.keys(translations[lang]).forEach(key => {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });keywords" content="Gambia tours, Senegal safari, West Africa adventure, 14 days Gambia, cultural tours, wildlife safari, multilingual guide">
     <link rel="canonical" href="https://www.gambiantour.com/gambia-senegal-adventure.html">
     <link rel="stylesheet" href="style.css">
     
@@ -20,7 +92,7 @@
             page_location: window.location.href,
             content_group1: 'Premium Tours',
             content_group2: 'Tour Packages',
-            language: 'pl'
+            language: 'en'
         });
     </script>
     
@@ -180,24 +252,31 @@
     <div id="navbar-placeholder"></div>
     
     <div class="itinerary-container">
+        <!-- Language Toggle -->
+        <div style="text-align: center; margin-bottom: 20px;">
+            <button onclick="switchLanguage('en')" id="btn-en" style="padding: 10px 20px; margin: 5px; background: #FFB300; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">🇬🇧 English</button>
+            <button onclick="switchLanguage('pl')" id="btn-pl" style="padding: 10px 20px; margin: 5px; background: #ccc; color: #333; border: none; border-radius: 5px; cursor: pointer;">🇵🇱 Polski</button>
+            <button onclick="switchLanguage('nl')" id="btn-nl" style="padding: 10px 20px; margin: 5px; background: #ccc; color: #333; border: none; border-radius: 5px; cursor: pointer;">🇳🇱 Nederlands</button>
+        </div>
+
         <div class="itaka-header">
-            <h1>🇬🇲 Gambia & Senegal Adventure</h1>
-            <p class="subtitle">Premium 14-Day Cultural & Wildlife Experience</p>
-            <p><strong>Discover West Africa with Expert Local Guides</strong></p>
+            <h1 id="main-title">🇬🇲 Gambia & Senegal Adventure</h1>
+            <p class="subtitle" id="subtitle">Premium 14-Day Cultural & Wildlife Experience</p>
+            <p id="description"><strong>Discover West Africa with Expert Local Guides</strong></p>
         </div>
         
-        <button class="print-btn" onclick="window.print()">📄 Drukuj Program</button>
+        <button class="print-btn" onclick="window.print()" id="print-btn">📄 Print Program</button>
         
         <div class="highlight-box">
-            <h3>🎯 Premium West Africa Adventure</h3>
-            <p>Complete 14-day program combining culture, nature and adventure in Gambia and Senegal with multilingual support and professional local service.</p>
+            <h3 id="highlight-title">🎯 Premium West Africa Adventure</h3>
+            <p id="highlight-desc">Complete 14-day program combining culture, nature and adventure in Gambia and Senegal with multilingual support and professional local service.</p>
         </div>
 
-        <h2 style="color: #FFB300; font-size: 1.8rem; margin: 2rem 0 1rem 0;">📅 Program Dnia po Dniu</h2>
+        <h2 style="color: #FFB300; font-size: 1.8rem; margin: 2rem 0 1rem 0;" id="daily-program-title">📅 Day by Day Program</h2>
 
-        <div class="day-item">
-            <h3>Dzień 1 – Przylot – Banjul i Wybrzeże</h3>
-            <p>Przylot do Banjul. Powitanie przez lokalny zespół i prywatny transfer klimatyzowanym samochodem 4×4 na wybrzeże (ok. 30–45 minut). Po zakwaterowaniu przewodnik przedstawi krótkie informacje o zwyczajach, walucie i bezpieczeństwie. Czas na spacer po plaży o zachodzie słońca i opcjonalną kolację powitalną (rezerwacja z wyprzedzeniem).</p>
+        <div class="day-item" id="day-1">
+            <h3 id="day-1-title">Day 1 – Arrival – Banjul and Coast</h3>
+            <p id="day-1-desc">Arrival at Banjul Airport. Welcome by local team and private transfer by air-conditioned 4×4 vehicle to the coast (approx. 30–45 minutes). After accommodation, guide will provide brief information about customs, currency and safety. Time for a sunset beach walk and optional welcome dinner (advance reservation required).</p>
             <div class="accommodation">🏨 Nocleg: Senegambia Beach Hotel (4★)</div>
         </div>
 
