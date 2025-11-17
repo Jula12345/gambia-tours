@@ -26,14 +26,48 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gambiantour.com/" />
   </url>
 
-  <!-- NEW: Premium 14-Day Adventure Tour -->
+  <!-- NEW: Premium 14-Day Adventure Tour - ENGLISH -->
   <url>
-    <loc>https://www.gambiantour.com/gambia-senegal-adventure.html</loc>
-    <lastmod>2025-11-05</lastmod>
+    <loc>https://www.gambiantour.com/14-day-gambia-senegal-combined-adventure.html</loc>
+    <lastmod>2025-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.gambiantour.com/gambia-senegal-adventure.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gambiantour.com/14-day-gambia-senegal-combined-adventure.html" />
     <xhtml:link rel="alternate" hreflang="pl" href="https://www.gambiantour.com/gambia-senegal-adventure.html" />
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://www.gambiantour.com/gambia-senegal-adventure-nl.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gambiantour.com/14-day-gambia-senegal-combined-adventure.html" />
+  </url>
+
+  <!-- NEW: Premium 14-Day Adventure Tour - POLISH -->
+  <url>
+    <loc>https://www.gambiantour.com/gambia-senegal-adventure.html</loc>
+    <lastmod>2025-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gambiantour.com/14-day-gambia-senegal-combined-adventure.html" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.gambiantour.com/gambia-senegal-adventure.html" />
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://www.gambiantour.com/gambia-senegal-adventure-nl.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gambiantour.com/14-day-gambia-senegal-combined-adventure.html" />
+  </url>
+
+  <!-- NEW: Premium 14-Day Adventure Tour - DUTCH 🇳🇱 -->
+  <url>
+    <loc>https://www.gambiantour.com/gambia-senegal-adventure-nl.html</loc>
+    <lastmod>2025-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gambiantour.com/14-day-gambia-senegal-combined-adventure.html" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.gambiantour.com/gambia-senegal-adventure.html" />
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="https://www.gambiantour.com/gambia-senegal-adventure-nl.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gambiantour.com/14-day-gambia-senegal-combined-adventure.html" />
+  </url>
+
+  <!-- NEW: 15-Day Comprehensive Adventure -->
+  <url>
+    <loc>https://www.gambiantour.com/15-day-gambia-senegal-comprehensive-adventure.html</loc>
+    <lastmod>2025-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   
   <!-- Blog Section - New Polish content -->
