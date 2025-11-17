@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gambia & Senegal Adventure - 14 Days | Gambia Tours</title>
+    <meta name="description" content="Premium 14-day adventure tour: Gambia and Senegal with multilingual guides. Safari, culture, wildlife and authentic experiences in West Africa.">
+                      navbarLinks.classList.toggle('active');
+                    burgerButton.classList.toggle('active');
+                }
+            };
+            
+            const links = document.querySelectorAll('.navbar-links a');
+            links.forEach(link => {
+                link.addEventListener('click', function() {
+                    const navbarLinks = document.getElementById('navbarLinks');
+                    const burgerButton = document.getElementById('burgerButton');
+                    
+                    if (window.innerWidth <= 767 && navbarLinks && burgerButton) {
+                        navbarLinks.classList.remove('active');
+                        burgerButton.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // Language switching function
+        function switchLanguage(lang) {
+            // Update button styles
+            document.querySelectorAll('[id^="btn-"]').forEach(btn => {
+                btn.style.background = '#ccc';
+                btn.style.color = '#333';
+            });
+            document.getElementById('btn-' + lang).style.background = '#FFB300';
+            document.getElementById('btn-' + lang).style.color = 'white';
+
+            // Content translations
+            const translations = {
+                en: {
+                    'main-title': '🇬🇲 Gambia & Senegal Adventure',
+                    'subtitle': 'Premium 14-Day Cultural & Wildlife Experience',
+                    'description': '<strong>Discover West Africa with Expert Local Guides</strong>',
+                    'print-btn': '📄 Print Program',
+                    'highlight-title': '🎯 Premium West Africa Adventure',
+                    'highlight-desc': 'Complete 14-day program combining culture, nature and adventure in Gambia and Senegal with multilingual support and professional local service.',
+                    'daily-program-title': '📅 Day by Day Program',
+                    'day-1-title': 'Day 1 – Arrival – Banjul and Coast',
+                    'day-1-desc': 'Arrival at Banjul Airport. Welcome by local team and private transfer by air-conditioned 4×4 vehicle to the coast (approx. 30–45 minutes). After accommodation, guide will provide brief information about customs, currency and safety. Time for a sunset beach walk and optional welcome dinner (advance reservation required).'
+                },
+                pl: {
+                    'main-title': '🇬🇲 Gambia & Senegal Przygoda',
+                    'subtitle': 'Premium 14-Dniowe Doświadczenie Kulturowe i Przyrodnicze',
+                    'description': '<strong>Odkryj Afrykę Zachodnią z Ekspertami Lokalnymi Przewodnikami</strong>',
+                    'print-btn': '📄 Drukuj Program',
+                    'highlight-title': '🎯 Premium Przygoda w Afryce Zachodniej',
+                    'highlight-desc': 'Kompletny 14-dniowy program łączący kulturę, naturę i przygodę w Gambii i Senegalu z wielojęzycznym wsparciem i profesjonalną lokalną obsługą.',
+                    'daily-program-title': '📅 Program Dnia po Dniu',
+                    'day-1-title': 'Dzień 1 – Przylot – Banjul i Wybrzeże',
+                    'day-1-desc': 'Przylot do Banjul. Powitanie przez lokalny zespół i prywatny transfer klimatyzowanym samochodem 4×4 na wybrzeże (ok. 30–45 minut). Po zakwaterowaniu przewodnik przedstawi krótkie informacje o zwyczajach, walucie i bezpieczeństwie. Czas na spacer po plaży o zachodzie słońca i opcjonalną kolację powitalną (rezerwacja z wyprzedzeniem).'
+                },
+                nl: {
+                    'main-title': '🇬🇲 Gambia & Senegal Avontuur',
+                    'subtitle': 'Premium 14-Daagse Culturele & Wildlife Ervaring',
+                    'description': '<strong>Ontdek West-Afrika met Expert Lokale Gidsen</strong>',
+                    'print-btn': '📄 Print Programma',
+                    'highlight-title': '🎯 Premium West-Afrika Avontuur',
+                    'highlight-desc': 'Compleet 14-daags programma dat cultuur, natuur en avontuur in Gambia en Senegal combineert met meertalige ondersteuning en professionele lokale service.',
+                    'daily-program-title': '📅 Dag voor Dag Programma',
+                    'day-1-title': 'Dag 1 – Aankomst – Banjul en Kust',
+                    'day-1-desc': 'Aankomst op Banjul Airport. Welkom door lokaal team en privé transfer met airconditioned 4×4 voertuig naar de kust (ongeveer 30–45 minuten). Na accommodatie zal de gids korte informatie geven over gewoonten, valuta en veiligheid. Tijd voor een strandwandeling bij zonsondergang en optioneel welkomstdiner (vooraf reserveren vereist).'
+                }
+            };
+
+            // Update content
+            Object.keys(translations[lang]).forEach(key => {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });keywords" content="Gambia tours, Senegal safari, West Africa adventure, 14 days Gambia, cultural tours, wildlife safari, multilingual guide">
+    <link rel="canonical" href="https://www.gambiantour.com/gambia-senegal-adventure.html">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Analytics 4 (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-93MZTZEC7X"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-93MZTZEC7X', {
+            page_title: 'Itaka Gambia Adventure - 14 Days',
+            page_location: window.location.href,
+            content_group1: 'Premium Tours',
+            content_group2: 'Tour Packages',
+            language: 'en'
+        });
+    </script>
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Gambia & Senegal Adventure 14 Days | Premium Safari & Culture Tours">
+    <meta property="og:description" content="Premium 14-day adventure: Discover Gambia and Senegal with expert multilingual guides. UNESCO sites, safari experiences, and authentic cultural immersion.">
+    <meta property="og:image" content="https://gambiantour.com/photos/WhatsApp%20Image%202025-08-25%20at%2013.16.34%20(5).jpeg">
+    <meta property="og:url" content="https://www.gambiantour.com/gambia-senegal-adventure.html">
+    <meta property="og:type" content="website">
+    
+    <style>
+        .itinerary-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            line-height: 1.6;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .itaka-header {
+            text-align: center;
+            background: linear-gradient(135deg, #FFD600 0%, #FFB300 50%, #FF6E40 100%);
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+        
+        .itaka-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 900;
+        }
+        
+        .itaka-header .subtitle {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #444;
+        }
+        
+        .day-item {
+            background: #f9f9f9;
+            border-left: 4px solid #FFB300;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .day-item h3 {
+            color: #FFB300;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .accommodation {
+            background: #fffde7;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .info-section {
+            background: #f0f8ff;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+        
+        .info-section h2 {
+            color: #FFB300;
+            border-bottom: 2px solid #FFB300;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .included-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .list-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid #28a745;
+        }
+        
+        .excluded-item {
+            border-left-color: #dc3545;
+        }
+        
+        .contact-section {
+            background: linear-gradient(90deg, #FFD600 60%, #FFB300 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .contact-section h2 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            font-size: 1.1rem;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .highlight-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        .print-btn {
+            background: #FFB300;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 1rem 0;
+        }
+        
+        .print-btn:hover {
+            background: #FFD600;
+            color: #333;
+        }
+        
+        @media print {
+            .print-btn, .navbar { display: none; }
+            body { font-size: 12pt; }
+            .itaka-header { background: none !important; }
+        }
+        
+        /* Language Toggle Styles */
+        .language-toggle {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .language-toggle h3 {
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        .lang-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .lang-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 120px;
+            justify-content: center;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, #FFB300 0%, #FF8F00 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255,179,0,0.3);
+        }
+
+        .lang-btn.inactive {
+            background: #f8f9fa;
+            color: #6c757d;
+            border: 2px solid #e9ecef;
+        }
+
+        .lang-btn.inactive:hover {
+            background: #e9ecef;
+            color: #495057;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .itinerary-container { 
+                padding: 1rem; 
+            }
+            
+            .itaka-header h1 { 
+                font-size: 2rem; 
+            }
+            
+            .included-list { 
+                grid-template-columns: 1fr; 
+            }
+
+            .language-toggle {
+                padding: 10px;
+                margin: 10px 0;
+            }
+
+            .lang-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .lang-btn {
+                min-width: 200px;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    
+    <div class="itinerary-container">
+        <!-- Language Toggle -->
+        <div class="language-toggle">
+            <h3>🌍 Choose Your Language / Wybierz Język</h3>
+            <div class="lang-buttons">
+                <a href="14-day-gambia-senegal-combined-adventure.html" class="lang-btn inactive">
+                    🇬🇧 English
+                </a>
+                <button class="lang-btn active">
+                    🇵🇱 Polski
+                </button>
+                <button class="lang-btn inactive" onclick="alert('Dutch translation coming soon! Nederlandse vertaling binnenkort beschikbaar!')">
+                    🇳🇱 Nederlands
+                </button>
+            </div>
+        </div>
+
+        <div class="itaka-header">
+            <h1>🇬🇲 Gambia & Senegal Przygoda</h1>
+            <p class="subtitle">Premium 14-Dniowe Doświadczenie Kulturowe i Przyrodnicze</p>
+            <p><strong>Odkryj Afrykę Zachodnią z Ekspertami Lokalnymi Przewodnikami</strong></p>
+        </div>
+        
+        <button class="print-btn" onclick="window.print()">📄 Drukuj Program</button>
+        
+        <div class="highlight-box">
+            <h3>🎯 Premium Przygoda w Afryce Zachodniej</h3>
+            <p>Kompletny 14-dniowy program łączący kulturę, naturę i przygodę w Gambii i Senegalu z wielojęzycznym wsparciem i profesjonalną lokalną obsługą.</p>
+        </div>
+
+        <h2 style="color: #FFB300; font-size: 1.8rem; margin: 2rem 0 1rem 0;">📅 Program Dnia po Dniu</h2>
+
+        <div class="day-item">
+            <h3>Dzień 1 – Przylot – Banjul i Wybrzeże</h3>
+            <p>Przylot do Banjul. Powitanie przez lokalny zespół i prywatny transfer klimatyzowanym samochodem 4×4 na wybrzeże (ok. 30–45 minut). Po zakwaterowaniu przewodnik przedstawi krótkie informacje o zwyczajach, walucie i bezpieczeństwie. Czas na spacer po plaży o zachodzie słońca i opcjonalną kolację powitalną (rezerwacja z wyprzedzeniem).</p>
+            <div class="accommodation">🏨 Nocleg: Senegambia Beach Hotel (4★)</div>
+        </div>
+
+        <div class="day-item">
+            <h3>Dzień 2 – Banjul i Bakau – Miasto i Kultura</h3>
+            <p>Po śniadaniu wizyta w stolicy: zdjęcie przy Łuku 22 i zwiedzanie Narodowego Muzeum Gambii z przewodnikiem. Następnie spacer po tętniącym życiem rynku Albert Market – tkaniny, przyprawy, rękodzieło – oraz Kachikally Crocodile Pool z małym muzeum etnograficznym w Bakau. Powrót na wybrzeże i czas wolny.</p>
+            <div class="accommodation">🏨 Nocleg: Senegambia Beach Hotel (4★)</div>
+        </div>
+
+        <div class="day-item">
+            <h3>Dzień 3 – Rezerwat Przyrody Abuko i Wioska Rybacka Tanji</h3>
+            <p>Wczesny wyjazd do Rezerwatu Abuko na spacer po zacienionych ścieżkach z przewodnikiem przyrodnikiem – obserwacja małp, antylop i bogactwa ptaków. Po południu przejazd do Tanji, gdzie można zobaczyć kolorowe pirogue wracające z morza, tradycyjne wędzarnie ryb i gwarne stoiska rybne. Opcjonalnie krótki pokaz bębnów i tańca przed powrotem.</p>
+            <div class="accommodation">🏨 Nocleg: Senegambia Beach Hotel (4★)</div>
+        </div>
+
+        <div class="day-item">
+            <h3>Dzień 4 – Wyspa Kunta Kinteh (UNESCO) i Rejs po Rzece</h3>
+            <p>Przeprawa promem lub lokalną łodzią przez rzekę Gambia na północny brzeg. Wizyta w wioskach Albreda i Juffureh, a następnie rejs łodzią na Wyspę Kunta Kinteh, wpisaną na listę światowego dziedzictwa UNESCO. Poznanie historii wyspy i jej roli w handlu transatlantyckim. Po prostym lunchu w lokalnej restauracji – popołudniowy rejs pośród namorzyn w poszukiwaniu ptaków rzecznych.</p>
+            <div class="accommodation">🏨 Nocleg: Senegambia Beach Hotel (4★)</div>
+        </div>
+
+        <div class="day-item">
+            <h3>Dzień 5 – Las Makasutu – Spływ Czółnem i Wizyta w Wiosce</h3>
+            <p>Wyjazd w głąb kraju do Makasutu Cultural Forest na spacer pośród palm i namorzyn z przewodnikiem. Następnie cichy spływ czółnem po kanałach wodnych (w zależności od pływów). Spotkanie z mieszkańcami – prezentacja rzemiosła, pobór soku palmowego, lokalne opowieści. Powrót na wybrzeże po postoju na punkcie widokowym o zachodzie słońca.</p>
+            <div class="accommodation">🏨 Nocleg: Senegambia Beach Hotel (4★)</div>
+        </div>
+
+        <div class="day-item">
+            <h3>Dzień 6 – Wybrzeże Sanyang / Kartong – Jazda Konna nad Atlantykiem</h3>
+            <p>Transfer do stajni, omówienie zasad bezpieczeństwa i dopasowanie kasków. Lekka przejażdżka z przewodnikiem po szerokich plażach Atlantyku (trasa dopasowana do poziomu uczestników). Przerwa na odpoczynek i napoje przy plaży. Dla osób niejeżdżących możliwość spaceru z przewodnikiem wzdłuż wybrzeża.</p>
+            <div class="accommodation">🏨 Nocleg: Senegambia Beach Hotel (4★)</div>
+        </div>
+
+        <div class="day-item">
+            <h3>Dzień 7 – Park Narodowy Kiang West i Dolna Gambia</h3>
+            <p>Wyjazd z wybrzeża w kierunku Parku Narodowego Kiang West. Lekki trekking (6–10 km) po łatwych ścieżkach z przystankami na obserwację ptaków i zwierząt. Po pikniku kontynuacja podróży do regionu Dolnej Gambii i zakwaterowanie w Bintang Bolong Lodge położonym nad namorzynami. Spokojny wieczór nad rzeką.</p>
+            <div class="accommodation">🏨 Nocleg: Bintang Bolong Lodge (3★)</div>
+        </div>
+
+        <div class="day-item">
+            <h3>Dzień 8 – Bintang Bolong – Rejs po Namorzynach</h3>
+            <p>Rejs motorówką po spokojnych kanałach namorzynowych – obserwacja ptaków i codziennego życia mieszkańców wiosek. Po lunchu możliwość drugiego rejsu lub wizyty w pobliskiej wiosce. Wieczorem relaks przy rzece, chłodna bryza i obserwacja gwiazd.</p>
+            <div class="accommodation">🏨 Nocleg: Bintang Bolong Lodge (3★)</div>
+        </div>
+
+        <div class="day-item">
+            <h3>Dzień 9 – Janjanbureh (Georgetown) i Rzeka Gambia</h3>
+            <p>Kontynuacja podróży w górę rzeki do Janjanbureh (dawniej Georgetown). Krótka orientacja w miasteczku i zakwaterowanie w prostym hotelu nad rzeką. Popołudniowy rejs w pobliżu wysp Parku Narodowego River Gambia (bez wysiadania) – obserwacja hipopotamów, małp i ptaków z łodzi. Wieczorem, jeśli dostępne, muzyka i kolacja przy ognisku.</p>
+            <div class="accommodation">🏨 Nocleg: Bird Safari Camp lub Janjanbureh Guesthouse</div>
+        </div>
+
+        <div class="day-item">
+            <h3>Dzień 10 – Kręgi Kamienne Wassu i Powrót na Wybrzeże</h3>
+            <p>Wizyta przy słynnych kręgach kamiennych Wassu – poznanie megalitycznej historii regionu. Postój w lokalnym targu lub szkole (w zależności od możliwości). Po lunchu powrót na wybrzeże i czas na odpoczynek przy oceanie.</p>
+            <div class="accommodation">🏨 Nocleg: Senegambia Beach Hotel (4★)</div>
+        </div>
+
+        <div class="day-item">
+            <h3>Dzień 11 – Senegal – Rezerwat Przyrody Fathala (opcjonalnie Walking with Lions)</h3>
+            <p>Wczesny wyjazd z pomocą przy przekroczeniu granicy Amdalai/Karang. Przejazd do Rezerwatu Fathala w Senegalu i safari samochodem terenowym – obserwacja antylop, żyraf, bawołów i ptaków. Na miejscu możliwość uczestnictwa w opcjonalnym programie „Walking with Lions" (obowiązują ograniczenia wiekowe i zasady bezpieczeństwa).</p>
+            <div class="accommodation">🏨 Nocleg: Fathala Lodge (4★) lub powrót na wybrzeże</div>
+        </div>
+
+        <div class="day-item">
+            <h3>Dzień 12 – Senegal – Jezioro Różowe (Lac Rose)</h3>
+            <p>Wyjazd nad Lac Rose (Lake Retba) – poznanie tradycyjnych metod wydobywania soli. Dla chętnych przejazd samochodem 4×4 po wydmach dawnych tras rajdu Paryż–Dakar. Sesja zdjęciowa nad jeziorem, którego barwa zmienia się w zależności od światła i pory dnia. Powrót do Gambii lub możliwość noclegu przy Lac Rose/Dakar.</p>
+            <div class="accommodation">🏨 Nocleg: Senegambia Beach Hotel (4★)</div>
+        </div>
+
+        <div class="day-item">
+            <h3>Dzień 13 – Wybrzeże – Czas Wolny i Kolacja Pożegnalna</h3>
+            <p>Dzień relaksu nad oceanem. Możliwość udziału w opcjonalnych zajęciach: stand-up paddle, kajaki, wędkarstwo, masaże i spa, zakupy sztuki, batiku i rzeźb u sprawdzonych rzemieślników. Wieczorem kolacja pożegnalna przy muzyce na żywo.</p>
+            <div class="accommodation">🏨 Nocleg: Senegambia Beach Hotel (4★)</div>
+        </div>
+
+        <div class="day-item">
+            <h3>Dzień 14 – Wylot</h3>
+            <p>Śniadanie, ostatni spacer po plaży i prywatny transfer na lotnisko w Banjul. Pomoc przy odprawie i bagażu. <strong>Zakończenie programu.</strong></p>
+        </div>
+
+        <div class="info-section">
+            <h2>✅ Co Zawiera Cena</h2>
+            <div class="included-list">
+                <div class="list-item">
+                    <strong>🚗 Transport i Transfery</strong><br>
+                    Prywatny transport 4×4 z kierowcą przez cały program, transfery lotniskowe, rejsy łodzią
+                </div>
+                <div class="list-item">
+                    <strong>👨‍🏫 Przewodnictwo</strong><br>
+                    Polskojęzyczny przewodnik (na życzenie), licencjonowani przewodnicy lokalni
+                </div>
+                <div class="list-item">
+                    <strong>🏨 Zakwaterowanie</strong><br>
+                    Starannie dobrane hotele 3–4★, wszystkie noclegi zgodnie z programem
+                </div>
+                <div class="list-item">
+                    <strong>🎯 Aktywności</strong><br>
+                    Wszystkie wymienione aktywności, bilety wstępu do parków i miejsc UNESCO
+                </div>
+                <div class="list-item">
+                    <strong>🆘 Wsparcie</strong><br>
+                    24/7 wsparcie lokalne, asysta przy przekraczaniu granic
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>❌ Czego Nie Obejmuje</h2>
+            <div class="included-list">
+                <div class="list-item excluded-item">
+                    <strong>✈️ Loty</strong><br>
+                    Loty międzynarodowe do/z Gambii lub Senegalu
+                </div>
+                <div class="list-item excluded-item">
+                    <strong>📋 Formalności</strong><br>
+                    Wizy, podatki graniczne i ubezpieczenie podróżne
+                </div>
+                <div class="list-item excluded-item">
+                    <strong>🍽️ Posiłki</strong><br>
+                    Posiłki i napoje niewymienionych w programie
+                </div>
+                <div class="list-item excluded-item">
+                    <strong>🎭 Opcje</strong><br>
+                    Atrakcje opcjonalne (Walking with Lions, spa, 4×4 po wydmach)
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>📋 Informacje Praktyczne</h2>
+            <div class="highlight-box">
+                <h4>🌤️ Najlepszy Czas Podróży:</h4>
+                <p><strong>Listopad–Kwiecień:</strong> Pora sucha, chłodniejsze noce i plażowanie<br>
+                <strong>Maj–Październik:</strong> Zielony sezon, doskonały dla obserwatorów ptaków</p>
+            </div>
+            
+            <p><strong>🛂 Formalności:</strong> Paszport ważny min. 6 miesięcy, niektóre narodowości wymagają wizy do Senegalu</p>
+            <p><strong>🚶 Poziom aktywności:</strong> Lekki do umiarkowanego (trekking 6–10 km, jazda konna)</p>
+            <p><strong>🔄 Elastyczność:</strong> Program może być dostosowany do warunków lokalnych</p>
+        </div>
+
+        <div class="info-section">
+            <h2>🎯 Why Choose Gambian Tour</h2>
+            <div class="included-list">
+                <div class="list-item">
+                    <strong>🤝 Professional Experience</strong><br>
+                    Reliable local DMC with flexible service options
+                </div>
+                <div class="list-item">
+                    <strong>🌍 Local Partnerships</strong><br>
+                    Established relationships with hotels and local communities
+                </div>
+                <div class="list-item">
+                    <strong>🗣️ Multilingual Support</strong><br>
+                    English, Polish, and local language expertise
+                </div>
+                <div class="list-item">
+                    <strong>🛡️ Safety & Quality</strong><br>
+                    Licensed guides, insured vehicles, 24/7 support
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2>📞 Kontakt - Gambian Tour</h2>
+            <div class="contact-info">
+                <p>🌐 <strong>Website:</strong> www.gambiantour.com</p>
+                <p>✉️ <strong>Email:</strong> info@gambiantour.com</p>
+                <p>📱 <strong>Telefon:</strong> +48 504 224 794</p>
+                <br>
+                <p><em>Premium West Africa adventure tours and cultural experiences</em><br>
+                <strong>Authentic Adventures • Professional Service • Local Expertise</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load navbar
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                initializeMobileMenu();
+            });
+        
+        // Initialize mobile menu functionality
+        function initializeMobileMenu() {
+            window.toggleMenu = function() {
+                const navbarLinks = document.getElementById('navbarLinks');
+                const burgerButton = document.getElementById('burgerButton');
+                
+                if (navbarLinks && burgerButton) {
+                    navbarLinks.classList.toggle('active');
+                    burgerButton.classList.toggle('active');
+                }
+            };
+            
+            const links = document.querySelectorAll('.navbar-links a');
+            links.forEach(link => {
+                link.addEventListener('click', function() {
+                    const navbarLinks = document.getElementById('navbarLinks');
+                    const burgerButton = document.getElementById('burgerButton');
+                    
+                    if (window.innerWidth <= 767 && navbarLinks && burgerButton) {
+                        navbarLinks.classList.remove('active');
+                        burgerButton.classList.remove('active');
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>

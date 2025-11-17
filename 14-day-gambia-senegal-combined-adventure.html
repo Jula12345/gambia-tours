@@ -292,17 +292,126 @@
             border-left: 4px solid #2196f3;
         }
 
+        /* Language Toggle Styles */
+        .language-toggle {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .language-toggle h3 {
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        .lang-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .lang-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 120px;
+            justify-content: center;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, #FFB300 0%, #FF8F00 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255,179,0,0.3);
+        }
+
+        .lang-btn.inactive {
+            background: #f8f9fa;
+            color: #6c757d;
+            border: 2px solid #e9ecef;
+        }
+
+        .lang-btn.inactive:hover {
+            background: #e9ecef;
+            color: #495057;
+            transform: translateY(-2px);
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 10px;
             }
             
             .header h1 {
-                font-size: 2.5em;
+                font-size: 2.2em;
             }
             
             .day-meta {
                 grid-template-columns: 1fr;
+            }
+
+            .language-toggle {
+                padding: 10px;
+                margin: 10px 0;
+            }
+
+            .lang-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .lang-btn {
+                min-width: 200px;
+                margin: 5px 0;
+            }
+
+            .day-title {
+                font-size: 1.4em;
+            }
+
+            .day-content {
+                padding: 15px;
+            }
+
+            .overview-card {
+                padding: 20px;
+            }
+
+            .overview-card .big-number {
+                font-size: 2.5em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .lang-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .day-container {
+                margin-bottom: 15px;
+            }
+
+            .pricing-table th,
+            .pricing-table td {
+                padding: 8px;
+                font-size: 14px;
             }
         }
 
@@ -331,10 +440,19 @@
 <body>
     <div class="container">
         <!-- Language Toggle -->
-        <div style="text-align: center; margin-bottom: 20px; padding: 10px; background: rgba(255,255,255,0.9); border-radius: 8px;">
-            <button onclick="switchLanguage('en')" id="btn-en" style="padding: 10px 20px; margin: 5px; background: #FFB300; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">🇬🇧 English</button>
-            <button onclick="switchLanguage('pl')" id="btn-pl" style="padding: 10px 20px; margin: 5px; background: #ccc; color: #333; border: none; border-radius: 5px; cursor: pointer;" onclick="window.location.href='gambia-senegal-adventure.html'">🇵🇱 Polski</button>
-            <button onclick="switchLanguage('nl')" id="btn-nl" style="padding: 10px 20px; margin: 5px; background: #ccc; color: #333; border: none; border-radius: 5px; cursor: pointer;">🇳🇱 Nederlands</button>
+        <div class="language-toggle">
+            <h3>🌍 Choose Your Language / Wybierz Język</h3>
+            <div class="lang-buttons">
+                <button class="lang-btn active" id="btn-en">
+                    🇬🇧 English
+                </button>
+                <a href="gambia-senegal-adventure.html" class="lang-btn inactive">
+                    🇵🇱 Polski
+                </a>
+                <button class="lang-btn inactive" onclick="alert('Dutch translation coming soon! Nederlandse vertaling binnenkort beschikbaar!')">
+                    🇳🇱 Nederlands
+                </button>
+            </div>
         </div>
 
         <div class="header">
@@ -1021,27 +1139,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-        function switchLanguage(lang) {
-            if (lang === 'pl') {
-                window.location.href = 'gambia-senegal-adventure.html';
-                return;
-            }
-            
-            if (lang === 'nl') {
-                alert('Dutch translation coming soon! / Nederlandse vertaling binnenkort beschikbaar!');
-                return;
-            }
-            
-            // For English, just update button styles
-            document.querySelectorAll('[id^="btn-"]').forEach(btn => {
-                btn.style.background = '#ccc';
-                btn.style.color = '#333';
-            });
-            document.getElementById('btn-' + lang).style.background = '#FFB300';
-            document.getElementById('btn-' + lang).style.color = 'white';
-        }
-    </script>
 </body>
 </html>
