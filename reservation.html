@@ -38,8 +38,31 @@
   <div id="navbar-placeholder"></div>
   <div class="container">
     <section class="reservation-form">
-      <h1>Reservation Form</h1>
-      <p>Fill out the form below to reserve your tour. We'll get back to you with confirmation and details. For custom requests, use the notes section.</p>
+      <h1>Instant Tour Booking</h1>
+      
+      <!-- Trust Signals -->
+      <div style="background: #f8f9fa; border-radius: 10px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid #2c5530;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; text-align: center;">
+          <div>
+            <strong style="color: #2c5530; font-size: 1.1rem;">✅ Instant Confirmation</strong><br>
+            <span style="font-size: 0.9rem; color: #666;">Response within 2 hours</span>
+          </div>
+          <div>
+            <strong style="color: #2c5530; font-size: 1.1rem;">🛡️ Safe & Insured</strong><br>
+            <span style="font-size: 0.9rem; color: #666;">Licensed local operator</span>
+          </div>
+          <div>
+            <strong style="color: #2c5530; font-size: 1.1rem;">💯 Satisfaction Guarantee</strong><br>
+            <span style="font-size: 0.9rem; color: #666;">4.8/5 average rating</span>
+          </div>
+          <div>
+            <strong style="color: #2c5530; font-size: 1.1rem;">📞 24/7 Support</strong><br>
+            <span style="font-size: 0.9rem; color: #666;">WhatsApp +48 504 224 794</span>
+          </div>
+        </div>
+      </div>
+      
+      <p><strong>Get instant pricing and availability!</strong> Fill out the form below or <a href="https://wa.me/48504224794" style="color: #25D366; font-weight: bold;">WhatsApp us directly</a> for immediate assistance.</p>
       <form action="https://formspree.io/f/xjkakeqa" method="POST">
         <label for="name">Full Name:</label>
         <input type="text" id="name" name="name" required>
@@ -67,34 +90,38 @@
         <label for="tour">Select Your Experience:</label>
         <select id="tour" name="tour" required>
           <option value="">Choose your adventure</option>
-          <optgroup label="Multi-Day Packages">
-            <option value="7-day-adventure">🌟 7-Day Gambia Adventure</option>
-            <option value="senegal-gambia">🌍 Senegal & Gambia Combo</option>
-            <option value="7-14-day-packages">📅 7-14 Day Tour Packages</option>
+          <optgroup label="🌍 Multi-Day Packages (€1,050-€1,250)">
+            <option value="7-day-adventure">🌟 7-Day Gambia Adventure (€1,050)</option>
+            <option value="senegal-gambia">🌍 Senegal & Gambia Combo (€1,250)</option>
+            <option value="7-14-day-packages">📅 14-Day Complete Package (€1,250)</option>
           </optgroup>
-          <optgroup label="Wildlife & Nature">
-            <option value="bird-watching">🦅 Bird Watching at Abuko</option>
-            <option value="river-cruise">🌅 River Gambia Cruise</option>
-            <option value="tanji-fishing">🐟 Tanji Fishing Village</option>
-            <option value="crocodile-pool">🐊 Kachikally Crocodile Pool</option>
+          <optgroup label="🦅 Wildlife & Nature (€45-85)">
+            <option value="bird-watching">🦅 Bird Watching at Abuko (€65)</option>
+            <option value="river-cruise">🌅 River Gambia Cruise (€75)</option>
+            <option value="tanji-fishing">🐟 Tanji Fishing Village (€55)</option>
+            <option value="crocodile-pool">🐊 Kachikally Crocodile Pool (€45)</option>
           </optgroup>
-          <optgroup label="Culture & History">
-            <option value="city-cultural">🏛️ Banjul City Cultural Tour</option>
-            <option value="village-life">🏘️ Village Life Experience</option>
-            <option value="sacred-sites">🙏 Sacred Sites & Spirituality</option>
+          <optgroup label="🏛️ Culture & History (€50-70)">
+            <option value="city-cultural">🏛️ Banjul City Cultural Tour (€55)</option>
+            <option value="village-life">🏘️ Village Life Experience (€70)</option>
+            <option value="sacred-sites">🙏 Sacred Sites & Spirituality (€60)</option>
           </optgroup>
-          <optgroup label="Activities & Learning">
-            <option value="cooking-class">🍲 Traditional Cooking Class</option>
-            <option value="craft-workshop">🎨 Artisan Craft Workshop</option>
-            <option value="serrekunda-market">🛍️ Serrekunda Market Tour</option>
+          <optgroup label="🎨 Activities & Learning (€50-65)">
+            <option value="cooking-class">🍲 Traditional Cooking Class (€65)</option>
+            <option value="craft-workshop">🎨 Artisan Craft Workshop (€55)</option>
+            <option value="serrekunda-market">🛍️ Serrekunda Market Tour (€50)</option>
+          </optgroup>
+          <optgroup label="✈️ Airport Services (€45-50)">
+            <option value="airport-transfer">✈️ Airport Transfer Only (€45-50)</option>
+            <option value="airport-welcome">🎉 Airport + Welcome Tour (€85)</option>
           </optgroup>
           <optgroup label="Other">
-            <option value="custom">✨ Custom Tour</option>
+            <option value="custom">✨ Custom Tour (Price on request)</option>
           </optgroup>
         </select>
         
         <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">
-          <strong>Note:</strong> Pricing and detailed itineraries will be provided in our response. 
+          <strong>💰 Pricing Guide:</strong> Day tours €45-85 | Multi-day packages €1,050-€1,250 (all inclusive) | Airport transfer €45-50. 
           <a href="itineraries.html" target="_blank">View detailed itineraries here</a>
         </p>
         
