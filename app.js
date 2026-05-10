@@ -1,4 +1,5 @@
 const BOOKING_RECIPIENT_EMAIL = "info@gambiantour.com";
+const FORM_SUBMIT_ENDPOINT = "https://formsubmit.co/ajax/info@gambiantour.com";
 
 const translations = {
   en: {
@@ -77,8 +78,8 @@ const translations = {
     keyword5: "Birdwatching tour in Gambia",
     keyword6: "Things to do in Gambia beyond the beach",
     storiesKicker: "Tour stories",
-    storiesTitle: "A place for real relations from previous Gambia tours.",
-    storiesCopy: "Use this section to publish short relations from completed tours: route, guest interests, stops, photos and practical travel notes. It helps travelers trust the service and gives Google fresh, useful Gambia travel content.",
+    storiesTitle: "Stories and route ideas from private Gambia tours.",
+    storiesCopy: "Read inspiring Gambia travel stories before you choose your route: river days, Banjul market walks, birdwatching mornings and flexible private excursions from the coast.",
     storiesButton: "Read tour stories",
     faqKicker: "Gambia tour FAQ",
     faqTitle: "Questions travelers ask before booking",
@@ -120,10 +121,14 @@ const translations = {
     placeholderPickup: "Kololi, Kotu, Senegambia, Banjul...",
     placeholderNotes: "Language preference, interests, accessibility needs, children, timing, food preferences",
     sendRequest: "Send request",
+    emailSending: "Sending request to info@gambiantour.com...",
+    emailSentMessage: "Thank you. Request {id} has been sent to info@gambiantour.com. We will reply soon.",
+    emailSentToast: "Booking request sent.",
+    emailSendError: "Automatic sending did not work. Please use the email draft that opened, or email info@gambiantour.com directly.",
     savedMessage: "Request {id} is saved for {tour}. A ready email can be sent to info@gambiantour.com.",
     savedToast: "Booking request {id} is saved.",
     emailSubject: "Gambia tour booking request {id} - {tour}",
-    emailOpenedMessage: "Request {id} is saved. A ready email with the booking details has been opened.",
+    emailOpenedMessage: "Automatic sending did not work, so a ready email draft with the booking details has been opened.",
     emailOpenedToast: "Ready booking email opened.",
     emailNotConfigured: "The form is ready, but the recipient email is missing.",
     emailNotConfiguredToast: "Booking recipient email is missing.",
@@ -215,8 +220,8 @@ const translations = {
     keyword5: "Obserwacja ptaków w Gambii",
     keyword6: "Co zobaczyć w Gambii poza plażą",
     storiesKicker: "Relacje z tras",
-    storiesTitle: "Miejsce na relacje z poprzednich wycieczek po Gambii.",
-    storiesCopy: "Tutaj można publikować krótkie relacje z zakończonych tras: przebieg dnia, zainteresowania gości, postoje, zdjęcia i praktyczne notatki.",
+    storiesTitle: "Relacje i pomysły na prywatne wycieczki po Gambii.",
+    storiesCopy: "Zainspiruj się trasami po Gambii: spokojny dzień nad rzeką, targ w Banjul, poranna obserwacja ptaków i prywatne wycieczki z wybrzeża.",
     storiesButton: "Czytaj relacje",
     faqKicker: "FAQ",
     faqTitle: "Pytania przed rezerwacją",
@@ -258,10 +263,14 @@ const translations = {
     placeholderPickup: "Kololi, Kotu, Senegambia, Banjul...",
     placeholderNotes: "Preferowany język, zainteresowania, dzieci, godziny, jedzenie, dostępność",
     sendRequest: "Wyślij zapytanie",
+    emailSending: "Wysyłamy zapytanie na info@gambiantour.com...",
+    emailSentMessage: "Dziękujemy. Zapytanie {id} zostało wysłane na info@gambiantour.com. Odpowiemy wkrótce.",
+    emailSentToast: "Zapytanie zostało wysłane.",
+    emailSendError: "Automatyczna wysyłka nie zadziałała. Użyj otwartej wiadomości email albo napisz bezpośrednio na info@gambiantour.com.",
     savedMessage: "Zapytanie {id} zapisane dla trasy: {tour}. Gotową wiadomość można wysłać na info@gambiantour.com.",
     savedToast: "Zapytanie {id} zostało zapisane.",
     emailSubject: "Zapytanie o wycieczkę po Gambii {id} - {tour}",
-    emailOpenedMessage: "Zapytanie {id} zostało zapisane. Otworzyliśmy gotową wiadomość email z danymi rezerwacji.",
+    emailOpenedMessage: "Automatyczna wysyłka nie zadziałała, więc otworzyliśmy gotową wiadomość email z danymi rezerwacji.",
     emailOpenedToast: "Gotowa wiadomość email została otwarta.",
     emailNotConfigured: "Formularz jest gotowy, ale brakuje adresu odbiorcy.",
     emailNotConfiguredToast: "Brakuje adresu odbiorcy rezerwacji.",
@@ -658,24 +667,83 @@ function openBookingEmail(booking, title) {
   return true;
 }
 
-function handleBookingSubmit(event) {
+function bookingSubmissionPayload(booking, title) {
+  const fallback = t("emailBodyMissing");
+
+  return {
+    _subject: template(t("emailSubject"), { id: booking.id, tour: title }),
+    _template: "table",
+    _captcha: "false",
+    _replyto: booking.email,
+    website: "GambianTour.com",
+    language: booking.language,
+    "Request ID": booking.id,
+    "Created at": booking.createdAt,
+    Tour: title,
+    Date: booking.date,
+    Guests: booking.guests,
+    Name: booking.name,
+    Email: booking.email,
+    "Phone or WhatsApp": booking.phone,
+    "Hotel / pickup area": booking.pickup || fallback,
+    Notes: booking.notes || fallback
+  };
+}
+
+async function sendBookingRequest(booking, title) {
+  const response = await fetch(FORM_SUBMIT_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    },
+    body: JSON.stringify(bookingSubmissionPayload(booking, title))
+  });
+
+  if (!response.ok) {
+    throw new Error("Booking form email request failed.");
+  }
+
+  return response.json().catch(() => ({}));
+}
+
+async function handleBookingSubmit(event) {
   event.preventDefault();
 
   if (!selectors.modalForm.reportValidity()) {
     return;
   }
 
-  const booking = saveBooking(new FormData(selectors.modalForm));
-  const title = tourCopy(getTour(booking.tour)).title;
-  const emailOpened = openBookingEmail(booking, title);
+  const submitButton = selectors.modalForm.querySelector('button[type="submit"]');
+  submitButton.disabled = true;
+  selectors.feedback.textContent = t("emailSending");
 
-  if (emailOpened) {
-    selectors.feedback.textContent = template(t("emailOpenedMessage"), { id: booking.id, tour: title });
-    showToast(t("emailOpenedToast"));
+  const formData = new FormData(selectors.modalForm);
+
+  if (formData.get("_honey")) {
+    selectors.feedback.textContent = t("emailSentToast");
+    submitButton.disabled = false;
     return;
   }
 
-  selectors.feedback.textContent = t("emailNotConfigured");
+  formData.delete("_honey");
+
+  const booking = saveBooking(formData);
+  const title = tourCopy(getTour(booking.tour)).title;
+
+  try {
+    await sendBookingRequest(booking, title);
+    selectors.feedback.textContent = template(t("emailSentMessage"), { id: booking.id, tour: title });
+    showToast(t("emailSentToast"));
+  } catch (error) {
+    const emailOpened = openBookingEmail(booking, title);
+    selectors.feedback.textContent = emailOpened
+      ? template(t("emailOpenedMessage"), { id: booking.id, tour: title })
+      : t("emailSendError");
+    showToast(emailOpened ? t("emailOpenedToast") : t("emailNotConfiguredToast"));
+  } finally {
+    submitButton.disabled = false;
+  }
 }
 
 function updateMenuLabel() {
