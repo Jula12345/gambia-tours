@@ -330,10 +330,10 @@
         <div class="section-header">
           <div>
             <div class="section-kicker" data-i18n="storiesKicker">Tour stories</div>
-            <h2 data-i18n="storiesTitle">A place for real relations from previous Gambia tours.</h2>
+            <h2 data-i18n="storiesTitle">Stories and route ideas from private Gambia tours.</h2>
           </div>
           <p data-i18n="storiesCopy">
-            Use this section to publish short relations from completed tours: route, guest interests, stops, photos and practical travel notes. It helps travelers trust the service and gives Google fresh, useful Gambia travel content.
+            Read inspiring Gambia travel stories before you choose your route: river days, Banjul market walks, birdwatching mornings and flexible private excursions from the coast.
           </p>
         </div>
         <a class="primary-button inline-button" href="stories.html">
@@ -410,7 +410,7 @@
     </footer>
 
     <dialog class="booking-modal" data-booking-modal>
-      <form method="dialog" class="modal-shell" data-booking-form>
+      <form method="post" action="https://formsubmit.co/info@gambiantour.com" class="modal-shell" data-booking-form>
         <button class="icon-button modal-close" type="button" aria-label="Close booking form" data-close-modal data-i18n-aria-label="modalClose">
           <i data-lucide="x"></i>
         </button>
@@ -462,6 +462,10 @@
           <label class="wide">
             <span data-i18n="formNotes">Notes</span>
             <textarea name="notes" rows="4" placeholder="Language preference, interests, accessibility needs, children, timing, food preferences" data-i18n-placeholder="placeholderNotes"></textarea>
+          </label>
+          <label class="form-honey" aria-hidden="true">
+            Leave this field empty
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off" />
           </label>
         </div>
         <div class="modal-footer">

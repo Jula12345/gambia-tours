@@ -35,12 +35,12 @@
     </script>
   </head>
   <body>
-    <header class="site-header scrolled">
+    <header class="site-header scrolled" data-header>
       <a class="brand" href="index.html" aria-label="GambianTour.com home">
         <span class="brand-mark-text">GT</span>
         <span class="brand-name">GambianTour<span>.com</span></span>
       </a>
-      <nav class="nav-links open-on-page">
+      <nav class="nav-links" data-nav>
         <a href="index.html#tours">Tours</a>
         <a href="index.html#why">Why us</a>
         <a href="polish-speaking-guide.html">Polski przewodnik</a>
@@ -49,6 +49,9 @@
       </nav>
       <div class="header-actions">
         <a class="header-cta" href="index.html#booking">Rezerwuj</a>
+        <button class="icon-button menu-toggle" type="button" aria-label="Otwórz menu" data-menu-toggle>
+          <i data-lucide="menu"></i>
+        </button>
       </div>
     </header>
 
@@ -115,6 +118,25 @@
 
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <script>
+      const nav = document.querySelector("[data-nav]");
+      const menuToggle = document.querySelector("[data-menu-toggle]");
+
+      function updateMenuLabel() {
+        if (!menuToggle || !nav) return;
+        menuToggle.setAttribute("aria-label", nav.classList.contains("open") ? "Zamknij menu" : "Otwórz menu");
+      }
+
+      if (menuToggle && nav) {
+        menuToggle.addEventListener("click", () => {
+          nav.classList.toggle("open");
+          updateMenuLabel();
+        });
+        nav.addEventListener("click", () => {
+          nav.classList.remove("open");
+          updateMenuLabel();
+        });
+      }
+
       if (window.lucide) window.lucide.createIcons();
     </script>
   </body>

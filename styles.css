@@ -45,6 +45,11 @@ textarea {
   font: inherit;
 }
 
+button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -777,11 +782,23 @@ textarea:focus {
 .story-card {
   display: grid;
   gap: 14px;
+  overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: #fff;
-  padding: 22px;
   box-shadow: 0 18px 44px rgba(18, 31, 27, 0.08);
+}
+
+.story-card img {
+  width: 100%;
+  aspect-ratio: 1.36;
+  object-fit: cover;
+}
+
+.story-card-content {
+  display: grid;
+  gap: 14px;
+  padding: 22px;
 }
 
 .story-card span {
@@ -791,10 +808,39 @@ textarea:focus {
   text-transform: uppercase;
 }
 
+.story-card h3 {
+  margin-bottom: 0;
+}
+
 .story-card p,
 .content-columns p {
   color: var(--muted);
   line-height: 1.68;
+}
+
+.story-card p {
+  margin-bottom: 0;
+}
+
+.story-meta {
+  color: var(--ocean) !important;
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.45 !important;
+}
+
+.story-link {
+  width: fit-content;
+  margin-top: 2px;
+  color: var(--leaf);
+  font-weight: 900;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.story-cta {
+  margin-top: 22px;
 }
 
 .content-columns {
@@ -1047,6 +1093,14 @@ cite {
   grid-column: span 3;
 }
 
+.form-honey {
+  position: absolute;
+  left: -100vw;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .modal-footer {
   justify-content: space-between;
   margin-top: 22px;
@@ -1177,11 +1231,20 @@ svg {
 @media (max-width: 680px) {
   .site-header {
     inset: 10px 10px auto;
+    gap: 10px;
+    padding: 8px;
   }
 
   .brand {
-    min-height: 48px;
-    padding: 6px 8px;
+    min-height: 40px;
+    gap: 7px;
+    padding: 5px 9px 5px 5px;
+  }
+
+  .brand-mark-text {
+    width: 34px;
+    height: 34px;
+    font-size: 0.78rem;
   }
 
   .brand-name span {
@@ -1189,29 +1252,97 @@ svg {
   }
 
   .brand-name {
-    font-size: 0.94rem;
+    font-size: 0.9rem;
+  }
+
+  .header-actions {
+    gap: 7px;
+  }
+
+  .icon-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .language-toggle {
+    min-height: 40px;
+    padding: 3px;
   }
 
   .hero {
-    padding: 108px 14px 20px;
+    padding: 160px 14px 20px;
   }
 
   .hero-content {
-    padding-bottom: 10px;
+    padding-bottom: 8px;
+  }
+
+  .eyebrow,
+  .section-kicker {
+    margin-bottom: 10px;
+    font-size: 0.7rem;
+    line-height: 1.35;
   }
 
   .carousel-controls {
-    top: 92px;
+    top: 94px;
+    left: 14px;
     right: 14px;
     bottom: auto;
+    justify-content: space-between;
+    gap: 10px;
+    pointer-events: none;
+  }
+
+  .carousel-controls > * {
+    pointer-events: auto;
+  }
+
+  .carousel-dots {
+    min-height: 36px;
+    gap: 6px;
+    padding: 0 9px;
+    background: rgba(10, 24, 20, 0.52);
+  }
+
+  .carousel-dot {
+    width: 7px;
+    height: 7px;
+  }
+
+  .carousel-dot.active {
+    width: 20px;
+  }
+
+  .carousel-arrow {
+    width: 38px;
+    height: 38px;
   }
 
   .language-toggle button {
-    min-width: 34px;
+    min-width: 32px;
+    font-size: 0.74rem;
   }
 
   h1 {
-    font-size: clamp(2.8rem, 15vw, 4.8rem);
+    margin-bottom: 14px;
+    font-size: clamp(2.3rem, 11vw, 3.55rem);
+    line-height: 0.98;
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 8vw, 2.55rem);
+    line-height: 1.02;
+  }
+
+  h3 {
+    font-size: 1.12rem;
+  }
+
+  .hero-copy {
+    margin-bottom: 18px;
+    font-size: 1rem;
+    line-height: 1.48;
   }
 
   .hero-actions,
@@ -1224,10 +1355,35 @@ svg {
   .primary-button,
   .secondary-button {
     width: 100%;
+    min-height: 50px;
+    padding: 0 14px;
+    font-size: 1rem;
   }
 
   .booking-strip {
     grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  label {
+    gap: 6px;
+    font-size: 0.7rem;
+  }
+
+  input,
+  select,
+  textarea {
+    min-height: 44px;
+    font-size: 16px;
+  }
+
+  .intro-copy p,
+  .section-header p,
+  .feature-copy p,
+  .contact-panel p {
+    font-size: 0.98rem;
+    line-height: 1.62;
   }
 
   .section {
@@ -1249,6 +1405,16 @@ svg {
     padding: 108px 14px 48px;
   }
 
+  .page-hero h1 {
+    font-size: clamp(2.25rem, 11vw, 3.35rem);
+    line-height: 1.02;
+  }
+
+  .page-hero p {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
   .form-grid .wide {
     grid-column: span 1;
   }
@@ -1259,5 +1425,42 @@ svg {
 
   .footer-links {
     flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 420px) {
+  .site-header {
+    inset: 8px 8px auto;
+  }
+
+  .brand-name {
+    font-size: 0.82rem;
+  }
+
+  .language-toggle button {
+    min-width: 29px;
+  }
+
+  .icon-button {
+    width: 38px;
+    height: 38px;
+  }
+
+  .hero {
+    padding-top: 148px;
+  }
+
+  .carousel-controls {
+    top: 88px;
+    left: 12px;
+    right: 12px;
+  }
+
+  h1 {
+    font-size: clamp(2.15rem, 10.5vw, 3rem);
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2.05rem, 10vw, 2.85rem);
   }
 }
