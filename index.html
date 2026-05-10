@@ -1,1803 +1,482 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Search Console verification -->
-  <meta name="google-site-verification" content="TlkN5pUiupvVXX96E">
-  
-  <!-- Multilingual SEO -->
-  <link rel="alternate" hreflang="en" href="https://www.gambiantour.com/" />
-  <link rel="alternate" hreflang="pl" href="https://www.gambiantour.com/pl/" />
-  <link rel="alternate" hreflang="x-default" href="https://www.gambiantour.com/" />
-  
-  <title>Gambia Tours | Authentic West Africa Travel with Expert Local Guides</title>
-  <meta name="description" content="Discover authentic Gambia with experienced local guides. Bird watching, cultural tours, river safaris, and city exploration. Professional multilingual service including Polish language support. Book your West African adventure today.">
-  <meta name="keywords" content="Gambia tours, West Africa travel, bird watching, cultural tours, river safari, local guides, holiday packages, authentic experiences">
-  <meta name="author" content="Gambia Tours">
-  
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.gambiantour.com/">
-  <meta property="og:title" content="Gambia Tours | West Africa Travel & Holiday Packages">
-  <meta property="og:description" content="Book unforgettable tours, day trips, and holiday packages in The Gambia and Senegal. Enjoy city sightseeing, bird watching, culinary classes, and more with Gambia Tours.">
-  <meta property="og:image" content="https://www.gambiantour.com/photos/logo.png">
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://www.gambiantour.com/">
-  <meta property="twitter:title" content="Gambia Tours | West Africa Travel & Holiday Packages">
-  <meta property="twitter:description" content="Book unforgettable tours, day trips, and holiday packages in The Gambia and Senegal. Enjoy city sightseeing, bird watching, culinary classes, and more with Gambia Tours.">
-  <meta property="twitter:image" content="https://www.gambiantour.com/photos/logo.png">
-
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://www.gambiantour.com/">
-  
-  <!-- Google Analytics 4 (GA4) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-93MZTZEC7X"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-93MZTZEC7X', {
-      page_title: 'Gambia Tours - West Africa Travel',
-      page_location: window.location.href,
-      custom_map: {
-        'dimension1': 'tour_type',
-        'dimension2': 'visitor_country'
-      }
-    });
-    
-    // Enhanced ecommerce tracking for tour bookings
-    gtag('config', 'G-93MZTZEC7X', {
-      'send_page_view': true,
-      'anonymize_ip': true,
-      'allow_google_signals': true,
-      'allow_ad_personalization_signals': false
-    });
-  </script>
-  
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "TravelAgency",
-    "name": "Gambia Tours",
-    "url": "https://www.gambiantour.com",
-    "logo": "https://www.gambiantour.com/photos/logo.png",
-    "description": "Professional travel agency offering authentic tours, bird watching expeditions, cultural experiences, and holiday packages in The Gambia and Senegal. Peak season availability 2024-2025.",
-    "foundingDate": "2020",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "GM",
-      "addressLocality": "Banjul",
-      "addressRegion": "Greater Banjul Area"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+48-504-224-794",
-      "contactType": "customer service",
-      "email": "info@gambiantour.com",
-      "availableLanguage": ["English", "Polish", "French", "Spanish"]
-    },
-    "offers": {
-      "@type": "Offer",
-      "name": "West Africa Tour Packages",
-      "description": "Comprehensive tour packages including bird watching, cultural tours, and river safaris",
-      "priceRange": "€1,050-€1,250",
-      "availability": "InStock",
-      "validFrom": "2024-11-19"
-    },
-    "serviceArea": {
-      "@type": "Place",
-      "name": "The Gambia and Senegal",
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "13.4432",
-        "longitude": "-15.3101"
-      }
-    },
-    "sameAs": [
-      "https://facebook.com/gambiantour",
-      "https://instagram.com/gambiantour",
-      "https://twitter.com/gambiantour"
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "127",
-      "bestRating": "5"
-    }
-  }
-  </script>
-  
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX'); // Replace with your actual GA4 tracking ID
-  </script>
-  
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://gambiantour.com/style.css">
-  
-  <!-- Enhanced FAQ Styling -->
-  <style>
-    .faq-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    
-    .faq-category {
-      background: #f8f9fa;
-      padding: 1.5rem;
-      border-radius: 12px;
-      border-left: 4px solid #2c5530;
-    }
-    
-    .faq-category h3 {
-      color: #2c5530;
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
-    }
-    
-    .faq-item {
-      margin-bottom: 1.5rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid #e9ecef;
-    }
-    
-    .faq-item:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-    }
-    
-    .faq-item h4 {
-      color: #333;
-      margin-bottom: 0.5rem;
-      font-size: 1rem;
-      font-weight: 600;
-    }
-    
-    .faq-item p {
-      color: #666;
-      line-height: 1.6;
-      margin: 0;
-    }
-    
-    .faq-item a {
-      color: #2c5530;
-      font-weight: 600;
-      text-decoration: none;
-    }
-    
-    .faq-item a:hover {
-      text-decoration: underline;
-    }
-    
-    @media (max-width: 768px) {
-      .faq-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-      
-      .faq-category {
-        padding: 1rem;
-      }
-    }
-    
-    /* Tour Highlights Styling */
-    .tour-highlights {
-      list-style: none;
-      padding: 0;
-      margin: 1rem 0;
-      text-align: left;
-    }
-    
-    .tour-highlights li {
-      padding: 0.3rem 0;
-      color: #666;
-      font-size: 0.9rem;
-      position: relative;
-      padding-left: 1.5rem;
-    }
-    
-    .tour-highlights li:before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: #2c5530;
-      font-weight: bold;
-    }
-    
-    /* Programs Section */
-    .programs {
-      background: #f8f9fa;
-      padding: 3rem 0;
-      margin: 3rem 0;
-    }
-    
-    .program-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    
-    .program-card {
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    
-    .program-card:hover {
-      transform: translateY(-5px);
-    }
-    
-    .program-icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-    
-    .program-card h3 {
-      color: #2c5530;
-      margin-bottom: 1rem;
-    }
-    
-    .program-card p {
-      color: #666;
-      margin-bottom: 1.5rem;
-    }
-    
-    /* Featured Package Tour Styling */
-    .tour-card.featured-package {
-      border: 3px solid #2c5530;
-      background: linear-gradient(135deg, #f8f9fa, #e8f5e8);
-      position: relative;
-      transform: scale(1.02);
-      box-shadow: 0 8px 25px rgba(44, 85, 48, 0.2);
-    }
-    
-    .tour-card.featured-package::before {
-      content: "⭐ MOST POPULAR";
-      position: absolute;
-      top: -12px;
-      left: 20px;
-      background: #2c5530;
-      color: white;
-      padding: 0.4rem 1rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: bold;
-      z-index: 2;
-    }
-    
-    .tour-card.featured-package h3 {
-      color: #2c5530;
-      font-size: 1.4rem;
-    }
-    
-    @media (max-width: 768px) {
-      .tour-card.featured-package {
-        transform: none;
-      }
-    }
-
-    /* Payment Information Section */
-    .payment-info {
-      background: linear-gradient(135deg, #f8f9fa, #e8f5e8);
-      padding: 3rem 0;
-      margin: 2rem 0;
-      border-radius: 15px;
-      border: 2px solid #2c5530;
-    }
-    
-    .payment-info h2 {
-      text-align: center;
-      color: #2c5530;
-      margin-bottom: 2rem;
-      font-size: 2rem;
-    }
-    
-    .payment-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-    
-    .payment-methods h3,
-    .payment-terms h3,
-    .security-info h3 {
-      color: #2c5530;
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
-      border-bottom: 2px solid #2c5530;
-      padding-bottom: 0.5rem;
-    }
-    
-    .payment-options {
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-    }
-    
-    .payment-option {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      padding: 0.8rem;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    
-    .payment-icon {
-      font-size: 1.5rem;
-      min-width: 30px;
-    }
-    
-    .payment-option strong {
-      color: #2c5530;
-      display: block;
-      margin-bottom: 0.2rem;
-    }
-    
-    .payment-option p {
-      margin: 0;
-      color: #666;
-      font-size: 0.9rem;
-    }
-    
-    .payment-terms ul {
-      list-style: none;
-      padding: 0;
-    }
-    
-    .payment-terms li {
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #e0e0e0;
-      color: #333;
-    }
-    
-    .payment-terms li:last-child {
-      border-bottom: none;
-    }
-    
-    .security-badges {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.8rem;
-      margin-bottom: 1rem;
-    }
-    
-    .security-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.6rem;
-      background: white;
-      border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      font-size: 0.9rem;
-      color: #2c5530;
-      font-weight: 500;
-    }
-    
-    .payment-note {
-      background: white;
-      padding: 1rem;
-      border-radius: 8px;
-      border-left: 4px solid #2c5530;
-      font-size: 0.9rem;
-      color: #666;
-      margin: 0;
-    }
-    
-    @media (max-width: 768px) {
-      .payment-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-      
-      .security-badges {
-        grid-template-columns: 1fr;
-      }
-      
-      .payment-info {
-        margin: 1rem 0;
-        padding: 2rem 0;
-      }
-    }
-
-    /* Why Choose Us Section Styling */
-    .why-choose-us {
-      background: linear-gradient(135deg, #f8f9fa, #e8f5e8);
-      padding: 3rem 0;
-      margin: 2rem 0;
-      border-radius: 15px;
-    }
-    
-    .why-choose-us h2 {
-      text-align: center;
-      color: #2c5530;
-      margin-bottom: 3rem;
-      font-size: 2.2rem;
-    }
-    
-    .advantages-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-    
-    .advantage-item {
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      border-left: 4px solid #2c5530;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .advantage-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(44, 85, 48, 0.15);
-    }
-    
-    .advantage-item h3 {
-      color: #2c5530;
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
-      font-weight: 600;
-    }
-    
-    .advantage-item p {
-      color: #555;
-      line-height: 1.6;
-      margin: 0;
-    }
-    
-    @media (max-width: 768px) {
-      .advantages-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-      
-      .advantage-item {
-        padding: 1.5rem;
-      }
-      
-      .why-choose-us {
-        margin: 1rem 0;
-        padding: 2rem 0;
-      }
-    }
-
-    /* Viator Booking Widget Section */
-    .viator-booking {
-      background: linear-gradient(135deg, #2c5530, #3a6b3e);
-      color: white;
-      padding: 3rem 0;
-      margin: 2rem 0;
-      text-align: center;
-      border-radius: 15px;
-    }
-    
-    .viator-booking h2 {
-      color: white;
-      margin-bottom: 1rem;
-      font-size: 2rem;
-    }
-    
-    .viator-booking p {
-      color: #e8f5e8;
-      margin-bottom: 2rem;
-      font-size: 1.1rem;
-    }
-    
-    .viator-widget-container {
-      background: white;
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin: 2rem auto;
-      max-width: 900px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    }
-    
-    .widget-backup {
-      font-size: 0.9rem;
-      margin-top: 1rem;
-      color: #e8f5e8;
-    }
-    
-    .widget-backup a {
-      color: #ffffff;
-      text-decoration: underline;
-      font-weight: bold;
-    }
-    
-    .widget-backup a:hover {
-      color: #f0f0f0;
-    }
-    
-    @media (max-width: 768px) {
-      .viator-booking {
-        margin: 1rem 0;
-        padding: 2rem 1rem;
-      }
-      
-      .viator-widget-container {
-        margin: 1rem;
-        padding: 1rem;
-      }
-    }
-
-    /* Languages Section Styling */
-    .languages-section {
-      background: linear-gradient(135deg, #f8f9fa, #e8f5e8);
-      padding: 2rem;
-      margin: 2rem 0;
-      border-radius: 15px;
-      border: 2px solid #2c5530;
-      text-align: center;
-    }
-    
-    .languages-section h3 {
-      color: #2c5530;
-      margin-bottom: 1.5rem;
-      font-size: 1.5rem;
-    }
-    
-    .languages-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    .language-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 1rem;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(44, 85, 48, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .language-item:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(44, 85, 48, 0.2);
-    }
-    
-    .language-item .flag {
-      font-size: 2rem;
-    }
-    
-    .language-item span:last-child {
-      color: #2c5530;
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
-    
-    .languages-note {
-      color: #666;
-      font-style: italic;
-      margin: 0;
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-    
-    @media (max-width: 768px) {
-      .languages-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.8rem;
-      }
-      
-      .languages-section {
-        padding: 1.5rem;
-        margin: 1rem 0;
-      }
-      
-      .language-item .flag {
-        font-size: 1.5rem;
-      }
-    }
-
-    /* Polish Welcome Section */
-    .polish-welcome {
-      background: linear-gradient(135deg, #dc143c 0%, #ffffff 50%, #dc143c 100%);
-      padding: 3rem 0;
-      margin: 2rem 0;
-      border-radius: 15px;
-      box-shadow: 0 8px 25px rgba(220, 20, 60, 0.15);
-    }
-
-    .polish-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      text-align: center;
-    }
-
-    .polish-welcome h2 {
-      color: #dc143c;
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-      font-weight: bold;
-    }
-
-    .polish-intro {
-      font-size: 1.2rem;
-      color: #333;
-      margin-bottom: 2.5rem;
-      line-height: 1.6;
-    }
-
-    .polish-highlights {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin: 2rem 0;
-    }
-
-    .polish-feature {
-      background: rgba(255, 255, 255, 0.9);
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      border-left: 4px solid #dc143c;
-    }
-
-    .polish-feature h3 {
-      color: #dc143c;
-      margin-bottom: 0.8rem;
-      font-size: 1.3rem;
-    }
-
-    .polish-feature p {
-      color: #555;
-      line-height: 1.5;
-      margin: 0;
-    }
-
-    .polish-booking {
-      margin-top: 2.5rem;
-      padding: 1.5rem;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .polish-booking .booking-text {
-      font-size: 1.2rem;
-      color: #333;
-      margin-bottom: 1rem;
-      font-weight: 500;
-    }
-    
-    .polish-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    @media (max-width: 768px) {
-      .polish-welcome {
-        padding: 2rem 0;
-        margin: 1rem 0;
-      }
-      
-      .polish-actions {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .polish-actions .btn-primary,
-      .polish-actions .btn-secondary {
-        width: 100%;
-        max-width: 280px;
-        text-align: center;
-      }
-
-      .polish-content {
-        padding: 0 1rem;
-      }
-
-      .polish-welcome h2 {
-        font-size: 2rem;
-      }
-
-      .polish-highlights {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .polish-feature {
-        padding: 1rem;
-      }
-    }
-
-    /* Tourism News & Seasonal Promotions */
-    .tourism-news {
-      background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-      padding: 3rem 0;
-      margin: 2rem 0;
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .tourism-news::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-      opacity: 0.3;
-    }
-
-    .news-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .breaking-news {
-      text-align: center;
-    }
-
-    .news-badge {
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      color: white;
-      padding: 0.5rem 1.5rem;
-      border-radius: 25px;
-      font-weight: bold;
-      font-size: 0.9rem;
-      display: inline-block;
-      margin-bottom: 1.5rem;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-
-    .tourism-news h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    }
-
-    .news-highlight {
-      font-size: 1.3rem;
-      margin-bottom: 2.5rem;
-      line-height: 1.6;
-      opacity: 0.95;
-    }
-
-    .news-details {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin: 2.5rem 0;
-    }
-
-    .news-item {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 1.5rem;
-      border-radius: 15px;
-      text-align: left;
-    }
-
-    .news-item h3 {
-      margin-bottom: 0.8rem;
-      font-size: 1.2rem;
-    }
-
-    .news-item p {
-      margin: 0;
-      opacity: 0.9;
-      line-height: 1.5;
-    }
-
-    .news-cta {
-      margin-top: 2.5rem;
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .news-cta .btn-primary, .news-cta .btn-secondary {
-      padding: 1rem 2rem;
-      font-size: 1.1rem;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      border: 2px solid white;
-    }
-
-    .news-cta .btn-primary {
-      background: white;
-      color: #ff6b35;
-    }
-
-    .news-cta .btn-primary:hover {
-      background: rgba(255, 255, 255, 0.9);
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
-
-    .news-cta .btn-secondary {
-      background: transparent;
-      color: white;
-    }
-
-    .news-cta .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: translateY(-2px);
-    }
-
-    @media (max-width: 768px) {
-      .tourism-news {
-        padding: 2rem 0;
-      }
-
-      .tourism-news h2 {
-        font-size: 2rem;
-      }
-
-      .news-highlight {
-        font-size: 1.1rem;
-      }
-
-      .news-details {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .news-cta {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .news-cta .btn-primary, .news-cta .btn-secondary {
-        width: 100%;
-        max-width: 300px;
-      }
-    }
-  </style>
-
-  <!-- Structured Data for SEO -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "TravelAgency",
-    "name": "Gambia Tours",
-    "url": "https://www.gambiantour.com",
-    "logo": "https://www.gambiantour.com/photos/logo.png",
-    "description": "Professional tour operator in Gambia offering guided tours with multilingual support including Polish-speaking guides. Wycieczki do Gambii z polskim przewodnikiem.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "GM",
-      "addressLocality": "Banjul",
-      "addressRegion": "Greater Banjul Area"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "13.4549",
-      "longitude": "-16.5790"
-    },
-    "telephone": "+220-123456",
-    "email": "info@gambiantour.com",
-    "sameAs": [
-      "https://www.tripadvisor.com/Attraction_Review-g293802-d28875090-Reviews-Gambia_Tours-Banjul_Banjul_Division.html"
-    ],
-    "serviceArea": {
-      "@type": "Place",
-      "name": "The Gambia and Senegal"
-    },
-    "languages": ["English", "Polish", "French", "Spanish"],
-    "offers": {
-      "@type": "Offer",
-      "name": "Polish-guided Tours in Gambia",
-      "description": "Comprehensive tour packages with Polish-speaking guides for Polish tourists visiting Gambia",
-      "category": "Tour Packages"
-    },
-    "knowsLanguage": [
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gambia Tours & Private Excursions | GambianTour.com</title>
+    <meta
+      name="description"
+      content="Book private Gambia tours, day trips and excursions with local English and Polish-speaking guides. Hotel pickup from Kololi, Kotu, Senegambia and Banjul."
+      data-i18n-content="metaDescription"
+    />
+    <link rel="canonical" href="https://gambiantour.com/" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="theme-color" content="#0a463c" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="GambianTour.com" />
+    <meta property="og:title" content="Gambia Tours & Private Excursions" />
+    <meta
+      property="og:description"
+      content="Private Gambia tours, day trips and excursions with hotel pickup and English or Polish-speaking local guides."
+    />
+    <meta property="og:url" content="https://gambiantour.com/" />
+    <meta
+      property="og:image"
+      content="https://upload.wikimedia.org/wikipedia/commons/a/af/Kotu_Beach%2C_The_Gambia_%2816197149546%29.jpg"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://upload.wikimedia.org" />
+    <link rel="preconnect" href="https://commons.wikimedia.org" />
+    <link rel="preconnect" href="https://unpkg.com" />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="application/ld+json">
       {
-        "@type": "Language",
-        "name": "English"
-      },
-      {
-        "@type": "Language", 
-        "name": "Polish",
-        "alternateName": "Polski"
-      },
-      {
-        "@type": "Language",
-        "name": "French"
-      },
-      {
-        "@type": "Language",
-        "name": "Spanish"
-      }
-    ]
-  }
-  </script>
-</head>
-<body>
-  <div id="navbar-placeholder"></div>
-  
-  <!-- Language Toggle -->
-  <div style="text-align: center; padding: 10px; background-color: #f8f9fa;">
-    <button onclick="scrollToPolish()" style="padding: 8px 16px; background-color: #dc143c; color: white; border: none; border-radius: 5px; cursor: pointer;">
-      View in Polish / Zobacz po Polsku
-    </button>
-  </div>
-  
-  <!-- Main Content -->
-  <div class="container">
-    <!-- Hero Section -->
-    <section class="hero">
-      <h1>Welcome to Gambia Tours</h1>
-      <p>Discover unforgettable adventures in The Gambia & Senegal. City tours, bird watching, cultural experiences, and more!<br>
-      <strong>We are your trusted local experts for travel, holidays, and authentic experiences in West Africa.</strong></p>
-      
-      <!-- Languages Section -->
-      <div class="languages-section">
-        <h3>Our Guides Speak Your Language</h3>
-        <div class="languages-grid">
-          <div class="language-item">
-            <span class="flag">🇬🇧</span>
-            <span>English</span>
-          </div>
-          <div class="language-item">
-            <span class="flag">🇵🇱</span>
-            <span>Polish</span>
-          </div>
-          <div class="language-item">
-            <span class="flag">🇫🇷</span>
-            <span>French</span>
-          </div>
-          <div class="language-item">
-            <span class="flag">🇪🇸</span>
-            <span>Spanish</span>
-          </div>
-        </div>
-        <p class="languages-note">Our experienced local guides are multilingual, ensuring clear communication and cultural insights in your preferred language!</p>
-      </div>
-      
-      <a href="https://gambiantour.com/reservation.html" class="btn-primary btn-hero-book">Book Your Adventure Now</a>
-    </section>
-
-    <!-- Fresh Content Alert - November 2024 -->
-    <section class="fresh-alert" style="background: linear-gradient(135deg, #2c5530, #4a7c59); color: white; padding: 1.5rem; margin: 2rem 0; border-radius: 10px; box-shadow: 0 4px 15px rgba(44,85,48,0.2); text-align: center;">
-      <h3 style="margin: 0 0 0.5rem 0; font-size: 1.2rem;">🌟 November 2024 Travel Update</h3>
-      <p style="margin: 0; font-size: 0.95rem; opacity: 0.9;">
-        <strong>Peak Season Now Open!</strong> Perfect weather conditions for bird watching (150+ species active). 
-        Special availability for December-March bookings. <a href="#tours" style="color: #90EE90; text-decoration: underline;">View available tours →</a>
-      </p>
-    </section>
-
-    <!-- PRICING SECTION - CONVERSION BOOSTER -->
-    <section style="background: white; border: 2px solid #2c5530; border-radius: 15px; padding: 2rem; margin: 2rem 0; box-shadow: 0 8px 25px rgba(44,85,48,0.1);">
-      <h2 style="text-align: center; color: #2c5530; margin: 0 0 1.5rem 0; font-size: 2rem;">📋 Tour Pricing & Instant Booking</h2>
-      
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
-        <!-- Day Tours -->
-        <div style="background: #f8f9fa; border: 1px solid #ddd; border-radius: 12px; padding: 1.5rem; text-align: center;">
-          <h3 style="color: #2c5530; margin: 0 0 0.5rem 0;">🦅 Day Tours</h3>
-          <div style="font-size: 2rem; font-weight: bold; color: #2c5530; margin: 0.5rem 0;">€45-85</div>
-          <p style="margin: 0 0 1rem 0; font-size: 0.9rem; color: #666;">per person</p>
-          <ul style="text-align: left; margin: 0 0 1rem 0; font-size: 0.9rem;">
-            <li>Bird watching at Abuko</li>
-            <li>City tours & cultural sites</li>
-            <li>Village experiences</li>
-            <li>River cruises</li>
-          </ul>
-          <a href="https://wa.me/48504224794?text=Hi! I want to book a day tour. Please send me details and availability." 
-             style="background: #25D366; color: white; padding: 0.7rem 1rem; border-radius: 25px; text-decoration: none; font-weight: bold; display: inline-block; margin: 0.5rem 0;">
-             💬 WhatsApp Book Now
-          </a>
-        </div>
-
-        <!-- Multi-Day Packages -->
-        <div style="background: #f8f9fa; border: 1px solid #ddd; border-radius: 12px; padding: 1.5rem; text-align: center; position: relative;">
-          <div style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: #FF6B35; color: white; padding: 0.3rem 1rem; border-radius: 15px; font-size: 0.8rem; font-weight: bold;">POPULAR</div>
-          <h3 style="color: #2c5530; margin: 1rem 0 0.5rem 0;">🌍 7-14 Day Packages</h3>
-          <div style="font-size: 2rem; font-weight: bold; color: #2c5530; margin: 0.5rem 0;">€1,050-€1,250</div>
-          <p style="margin: 0 0 1rem 0; font-size: 0.9rem; color: #666;">per person (all inclusive)</p>
-          <ul style="text-align: left; margin: 0 0 1rem 0; font-size: 0.9rem;">
-            <li>Gambia + Senegal combo</li>
-            <li>All meals & accommodation</li>
-            <li>Airport transfers included</li>
-            <li>Multilingual guides</li>
-          </ul>
-          <a href="https://wa.me/48504224794?text=Hi! I'm interested in your 7-14 day Gambia-Senegal package. Please send me itinerary and pricing details." 
-             style="background: #25D366; color: white; padding: 0.7rem 1rem; border-radius: 25px; text-decoration: none; font-weight: bold; display: inline-block; margin: 0.5rem 0;">
-             💬 WhatsApp Book Now
-          </a>
-        </div>
-
-        <!-- Airport Services -->
-        <div style="background: #f8f9fa; border: 1px solid #ddd; border-radius: 12px; padding: 1.5rem; text-align: center;">
-          <h3 style="color: #2c5530; margin: 0 0 0.5rem 0;">✈️ Airport Services</h3>
-          <div style="font-size: 2rem; font-weight: bold; color: #2c5530; margin: 0.5rem 0;">€45-50</div>
-          <p style="margin: 0 0 1rem 0; font-size: 0.9rem; color: #666;">per transfer</p>
-          <ul style="text-align: left; margin: 0 0 1rem 0; font-size: 0.9rem;">
-            <li>Airport pickup/dropoff</li>
-            <li>Hotel transfers</li>
-            <li>Welcome orientation</li>
-            <li>24/7 support</li>
-          </ul>
-          <a href="https://wa.me/48504224794?text=Hi! I need airport transfer service. My flight details: [Please share your arrival info]" 
-             style="background: #25D366; color: white; padding: 0.7rem 1rem; border-radius: 25px; text-decoration: none; font-weight: bold; display: inline-block; margin: 0.5rem 0;">
-             💬 WhatsApp Book Now
-          </a>
-        </div>
-      </div>
-
-      <!-- Instant Contact Strip -->
-      <div style="background: linear-gradient(135deg, #25D366, #128C7E); color: white; padding: 1.5rem; border-radius: 10px; text-align: center; margin-top: 1.5rem;">
-        <h3 style="margin: 0 0 0.5rem 0;">🚀 Instant Booking Available!</h3>
-        <p style="margin: 0 0 1rem 0; font-size: 1rem;">
-          <strong>WhatsApp us now</strong> for immediate response, pricing, and availability.
-        </p>
-        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-          <a href="https://wa.me/48504224794" 
-             style="background: white; color: #25D366; padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: bold;">
-             📱 +48 504 224 794
-          </a>
-          <a href="tel:+48504224794" 
-             style="background: rgba(255,255,255,0.2); color: white; padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: bold;">
-             📞 Call Directly
-          </a>
-          <a href="mailto:info@gambiantour.com" 
-             style="background: rgba(255,255,255,0.2); color: white; padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: bold;">
-             ✉️ Email Us
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Polish Tourist Welcome Section -->
-    <section class="polish-welcome">
-      <div class="polish-content">
-        <h2>Odkryj Gambię z Nami!</h2>
-        <p class="polish-intro">
-          Zapraszamy do odkrycia uśmiechniętego brzegu Afryki! Organizujemy niezapomniane przygody z pełną obsługą w języku polskim - od transferu z lotniska po powrót do domu.
-        </p>
-        <div class="polish-highlights">
-          <div class="polish-feature">
-            <h3>Wsparcie językowe</h3>
-            <p>Komunikacja w ojczystym języku przez cały pobyt</p>
-          </div>
-          <div class="polish-feature">
-            <h3>Wszystko załatwione</h3>
-            <p>Noclegi, transport, posiłki i aktywności w jednej cenie</p>
-          </div>
-          <div class="polish-feature">
-            <h3>Lokalne doświadczenia</h3>
-            <p>Autentyczne spotkania z kulturą i naturą Afryki Zachodniej</p>
-          </div>
-        </div>
-        <div class="polish-booking">
-          <p class="booking-text">Zarezerwuj swoje wakacje w Gambii już dziś!</p>
-          <div class="polish-actions">
-            <a href="https://gambiantour.com/reservation.html" class="btn-primary">Zarezerwuj Wycieczkę</a>
-            <a href="https://gambiantour.com/blog/polski/" class="btn-secondary">Polski Blog o Gambii</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Tourism News & Seasonal Promotions -->
-    <section class="tourism-news">
-      <div class="news-container">
-        <div class="breaking-news">
-          <div class="news-badge">🎉 BREAKING NEWS</div>
-          <h2>Gambia Tourism Season Opens November 1st, 2025!</h2>
-          <p class="news-highlight">
-            <strong>Official tourism season launches with international flights resuming from major European destinations.</strong>
-            Perfect weather, peak wildlife season, and our special early bird offers await your arrival!
-          </p>
-          
-          <div class="news-details">
-            <div class="news-item">
-              <h3>✈️ International Flights Resume</h3>
-              <p>Direct routes from London, Brussels, Amsterdam, Barcelona starting November 2025</p>
-            </div>
-            <div class="news-item">
-              <h3>🌤️ Perfect Weather Season</h3>
-              <p>24-30°C daily, 8+ hours sunshine, ideal conditions for all outdoor activities</p>
-            </div>
-            <div class="news-item">
-              <h3>🎁 Early Bird Special - 15% OFF</h3>
-              <p>Book by October 31st for November-December travel and save 15% + free airport transfer</p>
-            </div>
-          </div>
-          
-          <div class="news-cta">
-            <a href="/blog/gambia-tourism-season-2025-november-opening.html" class="btn-primary">Read Full Details</a>
-            <a href="https://gambiantour.com/reservation.html" class="btn-secondary">Book Early Bird Offer</a>
-            <a href="https://gambiantour.com/blog/polski/" class="btn-outline">Polski Blog 🇵🇱</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Why Choose Us Section -->
-    <section class="why-choose-us">
-      <h2>Why Gambia Tours is Your Best Choice</h2>
-      <div class="advantages-grid">
-        <div class="advantage-item">
-          <h3>🌍 Local Expertise Since 2018</h3>
-          <p>We're not just tour operators - we live in Gambia year-round. Our intimate knowledge of seasonal changes, local customs, and hidden gems ensures you experience the authentic Gambia that most visitors never see.</p>
-        </div>
-        <div class="advantage-item">
-          <h3>🗣️ Genuine Multilingual Service</h3>
-          <p>Our team includes native speakers of English, Polish, French, and Spanish - not just basic translation, but cultural interpretation that bridges understanding between you and local communities.</p>
-        </div>
-        <div class="advantage-item">
-          <h3>🦅 Specialized Wildlife Knowledge</h3>
-          <p>With certified ornithologists and naturalists on staff, we identify species, behaviors, and conservation stories that transform simple sightings into educational adventures.</p>
-        </div>
-        <div class="advantage-item">
-          <h3>🤝 Ethical Community Partnerships</h3>
-          <p>We work directly with village leaders and artisan cooperatives, ensuring your tourism dollars support local families while providing you with authentic cultural exchanges.</p>
-        </div>
-        <div class="advantage-item">
-          <h3>📱 24/7 Support & Flexibility</h3>
-          <p>WhatsApp support throughout your stay, weather backup plans, and the ability to customize any itinerary based on your interests or unexpected opportunities.</p>
-        </div>
-        <div class="advantage-item">
-          <h3>🛡️ Safety & Reliability First</h3>
-          <p>Fully licensed operators with comprehensive insurance, maintained vehicles, first aid certified guides, and established emergency protocols for complete peace of mind.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured Tours -->
-    <section class="featured-tours">
-      <h2>Our Signature Adventures</h2>
-      <p>From dawn bird chorus in ancient forests to sunset drumming in riverside villages - discover why Gambia is West Africa's best-kept secret through experiences crafted by locals who call this country home.</p>
-      <div class="booking-prompt">
-        <span>Ready to book?</span>
-        <div class="booking-prompt-btn">
-          <a href="https://gambiantour.com/reservation.html" class="btn-secondary">Quick Reservation</a>
-        </div>
-      </div>
-      <div class="tour-cards">
-        <!-- NEW: Premium 14-Day Adventure -->
-        <div class="tour-card featured-package" style="border: 3px solid #FFB300; background: linear-gradient(135deg, #fffde7 0%, #fff8e1 100%);">
-          <img src="https://gambiantour.com/photos/WhatsApp%20Image%202025-08-25%20at%2013.05.41%20(1).jpeg" alt="Premium Gambia Senegal Adventure">
-          <h3 style="color: #FFB300;">🌟 Premium 14-Day Adventure</h3>
-          <ul class="tour-highlights">
-            <li>🇬🇲 Complete Gambia exploration</li>
-            <li>🇸🇳 Senegal safari & Pink Lake</li>
-            <li>🏛️ UNESCO World Heritage sites</li>
-            <li>🦁 Wildlife safari experiences</li>
-            <li>🏨 4-star accommodation included</li>
-          </ul>
-          <p><strong>Gambia & Senegal Adventure:</strong> Ultimate 14-day cultural and wildlife experience with multilingual guides, luxury accommodation, and authentic West African adventures.</p>
-          <a href="14-day-gambia-senegal-combined-adventure.html" class="btn-primary" style="background: linear-gradient(90deg, #FFB300 60%, #FF6E40 100%);">View Full Program →</a>
-        </div>
-        
-        <!-- Featured: Multi-Day Package Tours -->
-        <div class="tour-card featured-package">
-          <img src="https://gambiantour.com/photos/WhatsApp%20Image%202025-08-25%20at%2013.05.41%20(1).jpeg" alt="Multi-Day Package Tours">
-          <h3>Multi-Day Package Tours</h3>
-          <ul class="tour-highlights">
-            <li>3, 5, 7, or 14-day adventures</li>
-            <li>Accommodation & all meals included</li>
-            <li>Multiple destinations & activities</li>
-            <li>Private guide & transportation</li>
-            <li>Cultural immersion experiences</li>
-          </ul>
-          <p>Complete multi-day adventures including our popular 14-day comprehensive Gambia experience with everything included for the perfect getaway.</p>
-          <a href="https://gambiantour.com/package-tours.html" class="btn-primary">See All Packages</a>
-        </div>
-        
-        <div class="tour-card">
-          <img src="https://gambiantour.com/photos/culture.jpeg" alt="Traditional Gambian Village Experience">
-          <h3>Village Cultural Immersion</h3>
-          <ul class="tour-highlights">
-            <li>Visit authentic Mandinka villages</li>
-            <li>Learn traditional drumming & dancing</li>
-            <li>Meet tribal elders and storytellers</li>
-            <li>Participate in daily village life</li>
-          </ul>
-          <p>Step into living history as you join daily activities in traditional Gambian communities, learning ancestral customs passed down through generations.</p>
-          <a href="https://gambiantour.com/reservation.html" class="btn-secondary">Book This Tour</a>
-        </div>
-        
-        <div class="tour-card">
-          <img src="https://gambiantour.com/photos/WhatsApp%20Image%202025-08-25%20at%2013.05.40%20(2).jpeg" alt="Professional Bird Watching Abuko Reserve">
-          <h3>Abuko Birding Expedition</h3>
-          <ul class="tour-highlights">
-            <li>Professional ornithologist guidance</li>
-            <li>Identify 40-60 species in premium habitat</li>
-            <li>High-quality binoculars & field guides included</li>
-            <li>Photography tips for wildlife shots</li>
-          </ul>
-          <p>Experience one of West Africa's premier birding destinations with expert naturalists who know every call, nest, and migration pattern in this pristine reserve.</p>
-          <a href="https://gambiantour.com/bird-watching.html" class="btn-secondary">See Details</a>
-        </div>
-        
-        <div class="tour-card">
-          <img src="https://gambiantour.com/photos/culture.jpeg" alt="Historic Banjul Capital Walking Tour">
-          <h3>Banjul Heritage Walk</h3>
-          <ul class="tour-highlights">
-            <li>Colonial architecture & independence monuments</li>
-            <li>Albert Market bargaining masterclass</li>
-            <li>Traditional Gambian lunch at local restaurant</li>
-            <li>Presidential Palace & government quarter visit</li>
-          </ul>
-          <p>Uncover the stories behind Gambia's smallest capital - from colonial trading post to modern African democracy, with insider access to places tourists rarely see.</p>
-          <a href="https://gambiantour.com/reservation.html" class="btn-secondary">Book This Tour</a>
-        </div>
-        
-        <div class="tour-card">
-          <img src="https://gambiantour.com/photos/19786.JPEG" alt="Serekunda Market Cultural Shopping Experience">
-          <h3>Serekunda Market Adventures</h3>
-          <ul class="tour-highlights">
-            <li>Navigate West Africa's largest marketplace</li>
-            <li>Learn traditional craft techniques from masters</li>
-            <li>Taste exotic fruits & local delicacies</li>
-            <li>Negotiate like a local with shopping tips</li>
-          </ul>
-          <p>Dive into the sensory overload of Serekunda - where spices, textiles, and handcrafts create a maze of authentic African commerce stretching for kilometers.</p>
-          <a href="https://gambiantour.com/reservation.html" class="btn-secondary">Book This Tour</a>
-        </div>
-        
-        <div class="tour-card">
-          <img src="https://gambiantour.com/photos/WhatsApp%20Image%202025-08-25%20at%2013.05.40%20(6).jpeg" alt="Gambia River Safari Excursion">
-          <h3>River Safari Adventure</h3>
-          <ul class="tour-highlights">
-            <li>Navigate ancient waterways by traditional boat</li>
-            <li>Hippo pods & crocodile spotting guaranteed</li>
-            <li>Riverside picnic under baobab trees</li>
-            <li>Fishing village visits & local interactions</li>
-          </ul>
-          <p>Journey along Africa's shortest river where hippos surface meters from your boat and fishing communities maintain traditions unchanged for centuries.</p>
-          <a href="https://gambiantour.com/reservation.html" class="btn-secondary">Book This Tour</a>
-        </div>
-        
-        <div class="tour-card">
-          <img src="https://gambiantour.com/photos/WhatsApp%20Image%202025-08-25%20at%2013.05.40%20(8).jpeg" alt="Gambian Wildlife National Park Safari">
-          <h3>National Park Wildlife Discovery</h3>
-          <ul class="tour-highlights">
-            <li>Encounter vervet monkeys & red colobus</li>
-            <li>Crocodile feeding at sacred pools</li>
-            <li>Silent forest walks tracking antelope</li>
-            <li>Golden hour photography sessions</li>
-          </ul>
-          <p>Witness Gambia's remarkable biodiversity in protected reserves where endangered species thrive just minutes from coastal resorts.</p>
-          <a href="https://gambiantour.com/reservation.html" class="btn-secondary">Book This Tour</a>
-        </div>
-        
-        <div class="tour-card">
-          <img src="https://gambiantour.com/photos/sunset.jpeg" alt="Atlantic Coast Beach Paradise">
-          <h3>Coastal Paradise Retreat</h3>
-          <ul class="tour-highlights">
-            <li>Pristine Atlantic coastline exploration</li>
-            <li>Fresh seafood lunch with ocean views</li>
-            <li>Fishing boat trips & beach volleyball</li>
-            <li>Sunset camel rides on golden sands</li>
-          </ul>
-          <p>Escape to 80 kilometers of untouched Atlantic beaches where fishing pirogues share the surf with migrating whales and turtles nest under starlit skies.</p>
-          <a href="https://gambiantour.com/reservation.html" class="btn-secondary">Book This Tour</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Programs & Itineraries -->
-    <section class="programs">
-      <h2>Tour Programs & Itineraries</h2>
-      <p>Explore our detailed itineraries with hour-by-hour schedules, pricing, and everything you need to plan your perfect trip.</p>
-      <div class="program-cards">
-        <div class="program-card">
-          <div class="program-icon">🦅</div>
-          <h3>Abuko Bird Watching Itinerary</h3>
-          <p>8-hour detailed schedule with 40-60 species spotting</p>
-          <a href="https://gambiantour.com/itineraries.html" class="btn-secondary">View Itinerary</a>
-        </div>
-        <div class="program-card">
-          <div class="program-icon">🏛️</div>
-          <h3>Banjul City Tour Program</h3>
-          <p>6-hour capital exploration with historic sites</p>
-          <a href="https://gambiantour.com/itineraries.html" class="btn-secondary">View Program</a>
-        </div>
-        <div class="program-card">
-          <div class="program-icon">🌟</div>
-          <h3>7-Day Adventure Package</h3>
-          <p>Complete week-long journey with multiple activities</p>
-          <a href="https://gambiantour.com/itineraries.html" class="btn-secondary">View Schedule</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Viator Booking Widget -->
-    <section class="viator-booking">
-      <h2>Book Your Tours Instantly</h2>
-      <p>Secure online booking with instant confirmation through our trusted booking platform</p>
-      <div class="viator-widget-container">
-        <div 
-            data-vi-partner-id="U00730160"
-            data-vi-widget-ref="W-4c66898a-9bb6-4cf3-9eb8-f66532a80f88"
-            data-vi-search-term="Gambia"
-        ></div>
-        <script async src="https://www.viator.com/orion/partner/widget.js"></script>
-      </div>
-      <p class="widget-backup">Having trouble with the booking widget? <a href="https://gambiantour.com/reservation.html" title="Direct booking form for Gambia tours">Use our direct reservation form</a> or <a href="https://wa.me/48504224794" title="Contact Gambia Tours via WhatsApp for instant booking" aria-label="WhatsApp contact for tour booking">WhatsApp us for instant booking</a>!</p>
-    </section>
-
-    <!-- Recent Activity & Authority Boost -->
-    <section style="background: #f8f9fa; padding: 2rem; margin: 2rem 0; border-radius: 12px; border-left: 5px solid #2c5530;">
-      <h3 style="color: #2c5530; margin: 0 0 1rem 0;">📈 November 2024 - Active Season Highlights</h3>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
-        <div style="background: white; padding: 1rem; border-radius: 8px; text-align: center;">
-          <strong style="color: #2c5530; font-size: 1.2rem;">127+</strong><br>
-          <span style="font-size: 0.9rem;">Satisfied Guests This Year</span>
-        </div>
-        <div style="background: white; padding: 1rem; border-radius: 8px; text-align: center;">
-          <strong style="color: #2c5530; font-size: 1.2rem;">15+</strong><br>
-          <span style="font-size: 0.9rem;">Active Tours This Month</span>
-        </div>
-        <div style="background: white; padding: 1rem; border-radius: 8px; text-align: center;">
-          <strong style="color: #2c5530; font-size: 1.2rem;">4.8/5</strong><br>
-          <span style="font-size: 0.9rem;">Average Rating</span>
-        </div>
-      </div>
-      <p style="margin: 0; font-style: italic; color: #666; text-align: center;">
-        "Peak birding season is here! 150+ species currently active. Our Dutch translation services now available." - <strong>Updated Nov 19, 2024</strong>
-      </p>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials">
-      <h2>What Our Customers Say</h2>
-      <p>We pride ourselves on excellent service and memorable experiences. Here's what our guests say:</p>
-      <div class="testimonial-cards">
-        <div class="testimonial-card">
-          <p>"Amazing experience! The guides were knowledgeable and friendly."</p>
-          <span>- Fatou, UK</span>
-        </div>
-        <div class="testimonial-card">
-          <p>"Bird watching tour was a dream come true. Highly recommended!"</p>
-          <span>- Lamin, Sweden</span>
-        </div>
-        <div class="testimonial-card">
-          <p>"Best way to discover Gambia's culture and nature."</p>
-          <span>- Mariama, Germany</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Enhanced FAQ Section -->
-    <section class="faq">
-      <h2>Frequently Asked Questions</h2>
-      <p>Everything you need to know about booking your perfect Gambian adventure. <strong>Ready to book? Use our <a href="https://gambiantour.com/reservation.html">reservation form</a>!</strong></p>
-      
-      <div class="faq-grid">
-        <div class="faq-category">
-          <h3>🎯 Booking & Reservations</h3>
-          <div class="faq-item">
-            <h4>How do I book a tour?</h4>
-            <p>Simply use our <a href="https://gambiantour.com/reservation.html" title="Online booking form for Gambia tours">online reservation form</a> or WhatsApp us at <a href="https://wa.me/48504224794" title="WhatsApp Gambia Tours for instant booking" aria-label="Contact via WhatsApp">+48504224794</a>. We respond within 2 hours with confirmation and detailed information.</p>
-          </div>
-          <div class="faq-item">
-            <h4>What's included in tour prices?</h4>
-            <p>All tours include professional guide, transportation, entrance fees, and refreshments. Multi-day packages include accommodation and meals. Airport transfers available for $50 per vehicle.</p>
-          </div>
-          <div class="faq-item">
-            <h4>Do you offer group discounts?</h4>
-            <p>Yes! Groups of 6+ receive special rates. Contact us for custom group pricing and private tour options.</p>
-          </div>
-        </div>
-
-        <div class="faq-category">
-          <h3>🦅 Tours & Experiences</h3>
-          <div class="faq-item">
-            <h4>What's the best time for bird watching?</h4>
-            <p>Peak season is November-April when migratory species arrive. Our Abuko tours spot 40-60 species in 8 hours, with equipment provided.</p>
-          </div>
-          <div class="faq-item">
-            <h4>Can I customize my tour?</h4>
-            <p>Absolutely! We create custom itineraries based on your interests - wildlife, culture, photography, or adventure. Just specify in the reservation notes.</p>
-          </div>
-          <div class="faq-item">
-            <h4>Are tours suitable for all ages?</h4>
-            <p>Most tours accommodate all fitness levels. Bird watching involves gentle walking, city tours include some walking, and we can adapt for mobility needs.</p>
-          </div>
-        </div>
-
-        <div class="faq-category">
-          <h3>✈️ Travel Information</h3>
-          <div class="faq-item">
-            <h4>Do I need a visa for Gambia?</h4>
-            <p>Most visitors receive visa-on-arrival. Check current requirements for your nationality. We can provide invitation letters if needed.</p>
-          </div>
-          <div class="faq-item">
-            <h4>What should I bring on tours?</h4>
-            <p>Comfortable shoes, sun hat, water bottle, and camera. For bird watching: binoculars provided, but bring telephoto lens if you have one.</p>
-          </div>
-          <div class="faq-item">
-            <h4>Is it safe to travel in Gambia?</h4>
-            <p>Gambia is one of West Africa's safest countries. Our experienced local guides ensure your safety and provide cultural insights throughout your journey.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Payment Information -->
-    <section class="payment-info">
-      <h2>Payment & Booking Information</h2>
-      <div class="payment-grid">
-        <div class="payment-methods">
-          <h3>💰 Accepted Payment Methods</h3>
-          <div class="payment-options">
-            <div class="payment-option">
-              <span class="payment-icon">💳</span>
-              <div>
-                <strong>Credit/Debit Cards</strong>
-                <p>Visa, Mastercard, American Express</p>
-              </div>
-            </div>
-            <div class="payment-option">
-              <span class="payment-icon">🏦</span>
-              <div>
-                <strong>Bank Transfer</strong>
-                <p>Direct wire transfer (international)</p>
-              </div>
-            </div>
-            <div class="payment-option">
-              <span class="payment-icon">📱</span>
-              <div>
-                <strong>Mobile Money</strong>
-                <p>Local Gambian mobile payments</p>
-              </div>
-            </div>
-            <div class="payment-option">
-              <span class="payment-icon">💵</span>
-              <div>
-                <strong>Cash</strong>
-                <p>USD, EUR, or local Dalasi</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="payment-terms">
-          <h3>📋 Booking Terms</h3>
-          <ul>
-            <li><strong>Deposit:</strong> 30% required to confirm booking</li>
-            <li><strong>Balance:</strong> Due 7 days before tour date</li>
-            <li><strong>Cancellation:</strong> Full refund up to 48 hours before</li>
-            <li><strong>Group Discounts:</strong> 15% off for 6+ people</li>
-            <li><strong>Currency:</strong> Prices in USD, payment in multiple currencies accepted</li>
-          </ul>
-        </div>
-
-        <div class="security-info">
-          <h3>🔒 Secure & Trusted</h3>
-          <div class="security-badges">
-            <div class="security-item">
-              <span>🛡️</span>
-              <span>SSL Encrypted</span>
-            </div>
-            <div class="security-item">
-              <span>✅</span>
-              <span>Licensed Tour Operator</span>
-            </div>
-            <div class="security-item">
-              <span>📞</span>
-              <span>24/7 Support</span>
-            </div>
-            <div class="security-item">
-              <span>⭐</span>
-              <span>5-Star Reviews</span>
-            </div>
-          </div>
-          <p class="payment-note">All payments are processed securely. We never store your payment information.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Info -->
-    <section class="contact-info">
-      <h2>Contact Us</h2>
-      <p>We're here to help you plan your perfect trip. For instant booking, use our <a href="https://gambiantour.com/reservation.html">reservation form</a> or contact us for custom requests.</p>
-      <p><strong>Email:</strong> info@gambiantour.com</p>
-      <p><strong>Phone:</strong> +48504224794</p>
-      <p><strong>Local Guide (Gambia):</strong> +2203209610</p>
-      <p><strong>WhatsApp:</strong> <a href="https://wa.me/48504224794" target="_blank">Chat Now</a></p>
-      <p><strong>Languages:</strong> English, Polish, French, Spanish - Communicate in your preferred language!</p>
-      <div class="social-links">
-        <a href="https://facebook.com/gambiantour" target="_blank">Facebook</a>
-        <a href="https://instagram.com/gambiantour" target="_blank">Instagram</a>
-        <a href="https://twitter.com/gambiantour" target="_blank">Twitter</a>
-      </div>
-    </section>
-
-    <!-- Newsletter Signup -->
-    <section class="newsletter">
-      <h2>Sign Up for Our Newsletter</h2>
-      <p>Get travel tips, exclusive offers, and updates on new tours delivered to your inbox. <strong><a href="https://gambiantour.com/reservation.html">Book your next Gambia tour adventure</a>!</strong></p>
-      <form class="newsletter-form">
-        <input type="email" placeholder="Your email address" required>
-        <button type="submit">Subscribe</button>
-      </form>
-    </section>
-  </div>
-
-  <a href="https://gambiantour.com/reservation.html" class="floating-book-btn">Book Now</a>
-  
-  <script>
-    // Load navbar
-    fetch('navbar.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('navbar-placeholder').innerHTML = data;
-        // Initialize mobile menu functionality after navbar is loaded
-        initializeMobileMenu();
-      });
-    
-    // Scroll to Polish section function
-    function scrollToPolish() {
-      const polishSection = document.querySelector('.polish-welcome');
-      if (polishSection) {
-        polishSection.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    }
-    
-    // Make function available globally
-    window.scrollToPolish = scrollToPolish;
-    
-    // Initialize mobile menu functionality
-    function initializeMobileMenu() {
-      // Make toggleMenu function global
-      window.toggleMenu = function() {
-        const navbarLinks = document.getElementById('navbarLinks');
-        const burgerButton = document.getElementById('burgerButton');
-        
-        if (navbarLinks && burgerButton) {
-          // Toggle both elements
-          navbarLinks.classList.toggle('active');
-          burgerButton.classList.toggle('active');
-        }
-      };
-      
-      // Close menu when clicking on a link (mobile)
-      const links = document.querySelectorAll('.navbar-links a');
-      links.forEach(link => {
-        link.addEventListener('click', function() {
-          const navbarLinks = document.getElementById('navbarLinks');
-          const burgerButton = document.getElementById('burgerButton');
-          
-          // Close menu on mobile
-          if (window.innerWidth <= 767 && navbarLinks && burgerButton) {
-            navbarLinks.classList.remove('active');
-            burgerButton.classList.remove('active');
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "TravelAgency",
+            "@id": "https://gambiantour.com/#business",
+            "name": "GambianTour.com",
+            "url": "https://gambiantour.com/",
+            "email": "info@gambiantour.com",
+            "description": "Private Gambia tours, excursions and day trips with local English and Polish-speaking guides.",
+            "areaServed": ["The Gambia", "Banjul", "Kololi", "Kotu", "Senegambia", "Bijilo"],
+            "knowsLanguage": ["English", "Polish"],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "email": "info@gambiantour.com",
+              "contactType": "tour booking",
+              "availableLanguage": ["English", "Polish"]
+            },
+            "makesOffer": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Private Gambia tours and excursions"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Polish-speaking tour guide in Gambia"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://gambiantour.com/#website",
+            "url": "https://gambiantour.com/",
+            "name": "GambianTour.com",
+            "publisher": {
+              "@id": "https://gambiantour.com/#business"
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://gambiantour.com/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Do you offer private tours in Gambia?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Most tours can be private, with pickup from the main coastal hotel areas and a flexible route."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I book a Polish-speaking guide in Gambia?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, Polish-speaking guides are available on request. Mention your language preference when sending the booking request."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Where do Gambia tours start?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Tours can start from Kololi, Kotu, Senegambia, Bijilo, Cape Point, Banjul and nearby hotel areas."
+                }
+              }
+            ]
           }
-        });
-      });
-      
-      // Close menu when clicking outside (mobile)
-      document.addEventListener('click', function(event) {
-        const navbar = document.querySelector('.navbar');
-        const navbarLinks = document.getElementById('navbarLinks');
-        const burgerButton = document.getElementById('burgerButton');
-        
-        if (navbar && navbarLinks && burgerButton && !navbar.contains(event.target) && window.innerWidth <= 767) {
-          navbarLinks.classList.remove('active');
-          burgerButton.classList.remove('active');
-        }
-      });
-      
-      // Handle window resize - close menu if switching to desktop
-      window.addEventListener('resize', function() {
-        const navbarLinks = document.getElementById('navbarLinks');
-        const burgerButton = document.getElementById('burgerButton');
-        
-        if (window.innerWidth > 767 && navbarLinks && burgerButton) {
-          navbarLinks.classList.remove('active');
-          burgerButton.classList.remove('active');
-        }
-      });
-    }
-    
-    // Google Analytics Enhanced Event Tracking
-    document.addEventListener('DOMContentLoaded', function() {
-      // Track Book Now button clicks
-      const bookButtons = document.querySelectorAll('.floating-book-btn, .btn-primary, a[href*="reservation"]');
-      bookButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          gtag('event', 'click', {
-            event_category: 'engagement',
-            event_label: 'book_now_button',
-            value: 1
-          });
-        });
-      });
-      
-      // Track phone number clicks
-      const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
-      phoneLinks.forEach(link => {
-        link.addEventListener('click', function() {
-          gtag('event', 'contact', {
-            event_category: 'engagement', 
-            event_label: 'phone_click',
-            value: 1
-          });
-        });
-      });
-      
-      // Track email clicks  
-      const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
-      emailLinks.forEach(link => {
-        link.addEventListener('click', function() {
-          gtag('event', 'contact', {
-            event_category: 'engagement',
-            event_label: 'email_click', 
-            value: 1
-          });
-        });
-      });
-      
-      // Track tour card interactions
-      const tourCards = document.querySelectorAll('.tour-card');
-      tourCards.forEach(card => {
-        card.addEventListener('click', function() {
-          const tourName = card.querySelector('h3')?.textContent || 'Unknown Tour';
-          gtag('event', 'select_content', {
-            content_type: 'tour',
-            content_id: tourName.toLowerCase().replace(/\s+/g, '_'),
-            event_category: 'engagement',
-            event_label: 'tour_card_click'
-          });
-        });
-      });
-      
-      // Track scroll depth
-      let scrollDepth = 0;
-      window.addEventListener('scroll', function() {
-        const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
-        
-        if (scrollPercent >= 25 && scrollDepth < 25) {
-          scrollDepth = 25;
-          gtag('event', 'scroll', {
-            event_category: 'engagement',
-            event_label: 'scroll_25_percent'
-          });
-        } else if (scrollPercent >= 50 && scrollDepth < 50) {
-          scrollDepth = 50;
-          gtag('event', 'scroll', {
-            event_category: 'engagement', 
-            event_label: 'scroll_50_percent'
-          });
-        } else if (scrollPercent >= 75 && scrollDepth < 75) {
-          scrollDepth = 75;
-          gtag('event', 'scroll', {
-            event_category: 'engagement',
-            event_label: 'scroll_75_percent'
-          });
-        } else if (scrollPercent >= 100 && scrollDepth < 100) {
-          scrollDepth = 100;
-          gtag('event', 'scroll', {
-            event_category: 'engagement',
-            event_label: 'scroll_100_percent'
-          });
-        }
-      });
-      
-      // Track newsletter signup
-      const newsletterForm = document.querySelector('.newsletter-form');
-      if (newsletterForm) {
-        newsletterForm.addEventListener('submit', function(e) {
-          gtag('event', 'sign_up', {
-            method: 'newsletter',
-            event_category: 'conversion',
-            event_label: 'newsletter_signup'
-          });
-        });
+        ]
       }
-      
-      // Track external link clicks
-      const externalLinks = document.querySelectorAll('a[href^="http"]:not([href*="gambiantour.com"])');
-      externalLinks.forEach(link => {
-        link.addEventListener('click', function() {
-          gtag('event', 'click', {
-            event_category: 'outbound',
-            event_label: 'external_link',
-            transport_type: 'beacon'
-          });
-        });
-      });
-    });
-  </script>
-  
-  <!-- Floating WhatsApp Button -->
-  <div id="whatsapp-float" style="
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-    background: #25D366;
-    border-radius: 50px;
-    padding: 12px 16px;
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-    cursor: pointer;
-    animation: pulse 2s infinite;
-    transition: all 0.3s ease;
-  ">
-    <a href="https://wa.me/48504224794?text=Hi! I'm interested in Gambia tours. Can you help me with pricing and availability?" 
-       style="color: white; text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: bold;">
-      <span style="font-size: 1.5rem;">💬</span>
-      <span style="display: none;" id="whatsapp-text">Book Tours Instantly</span>
-    </a>
-  </div>
+    </script>
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="GambianTour.com home" data-i18n-aria-label="brandHome">
+        <span class="brand-mark-text">GT</span>
+        <span class="brand-name">GambianTour<span>.com</span></span>
+      </a>
+      <nav class="nav-links" data-nav>
+        <a href="#tours" data-i18n="navTours">Tours</a>
+        <a href="#why" data-i18n="navWhy">Why us</a>
+        <a href="polish-speaking-guide.html" data-i18n="navPolish">Polish guides</a>
+        <a href="stories.html" data-i18n="navStories">Tour stories</a>
+        <a href="#faq" data-i18n="navFaq">FAQ</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <div class="language-toggle" aria-label="Language selector" data-i18n-aria-label="languageToggle">
+          <button class="active" type="button" data-language="en">EN</button>
+          <button type="button" data-language="pl">PL</button>
+        </div>
+        <a class="header-cta" href="#booking" data-i18n="headerBook">Book now</a>
+        <button class="icon-button menu-toggle" type="button" aria-label="Open navigation" data-menu-toggle data-i18n-aria-label="menuOpen">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </header>
 
-  <style>
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
+    <main id="top">
+      <section class="hero" aria-label="Private Gambia tours and excursions booking" data-i18n-aria-label="heroAria">
+        <div class="hero-carousel" data-hero-carousel aria-hidden="true">
+          <img
+            class="hero-slide active"
+            src="https://upload.wikimedia.org/wikipedia/commons/a/af/Kotu_Beach%2C_The_Gambia_%2816197149546%29.jpg"
+            alt=""
+            data-hero-slide
+          />
+          <img
+            class="hero-slide"
+            src="https://upload.wikimedia.org/wikipedia/commons/5/51/Gambia-river.jpg"
+            alt=""
+            data-hero-slide
+          />
+          <img
+            class="hero-slide"
+            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/That%27s_the_Banjul_market_in_the_Gambia.jpg?width=1800"
+            alt=""
+            data-hero-slide
+          />
+          <img
+            class="hero-slide"
+            src="https://upload.wikimedia.org/wikipedia/commons/5/55/Little_Bee-eater_%28Merops_pusillus_pusillus%29%2C_Kotu_Beach%2C_Gambia.jpg"
+            alt=""
+            data-hero-slide
+          />
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="eyebrow" data-i18n="heroEyebrow">Private Gambia tours, day trips and local excursions</p>
+          <h1 data-i18n="heroTitle">Gambia Tours &amp; Excursions</h1>
+          <p class="hero-copy" data-i18n="heroCopy">
+            Explore Banjul, Kololi, Kotu, the River Gambia, local markets, birdwatching routes and coastal sunsets with a flexible private guide.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-button" href="#booking">
+              <i data-lucide="calendar-check"></i>
+              <span data-i18n="heroReserve">Request a tour</span>
+            </a>
+            <a class="secondary-button" href="#tours">
+              <i data-lucide="map"></i>
+              <span data-i18n="heroExplore">See Gambia tours</span>
+            </a>
+          </div>
+        </div>
 
-    #whatsapp-float:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
-    }
+        <div class="carousel-controls" aria-label="Gambia travel photo carousel" data-i18n-aria-label="carouselAria">
+          <button class="icon-button carousel-arrow" type="button" data-carousel-prev aria-label="Previous photo" data-i18n-aria-label="carouselPrev">
+            <i data-lucide="chevron-left"></i>
+          </button>
+          <div class="carousel-dots" data-carousel-dots>
+            <button class="carousel-dot active" type="button" data-carousel-dot="0" aria-label="Show beach photo" data-i18n-aria-label="carouselDot1"></button>
+            <button class="carousel-dot" type="button" data-carousel-dot="1" aria-label="Show river photo" data-i18n-aria-label="carouselDot2"></button>
+            <button class="carousel-dot" type="button" data-carousel-dot="2" aria-label="Show market photo" data-i18n-aria-label="carouselDot3"></button>
+            <button class="carousel-dot" type="button" data-carousel-dot="3" aria-label="Show birdwatching photo" data-i18n-aria-label="carouselDot4"></button>
+          </div>
+          <button class="icon-button carousel-arrow" type="button" data-carousel-next aria-label="Next photo" data-i18n-aria-label="carouselNext">
+            <i data-lucide="chevron-right"></i>
+          </button>
+        </div>
 
-    #whatsapp-float:hover #whatsapp-text {
-      display: inline !important;
-    }
+        <form class="booking-strip" id="booking" data-quick-book>
+          <label>
+            <span data-i18n="formTour">Tour</span>
+            <select name="tour" data-tour-select aria-label="Choose a Gambia tour" data-i18n-aria-label="selectTour"></select>
+          </label>
+          <label>
+            <span data-i18n="formDate">Date</span>
+            <input type="date" name="date" data-date-input required />
+          </label>
+          <label>
+            <span data-i18n="formGuests">Guests</span>
+            <input type="number" name="guests" min="1" max="18" value="2" required />
+          </label>
+          <button class="primary-button" type="submit">
+            <i data-lucide="send"></i>
+            <span data-i18n="quickSubmit">Check availability</span>
+          </button>
+        </form>
+      </section>
 
-    @media (min-width: 768px) {
-      #whatsapp-float {
-        padding: 15px 20px;
-      }
-      #whatsapp-text {
-        display: inline !important;
-      }
-    }
-  </style>
-  
-  <script src="https://gambiantour.com/main.js"></script>
-</body>
+      <section class="section intro-band" id="why">
+        <div class="section-kicker" data-i18n="introKicker">Gambia private tours with local guides</div>
+        <div class="intro-grid">
+          <div>
+            <h2 data-i18n="introTitle">Easy, flexible Gambia excursions for travelers who want more than a hotel transfer.</h2>
+          </div>
+          <div class="intro-copy">
+            <p data-i18n="introCopy">
+              Choose a ready-made Gambia day trip or build a private itinerary around your hotel location, pace and interests. We plan tours from Kololi, Kotu, Senegambia, Bijilo, Cape Point and Banjul, with English-speaking guides and Polish-speaking guides available on request.
+            </p>
+          </div>
+        </div>
+        <div class="trust-row" aria-label="Tour service highlights" data-i18n-aria-label="trustAria">
+          <div>
+            <strong data-i18n="trustOne">Hotel pickup</strong>
+            <span data-i18n="trustOneCopy">Kololi, Kotu, Banjul</span>
+          </div>
+          <div>
+            <strong data-i18n="trustTwo">Private tours</strong>
+            <span data-i18n="trustTwoCopy">your pace, your stops</span>
+          </div>
+          <div>
+            <strong data-i18n="trustThree">EN + PL</strong>
+            <span data-i18n="trustThreeCopy">Polish-speaking guides</span>
+          </div>
+          <div>
+            <strong data-i18n="trustFour">Gambia</strong>
+            <span data-i18n="trustFourCopy">local day trips</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section tours-section" id="tours">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker" data-i18n="toursKicker">Bookable Gambia excursions</div>
+            <h2 data-i18n="toursTitle">Popular private tours in The Gambia</h2>
+          </div>
+          <div class="filter-tabs" role="tablist" aria-label="Filter Gambia tours" data-i18n-aria-label="filterAria">
+            <button class="filter-tab active" type="button" data-filter="all" data-i18n="filterAll">All</button>
+            <button class="filter-tab" type="button" data-filter="nature" data-i18n="filterNature">Nature</button>
+            <button class="filter-tab" type="button" data-filter="culture" data-i18n="filterCulture">Culture</button>
+            <button class="filter-tab" type="button" data-filter="coast" data-i18n="filterCoast">Coast</button>
+          </div>
+        </div>
+        <div class="tour-grid" data-tour-grid></div>
+      </section>
+
+      <section class="feature-split section">
+        <div class="feature-media">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/5/51/Gambia-river.jpg"
+            alt="The Gambia River bordered by palms and dense greenery"
+            data-i18n-alt="featureImageAlt"
+            loading="lazy"
+          />
+        </div>
+        <div class="feature-copy">
+          <div class="section-kicker" data-i18n="featureKicker">Signature private route</div>
+          <h2 data-i18n="featureTitle">Gambia River tour, Banjul market walk, or a custom day from your hotel.</h2>
+          <p data-i18n="featureCopy">
+            The best Gambia excursions are not rushed. Start with pickup on the coast, then follow a route shaped around history, nature, markets, local food, photography, family timing or birdwatching.
+          </p>
+          <ul class="check-list">
+            <li><i data-lucide="check"></i><span data-i18n="featureCheck1">Pickup from Kololi, Kotu, Senegambia, Bijilo, Cape Point or Banjul</span></li>
+            <li><i data-lucide="check"></i><span data-i18n="featureCheck2">English-speaking guide, with Polish-speaking guide available</span></li>
+            <li><i data-lucide="check"></i><span data-i18n="featureCheck3">Flexible private itinerary before you confirm the booking</span></li>
+          </ul>
+          <button class="secondary-button dark" type="button" data-book-tour="custom">
+            <i data-lucide="calendar-plus"></i>
+            <span data-i18n="featureButton">Request custom tour</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="section polish-guides" id="polish-guides">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker" data-i18n="polishKicker">For Polish travelers</div>
+            <h2 data-i18n="polishTitle">Polish-speaking tour guides in Gambia</h2>
+          </div>
+          <p data-i18n="polishCopy">
+            Traveling from Poland or prefer sightseeing in Polish? We can arrange Gambia tours with a Polish-speaking guide, including Banjul, the River Gambia, local markets, beaches and custom private day trips.
+          </p>
+        </div>
+        <a class="secondary-button dark inline-button" href="polish-speaking-guide.html">
+          <i data-lucide="languages"></i>
+          <span data-i18n="polishButton">Polish guide details</span>
+        </a>
+      </section>
+
+      <section class="section seo-band">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker" data-i18n="keywordsKicker">Trip ideas travelers search for</div>
+            <h2 data-i18n="keywordsTitle">Plan the Gambia day trip that matches your search.</h2>
+          </div>
+        </div>
+        <div class="keyword-grid">
+          <span data-i18n="keyword1">Gambia excursions from Kololi and Kotu</span>
+          <span data-i18n="keyword2">Private tour guide in The Gambia</span>
+          <span data-i18n="keyword3">Banjul market and city tour</span>
+          <span data-i18n="keyword4">Gambia River boat tour</span>
+          <span data-i18n="keyword5">Birdwatching tour in Gambia</span>
+          <span data-i18n="keyword6">Things to do in Gambia beyond the beach</span>
+        </div>
+      </section>
+
+      <section class="section stories-teaser">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker" data-i18n="storiesKicker">Tour stories</div>
+            <h2 data-i18n="storiesTitle">A place for real relations from previous Gambia tours.</h2>
+          </div>
+          <p data-i18n="storiesCopy">
+            Use this section to publish short relations from completed tours: route, guest interests, stops, photos and practical travel notes. It helps travelers trust the service and gives Google fresh, useful Gambia travel content.
+          </p>
+        </div>
+        <a class="primary-button inline-button" href="stories.html">
+          <i data-lucide="newspaper"></i>
+          <span data-i18n="storiesButton">Read tour stories</span>
+        </a>
+      </section>
+
+      <section class="section faq-section" id="faq">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker" data-i18n="faqKicker">Gambia tour FAQ</div>
+            <h2 data-i18n="faqTitle">Questions travelers ask before booking</h2>
+          </div>
+        </div>
+        <div class="faq-grid">
+          <article>
+            <h3 data-i18n="faq1Q">Do you offer private tours in Gambia?</h3>
+            <p data-i18n="faq1A">Yes. Most tours can be private, with pickup from the main coastal hotel areas and a flexible route.</p>
+          </article>
+          <article>
+            <h3 data-i18n="faq2Q">Can I book a Polish-speaking guide in Gambia?</h3>
+            <p data-i18n="faq2A">Yes, Polish-speaking guides are available on request. It is best to mention Polish language preference when sending the booking request.</p>
+          </article>
+          <article>
+            <h3 data-i18n="faq3Q">Where do tours start?</h3>
+            <p data-i18n="faq3A">Tours can start from Kololi, Kotu, Senegambia, Bijilo, Cape Point, Banjul and nearby hotel areas.</p>
+          </article>
+          <article>
+            <h3 data-i18n="faq4Q">Can you build a custom Gambia itinerary?</h3>
+            <p data-i18n="faq4A">Yes. Share your interests, hotel location, date and group size, and we will suggest a private route.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact">
+        <div class="contact-panel">
+          <div>
+            <div class="section-kicker" data-i18n="contactKicker">Ready to plan?</div>
+            <h2 data-i18n="contactTitle">Send your preferred date and the Gambia tour you want.</h2>
+            <p data-i18n="contactCopy">
+              Tell us your hotel area, group size, language preference and what you want to see. We will confirm the best route before anything is final.
+            </p>
+            <p class="contact-email">
+              <span data-i18n="contactEmailLabel">Direct email:</span>
+              <a href="mailto:info@gambiantour.com">info@gambiantour.com</a>
+            </p>
+          </div>
+          <button class="primary-button" type="button" data-open-custom>
+            <i data-lucide="message-circle"></i>
+            <span data-i18n="contactButton">Request custom tour</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand text-footer-brand">
+        <span class="footer-logo">GambianTour<span>.com</span></span>
+        <span data-i18n="footerCopy">Private Gambia tours, excursions and day trips with local English and Polish-speaking guides.</span>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:info@gambiantour.com">
+          <span data-i18n="footerEmail">Email</span>: info@gambiantour.com
+        </a>
+        <a href="#booking" data-i18n="footerBook">Book</a>
+        <a href="#tours" data-i18n="footerTours">Tours</a>
+        <a href="stories.html" data-i18n="footerStories">Stories</a>
+        <a href="#contact" data-i18n="footerContact">Contact</a>
+      </div>
+      <p class="credits" data-i18n="credits">
+        Photos: Kotu Beach by Mark Hodson Photos, CC BY 2.0; Gambia River by Mathiasv, CC BY-SA 3.0; Banjul Market by Yama Camara, CC0; Little Bee-eater by Charles J. Sharp, CC BY-SA 4.0.
+      </p>
+    </footer>
+
+    <dialog class="booking-modal" data-booking-modal>
+      <form method="dialog" class="modal-shell" data-booking-form>
+        <button class="icon-button modal-close" type="button" aria-label="Close booking form" data-close-modal data-i18n-aria-label="modalClose">
+          <i data-lucide="x"></i>
+        </button>
+        <div class="modal-intro">
+          <span data-modal-label>Booking request</span>
+          <h2 data-modal-title>Reserve your Gambia tour</h2>
+          <p data-modal-description>
+            Send your preferred date, pickup area and contact details. We will reply before anything is confirmed.
+          </p>
+        </div>
+        <div class="form-grid">
+          <label>
+            <span data-i18n="formTour">Tour</span>
+            <select name="tour" data-modal-tour required></select>
+          </label>
+          <label>
+            <span data-i18n="formDate">Date</span>
+            <input type="date" name="date" data-modal-date required />
+          </label>
+          <label>
+            <span data-i18n="formGuests">Guests</span>
+            <input type="number" name="guests" min="1" max="18" required />
+          </label>
+          <label>
+            <span data-i18n="formName">Name</span>
+            <input type="text" name="name" autocomplete="name" placeholder="Your name" data-i18n-placeholder="placeholderName" required />
+          </label>
+          <label>
+            <span data-i18n="formEmail">Email</span>
+            <input type="email" name="email" autocomplete="email" placeholder="you@example.com" data-i18n-placeholder="placeholderEmail" required />
+          </label>
+          <label>
+            <span data-i18n="formPhone">Phone or WhatsApp</span>
+            <input
+              type="tel"
+              name="phone"
+              autocomplete="tel"
+              inputmode="tel"
+              value="+48 "
+              placeholder="+48 500 000 000 or your country code"
+              data-i18n-placeholder="placeholderPhone"
+              required
+            />
+          </label>
+          <label class="wide">
+            <span data-i18n="formPickup">Hotel / pickup area</span>
+            <input type="text" name="pickup" placeholder="Kololi, Kotu, Senegambia, Banjul..." data-i18n-placeholder="placeholderPickup" />
+          </label>
+          <label class="wide">
+            <span data-i18n="formNotes">Notes</span>
+            <textarea name="notes" rows="4" placeholder="Language preference, interests, accessibility needs, children, timing, food preferences" data-i18n-placeholder="placeholderNotes"></textarea>
+          </label>
+        </div>
+        <div class="modal-footer">
+          <p data-booking-feedback aria-live="polite"></p>
+          <button class="primary-button" type="submit">
+            <i data-lucide="check-circle"></i>
+            <span data-i18n="sendRequest">Send request</span>
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <div class="toast" data-toast role="status" aria-live="polite"></div>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>

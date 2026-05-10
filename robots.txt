@@ -1,28 +1,4 @@
 User-agent: *
 Allow: /
 
-# Sitemaps
-Sitemap: https://www.gambiantour.com/sitemap.xml
-
-# Priority pages for indexing (recently updated)
-# Polish language support and premium tour package
-
-# Crawl-delay for politeness
-Crawl-delay: 1
-
-# Allow important image directories
-Allow: /photos/*.jpg
-Allow: /photos/*.jpeg
-Allow: /photos/*.png
-Allow: /photos/*.webp
-
-# Block unnecessary files (but allow main content)
-Disallow: /style.css
-Disallow: /navbar.html
-
-# Popular search engines
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
+Sitemap: https://gambiantour.com/sitemap.xml
