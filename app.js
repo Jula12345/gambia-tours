@@ -3,8 +3,8 @@ const FORM_SUBMIT_ENDPOINT = "https://formsubmit.co/ajax/info@gambiantour.com";
 
 const translations = {
   en: {
-    documentTitle: "Gambia Tours, Senegal Trips & 7-Day Itineraries | GambianTour.com",
-    metaDescription: "Book private Gambia tours, day trips, 7-day Gambia and Senegal itineraries with local English and Polish-speaking guides.",
+    documentTitle: "Gambia Tours, Senegal Trips & Multi-Day Itineraries | GambianTour.com",
+    metaDescription: "Book private Gambia tours, day trips, 7-day and 10-day Gambia and Senegal itineraries with local English and Polish-speaking guides.",
     brandHome: "GambianTour.com home",
     languageToggle: "Language selector",
     menuOpen: "Open navigation",
@@ -19,7 +19,7 @@ const translations = {
     heroAria: "Private Gambia tours and excursions booking",
     heroEyebrow: "Private Gambia tours, Senegal trips and local excursions",
     heroTitle: "Gambia Tours & Excursions",
-    heroCopy: "Explore Banjul, Kololi, Kotu, the River Gambia, local markets, birdwatching routes, Senegal day routes and 7-day private itineraries with a flexible guide.",
+    heroCopy: "Explore Banjul, Kololi, Kotu, the River Gambia, local markets, birdwatching routes, Senegal day routes and private multi-day itineraries with a flexible guide.",
     heroReserve: "Request a tour",
     heroExplore: "See Gambia tours",
     carouselAria: "Gambia travel photo carousel",
@@ -31,7 +31,10 @@ const translations = {
     carouselDot4: "Show birdwatching photo",
     formTour: "Tour",
     formDate: "Date",
+    formStartDate: "Start date",
     formGuests: "Guests",
+    dateRangeHint: "Tour period: {start} - {end} ({days} days)",
+    dateRangeEmpty: "Choose a start date to calculate the full tour period.",
     quickSubmit: "Check availability",
     selectTour: "Choose a Gambia tour",
     introKicker: "Gambia private tours with local guides",
@@ -53,19 +56,22 @@ const translations = {
     filterNature: "Nature",
     filterCulture: "Culture",
     filterCoast: "Coast",
-    filterMulti: "7-day tours",
+    filterMulti: "Multi-day tours",
     smallGroup: "Private or small group",
     fromPerPerson: "from per person",
     from: "from",
     book: "Book",
-    completeKicker: "Complete 7-day itineraries",
+    quotePrice: "custom quote",
+    quotePerPerson: "quoted for your group",
+    details: "Details",
+    completeKicker: "Complete multi-day itineraries",
     completeTitle: "Private Gambia and Senegal tours with the route already planned.",
     completeCopy: "These multi-day tours include private transport, guide/driver, accommodation, airport transfers, route logistics, standard entrances and listed activities. International flights and food/drinks are not included.",
     completeIncludedTitle: "Included",
     completeIncludedCopy: "Private guide/driver, vehicle, fuel, accommodation, airport transfers, border assistance, listed visits and route planning.",
     completeExcludedTitle: "Not included",
     completeExcludedCopy: "International flights, meals, drinks, personal expenses, travel insurance and tips.",
-    completePriceNote: "Prices are starting estimates per person based on 2 guests. Final quote depends on dates, hotels, room setup and group size.",
+    completePriceNote: "Displayed 7-day prices are starting estimates per person based on 2 guests. The 10-day Senegal and Gambia tour is quoted individually because hotels, room setup, meal plan and group size change the final price.",
     completeOneLabel: "Gambia + Senegal Casamance",
     completeOneTitle: "7-Day Gambia & Casamance Discovery",
     completeOnePrice: "from $980 per person",
@@ -88,7 +94,18 @@ const translations = {
     completeTwoDay5: "Day 5: Senegal village culture, crafts and river or mangrove landscapes.",
     completeTwoDay6: "Day 6: Return to The Gambia with stops for local life, viewpoints and shopping.",
     completeTwoDay7: "Day 7: Relaxed final morning, custom stop and airport or hotel transfer.",
-    completeBook: "Request this 7-day tour",
+    completeThreeLabel: "Senegal + Gambia signature route",
+    completeThreeTitle: "10-Day Senegal & Gambia Discovery",
+    completeThreePrice: "private quote",
+    completeThreeCopy: "A complete West Africa route starting and ending in Dakar, with Senegal highlights, Fathala safari, five days in The Gambia, UNESCO heritage and the River Gambia.",
+    completeThreeDay1: "Days 1-2: Dakar arrival, city orientation, African Renaissance Monument, markets and Lac Rose.",
+    completeThreeDay2: "Day 3: Fathala Wildlife Reserve safari and overnight lodge stay.",
+    completeThreeDay3: "Day 4: Assisted border crossing into The Gambia and Banjul city tour.",
+    completeThreeDay4: "Days 5-6: Kunta Kinteh Island, river boat time, Abuko, Kachikally and Tanji fishing culture.",
+    completeThreeDay5: "Days 7-8: Janjanbureh, River Gambia boat safari, village life and Wassu Stone Circles.",
+    completeThreeDay6: "Days 9-10: Return to Dakar, craft shopping, farewell evening and airport transfer.",
+    completeBook: "Request this tour",
+    completeDetails: "View full itinerary",
     featureImageAlt: "The Gambia River bordered by palms and dense greenery",
     featureKicker: "Signature private route",
     featureTitle: "Gambia River tour, Banjul market walk, or a custom day from your hotel.",
@@ -111,7 +128,7 @@ const translations = {
     keyword6: "Things to do in Gambia beyond the beach",
     keyword7: "7-day Gambia and Senegal tour",
     keyword8: "Gambia and Casamance private itinerary",
-    keyword9: "Senegambia wildlife and culture tour",
+    keyword9: "10-day Senegal and Gambia tour",
     storiesKicker: "Tour stories",
     storiesTitle: "Stories and route ideas from private Gambia tours.",
     storiesCopy: "Read inspiring Gambia travel stories before you choose your route: river days, Banjul market walks, birdwatching mornings and flexible private excursions from the coast.",
@@ -126,10 +143,10 @@ const translations = {
     faq3A: "Tours can start from Kololi, Kotu, Senegambia, Bijilo, Cape Point, Banjul and nearby hotel areas.",
     faq4Q: "Can you build a custom Gambia itinerary?",
     faq4A: "Yes. Share your interests, hotel location, date and group size, and we will suggest a private route.",
-    faq5Q: "Do you offer 7-day Gambia and Senegal tours?",
-    faq5A: "Yes. We offer private 7-day itineraries combining The Gambia with Senegal routes such as Casamance, wildlife stops, river landscapes and cultural visits.",
-    faq6Q: "What is included in the 7-day tours?",
-    faq6A: "Private guide/driver, vehicle, fuel, accommodation, airport transfers, border assistance, listed visits and route planning are included. International flights and food/drinks are not included.",
+    faq5Q: "Do you offer multi-day Gambia and Senegal tours?",
+    faq5A: "Yes. We offer private 7-day and 10-day itineraries combining The Gambia with Senegal routes such as Casamance, Dakar, Fathala, river landscapes and cultural visits.",
+    faq6Q: "What is included in the multi-day tours?",
+    faq6A: "Private guide/driver, vehicle, fuel, accommodation, airport transfers, border assistance, listed visits and route planning are included. International flights and some meals/drinks are not included unless confirmed in your quote.",
     contactKicker: "Ready to plan?",
     contactTitle: "Send your preferred date and the Gambia tour you want.",
     contactCopy: "Tell us your hotel area, group size, language preference and what you want to see. We will confirm the best route before anything is final.",
@@ -175,6 +192,8 @@ const translations = {
     emailBodyId: "Request ID",
     emailBodyTour: "Tour",
     emailBodyDate: "Date",
+    emailBodyEndDate: "End date",
+    emailBodyTourPeriod: "Tour period",
     emailBodyGuests: "Guests",
     emailBodyName: "Name",
     emailBodyEmail: "Email",
@@ -184,8 +203,8 @@ const translations = {
     emailBodyMissing: "not provided"
   },
   pl: {
-    documentTitle: "Wycieczki Gambia Senegal i 7-dniowe trasy | GambianTour.com",
-    metaDescription: "Prywatne wycieczki po Gambii, jednodniowe atrakcje i 7-dniowe trasy Gambia-Senegal z anglojęzycznym lub polskojęzycznym przewodnikiem.",
+    documentTitle: "Wycieczki Gambia Senegal i trasy kilkudniowe | GambianTour.com",
+    metaDescription: "Prywatne wycieczki po Gambii, jednodniowe atrakcje oraz 7- i 10-dniowe trasy Gambia-Senegal z anglojęzycznym lub polskojęzycznym przewodnikiem.",
     brandHome: "Strona główna GambianTour.com",
     languageToggle: "Wybór języka",
     menuOpen: "Otwórz menu",
@@ -200,7 +219,7 @@ const translations = {
     heroAria: "Rezerwacja prywatnych wycieczek po Gambii",
     heroEyebrow: "Prywatne wycieczki po Gambii, Senegal i lokalne atrakcje",
     heroTitle: "Wycieczki po Gambii",
-    heroCopy: "Banjul, Kololi, Kotu, rzeka Gambia, lokalne targi, ptaki, trasy do Senegalu i 7-dniowe prywatne programy z elastycznym przewodnikiem.",
+    heroCopy: "Banjul, Kololi, Kotu, rzeka Gambia, lokalne targi, ptaki, trasy do Senegalu i prywatne programy kilkudniowe z elastycznym przewodnikiem.",
     heroReserve: "Zapytaj o wycieczkę",
     heroExplore: "Zobacz trasy",
     carouselAria: "Karuzela zdjęć z Gambii",
@@ -212,7 +231,10 @@ const translations = {
     carouselDot4: "Pokaż zdjęcie ptaków",
     formTour: "Wycieczka",
     formDate: "Data",
+    formStartDate: "Data rozpoczęcia",
     formGuests: "Goście",
+    dateRangeHint: "Termin trasy: {start} - {end} ({days} dni)",
+    dateRangeEmpty: "Wybierz datę rozpoczęcia, aby wyliczyć pełny termin trasy.",
     quickSubmit: "Sprawdź dostępność",
     selectTour: "Wybierz wycieczkę po Gambii",
     introKicker: "Prywatne wycieczki po Gambii",
@@ -234,19 +256,22 @@ const translations = {
     filterNature: "Natura",
     filterCulture: "Kultura",
     filterCoast: "Wybrzeże",
-    filterMulti: "7 dni",
+    filterMulti: "Kilkudniowe",
     smallGroup: "Prywatnie lub kameralnie",
     fromPerPerson: "od osoby",
     from: "od",
     book: "Rezerwuj",
-    completeKicker: "Pełne 7-dniowe programy",
+    quotePrice: "wycena indywidualna",
+    quotePerPerson: "wycena dla grupy",
+    details: "Szczegóły",
+    completeKicker: "Pełne programy kilkudniowe",
     completeTitle: "Prywatne wycieczki po Gambii i Senegalu z gotowym planem.",
     completeCopy: "Te kilkudniowe trasy obejmują prywatny transport, przewodnika/kierowcę, noclegi, transfery z lotniska, logistykę trasy, standardowe wejścia i wymienione atrakcje. Bilety lotnicze oraz jedzenie i napoje nie są wliczone.",
     completeIncludedTitle: "W cenie",
     completeIncludedCopy: "Prywatny przewodnik/kierowca, samochód, paliwo, noclegi, transfery z lotniska, pomoc przy granicy, wymienione wizyty i planowanie trasy.",
     completeExcludedTitle: "Poza ceną",
     completeExcludedCopy: "Loty międzynarodowe, jedzenie, napoje, wydatki osobiste, ubezpieczenie podróżne i napiwki.",
-    completePriceNote: "Ceny są orientacyjne od osoby przy 2 uczestnikach. Ostateczna wycena zależy od dat, hoteli, rodzaju pokoju i liczby osób.",
+    completePriceNote: "Podane ceny tras 7-dniowych są orientacyjne od osoby przy 2 uczestnikach. Trasa 10-dniowa Senegal i Gambia jest wyceniana indywidualnie, bo finalna cena zależy od hoteli, pokoi, posiłków i liczby osób.",
     completeOneLabel: "Gambia + senegalska Casamance",
     completeOneTitle: "7 dni: Gambia i Casamance",
     completeOnePrice: "od $980 od osoby",
@@ -269,7 +294,18 @@ const translations = {
     completeTwoDay5: "Dzień 5: Kultura wiosek, rzemiosło oraz krajobrazy rzek lub mangrowców.",
     completeTwoDay6: "Dzień 6: Powrót do Gambii z postojami na lokalne życie, widoki i zakupy.",
     completeTwoDay7: "Dzień 7: Spokojny finał, indywidualny postój i transfer na lotnisko lub do hotelu.",
-    completeBook: "Zapytaj o tę trasę 7-dniową",
+    completeThreeLabel: "Senegal + Gambia, trasa flagowa",
+    completeThreeTitle: "10 dni: Senegal i Gambia",
+    completeThreePrice: "wycena indywidualna",
+    completeThreeCopy: "Pełna trasa po Afryce Zachodniej ze startem i końcem w Dakarze: Senegal, safari Fathala, pięć dni w Gambii, UNESCO, rzeka Gambia i lokalna kultura.",
+    completeThreeDay1: "Dni 1-2: Przylot do Dakaru, orientacja w mieście, Pomnik Renesansu Afrykańskiego, targi i Lac Rose.",
+    completeThreeDay2: "Dzień 3: Safari w Fathala Wildlife Reserve i nocleg w lodge.",
+    completeThreeDay3: "Dzień 4: Pomoc przy granicy, wjazd do Gambii i zwiedzanie Banjul.",
+    completeThreeDay4: "Dni 5-6: Wyspa Kunta Kinteh, rejs po rzece, Abuko, Kachikally i rybackie Tanji.",
+    completeThreeDay5: "Dni 7-8: Janjanbureh, safari łodzią po rzece Gambia, wioski i Kamienne Kręgi Wassu.",
+    completeThreeDay6: "Dni 9-10: Powrót do Dakaru, rękodzieło, wieczór pożegnalny i transfer na lotnisko.",
+    completeBook: "Zapytaj o tę trasę",
+    completeDetails: "Zobacz pełny program",
     featureImageAlt: "Rzeka Gambia otoczona palmami i zielenią",
     featureKicker: "Trasa prywatna",
     featureTitle: "Rzeka Gambia, targ w Banjul albo własny plan z odbiorem z hotelu.",
@@ -292,7 +328,7 @@ const translations = {
     keyword6: "Co zobaczyć w Gambii poza plażą",
     keyword7: "7-dniowa wycieczka Gambia Senegal",
     keyword8: "Gambia i Casamance prywatna trasa",
-    keyword9: "Senegambia natura i kultura",
+    keyword9: "10-dniowa trasa Senegal i Gambia",
     storiesKicker: "Relacje z tras",
     storiesTitle: "Relacje i pomysły na prywatne wycieczki po Gambii.",
     storiesCopy: "Zainspiruj się trasami po Gambii: spokojny dzień nad rzeką, targ w Banjul, poranna obserwacja ptaków i prywatne wycieczki z wybrzeża.",
@@ -307,10 +343,10 @@ const translations = {
     faq3A: "Odbiór jest możliwy z Kololi, Kotu, Senegambii, Bijilo, Cape Point, Banjul i pobliskich hoteli.",
     faq4Q: "Czy można przygotować indywidualny plan?",
     faq4A: "Tak. Podaj zainteresowania, hotel, datę i liczbę osób, a zaproponujemy prywatną trasę.",
-    faq5Q: "Czy oferujecie 7-dniowe wycieczki po Gambii i Senegalu?",
-    faq5A: "Tak. Organizujemy prywatne 7-dniowe programy łączące Gambię z Senegalem, na przykład Casamance, naturę, rzeki i lokalną kulturę.",
-    faq6Q: "Co zawiera cena 7-dniowej trasy?",
-    faq6A: "W cenie są prywatny przewodnik/kierowca, samochód, paliwo, noclegi, transfery, pomoc przy granicy, wymienione atrakcje i planowanie trasy. Loty oraz jedzenie i napoje nie są wliczone.",
+    faq5Q: "Czy oferujecie kilkudniowe wycieczki po Gambii i Senegalu?",
+    faq5A: "Tak. Organizujemy prywatne programy 7- i 10-dniowe łączące Gambię z Senegalem, na przykład Casamance, Dakar, Fathala, naturę, rzeki i lokalną kulturę.",
+    faq6Q: "Co zawiera cena kilkudniowej trasy?",
+    faq6A: "W cenie są prywatny przewodnik/kierowca, samochód, paliwo, noclegi, transfery, pomoc przy granicy, wymienione atrakcje i planowanie trasy. Loty i część posiłków/napojów nie są wliczone, chyba że potwierdzimy inaczej w wycenie.",
     contactKicker: "Gotowy na plan?",
     contactTitle: "Wyślij datę i trasę po Gambii, którą chcesz zobaczyć.",
     contactCopy: "Napisz, gdzie mieszkasz, ile osób jedzie, jaki język preferujesz i co chcesz zobaczyć. Potwierdzimy trasę przed rezerwacją.",
@@ -356,6 +392,8 @@ const translations = {
     emailBodyId: "Numer zapytania",
     emailBodyTour: "Wycieczka",
     emailBodyDate: "Data",
+    emailBodyEndDate: "Data zakończenia",
+    emailBodyTourPeriod: "Termin trasy",
     emailBodyGuests: "Goście",
     emailBodyName: "Imię i nazwisko",
     emailBodyEmail: "Email",
@@ -371,6 +409,7 @@ const tours = [
     id: "gambia-highlights",
     category: "culture",
     price: 85,
+    detailsUrl: "gambia-highlights-tour.html",
     image: "https://upload.wikimedia.org/wikipedia/commons/a/af/Kotu_Beach%2C_The_Gambia_%2816197149546%29.jpg",
     en: {
       title: "Private Gambia Highlights Day",
@@ -393,6 +432,7 @@ const tours = [
     id: "banjul-market",
     category: "culture",
     price: 55,
+    detailsUrl: "banjul-market-tour.html",
     image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/That%27s_the_Banjul_market_in_the_Gambia.jpg?width=1200",
     en: {
       title: "Banjul Market & City Tour",
@@ -415,6 +455,7 @@ const tours = [
     id: "river-heritage",
     category: "nature",
     price: 110,
+    detailsUrl: "gambia-river-heritage-tour.html",
     image: "https://upload.wikimedia.org/wikipedia/commons/5/51/Gambia-river.jpg",
     en: {
       title: "Gambia River & Heritage Day",
@@ -437,6 +478,7 @@ const tours = [
     id: "kotu-sunset",
     category: "coast",
     price: 45,
+    detailsUrl: "kotu-kololi-sunset-tour.html",
     image: "https://upload.wikimedia.org/wikipedia/commons/a/af/Kotu_Beach%2C_The_Gambia_%2816197149546%29.jpg",
     en: {
       title: "Kotu & Kololi Sunset Coast",
@@ -459,6 +501,7 @@ const tours = [
     id: "birdwatching",
     category: "nature",
     price: 70,
+    detailsUrl: "birdwatching-gambia-tour.html",
     image: "https://upload.wikimedia.org/wikipedia/commons/5/55/Little_Bee-eater_%28Merops_pusillus_pusillus%29%2C_Kotu_Beach%2C_Gambia.jpg",
     en: {
       title: "Birdwatching Morning Tour",
@@ -480,7 +523,9 @@ const tours = [
   {
     id: "gambia-casamance-7-day",
     category: "multi",
+    days: 7,
     price: 980,
+    detailsUrl: "gambia-casamance-7-day-tour.html",
     image: "https://upload.wikimedia.org/wikipedia/commons/5/51/Gambia-river.jpg",
     en: {
       title: "7-Day Gambia & Casamance Discovery",
@@ -502,7 +547,9 @@ const tours = [
   {
     id: "senegambia-wildlife-culture-7-day",
     category: "multi",
+    days: 7,
     price: 1280,
+    detailsUrl: "senegambia-wildlife-culture-7-day-tour.html",
     image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/That%27s_the_Banjul_market_in_the_Gambia.jpg?width=1200",
     en: {
       title: "7-Day Senegambia Wildlife & Culture Loop",
@@ -522,9 +569,34 @@ const tours = [
     }
   },
   {
+    id: "senegal-gambia-10-day",
+    category: "multi",
+    days: 10,
+    price: null,
+    detailsUrl: "senegal-gambia-10-day-tour.html",
+    image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_African_Renaissance_Monument.jpg?width=1400",
+    en: {
+      title: "10-Day Senegal & Gambia Discovery",
+      duration: "10 days",
+      alt: "African Renaissance Monument in Dakar, Senegal",
+      summary: "A complete private West Africa itinerary from Dakar through Lac Rose, Fathala, Banjul, Kunta Kinteh Island, Abuko, Janjanbureh and Wassu.",
+      highlights: ["Starts and ends in Dakar", "Senegal safari + five days in The Gambia", "Polish-speaking guide available"],
+      tags: ["10 days", "Dakar", "Gambia"]
+    },
+    pl: {
+      title: "10 dni: Senegal i Gambia",
+      duration: "10 dni",
+      alt: "Pomnik Renesansu Afrykańskiego w Dakarze w Senegalu",
+      summary: "Pełny prywatny program Afryki Zachodniej: Dakar, Lac Rose, Fathala, Banjul, Wyspa Kunta Kinteh, Abuko, Janjanbureh i Wassu.",
+      highlights: ["Start i koniec w Dakarze", "Safari w Senegalu + pięć dni w Gambii", "Polskojęzyczny przewodnik na życzenie"],
+      tags: ["10 dni", "Dakar", "Gambia"]
+    }
+  },
+  {
     id: "custom",
     category: "all",
     price: 120,
+    detailsUrl: "custom-gambia-tour.html",
     image: "https://upload.wikimedia.org/wikipedia/commons/5/51/Gambia-river.jpg",
     en: {
       title: "Custom Private Gambia Tour",
@@ -559,10 +631,16 @@ const selectors = {
   quickBook: document.querySelector("[data-quick-book]"),
   quickTour: document.querySelector("[data-tour-select]"),
   quickDate: document.querySelector("[data-date-input]"),
+  quickDateLabel: document.querySelector("[data-quick-date-label]"),
+  quickDateRange: document.querySelector("[data-quick-date-range]"),
   modal: document.querySelector("[data-booking-modal]"),
   modalForm: document.querySelector("[data-booking-form]"),
   modalTour: document.querySelector("[data-modal-tour]"),
   modalDate: document.querySelector("[data-modal-date]"),
+  modalDateLabel: document.querySelector("[data-modal-date-label]"),
+  modalDateRange: document.querySelector("[data-modal-date-range]"),
+  modalEndDate: document.querySelector("[data-modal-end-date]"),
+  modalTourPeriod: document.querySelector("[data-modal-tour-period]"),
   modalTitle: document.querySelector("[data-modal-title]"),
   modalLabel: document.querySelector("[data-modal-label]"),
   modalDescription: document.querySelector("[data-modal-description]"),
@@ -595,6 +673,10 @@ function money(value) {
   }).format(value);
 }
 
+function hasNumericPrice(tour) {
+  return Number.isFinite(tour.price);
+}
+
 function getTour(id) {
   return tours.find((tour) => tour.id === id) || tours[0];
 }
@@ -603,8 +685,83 @@ function tourCopy(tour) {
   return tour[currentLang] || tour.en;
 }
 
+function tourDays(tour) {
+  return tour.days || 1;
+}
+
+function isMultiDayTour(tour) {
+  return tourDays(tour) > 1;
+}
+
+function parseDateValue(value) {
+  if (!value) {
+    return null;
+  }
+
+  const [year, month, day] = value.split("-").map(Number);
+
+  if (!year || !month || !day) {
+    return null;
+  }
+
+  return new Date(year, month - 1, day);
+}
+
+function toDateValue(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function formatDateDisplay(value) {
+  const date = parseDateValue(value);
+
+  if (!date) {
+    return "";
+  }
+
+  return new Intl.DateTimeFormat(currentLang === "pl" ? "pl-PL" : "en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric"
+  }).format(date);
+}
+
+function endDateValue(startValue, days) {
+  const date = parseDateValue(startValue);
+
+  if (!date || days <= 1) {
+    return "";
+  }
+
+  date.setDate(date.getDate() + days - 1);
+  return toDateValue(date);
+}
+
+function dateRangeText(tour, startValue) {
+  const days = tourDays(tour);
+
+  if (!isMultiDayTour(tour)) {
+    return "";
+  }
+
+  const endValue = endDateValue(startValue, days);
+
+  if (!endValue) {
+    return t("dateRangeEmpty");
+  }
+
+  return template(t("dateRangeHint"), {
+    start: formatDateDisplay(startValue),
+    end: formatDateDisplay(endValue),
+    days: String(days)
+  });
+}
+
 function formatOption(tour) {
-  return `${tourCopy(tour).title} - ${t("from")} ${money(tour.price)}`;
+  const priceLabel = hasNumericPrice(tour) ? `${t("from")} ${money(tour.price)}` : t("quotePrice");
+  return `${tourCopy(tour).title} - ${priceLabel}`;
 }
 
 function applyTranslations() {
@@ -638,6 +795,7 @@ function applyTranslations() {
   });
 
   updateMenuLabel();
+  updateDateRangeUI();
 }
 
 function populateTourSelects() {
@@ -649,6 +807,43 @@ function populateTourSelects() {
   selectors.modalTour.innerHTML = options;
   selectors.quickTour.value = getTour(quickValue).id;
   selectors.modalTour.value = getTour(modalValue).id;
+  updateDateRangeUI();
+}
+
+function updateDateRangeUI() {
+  const quickTour = getTour(selectors.quickTour.value);
+  const modalTour = getTour(selectors.modalTour.value);
+  const quickIsMulti = isMultiDayTour(quickTour);
+  const modalIsMulti = isMultiDayTour(modalTour);
+  const quickRange = dateRangeText(quickTour, selectors.quickDate.value);
+  const modalRange = dateRangeText(modalTour, selectors.modalDate.value);
+  const modalEndValue = endDateValue(selectors.modalDate.value, tourDays(modalTour));
+
+  if (selectors.quickDateLabel) {
+    selectors.quickDateLabel.textContent = quickIsMulti ? t("formStartDate") : t("formDate");
+  }
+
+  if (selectors.quickDateRange) {
+    selectors.quickDateRange.textContent = quickRange;
+    selectors.quickDateRange.hidden = !quickIsMulti;
+  }
+
+  if (selectors.modalDateLabel) {
+    selectors.modalDateLabel.textContent = modalIsMulti ? t("formStartDate") : t("formDate");
+  }
+
+  if (selectors.modalDateRange) {
+    selectors.modalDateRange.textContent = modalRange;
+    selectors.modalDateRange.hidden = !modalIsMulti;
+  }
+
+  if (selectors.modalEndDate) {
+    selectors.modalEndDate.value = modalIsMulti ? modalEndValue : "";
+  }
+
+  if (selectors.modalTourPeriod) {
+    selectors.modalTourPeriod.value = modalIsMulti ? modalRange : "";
+  }
 }
 
 function renderTours(filter = activeFilter) {
@@ -677,10 +872,11 @@ function renderTours(filter = activeFilter) {
             <div class="tour-tags">
               ${copy.tags.map((tag) => `<span>${tag}</span>`).join("")}
             </div>
+            ${tour.detailsUrl ? `<a class="tour-detail-link" href="${tour.detailsUrl}"><i data-lucide="route"></i>${t("details")}</a>` : ""}
             <div class="price-row">
               <div>
-                <strong>${money(tour.price)}</strong>
-                <small>${t("fromPerPerson")}</small>
+                <strong>${hasNumericPrice(tour) ? money(tour.price) : t("quotePrice")}</strong>
+                <small>${hasNumericPrice(tour) ? t("fromPerPerson") : t("quotePerPerson")}</small>
               </div>
               <button class="secondary-button dark" type="button" data-book-tour="${tour.id}">
                 <i data-lucide="calendar-plus"></i>
@@ -716,6 +912,7 @@ function setModalTour(tourId, date = selectors.quickDate.value, guests = "2") {
   selectors.modalTitle.textContent = tour.id === "custom" ? t("customModalTitle") : `${t("reservePrefix")} ${copy.title}`;
   selectors.modalDescription.textContent = tour.id === "custom" ? t("customDescription") : t("bookingDescription");
   selectors.feedback.textContent = "";
+  updateDateRangeUI();
 }
 
 function openModal(tourId = selectors.quickTour.value, date, guests) {
@@ -764,6 +961,8 @@ function bookingEmailBody(booking, title) {
     `${t("emailBodyId")}: ${booking.id}`,
     `${t("emailBodyTour")}: ${title}`,
     `${t("emailBodyDate")}: ${booking.date}`,
+    ...(booking.endDate ? [`${t("emailBodyEndDate")}: ${booking.endDate}`] : []),
+    ...(booking.tourPeriod ? [`${t("emailBodyTourPeriod")}: ${booking.tourPeriod}`] : []),
     `${t("emailBodyGuests")}: ${booking.guests}`,
     `${t("emailBodyName")}: ${booking.name}`,
     `${t("emailBodyEmail")}: ${booking.email}`,
@@ -791,8 +990,7 @@ function openBookingEmail(booking, title) {
 
 function bookingSubmissionPayload(booking, title) {
   const fallback = t("emailBodyMissing");
-
-  return {
+  const payload = {
     _subject: template(t("emailSubject"), { id: booking.id, tour: title }),
     _template: "table",
     _captcha: "false",
@@ -803,6 +1001,8 @@ function bookingSubmissionPayload(booking, title) {
     "Created at": booking.createdAt,
     Tour: title,
     Date: booking.date,
+    ...(booking.endDate ? { "End date": booking.endDate } : {}),
+    ...(booking.tourPeriod ? { "Tour period": booking.tourPeriod } : {}),
     Guests: booking.guests,
     Name: booking.name,
     Email: booking.email,
@@ -810,6 +1010,8 @@ function bookingSubmissionPayload(booking, title) {
     "Hotel / pickup area": booking.pickup || fallback,
     Notes: booking.notes || fallback
   };
+
+  return payload;
 }
 
 async function sendBookingRequest(booking, title) {
@@ -839,6 +1041,7 @@ async function handleBookingSubmit(event) {
   const submitButton = selectors.modalForm.querySelector('button[type="submit"]');
   submitButton.disabled = true;
   selectors.feedback.textContent = t("emailSending");
+  updateDateRangeUI();
 
   const formData = new FormData(selectors.modalForm);
 
@@ -849,6 +1052,14 @@ async function handleBookingSubmit(event) {
   }
 
   formData.delete("_honey");
+
+  if (!formData.get("endDate")) {
+    formData.delete("endDate");
+  }
+
+  if (!formData.get("tourPeriod")) {
+    formData.delete("tourPeriod");
+  }
 
   const booking = saveBooking(formData);
   const title = tourCopy(getTour(booking.tour)).title;
@@ -954,6 +1165,13 @@ function bindEvents() {
       tab.classList.add("active");
       renderTours(tab.dataset.filter);
     });
+  });
+
+  selectors.quickTour.addEventListener("change", updateDateRangeUI);
+  selectors.quickDate.addEventListener("change", updateDateRangeUI);
+  selectors.modalDate.addEventListener("change", updateDateRangeUI);
+  selectors.modalTour.addEventListener("change", () => {
+    setModalTour(selectors.modalTour.value, selectors.modalDate.value, selectors.modalForm.elements.guests.value);
   });
 
   document.addEventListener("click", (event) => {

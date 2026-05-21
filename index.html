@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gambia Tours, Senegal Trips &amp; 7-Day Itineraries | GambianTour.com</title>
+    <title>Gambia Tours, Senegal Trips &amp; Multi-Day Itineraries | GambianTour.com</title>
     <meta
       name="description"
-      content="Book private Gambia tours, day trips, 7-day Gambia and Senegal itineraries with local English and Polish-speaking guides."
+      content="Book private Gambia tours, day trips, 7-day and 10-day Gambia and Senegal itineraries with local English and Polish-speaking guides."
       data-i18n-content="metaDescription"
     />
     <link rel="canonical" href="https://gambiantour.com/" />
@@ -14,10 +14,10 @@
     <meta name="theme-color" content="#0a463c" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="GambianTour.com" />
-    <meta property="og:title" content="Gambia Tours, Senegal Trips & 7-Day Itineraries" />
+    <meta property="og:title" content="Gambia Tours, Senegal Trips & Multi-Day Itineraries" />
     <meta
       property="og:description"
-      content="Private Gambia tours, Senegal trips, day excursions and 7-day itineraries with English or Polish-speaking local guides."
+      content="Private Gambia tours, Senegal trips, day excursions and 7-day or 10-day itineraries with English or Polish-speaking local guides."
     />
     <meta property="og:url" content="https://gambiantour.com/" />
     <meta
@@ -41,7 +41,7 @@
             "name": "GambianTour.com",
             "url": "https://gambiantour.com/",
             "email": "info@gambiantour.com",
-            "description": "Private Gambia tours, Senegal trips, excursions and 7-day itineraries with local English and Polish-speaking guides.",
+            "description": "Private Gambia tours, Senegal trips, excursions and 7-day or 10-day itineraries with local English and Polish-speaking guides.",
             "areaServed": ["The Gambia", "Senegal", "Banjul", "Kololi", "Kotu", "Senegambia", "Bijilo", "Casamance"],
             "knowsLanguage": ["English", "Polish"],
             "contactPoint": {
@@ -81,6 +81,14 @@
                 "itemOffered": {
                   "@type": "TouristTrip",
                   "name": "7-Day Senegambia Wildlife & Culture Loop"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "TouristTrip",
+                  "name": "10-Day Senegal & Gambia Discovery",
+                  "url": "https://gambiantour.com/senegal-gambia-10-day-tour.html"
                 }
               }
             ]
@@ -124,18 +132,18 @@
               },
               {
                 "@type": "Question",
-                "name": "Do you offer 7-day Gambia and Senegal tours?",
+                "name": "Do you offer multi-day Gambia and Senegal tours?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Yes. We offer private 7-day itineraries combining The Gambia with Senegal routes such as Casamance, wildlife stops, river landscapes and cultural visits."
+                  "text": "Yes. We offer private 7-day and 10-day itineraries combining The Gambia with Senegal routes such as Casamance, Dakar, Fathala, river landscapes and cultural visits."
                 }
               },
               {
                 "@type": "Question",
-                "name": "What is included in the 7-day tours?",
+                "name": "What is included in the multi-day tours?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Private guide/driver, vehicle, fuel, accommodation, airport transfers, border assistance, listed visits and route planning are included. International flights and food/drinks are not included."
+                  "text": "Private guide/driver, vehicle, fuel, accommodation, airport transfers, border assistance, listed visits and route planning are included. International flights and some meals/drinks are not included unless confirmed in your quote."
                 }
               }
             ]
@@ -147,7 +155,9 @@
   <body>
     <header class="site-header" data-header>
       <a class="brand" href="#top" aria-label="GambianTour.com home" data-i18n-aria-label="brandHome">
-        <span class="brand-mark-text">GT</span>
+        <span class="brand-flag" aria-hidden="true">
+          <span></span>
+        </span>
         <span class="brand-name">GambianTour<span>.com</span></span>
       </a>
       <nav class="nav-links" data-nav>
@@ -203,7 +213,7 @@
           <p class="eyebrow" data-i18n="heroEyebrow">Private Gambia tours, Senegal trips and local excursions</p>
           <h1 data-i18n="heroTitle">Gambia Tours &amp; Excursions</h1>
           <p class="hero-copy" data-i18n="heroCopy">
-            Explore Banjul, Kololi, Kotu, the River Gambia, local markets, birdwatching routes, Senegal day routes and 7-day private itineraries with a flexible guide.
+            Explore Banjul, Kololi, Kotu, the River Gambia, local markets, birdwatching routes, Senegal day routes and private multi-day itineraries with a flexible guide.
           </p>
           <div class="hero-actions">
             <a class="primary-button" href="#booking">
@@ -238,8 +248,9 @@
             <select name="tour" data-tour-select aria-label="Choose a Gambia tour" data-i18n-aria-label="selectTour"></select>
           </label>
           <label>
-            <span data-i18n="formDate">Date</span>
+            <span data-quick-date-label data-i18n="formDate">Date</span>
             <input type="date" name="date" data-date-input required />
+            <small class="date-range-hint" data-quick-date-range hidden></small>
           </label>
           <label>
             <span data-i18n="formGuests">Guests</span>
@@ -295,7 +306,7 @@
             <button class="filter-tab" type="button" data-filter="nature" data-i18n="filterNature">Nature</button>
             <button class="filter-tab" type="button" data-filter="culture" data-i18n="filterCulture">Culture</button>
             <button class="filter-tab" type="button" data-filter="coast" data-i18n="filterCoast">Coast</button>
-            <button class="filter-tab" type="button" data-filter="multi" data-i18n="filterMulti">7-day tours</button>
+            <button class="filter-tab" type="button" data-filter="multi" data-i18n="filterMulti">Multi-day tours</button>
           </div>
         </div>
         <div class="tour-grid" data-tour-grid></div>
@@ -304,7 +315,7 @@
       <section class="section complete-tours" id="complete-tours">
         <div class="section-header">
           <div>
-            <div class="section-kicker" data-i18n="completeKicker">Complete 7-day itineraries</div>
+            <div class="section-kicker" data-i18n="completeKicker">Complete multi-day itineraries</div>
             <h2 data-i18n="completeTitle">Private Gambia and Senegal tours with the route already planned.</h2>
           </div>
           <p data-i18n="completeCopy">
@@ -342,8 +353,12 @@
             </div>
             <button class="secondary-button dark" type="button" data-book-tour="gambia-casamance-7-day">
               <i data-lucide="calendar-plus"></i>
-              <span data-i18n="completeBook">Request this 7-day tour</span>
+              <span data-i18n="completeBook">Request this tour</span>
             </button>
+            <a class="tour-detail-link" href="gambia-casamance-7-day-tour.html">
+              <i data-lucide="route"></i>
+              <span data-i18n="completeDetails">View full itinerary</span>
+            </a>
           </article>
           <article class="complete-tour-card">
             <div class="complete-tour-topline">
@@ -375,12 +390,44 @@
             </div>
             <button class="secondary-button dark" type="button" data-book-tour="senegambia-wildlife-culture-7-day">
               <i data-lucide="calendar-plus"></i>
-              <span data-i18n="completeBook">Request this 7-day tour</span>
+              <span data-i18n="completeBook">Request this tour</span>
             </button>
+            <a class="tour-detail-link" href="senegambia-wildlife-culture-7-day-tour.html">
+              <i data-lucide="route"></i>
+              <span data-i18n="completeDetails">View full itinerary</span>
+            </a>
+          </article>
+          <article class="complete-tour-card featured-complete-tour">
+            <div class="complete-tour-topline">
+              <span data-i18n="completeThreeLabel">Senegal + Gambia signature route</span>
+              <strong data-i18n="completeThreePrice">private quote</strong>
+            </div>
+            <h3 data-i18n="completeThreeTitle">10-Day Senegal &amp; Gambia Discovery</h3>
+            <p data-i18n="completeThreeCopy">
+              A complete West Africa route starting and ending in Dakar, with Senegal highlights, Fathala safari, five days in The Gambia, UNESCO heritage and the River Gambia.
+            </p>
+            <ol class="itinerary-list">
+              <li data-i18n="completeThreeDay1">Days 1-2: Dakar arrival, city orientation, African Renaissance Monument, markets and Lac Rose.</li>
+              <li data-i18n="completeThreeDay2">Day 3: Fathala Wildlife Reserve safari and overnight lodge stay.</li>
+              <li data-i18n="completeThreeDay3">Day 4: Assisted border crossing into The Gambia and Banjul city tour.</li>
+              <li data-i18n="completeThreeDay4">Days 5-6: Kunta Kinteh Island, river boat time, Abuko, Kachikally and Tanji fishing culture.</li>
+              <li data-i18n="completeThreeDay5">Days 7-8: Janjanbureh, River Gambia boat safari, village life and Wassu Stone Circles.</li>
+              <li data-i18n="completeThreeDay6">Days 9-10: Return to Dakar, craft shopping, farewell evening and airport transfer.</li>
+            </ol>
+            <div class="complete-card-actions">
+              <a class="secondary-button dark" href="senegal-gambia-10-day-tour.html">
+                <i data-lucide="route"></i>
+                <span data-i18n="completeDetails">View full itinerary</span>
+              </a>
+              <button class="secondary-button dark" type="button" data-book-tour="senegal-gambia-10-day">
+                <i data-lucide="calendar-plus"></i>
+                <span data-i18n="completeBook">Request this tour</span>
+              </button>
+            </div>
           </article>
         </div>
         <p class="complete-note" data-i18n="completePriceNote">
-          Prices are starting estimates per person based on 2 guests. Final quote depends on dates, hotels, room setup and group size.
+          Displayed 7-day prices are starting estimates per person based on 2 guests. The 10-day Senegal and Gambia tour is quoted individually because hotels, room setup, meal plan and group size change the final price.
         </p>
       </section>
 
@@ -488,12 +535,12 @@
             <p data-i18n="faq4A">Yes. Share your interests, hotel location, date and group size, and we will suggest a private route.</p>
           </article>
           <article>
-            <h3 data-i18n="faq5Q">Do you offer 7-day Gambia and Senegal tours?</h3>
-            <p data-i18n="faq5A">Yes. We offer private 7-day itineraries combining The Gambia with Senegal routes such as Casamance, wildlife stops, river landscapes and cultural visits.</p>
+            <h3 data-i18n="faq5Q">Do you offer multi-day Gambia and Senegal tours?</h3>
+            <p data-i18n="faq5A">Yes. We offer private 7-day and 10-day itineraries combining The Gambia with Senegal routes such as Casamance, Dakar, Fathala, river landscapes and cultural visits.</p>
           </article>
           <article>
-            <h3 data-i18n="faq6Q">What is included in the 7-day tours?</h3>
-            <p data-i18n="faq6A">Private guide/driver, vehicle, fuel, accommodation, airport transfers, border assistance, listed visits and route planning are included. International flights and food/drinks are not included.</p>
+            <h3 data-i18n="faq6Q">What is included in the multi-day tours?</h3>
+            <p data-i18n="faq6A">Private guide/driver, vehicle, fuel, accommodation, airport transfers, border assistance, listed visits and route planning are included. International flights and some meals/drinks are not included unless confirmed in your quote.</p>
           </article>
         </div>
       </section>
@@ -556,8 +603,11 @@
             <select name="tour" data-modal-tour required></select>
           </label>
           <label>
-            <span data-i18n="formDate">Date</span>
+            <span data-modal-date-label data-i18n="formDate">Date</span>
             <input type="date" name="date" data-modal-date required />
+            <small class="date-range-hint" data-modal-date-range hidden></small>
+            <input type="hidden" name="endDate" data-modal-end-date />
+            <input type="hidden" name="tourPeriod" data-modal-tour-period />
           </label>
           <label>
             <span data-i18n="formGuests">Guests</span>
