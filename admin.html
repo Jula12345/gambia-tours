@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <title>Bookings | GambianTour Admin</title>
+    <link rel="icon" href="assets/favicon.png" />
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <main class="admin-shell">
+      <section class="login-view" data-login-view hidden>
+        <div class="login-brand">
+          <span class="flag-mark" aria-hidden="true"><i></i></span>
+          <div><strong>GambianTour</strong><span>Administration</span></div>
+        </div>
+        <div class="login-panel">
+          <p class="eyebrow">Private access</p>
+          <h1>Booking inbox</h1>
+          <p class="intro">Sign in to review requests sent through GambianTour.com.</p>
+          <form data-login-form>
+            <label>
+              <span>Username</span>
+              <input type="text" name="username" autocomplete="username" required autofocus />
+            </label>
+            <label>
+              <span>Password</span>
+              <input type="password" name="password" autocomplete="current-password" required />
+            </label>
+            <p class="form-feedback" data-login-feedback role="alert"></p>
+            <button type="submit">Sign in</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="dashboard" data-dashboard hidden>
+        <header class="admin-header">
+          <a class="admin-brand" href="index.html" aria-label="Open GambianTour website">
+            <span class="flag-mark" aria-hidden="true"><i></i></span>
+            <span><strong>GambianTour</strong><small>Booking inbox</small></span>
+          </a>
+          <button class="secondary-button" type="button" data-logout>Sign out</button>
+        </header>
+
+        <div class="page-heading">
+          <div><p class="eyebrow">Admin panel</p><h1>Tour requests</h1><p>Every website enquiry is stored here, including requests forwarded by email.</p></div>
+          <button type="button" class="refresh-button" data-refresh aria-label="Refresh submissions" title="Refresh submissions">Refresh</button>
+        </div>
+
+        <div class="summary-grid">
+          <article><span>All requests</span><strong data-total-count>0</strong></article>
+          <article><span>Received today</span><strong data-today-count>0</strong></article>
+          <article><span>Latest request</span><strong class="summary-date" data-latest-date>None yet</strong></article>
+        </div>
+
+        <div class="inbox-toolbar">
+          <label class="search-field">
+            <span class="sr-only">Search requests</span>
+            <input type="search" placeholder="Search name, email, tour or request ID" data-search />
+          </label>
+          <span data-result-count>0 requests</span>
+        </div>
+
+        <div class="request-list" data-request-list aria-live="polite"></div>
+      </section>
+    </main>
+
+    <dialog class="detail-dialog" data-detail-dialog>
+      <div class="detail-header">
+        <div><p class="eyebrow">Booking request</p><h2 data-detail-title>Request details</h2></div>
+        <button class="close-button" type="button" data-close-detail aria-label="Close">Close</button>
+      </div>
+      <div class="detail-grid" data-detail-grid></div>
+      <div class="detail-actions">
+        <a class="email-button" data-email-customer href="#">Reply by email</a>
+      </div>
+    </dialog>
+
+    <template data-empty-template>
+      <div class="empty-state"><strong>No requests found</strong><p>New booking forms will appear here automatically.</p></div>
+    </template>
+
+    <script src="admin.js"></script>
+  </body>
+</html>

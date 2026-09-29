@@ -1284,6 +1284,23 @@ textarea:focus {
   grid-column: 1 / -1;
 }
 
+.trip-form-feedback {
+  min-height: 22px;
+  margin: 0;
+  color: var(--forest);
+  font-size: 0.9rem;
+  font-weight: 750;
+}
+
+.trip-form-feedback.error {
+  color: #a6342e;
+}
+
+.trip-form button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
 .destination-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));

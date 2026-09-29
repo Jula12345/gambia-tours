@@ -1,0 +1,16 @@
+{
+  "name": "gambiantour",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GambianTour.com website and booking administration panel",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "@vercel/blob": "^2.3.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

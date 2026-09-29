@@ -1,5 +1,5 @@
 const BOOKING_RECIPIENT_EMAIL = "info@gambiantour.com";
-const FORM_SUBMIT_ENDPOINT = "https://formsubmit.co/ajax/info@gambiantour.com";
+const FORM_SUBMIT_ENDPOINT = "/api/submissions";
 
 const translations = {
   en: {
@@ -996,6 +996,8 @@ function bookingSubmissionPayload(booking, title) {
     _captcha: "false",
     _replyto: booking.email,
     website: "GambianTour.com",
+    source: "main-booking-form",
+    page: window.location.href,
     language: booking.language,
     "Request ID": booking.id,
     "Created at": booking.createdAt,
