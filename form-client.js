@@ -19,10 +19,11 @@
     return {
       ...data,
       requestId: `GT-${Date.now().toString().slice(-6)}`,
-      source: "tour-detail-form",
+      source: form.dataset.source || "tour-detail-form",
       page: window.location.href,
       language: document.documentElement.lang || "en",
-      date: data.startDate || data.date || ""
+      date: data.startDate || data.date || "",
+      notes: [data.apartment ? `Apartment preference: ${data.apartment}` : "", data.notes || ""].filter(Boolean).join("\n")
     };
   }
 
