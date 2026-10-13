@@ -22,6 +22,86 @@ let currentOffer = null;
 let generatingOffer = false;
 let downloadingOffer = false;
 const offerPdfDownloads = new Map();
+let selectedOfferImage = null;
+let findingOfferPhoto = false;
+let offerGenerationConfigured = false;
+let localPhotoUrl = null;
+const photoUI = {
+  search: document.querySelector("[data-photo-search]"), upload: document.querySelector("[data-photo-upload]"),
+  selection: document.querySelector("[data-photo-selection]"), image: document.querySelector("[data-selected-photo]"),
+  credit: document.querySelector("[data-photo-credit]"), find: document.querySelector("[data-find-photo]")
+};
+
+function imagePreviewUrl(image, submissionId) {
+  return "/api/admin/offer-image?submissionId=" + encodeURIComponent(submissionId) + "&imageId=" + encodeURIComponent(image.id);
+}
+
+function photoState() {
+  const mode = offerUI.form.elements.photoMode.value;
+  photoUI.search.hidden = mode !== "stock";
+  photoUI.upload.hidden = mode !== "upload";
+  offerUI.form.elements.photoQuery.required = mode === "stock";
+  offerUI.form.elements.photoFile.required = mode === "upload";
+  offerUI.form.elements.photoRights.required = mode === "upload";
+}
+
+function displaySelectedPhoto(image) {
+  photoUI.selection.hidden = !image;
+  if (image) {
+    photoUI.image.src = imagePreviewUrl(image, offerSubmission.id);
+    photoUI.credit.textContent = image.credit;
+  }
+}
+
+offerUI.form.elements.photoMode.addEventListener("change", () => {
+  selectedOfferImage = null;
+  displaySelectedPhoto(currentOffer?.image);
+  photoState();
+});
+offerUI.form.elements.photoQuery.addEventListener("input", () => { selectedOfferImage = null; });
+offerUI.form.elements.photoFile.addEventListener("change", () => {
+  if (localPhotoUrl) URL.revokeObjectURL(localPhotoUrl);
+  const file = offerUI.form.elements.photoFile.files[0];
+  if (!file) return displaySelectedPhoto(currentOffer?.image);
+  localPhotoUrl = URL.createObjectURL(file);
+  photoUI.image.src = localPhotoUrl;
+  photoUI.credit.textContent = file.name;
+  photoUI.selection.hidden = false;
+});
+photoUI.find.addEventListener("click", async () => {
+  if (findingOfferPhoto || generatingOffer || !offerUI.form.elements.photoQuery.reportValidity()) return;
+  findingOfferPhoto = true;
+  photoUI.find.disabled = true;
+  offerUI.form.elements.photoQuery.disabled = true;
+  offerUI.form.elements.photoMode.disabled = true;
+  offerUI.generate.disabled = true;
+  offerUI.close.disabled = true;
+  photoUI.find.textContent = "Finding a photo…";
+  offerUI.feedback.textContent = "";
+  try {
+    const result = await api("/api/admin/offer-image", { method: "POST", body: JSON.stringify({ action: "search", submissionId: offerSubmission.id, query: offerUI.form.elements.photoQuery.value, previousImageId: selectedOfferImage?.id || currentOffer?.image?.id }) });
+    selectedOfferImage = result.image;
+    displaySelectedPhoto(result.image);
+  } catch (error) { offerUI.feedback.textContent = error.message; }
+  finally {
+    findingOfferPhoto = false;
+    photoUI.find.disabled = false;
+    offerUI.form.elements.photoQuery.disabled = false;
+    offerUI.form.elements.photoMode.disabled = false;
+    offerUI.generate.disabled = !offerGenerationConfigured;
+    offerUI.close.disabled = false;
+    photoUI.find.textContent = "Find photo";
+  }
+});
+
+function fileBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result).split(",")[1]);
+    reader.onerror = () => reject(new Error("Your photo could not be read. Please select it again."));
+    reader.readAsDataURL(file);
+  });
+}
 
 async function readOffers(submissionId) {
   const url = "/api/admin/offers?submissionId=" + encodeURIComponent(submissionId);
@@ -88,11 +168,17 @@ function offerPriceState() {
 }
 
 async function openOfferEditor(submission) {
-  if (generatingOffer) return;
+  if (generatingOffer || findingOfferPhoto) return;
   offerSubmission = submission;
   currentOffer = null;
   offerVersions = [];
+  offerGenerationConfigured = false;
   offerUI.form.reset();
+  selectedOfferImage = null;
+  if (localPhotoUrl) URL.revokeObjectURL(localPhotoUrl);
+  localPhotoUrl = null;
+  displaySelectedPhoto(null);
+  photoState();
   offerUI.form.elements.language.value = submission.language === "pl" ? "pl" : "en";
   offerUI.customer.textContent = submission.name;
   offerUI.feedback.textContent = "";
@@ -118,6 +204,7 @@ async function openOfferEditor(submission) {
     if (!result.configured) {
       offerUI.feedback.textContent = "Add OPENAI_API_KEY in Vercel Environment Variables and redeploy to enable generation.";
     }
+    offerGenerationConfigured = result.configured;
     offerUI.generate.disabled = !result.configured;
   } catch (error) {
     offerUI.feedback.textContent = error instanceof TypeError ? "Connection interrupted while loading offers. Please reopen this request to try again." : error.message;
@@ -136,9 +223,9 @@ function showOffer(offer) {
   const hero = document.createElement("div");
   hero.className = "offer-preview-hero";
   const photo = document.createElement("img");
-  photo.src = "assets/offers/" + offer.photo;
-  photo.alt = "Travel destination";
-  photo.style.objectPosition = offer.photo === "river.jpg" ? "center bottom" : "center";
+  photo.src = offer.image ? imagePreviewUrl(offer.image, offer.submissionId) : "assets/offers/" + offer.photo;
+  photo.alt = offer.image?.title || "Travel destination";
+  photo.style.objectPosition = !offer.image && offer.photo === "river.jpg" ? "center bottom" : "center";
   hero.append(photo, textElement("span", "", "GambianTour.com"));
   const body = document.createElement("div");
   body.className = "offer-preview-body";
@@ -170,6 +257,13 @@ function showOffer(offer) {
   heading(offer.language === "pl" ? "Informacje praktyczne" : "Practical notes"); list(offer.content.practicalNotes);
   body.append(textElement("p", "", offer.content.closing));
   offerUI.preview.append(hero, body);
+  selectedOfferImage = null;
+  offerUI.form.elements.photoMode.value = "auto";
+  offerUI.form.elements.photoFile.value = "";
+  offerUI.form.elements.photoRights.checked = false;
+  photoState();
+  displaySelectedPhoto(offer.image);
+  if (offer.imageWarning) offerUI.feedback.textContent = offer.imageWarning;
   offerUI.downloads.hidden = false;
   // Start fetching before the click so saved PDFs download immediately when ready.
   fetchOfferPdf(offer).catch(() => {});
@@ -182,7 +276,12 @@ function showOffer(offer) {
 
 offerUI.form.addEventListener("submit", async event => {
   event.preventDefault();
-  if (generatingOffer || !offerUI.form.reportValidity()) return;
+  if (generatingOffer || findingOfferPhoto || !offerUI.form.reportValidity()) return;
+  const photoFile = offerUI.form.elements.photoFile.files[0];
+  if (offerUI.form.elements.photoMode.value === "upload" && photoFile?.size > 2 * 1024 * 1024) {
+    offerUI.feedback.textContent = "Choose a JPG, PNG or WebP photo no larger than 2 MB.";
+    return;
+  }
   generatingOffer = true;
   offerUI.feedback.textContent = "";
   offerUI.progress.hidden = false;
@@ -198,10 +297,18 @@ offerUI.form.addEventListener("submit", async event => {
     currency: formData.get("currency"), includePrice: formData.get("includePrice") === "on",
     pricePerPerson: formData.get("pricePerPerson"), prompt: formData.get("prompt")
   };
+  input.photoMode = formData.get("photoMode");
+  input.photoQuery = formData.get("photoQuery");
+  if (input.photoMode === "stock" && selectedOfferImage) input.imageId = selectedOfferImage.id;
   for (const control of offerUI.form.elements) control.disabled = true;
   offerUI.close.disabled = true;
   const timer = setTimeout(() => { offerUI.progressMessage.textContent = "Writing the proposal and preparing your downloadable PDF…"; }, 4000);
   try {
+    if (input.photoMode === "upload") {
+      offerUI.progressMessage.textContent = "Uploading and preparing your cover photo…";
+      const uploaded = await api("/api/admin/offer-image", { method: "POST", body: JSON.stringify({ submissionId: offerSubmission.id, name: photoFile.name, data: await fileBase64(photoFile), rightsConfirmed: formData.get("photoRights") === "on", credit: formData.get("photoCredit") }) });
+      input.imageId = uploaded.image.id;
+    }
     const result = await api("/api/admin/offers", { method: "POST", body: JSON.stringify(input) });
     offerVersions.unshift(result.offer);
     showOffer(result.offer);
@@ -236,5 +343,5 @@ offerUI.form.addEventListener("submit", async event => {
 offerUI.form.elements.includePrice.addEventListener("change", offerPriceState);
 offerUI.versions.addEventListener("change", () => showOffer(offerVersions.find(o => o.id === offerUI.versions.value)));
 offerUI.close.addEventListener("click", () => offerUI.dialog.close());
-offerUI.dialog.addEventListener("cancel", event => { if (generatingOffer) event.preventDefault(); });
+offerUI.dialog.addEventListener("cancel", event => { if (generatingOffer || findingOfferPhoto) event.preventDefault(); });
 document.querySelector("[data-open-offer]").addEventListener("click", () => openOfferEditor(selectedSubmission));

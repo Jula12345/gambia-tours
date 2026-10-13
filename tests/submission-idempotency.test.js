@@ -49,6 +49,7 @@ test("concurrent and repeated booking clicks create one stored request", async (
 test("offer generation and PDF routes require authentication", async () => {
   assert.equal((await call("/api/admin/offers")).status, 401);
   assert.equal((await call("/api/admin/offer-pdf?submissionId=GT-TEST")).status, 401);
+  assert.equal((await call("/api/admin/offer-image?submissionId=GT-TEST")).status, 401);
 });
 
 test("saved offers keep revisions private to their booking request", async () => {
@@ -90,4 +91,41 @@ test("PDF downloads are cached, authenticated attachments with booking isolation
   assert.equal(await getOffer("GT-OTHER", offer.id), null);
   assert.equal(await getOffer(offer.submissionId, "../../.env"), null);
   assert.ok((await getOffers(offer.submissionId)).every(version => version.content));
+});
+
+test("admin uploads and prompt-selected photos survive offer revisions", async () => {
+  const submission = { id: "GT-PHOTO-API", name: "Photo guest", guests: "2" };
+  await fs.appendFile(process.env.DATA_FILE, JSON.stringify(submission) + "\n");
+  const data = await fs.readFile(path.join(__dirname, "../assets/offers/coast.jpg"));
+  const upload = await call("/api/admin/offer-image", { submissionId: submission.id, data: data.toString("base64"), rightsConfirmed: true, name: "My coast" }, true);
+  assert.equal(upload.status, 201);
+  const originalFetch = global.fetch;
+  process.env.OPENAI_API_KEY = "test-not-real";
+  global.fetch = async (url, options) => {
+    if (String(url).startsWith("https://api.openai.com/")) {
+      const context = JSON.parse(JSON.parse(options.body).input);
+      return new Response(JSON.stringify({ status: "completed", usage: { input_tokens: 100, output_tokens: 100 }, output: [{ content: [{ type: "output_text", text: JSON.stringify({ ...sampleOffer().content, coverImageQuery: context.revisionInstructions.includes("photo") ? "Dakar Senegal coastline" : null }) }] }] }));
+    }
+    if (String(url).startsWith("https://commons.wikimedia.org/")) return new Response(JSON.stringify({ query: { pages: { 1: { title: "File:Dakar.jpg", imageinfo: [{ mime: "image/jpeg", width: 1200, height: 800, thumburl: "https://upload.wikimedia.org/wikipedia/commons/a/ab/Dakar.jpg", descriptionurl: "https://commons.wikimedia.org/wiki/File:Dakar.jpg", extmetadata: { LicenseShortName: { value: "Public domain" }, Artist: { value: "Test photographer" } } }] } } } }));
+    return new Response(await fs.readFile(path.join(__dirname, "../assets/offers/senegal.jpg")));
+  };
+  try {
+    const settings = { submissionId: submission.id, tourId: "gambia-casamance-7-day", photoMode: "upload", imageId: upload.result.image.id };
+    const first = await call("/api/admin/offers", settings, true);
+    assert.equal(first.status, 201);
+    assert.equal(first.result.offer.image.id, upload.result.image.id);
+    assert.ok(await getOfferPdf(first.result.offer));
+    const next = await call("/api/admin/offers", { ...settings, photoMode: "auto", imageId: undefined, previousOfferId: first.result.offer.id, prompt: "Make the introduction warmer" }, true);
+    assert.equal(next.result.offer.image.id, first.result.offer.image.id);
+    const changed = await call("/api/admin/offers", { ...settings, photoMode: "auto", imageId: undefined, previousOfferId: next.result.offer.id, prompt: "Change the photo to Dakar coastline" }, true);
+    assert.equal(changed.status, 201);
+    assert.notEqual(changed.result.offer.image.id, first.result.offer.image.id);
+    assert.match(changed.result.offer.image.source, /Dakar/);
+    assert.equal(changed.result.offer.imageWarning, undefined);
+    assert.ok(await getOfferPdf(changed.result.offer));
+    assert.equal((await getOffer(submission.id, first.result.offer.id)).image.id, first.result.offer.image.id);
+  } finally {
+    global.fetch = originalFetch;
+    process.env.OPENAI_API_KEY = "";
+  }
 });

@@ -144,7 +144,7 @@ function sameOrigin(request) {
   }
 }
 
-async function readJson(request) {
+async function readJson(request, maxBytes = MAX_BODY_BYTES) {
   if (request.body !== undefined && request.body !== null) {
     let value;
     try {
@@ -152,7 +152,7 @@ async function readJson(request) {
     } catch {
       throw Object.assign(new Error("Invalid JSON."), { status: 400 });
     }
-    if (Buffer.byteLength(JSON.stringify(value)) > MAX_BODY_BYTES) {
+    if (Buffer.byteLength(JSON.stringify(value)) > maxBytes) {
       throw Object.assign(new Error("Request is too large."), { status: 413 });
     }
     return value;
@@ -162,7 +162,7 @@ async function readJson(request) {
   const chunks = [];
   for await (const chunk of request) {
     size += chunk.length;
-    if (size > MAX_BODY_BYTES) throw Object.assign(new Error("Request is too large."), { status: 413 });
+    if (size > maxBytes) throw Object.assign(new Error("Request is too large."), { status: 413 });
     chunks.push(chunk);
   }
   try {
@@ -404,6 +404,27 @@ async function handleApi(request, response, url) {
     return sendJson(response, 200, { submissions: await readSubmissions() });
   }
 
+  if (url.pathname === "/api/admin/offer-image") {
+    if (!validSession(request)) return sendJson(response, 401, { error: "Authentication required." });
+    const { uploadImage, searchImage, getImage, readImageFile } = require("./lib/offer-images");
+    if (request.method === "GET") {
+      const submissionId = cleanText(url.searchParams.get("submissionId"), 64);
+      const id = url.searchParams.get("imageId");
+      const image = await getImage(submissionId, id);
+      const bytes = image ? await readImageFile(submissionId, id, "jpg") : null;
+      if (!bytes) return sendJson(response, 404, { error: "Photo not found." });
+      response.writeHead(200, { "Content-Type": "image/jpeg", "Content-Length": bytes.length, "Cache-Control": "private, max-age=300", "X-Content-Type-Options": "nosniff" });
+      return response.end(bytes);
+    }
+    if (request.method !== "POST") return sendJson(response, 405, { error: "Method not allowed." });
+    if (isRateLimited(offerAttempts, ADMIN_USERNAME + ":photos", 30, 10 * 60 * 1000)) return sendJson(response, 429, { error: "Too many photo requests. Try again in a few minutes." });
+    const input = await readJson(request, 3 * 1024 * 1024);
+    if (!(await readSubmissions()).some(s => s.id === input.submissionId)) return sendJson(response, 404, { error: "Booking request not found." });
+    const previous = input.previousImageId ? await getImage(input.submissionId, input.previousImageId) : null;
+    const image = input.action === "search" ? await searchImage(input.submissionId, input.query, previous) : await uploadImage(input.submissionId, input);
+    return sendJson(response, 201, { image });
+  }
+
   if (url.pathname === "/api/admin/offers" || url.pathname === "/api/admin/offer-pdf") {
     if (!validSession(request)) return sendJson(response, 401, { error: "Authentication required." });
     const { getOffers, saveOffer, getOffer, getOfferPdf, saveOfferPdf } = require("./lib/offer-store");
@@ -419,7 +440,9 @@ async function handleApi(request, response, url) {
       let pdf = await getOfferPdf(offer);
       if (!pdf) {
         const { renderOfferPdf } = require("./lib/offer-pdf");
-        pdf = await renderOfferPdf(offer);
+        const { readImageFile } = require("./lib/offer-images");
+        const image = offer.image ? await readImageFile(offer.submissionId, offer.image.id, "jpg") : null;
+        pdf = await renderOfferPdf(offer, image);
         await saveOfferPdf(offer, pdf);
       }
       response.writeHead(200, {
@@ -432,6 +455,7 @@ async function handleApi(request, response, url) {
     if (request.method !== "POST" || url.pathname !== "/api/admin/offers") return sendJson(response, 405, { error: "Method not allowed." });
     if (isRateLimited(offerAttempts, ADMIN_USERNAME, 10, 10 * 60 * 1000)) return sendJson(response, 429, { error: "Too many generations. Please try again in a few minutes." });
     const input = await readJson(request);
+    if (!["auto", "stock", "upload", "default"].includes(input.photoMode || "auto")) return sendJson(response, 400, { error: "Invalid photo option." });
     const submission = (await readSubmissions()).find(s => s.id === input.submissionId);
     if (!submission) return sendJson(response, 404, { error: "Booking request not found." });
     if (offerJobs.has(submission.id)) return sendJson(response, 409, { error: "An offer is already being generated for this request." });
@@ -440,12 +464,26 @@ async function handleApi(request, response, url) {
       const { generateOffer } = require("./lib/offer-generator");
       const previous = input.previousOfferId ? (await getOffers(submission.id)).find(o => o.id === input.previousOfferId) : null;
       if (input.previousOfferId && !previous) return sendJson(response, 404, { error: "Previous offer not found." });
+      const { getImage, searchImage, readImageFile } = require("./lib/offer-images");
+      const selectedImage = input.imageId ? await getImage(submission.id, input.imageId) : null;
+      if ((input.imageId && !selectedImage) || (input.photoMode === "upload" && !selectedImage)) return sendJson(response, 400, { error: "Upload a photo for this booking before generating." });
+      if (input.photoMode === "stock" && !selectedImage && !String(input.photoQuery || "").trim()) return sendJson(response, 400, { error: "Describe the photo you want to find." });
       const offer = await generateOffer(submission, input, previous);
+      if (input.photoMode === "default") offer.image = null;
+      else if (selectedImage) offer.image = selectedImage;
+      else {
+        const query = input.photoMode === "stock" ? input.photoQuery : offer.imageQuery;
+        if (query) {
+          try { offer.image = await searchImage(submission.id, query, previous?.image); }
+          catch (error) { offer.imageWarning = "The offer text was saved, but its photo was not changed. " + error.message; }
+        }
+      }
       await saveOffer(offer);
       // Preserve the AI draft even if PDF preparation fails; download can retry it.
       try {
         const { renderOfferPdf } = require("./lib/offer-pdf");
-        await saveOfferPdf(offer, await renderOfferPdf(offer));
+        const image = offer.image ? await readImageFile(offer.submissionId, offer.image.id, "jpg") : null;
+        await saveOfferPdf(offer, await renderOfferPdf(offer, image));
       } catch (error) {
         console.error("Offer PDF preparation failed:", error);
       }

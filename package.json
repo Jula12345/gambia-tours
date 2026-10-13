@@ -11,9 +11,10 @@
   "dependencies": {
     "@vercel/blob": "^2.3.0",
     "cheerio": "^1.2.0",
-    "pdfkit": "^0.20.2"
+    "pdfkit": "^0.20.2",
+    "sharp": "^0.35.5"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20.19.0"
   }
 }

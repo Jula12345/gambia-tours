@@ -8,7 +8,7 @@ function browser(fetch, api = async () => ({})) {
   const downloads = [];
   const document = {
     querySelector(selector) {
-      if (!nodes.has(selector)) nodes.set(selector, { elements: { includePrice: { addEventListener() {} } }, addEventListener(type, callback) { this[type] = callback; } });
+      if (!nodes.has(selector)) nodes.set(selector, { elements: new Proxy({}, { get(target, name) { return target[name] ||= { addEventListener() {} }; } }), addEventListener(type, callback) { this[type] = callback; } });
       return nodes.get(selector);
     },
     createElement() { return { click() { downloads.push(this.download); }, remove() {} }; },

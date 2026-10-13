@@ -6,7 +6,7 @@
     <meta name="robots" content="noindex, nofollow, noarchive" />
     <title>Bookings | GambianTour Admin</title>
     <link rel="icon" href="assets/favicon.png" />
-    <link rel="stylesheet" href="admin.css?v=offers-v2" />
+    <link rel="stylesheet" href="admin.css?v=offers-v4" />
   </head>
   <body>
     <main class="admin-shell">
@@ -92,6 +92,17 @@
           </div>
           <label class="offer-price-toggle"><input type="checkbox" name="includePrice" data-include-price />Include quotation</label>
           <label data-price-field hidden>Price per person<input type="number" name="pricePerPerson" min="0.01" max="100000" step="0.01" inputmode="decimal" /></label>
+          <label>Cover photo<select name="photoMode"><option value="auto">Keep photo / follow revision prompt</option><option value="stock">Find a free-to-use photo</option><option value="upload">Upload my photo</option><option value="default">Use the tour's default photo</option></select></label>
+          <div data-photo-search hidden>
+            <label>Photo description<input name="photoQuery" maxlength="150" placeholder="River Gambia sunset, Dakar skyline, Kotu beach…" /></label>
+            <button type="button" class="email-button" data-find-photo>Find photo</button>
+          </div>
+          <div data-photo-upload hidden>
+            <label>Photo<input type="file" name="photoFile" accept="image/jpeg,image/png,image/webp" /></label>
+            <label>Photo credit<input name="photoCredit" maxlength="240" placeholder="Photographer or copyright owner" /></label>
+            <label class="offer-price-toggle"><input type="checkbox" name="photoRights" />I have permission to use this photo</label>
+          </div>
+          <figure class="offer-photo-selection" data-photo-selection hidden><img data-selected-photo alt="Selected cover photo" /><figcaption data-photo-credit></figcaption></figure>
           <label>Instructions / changes<textarea name="prompt" maxlength="2000" rows="5" placeholder="For example: make the pace more relaxed, add more time at the market, or write a warmer introduction."></textarea></label>
           <p class="offer-error" data-offer-feedback role="alert"></p>
           <button class="email-button" type="submit" data-generate-offer>Generate offer</button>
@@ -111,6 +122,6 @@
     </template>
 
     <script src="admin.js?v=offers-v2"></script>
-    <script src="admin-offers.js?v=offers-v3"></script>
+    <script src="admin-offers.js?v=offers-v4"></script>
   </body>
 </html>
