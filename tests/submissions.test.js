@@ -34,6 +34,8 @@ test("public enquiries send email without admin credentials or storage", async (
   global.fetch = async (url, options) => {
     assert.match(url, /^https:\/\/formsubmit.co\/ajax\//);
     sentPayload = JSON.parse(options.body);
+    assert.equal(options.headers.Origin, "https://www.gambiantour.com");
+    assert.equal(options.headers.Referer, "https://www.gambiantour.com/");
     return { ok: true, json: async () => ({ success: "true" }) };
   };
   const { status, result } = await request("/api/submissions", booking);

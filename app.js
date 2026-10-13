@@ -1,5 +1,4 @@
 const BOOKING_RECIPIENT_EMAIL = "info@gambiantour.com";
-const FORM_SUBMIT_ENDPOINT = "/api/submissions";
 
 const translations = {
   en: {
@@ -1049,22 +1048,7 @@ function bookingSubmissionPayload(booking, title) {
 }
 
 async function sendBookingRequest(booking, title) {
-  const response = await fetch(FORM_SUBMIT_ENDPOINT, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json"
-    },
-    body: JSON.stringify(bookingSubmissionPayload(booking, title))
-  });
-
-  if (!response.ok) {
-    throw new Error("Booking form email request failed.");
-  }
-
-  const result = await response.json();
-  if (!result.ok) throw new Error("Booking request was not accepted.");
-  return result;
+  return submitWebsiteEnquiry(bookingSubmissionPayload(booking, title));
 }
 
 async function handleBookingSubmit(event) {

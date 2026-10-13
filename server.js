@@ -274,7 +274,7 @@ async function readSubmissions() {
   }
 }
 
-async function forwardSubmission(submission) {
+async function forwardSubmission(submission, websiteOrigin) {
   if (DISABLE_EMAIL_FORWARDING) return false;
   const payload = {
     _subject: `GambianTour request ${submission.id}: ${submission.tour}`,
@@ -298,7 +298,12 @@ async function forwardSubmission(submission) {
   };
   const response = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(FORM_RECIPIENT_EMAIL)}`, {
     method: "POST",
-    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Origin: websiteOrigin,
+      Referer: `${websiteOrigin}/`
+    },
     body: JSON.stringify(payload),
     signal: AbortSignal.timeout(10000)
   });
@@ -334,7 +339,8 @@ async function handleApi(request, response, url) {
     }
     let emailForwarded = false;
     try {
-      emailForwarded = await forwardSubmission(submission);
+      const websiteOrigin = request.headers.origin || `https://${request.headers.host}`;
+      emailForwarded = await forwardSubmission(submission, websiteOrigin);
     } catch (error) {
       console.error(`Submission ${submission.id} email forwarding failed:`, error.message);
     }

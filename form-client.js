@@ -46,13 +46,7 @@
       feedback.textContent = "Sending your request...";
 
       try {
-        const response = await fetch("/api/submissions", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify(payload)
-        });
-        const result = await response.json().catch(() => ({}));
-        if (!response.ok || !result.ok) throw new Error(result.error || "The request could not be sent.");
+        const result = await submitWebsiteEnquiry(payload);
         feedback.textContent = `Thank you. Request ${result.id || payload.requestId} has been received. We will contact you shortly.`;
         form.reset();
         form.dispatchEvent(new Event("change", { bubbles: true }));
