@@ -20,6 +20,66 @@ let offerSubmission = null;
 let offerVersions = [];
 let currentOffer = null;
 let generatingOffer = false;
+let downloadingOffer = false;
+const offerPdfDownloads = new Map();
+
+async function readOffers(submissionId) {
+  const url = "/api/admin/offers?submissionId=" + encodeURIComponent(submissionId);
+  for (let attempt = 0; ; attempt++) {
+    try { return await api(url); }
+    catch (error) {
+      if (attempt >= 2 || (error.status && error.status < 500)) throw error;
+      await new Promise(resolve => setTimeout(resolve, 700 * (attempt + 1)));
+    }
+  }
+}
+
+function fetchOfferPdf(offer) {
+  if (!offerPdfDownloads.has(offer.id)) {
+    const pending = (async () => {
+      const url = "/api/admin/offer-pdf?submissionId=" + encodeURIComponent(offer.submissionId) + "&offerId=" + encodeURIComponent(offer.id);
+      const response = await fetch(url, { credentials: "same-origin" });
+      if (!response.ok || !response.headers.get("content-type")?.includes("application/pdf")) {
+        const result = await response.json().catch(() => ({}));
+        throw new Error(response.status === 401 ? "Your session has expired. Please sign in again." : result.error || "PDF download failed. Please try again.");
+      }
+      const blob = await response.blob();
+      if ((await blob.slice(0, 4).text()) !== "%PDF") throw new Error("The PDF was incomplete. Please try again.");
+      return blob;
+    })();
+    offerPdfDownloads.set(offer.id, pending);
+    pending.catch(() => offerPdfDownloads.delete(offer.id));
+    // Retain only a few versions in browser memory.
+    if (offerPdfDownloads.size > 3) offerPdfDownloads.delete(offerPdfDownloads.keys().next().value);
+  }
+  return offerPdfDownloads.get(offer.id);
+}
+
+offerUI.download.addEventListener("click", async () => {
+  if (!currentOffer || downloadingOffer) return;
+  const offer = currentOffer;
+  downloadingOffer = true;
+  offerUI.download.disabled = true;
+  offerUI.download.textContent = "Downloading PDF…";
+  offerUI.feedback.textContent = "";
+  try {
+    const blob = await fetchOfferPdf(offer);
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "GambianTour-offer-" + offer.id + ".pdf";
+    document.body.append(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 60000);
+  } catch (error) {
+    offerUI.feedback.textContent = error instanceof TypeError ? "Connection interrupted. Please try downloading the PDF again." : error.message;
+  } finally {
+    downloadingOffer = false;
+    offerUI.download.disabled = generatingOffer;
+    offerUI.download.textContent = "Download PDF";
+  }
+});
 
 function offerPriceState() {
   const included = offerUI.form.elements.includePrice.checked;
@@ -44,7 +104,7 @@ async function openOfferEditor(submission) {
   elements.dialog.close();
   offerUI.dialog.showModal();
   try {
-    const result = await api("/api/admin/offers?submissionId=" + encodeURIComponent(submission.id));
+    const result = await readOffers(submission.id);
     const matchingTour = result.tours.find(tour => [tour.id, tour.title, tour.polishTitle].includes(submission.tour));
     offerUI.tour.replaceChildren(new Option("Choose a trip", ""), ...result.tours.map(tour => {
       const option = new Option(tour.title, tour.id);
@@ -60,7 +120,7 @@ async function openOfferEditor(submission) {
     }
     offerUI.generate.disabled = !result.configured;
   } catch (error) {
-    offerUI.feedback.textContent = error.message;
+    offerUI.feedback.textContent = error instanceof TypeError ? "Connection interrupted while loading offers. Please reopen this request to try again." : error.message;
   }
 }
 
@@ -111,7 +171,8 @@ function showOffer(offer) {
   body.append(textElement("p", "", offer.content.closing));
   offerUI.preview.append(hero, body);
   offerUI.downloads.hidden = false;
-  offerUI.download.href = "/api/admin/offer-pdf?submissionId=" + encodeURIComponent(offer.submissionId) + "&offerId=" + encodeURIComponent(offer.id);
+  // Start fetching before the click so saved PDFs download immediately when ready.
+  fetchOfferPdf(offer).catch(() => {});
   offerUI.versions.replaceChildren(...offerVersions.map(version => new Option("Version " + version.revision + " · " + formatDate(version.createdAt), version.id)));
   offerUI.versions.value = offer.id;
   offerUI.generate.textContent = "Revise / regenerate";
@@ -128,6 +189,8 @@ offerUI.form.addEventListener("submit", async event => {
   offerUI.progressTitle.textContent = currentOffer ? "Revising your proposal" : "Preparing your proposal";
   offerUI.progressMessage.textContent = "Reading the itinerary and guest preferences…";
   const previousOfferId = currentOffer?.id;
+  const knownOfferIds = new Set(offerVersions.map(offer => offer.id));
+  const startedAt = Date.now();
   const formData = new FormData(offerUI.form);
   const input = {
     submissionId: offerSubmission.id, previousOfferId,
@@ -144,7 +207,24 @@ offerUI.form.addEventListener("submit", async event => {
     showOffer(result.offer);
     offerUI.form.elements.prompt.value = "";
   } catch (error) {
-    offerUI.feedback.textContent = error.message;
+    if (error instanceof TypeError || error.status >= 500) {
+      clearTimeout(timer);
+      offerUI.progressMessage.textContent = "Connection interrupted. Checking for your saved proposal…";
+      try {
+        const result = await readOffers(offerSubmission.id);
+        const recovered = result.offers.find(offer => !knownOfferIds.has(offer.id) && offer.tourId === input.tourId && Date.parse(offer.createdAt) >= startedAt - 2000);
+        if (recovered) {
+          offerVersions = result.offers;
+          showOffer(recovered);
+          offerUI.form.elements.prompt.value = "";
+          offerUI.feedback.textContent = "Your proposal was saved successfully and is ready to download.";
+        } else {
+          offerUI.feedback.textContent = "The connection was interrupted. Your request may still be processing; reopen this booking to check saved offers before generating again.";
+        }
+      } catch {
+        offerUI.feedback.textContent = "Unable to check saved offers. Please reopen this booking once your connection is restored before generating again.";
+      }
+    } else offerUI.feedback.textContent = error.message;
   } finally {
     clearTimeout(timer);
     generatingOffer = false;

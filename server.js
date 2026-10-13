@@ -406,18 +406,22 @@ async function handleApi(request, response, url) {
 
   if (url.pathname === "/api/admin/offers" || url.pathname === "/api/admin/offer-pdf") {
     if (!validSession(request)) return sendJson(response, 401, { error: "Authentication required." });
-    const { catalog } = require("./lib/offer-catalog");
-    const { getOffers, saveOffer } = require("./lib/offer-store");
+    const { getOffers, saveOffer, getOffer, getOfferPdf, saveOfferPdf } = require("./lib/offer-store");
     if (request.method === "GET") {
       const submissionId = cleanText(url.searchParams.get("submissionId"), 64);
-      const offers = submissionId ? await getOffers(submissionId) : [];
       if (url.pathname === "/api/admin/offers") {
+        const { catalog } = require("./lib/offer-catalog");
+        const offers = submissionId ? await getOffers(submissionId) : [];
         return sendJson(response, 200, { tours: catalog(), offers, configured: Boolean(process.env.OPENAI_API_KEY) });
       }
-      const offer = offers.find(o => o.id === url.searchParams.get("offerId"));
+      const offer = await getOffer(submissionId, url.searchParams.get("offerId"));
       if (!offer) return sendJson(response, 404, { error: "Offer not found." });
-      const { renderOfferPdf } = require("./lib/offer-pdf");
-      const pdf = await renderOfferPdf(offer);
+      let pdf = await getOfferPdf(offer);
+      if (!pdf) {
+        const { renderOfferPdf } = require("./lib/offer-pdf");
+        pdf = await renderOfferPdf(offer);
+        await saveOfferPdf(offer, pdf);
+      }
       response.writeHead(200, {
         "Content-Type": "application/pdf", "Content-Length": pdf.length,
         "Content-Disposition": `attachment; filename="GambianTour-offer-${offer.id}.pdf"`,
@@ -438,6 +442,13 @@ async function handleApi(request, response, url) {
       if (input.previousOfferId && !previous) return sendJson(response, 404, { error: "Previous offer not found." });
       const offer = await generateOffer(submission, input, previous);
       await saveOffer(offer);
+      // Preserve the AI draft even if PDF preparation fails; download can retry it.
+      try {
+        const { renderOfferPdf } = require("./lib/offer-pdf");
+        await saveOfferPdf(offer, await renderOfferPdf(offer));
+      } catch (error) {
+        console.error("Offer PDF preparation failed:", error);
+      }
       return sendJson(response, 201, { offer });
     } finally {
       offerJobs.delete(submission.id);

@@ -15,7 +15,7 @@ process.env.VERCEL = "";
 process.env.OPENAI_API_KEY = "";
 process.env.DISABLE_EMAIL_FORWARDING = "true";
 const { handleApi } = require("../server");
-const { saveOffer, getOffers } = require("../lib/offer-store");
+const { saveOffer, getOffers, getOffer, getOfferPdf } = require("../lib/offer-store");
 const { sampleOffer } = require("./offer-fixture");
 after(() => fs.rm(directory, { recursive: true, force: true }));
 
@@ -66,4 +66,28 @@ test("configured admin can see catalog and missing-key status", async () => {
   assert.equal(response.status, 200);
   assert.equal(response.result.tours.length, 9);
   assert.equal(response.result.configured, false);
+});
+
+test("PDF downloads are cached, authenticated attachments with booking isolation", async () => {
+  const offer = { ...sampleOffer(), id: crypto.randomUUID() };
+  await saveOffer(offer);
+  async function download(submissionId = offer.submissionId) {
+    let status, headers, body;
+    await handleApi({ method: "GET", headers: { cookie: cookie() } }, {
+      writeHead(value, fields) { status = value; headers = fields; },
+      end(value) { body = value; }
+    }, new URL(`/api/admin/offer-pdf?submissionId=${submissionId}&offerId=${offer.id}`, "http://localhost"));
+    return { status, headers, body };
+  }
+  const first = await download();
+  assert.equal(first.status, 200);
+  assert.equal(first.headers["Content-Type"], "application/pdf");
+  assert.match(first.headers["Content-Disposition"], /^attachment;/);
+  assert.equal(first.body.subarray(0, 4).toString(), "%PDF");
+  assert.deepEqual(await getOfferPdf(offer), first.body);
+  assert.deepEqual((await download()).body, first.body);
+  assert.equal((await download("GT-OTHER")).status, 404);
+  assert.equal(await getOffer("GT-OTHER", offer.id), null);
+  assert.equal(await getOffer(offer.submissionId, "../../.env"), null);
+  assert.ok((await getOffers(offer.submissionId)).every(version => version.content));
 });

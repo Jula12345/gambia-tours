@@ -1,7 +1,7 @@
 {
   "functions": {
-    "api/admin/offers.js": { "maxDuration": 60, "includeFiles": "{lib/**,assets/offers/**,tours.js,*-tour.html}" },
-    "api/admin/offer-pdf.js": { "maxDuration": 60, "includeFiles": "{lib/**,assets/offers/**,tours.js,*-tour.html}" }
+    "api/admin/offers.js": { "maxDuration": 60, "includeFiles": "{lib/**,assets/offers/**,node_modules/pdfkit/js/data/**,tours.js,*-tour.html}" },
+    "api/admin/offer-pdf.js": { "maxDuration": 60, "includeFiles": "{lib/**,assets/offers/**,node_modules/pdfkit/js/data/**,tours.js,*-tour.html}" }
   },
   "rewrites": [
     {
