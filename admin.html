@@ -6,7 +6,8 @@
     <meta name="robots" content="noindex, nofollow, noarchive" />
     <title>Bookings | GambianTour Admin</title>
     <link rel="icon" href="assets/favicon.png" />
-    <link rel="stylesheet" href="admin.css?v=offers-v4" />
+    <link rel="stylesheet" href="admin.css?v=offers-v6" />
+    <link rel="stylesheet" href="assets/vendor/cropper.min.css" />
   </head>
   <body>
     <main class="admin-shell">
@@ -98,14 +99,19 @@
             <button type="button" class="email-button" data-find-photo>Find photo</button>
           </div>
           <div data-photo-upload hidden>
-            <label>Photo<input type="file" name="photoFile" accept="image/jpeg,image/png,image/webp" /></label>
+            <label>Cover photo file<input type="file" name="photoFile" accept="image/jpeg,image/png,image/webp,image/heic,image/heif,.heic,.heif" /></label>
             <label>Photo credit<input name="photoCredit" maxlength="240" placeholder="Photographer or copyright owner" /></label>
             <label class="offer-price-toggle"><input type="checkbox" name="photoRights" />I have permission to use this photo</label>
           </div>
           <figure class="offer-photo-selection" data-photo-selection hidden><img data-selected-photo alt="Selected cover photo" /><figcaption data-photo-credit></figcaption></figure>
+          <button type="button" class="photo-command" data-crop-cover>Crop cover photo</button>
+          <label>Gallery photos<input type="file" name="galleryFiles" multiple accept="image/jpeg,image/png,image/webp,image/heic,image/heif,.heic,.heif" /></label>
+          <label class="offer-price-toggle"><input type="checkbox" name="galleryRights" />I have permission to use these photos</label>
+          <div class="offer-gallery-settings" data-gallery-settings></div>
           <label>Instructions / changes<textarea name="prompt" maxlength="2000" rows="5" placeholder="For example: make the pace more relaxed, add more time at the market, or write a warmer introduction."></textarea></label>
           <p class="offer-error" data-offer-feedback role="alert"></p>
           <button class="email-button" type="submit" data-generate-offer>Generate offer</button>
+          <button class="photo-command" type="submit" data-save-photos hidden>Save photos and crop</button>
           <div class="offer-progress" data-offer-progress hidden role="status" aria-live="polite"><span class="offer-spinner" aria-hidden="true"></span><div><strong data-progress-title>Preparing your proposal</strong><p data-progress-message>Reading the tour and guest preferences…</p></div></div>
           <div class="offer-downloads" data-offer-downloads hidden>
             <button type="button" class="email-button" data-download-offer>Download PDF</button>
@@ -117,11 +123,18 @@
       </div>
     </dialog>
 
+    <dialog class="crop-dialog" data-crop-dialog>
+      <div class="detail-header"><h2>Crop photo</h2><button type="button" class="close-button" data-cancel-crop aria-label="Cancel crop">Cancel</button></div>
+      <div class="crop-stage"><img data-crop-image alt="Photo crop editor" /></div>
+      <div class="crop-controls"><label>Zoom<input type="range" min="1" max="4" step="0.05" value="1" data-crop-zoom /></label><button type="button" class="photo-command" data-reset-crop>Reset</button><button type="button" class="email-button" data-apply-crop>Apply crop</button></div>
+    </dialog>
+
     <template data-empty-template>
       <div class="empty-state"><strong>No requests found</strong><p>New booking forms will appear here automatically.</p></div>
     </template>
 
     <script src="admin.js?v=offers-v2"></script>
-    <script src="admin-offers.js?v=offers-v4"></script>
+    <script src="admin-photo-tools.js?v=offers-v6"></script>
+    <script src="admin-offers.js?v=offers-v6"></script>
   </body>
 </html>

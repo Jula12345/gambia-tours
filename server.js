@@ -410,9 +410,16 @@ async function handleApi(request, response, url) {
     if (request.method === "GET") {
       const submissionId = cleanText(url.searchParams.get("submissionId"), 64);
       const id = url.searchParams.get("imageId");
-      const image = await getImage(submissionId, id);
-      const bytes = image ? await readImageFile(submissionId, id, "jpg") : null;
+      const { cropImage, bundledImage } = require("./lib/offer-photo-layout");
+      const image = id ? await getImage(submissionId, id) : null;
+      let bytes = image ? await readImageFile(submissionId, id, "jpg") : url.searchParams.get("photo") ? await bundledImage(url.searchParams.get("photo")) : null;
       if (!bytes) return sendJson(response, 404, { error: "Photo not found." });
+      if (url.searchParams.has("crop")) {
+        let crop;
+        try { crop = JSON.parse(url.searchParams.get("crop")); }
+        catch { return sendJson(response, 400, { error: "Invalid photo crop." }); }
+        bytes = await cropImage(bytes, crop);
+      }
       response.writeHead(200, { "Content-Type": "image/jpeg", "Content-Length": bytes.length, "Cache-Control": "private, max-age=300", "X-Content-Type-Options": "nosniff" });
       return response.end(bytes);
     }
@@ -440,9 +447,9 @@ async function handleApi(request, response, url) {
       let pdf = await getOfferPdf(offer);
       if (!pdf) {
         const { renderOfferPdf } = require("./lib/offer-pdf");
-        const { readImageFile } = require("./lib/offer-images");
-        const image = offer.image ? await readImageFile(offer.submissionId, offer.image.id, "jpg") : null;
-        pdf = await renderOfferPdf(offer, image);
+        const { prepareOfferPhotos } = require("./lib/offer-photo-layout");
+        const photos = await prepareOfferPhotos(offer);
+        pdf = await renderOfferPdf(offer, photos.cover, photos.gallery);
         await saveOfferPdf(offer, pdf);
       }
       response.writeHead(200, {
@@ -464,11 +471,20 @@ async function handleApi(request, response, url) {
       const { generateOffer } = require("./lib/offer-generator");
       const previous = input.previousOfferId ? (await getOffers(submission.id)).find(o => o.id === input.previousOfferId) : null;
       if (input.previousOfferId && !previous) return sendJson(response, 404, { error: "Previous offer not found." });
-      const { getImage, searchImage, readImageFile } = require("./lib/offer-images");
+      const { getImage, searchImage } = require("./lib/offer-images");
+      const { validateCrop, resolveGallery, prepareOfferPhotos } = require("./lib/offer-photo-layout");
       const selectedImage = input.imageId ? await getImage(submission.id, input.imageId) : null;
       if ((input.imageId && !selectedImage) || (input.photoMode === "upload" && !selectedImage)) return sendJson(response, 400, { error: "Upload a photo for this booking before generating." });
       if (input.photoMode === "stock" && !selectedImage && !String(input.photoQuery || "").trim()) return sendJson(response, 400, { error: "Describe the photo you want to find." });
-      const offer = await generateOffer(submission, input, previous);
+      const coverCrop = validateCrop(input.coverCrop);
+      const gallery = input.gallery === undefined ? previous?.gallery || [] : await resolveGallery(submission.id, input.gallery);
+      if (input.photosOnly && (!previous || previous.tourId !== input.tourId)) return sendJson(response, 400, { error: "Generate an offer for this tour before saving its photos." });
+      const offer = input.photosOnly ? {
+        ...previous, id: crypto.randomUUID(), createdAt: new Date().toISOString(), revision: previous.revision + 1,
+        imageQuery: null, imageWarning: null, usage: { inputTokens: 0, outputTokens: 0, estimatedCostUsd: 0 }
+      } : await generateOffer(submission, input, previous);
+      offer.gallery = gallery;
+      if (input.photosOnly) offer.totalPrice = offer.includePrice ? Math.round(offer.pricePerPerson * offer.guests * 100) / 100 : null;
       if (input.photoMode === "default") offer.image = null;
       else if (selectedImage) offer.image = selectedImage;
       else {
@@ -478,12 +494,14 @@ async function handleApi(request, response, url) {
           catch (error) { offer.imageWarning = "The offer text was saved, but its photo was not changed. " + error.message; }
         }
       }
+      const coverIdentity = offer.image?.id || offer.photo;
+      offer.coverCrop = input.coverCropImageId === coverIdentity ? coverCrop : previous && (previous.image?.id || previous.photo) === coverIdentity ? previous.coverCrop || null : null;
       await saveOffer(offer);
       // Preserve the AI draft even if PDF preparation fails; download can retry it.
       try {
         const { renderOfferPdf } = require("./lib/offer-pdf");
-        const image = offer.image ? await readImageFile(offer.submissionId, offer.image.id, "jpg") : null;
-        await saveOfferPdf(offer, await renderOfferPdf(offer, image));
+        const photos = await prepareOfferPhotos(offer);
+        await saveOfferPdf(offer, await renderOfferPdf(offer, photos.cover, photos.gallery));
       } catch (error) {
         console.error("Offer PDF preparation failed:", error);
       }

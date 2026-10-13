@@ -12,6 +12,7 @@ process.env.VERCEL = "";
 const { uploadImage, getImage, readImageFile, searchImage, candidatesFrom } = require("../lib/offer-images");
 const { renderOfferPdf } = require("../lib/offer-pdf");
 const { sampleOffer } = require("./offer-fixture");
+const { validateCrop, cropImage, resolveGallery, prepareOfferPhotos } = require("../lib/offer-photo-layout");
 after(() => fs.rm(directory, { recursive: true, force: true }));
 const photo = () => sharp({ create: { width: 1000, height: 600, channels: 3, background: "#008855" } }).jpeg().toBuffer();
 
@@ -66,4 +67,29 @@ test("search downloads a licensed photo and saves it for preview and PDF", async
   assert.equal(image.query, "Gambia river sunset");
   assert.ok((await readImageFile("GT-STOCK", image.id, "jpg")).length);
   await assert.rejects(searchImage("GT-STOCK", "Gambia river sunset", image), /No suitable/);
+});
+
+test("crop coordinates are validated and applied identically to stored photo bytes", async () => {
+  for (const invalid of [{ x: -1, y: 0, width: 1, height: 1 }, { x: 0, y: 0, width: 0, height: 1 }, { x: .5, y: 0, width: 1, height: 1 }, { x: 0, y: 0, width: NaN, height: 1 }]) assert.throws(() => validateCrop(invalid), /crop is invalid/);
+  const cropped = await cropImage(await photo(), { x: .25, y: .25, width: .5, height: .5 });
+  const metadata = await sharp(cropped).metadata();
+  assert.equal(metadata.width, 500);
+  assert.equal(metadata.height, 300);
+});
+
+test("multiple photos preserve crops, order and captions in a PDF gallery", async () => {
+  const bytes = await photo();
+  const image = await uploadImage("GT-GALLERY", { data: bytes.toString("base64"), rightsConfirmed: true });
+  const items = Array.from({ length: 6 }, (_, index) => ({ id: image.id, caption: "Photo " + (index + 1), crop: { x: 0, y: 0, width: .8, height: 1 } }));
+  const gallery = await resolveGallery("GT-GALLERY", items);
+  assert.equal(gallery.length, 6);
+  assert.equal(gallery[5].caption, "Photo 6");
+  await assert.rejects(resolveGallery("GT-OTHER", items), /not found/);
+  await assert.rejects(resolveGallery("GT-GALLERY", [...items, items[0]]), /up to 6/);
+  const offer = { ...sampleOffer(), submissionId: "GT-GALLERY", image, coverCrop: { x: 0, y: 0, width: 1, height: .5 }, gallery };
+  const prepared = await prepareOfferPhotos(offer);
+  assert.equal((await sharp(prepared.cover).metadata()).height, 300);
+  const pdf = await renderOfferPdf(offer, prepared.cover, prepared.gallery);
+  assert.equal(pdf.subarray(0, 4).toString(), "%PDF");
+  assert.ok(pdf.length > 20000);
 });

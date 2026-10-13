@@ -1,7 +1,7 @@
 {
   "functions": {
     "api/admin/offers.js": { "maxDuration": 120, "includeFiles": "{lib/**,assets/offers/**,node_modules/pdfkit/js/data/**,tours.js,*-tour.html}" },
-    "api/admin/offer-image.js": { "maxDuration": 60 },
+    "api/admin/offer-image.js": { "maxDuration": 60, "includeFiles": "assets/offers/*.jpg" },
     "api/admin/offer-pdf.js": { "maxDuration": 60, "includeFiles": "{lib/**,assets/offers/**,node_modules/pdfkit/js/data/**,tours.js,*-tour.html}" }
   },
   "rewrites": [

@@ -124,6 +124,16 @@ test("admin uploads and prompt-selected photos survive offer revisions", async (
     assert.equal(changed.result.offer.imageWarning, undefined);
     assert.ok(await getOfferPdf(changed.result.offer));
     assert.equal((await getOffer(submission.id, first.result.offer.id)).image.id, first.result.offer.image.id);
+    process.env.OPENAI_API_KEY = "";
+    global.fetch = async () => { throw new Error("Photo-only edits must not call OpenAI"); };
+    const crop = { x: .1, y: .2, width: .8, height: .3 };
+    const layout = await call("/api/admin/offers", { ...settings, photoMode: "auto", imageId: undefined, previousOfferId: changed.result.offer.id, photosOnly: true, coverCrop: crop, coverCropImageId: changed.result.offer.image.id, gallery: [{ id: upload.result.image.id, caption: "Our coastal base", crop: null }] }, true);
+    assert.equal(layout.status, 201);
+    assert.deepEqual(layout.result.offer.coverCrop, crop);
+    assert.equal(layout.result.offer.gallery.length, 1);
+    assert.deepEqual(layout.result.offer.content, changed.result.offer.content);
+    assert.equal(layout.result.offer.usage.estimatedCostUsd, 0);
+    assert.ok(await getOfferPdf(layout.result.offer));
   } finally {
     global.fetch = originalFetch;
     process.env.OPENAI_API_KEY = "";
