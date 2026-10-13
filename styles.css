@@ -1278,6 +1278,10 @@ textarea:focus {
   padding: clamp(18px, 3vw, 28px);
 }
 
+.trip-form[hidden] {
+  display: none;
+}
+
 .trip-form .wide,
 .trip-form button,
 .trip-form .form-honey {

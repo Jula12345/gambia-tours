@@ -20,6 +20,7 @@ const elements = {
 };
 
 let submissions = [];
+let selectedSubmission = null;
 
 async function api(path, options = {}) {
   const response = await fetch(path, {
@@ -62,6 +63,8 @@ function textElement(tag, className, value) {
 }
 
 function requestRow(submission) {
+  const entry = document.createElement("div");
+  entry.className = "request-entry";
   const button = document.createElement("button");
   button.type = "button";
   button.className = "request-row";
@@ -79,7 +82,13 @@ function requestRow(submission) {
   received.className = "request-time";
   received.append(textElement("strong", "", formatDate(submission.createdAt)), textElement("span", "", submission.source || "Website"));
   button.append(customer, tour, date, received);
-  return button;
+  const offerButton = document.createElement("button");
+  offerButton.type = "button";
+  offerButton.className = "request-offer-button";
+  offerButton.textContent = "Generate offer";
+  offerButton.addEventListener("click", () => openOfferEditor(submission));
+  entry.append(button, offerButton);
+  return entry;
 }
 
 function filteredSubmissions() {
@@ -117,6 +126,7 @@ function detailItem(label, value, wide = false) {
 }
 
 function openDetails(submission) {
+  selectedSubmission = submission;
   elements.detailTitle.textContent = submission.id;
   elements.detailGrid.replaceChildren(
     detailItem("Received", formatDate(submission.createdAt)),

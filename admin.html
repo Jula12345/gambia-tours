@@ -6,7 +6,7 @@
     <meta name="robots" content="noindex, nofollow, noarchive" />
     <title>Bookings | GambianTour Admin</title>
     <link rel="icon" href="assets/favicon.png" />
-    <link rel="stylesheet" href="admin.css" />
+    <link rel="stylesheet" href="admin.css?v=offers-v2" />
   </head>
   <body>
     <main class="admin-shell">
@@ -73,7 +73,36 @@
       </div>
       <div class="detail-grid" data-detail-grid></div>
       <div class="detail-actions">
+        <button type="button" class="email-button" data-open-offer>Generate offer</button>
         <a class="email-button" data-email-customer href="#">Reply by email</a>
+      </div>
+    </dialog>
+
+    <dialog class="offer-dialog" data-offer-dialog>
+      <div class="detail-header">
+        <div><p class="eyebrow">Travel proposal</p><h2 data-offer-customer>Create an offer</h2></div>
+        <button class="close-button" type="button" data-close-offer aria-label="Close offer editor">Close</button>
+      </div>
+      <div class="offer-workspace">
+        <form class="offer-settings" data-offer-form>
+          <label>Tour<select name="tourId" data-offer-tour required></select></label>
+          <div class="offer-setting-row">
+            <label>Offer language<select name="language"><option value="en">English</option><option value="pl">Polski</option></select></label>
+            <label>Currency<select name="currency"><option>EUR</option><option>USD</option><option>GBP</option><option>PLN</option></select></label>
+          </div>
+          <label class="offer-price-toggle"><input type="checkbox" name="includePrice" data-include-price />Include quotation</label>
+          <label data-price-field hidden>Price per person<input type="number" name="pricePerPerson" min="0.01" max="100000" step="0.01" inputmode="decimal" /></label>
+          <label>Instructions / changes<textarea name="prompt" maxlength="2000" rows="5" placeholder="For example: make the pace more relaxed, add more time at the market, or write a warmer introduction."></textarea></label>
+          <p class="offer-error" data-offer-feedback role="alert"></p>
+          <button class="email-button" type="submit" data-generate-offer>Generate offer</button>
+          <div class="offer-progress" data-offer-progress hidden role="status" aria-live="polite"><span class="offer-spinner" aria-hidden="true"></span><div><strong data-progress-title>Preparing your proposal</strong><p data-progress-message>Reading the tour and guest preferences…</p></div></div>
+          <div class="offer-downloads" data-offer-downloads hidden>
+            <a class="email-button" data-download-offer href="#">Download PDF</a>
+            <label>Saved versions<select data-offer-version></select></label>
+            <p data-offer-cost></p>
+          </div>
+        </form>
+        <section class="offer-preview" data-offer-preview aria-live="polite"><div class="empty-state"><strong>Your proposal will appear here</strong><p>Review the draft before sharing it with your guest.</p></div></section>
       </div>
     </dialog>
 
@@ -81,6 +110,7 @@
       <div class="empty-state"><strong>No requests found</strong><p>New booking forms will appear here automatically.</p></div>
     </template>
 
-    <script src="admin.js"></script>
+    <script src="admin.js?v=offers-v2"></script>
+    <script src="admin-offers.js?v=offers-v2"></script>
   </body>
 </html>

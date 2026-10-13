@@ -46,3 +46,25 @@ test("failed direct delivery is reported as a failure", async () => {
     : { ok: true, json: async () => ({ success: false }) };
   await assert.rejects(submitWebsiteEnquiry(payload), /could not be sent/);
 });
+
+test("stored enquiries still send email when server forwarding fails", async () => {
+  let calls = 0;
+  global.fetch = async () => ++calls === 1
+    ? { ok: true, status: 201, json: async () => ({ ok: true, id: "GT-SAVED", stored: true, emailForwarded: false }) }
+    : { ok: true, json: async () => ({ success: "true" }) };
+  const result = await submitWebsiteEnquiry(payload);
+  assert.equal(result.stored, true);
+  assert.equal(result.emailForwarded, true);
+  assert.equal(calls, 2);
+});
+
+test("failed backup email does not lose a saved enquiry", async () => {
+  let calls = 0;
+  global.fetch = async () => ++calls === 1
+    ? { ok: true, status: 201, json: async () => ({ ok: true, id: "GT-SAVED", stored: true, emailForwarded: false }) }
+    : { ok: false, json: async () => ({ success: false }) };
+  const result = await submitWebsiteEnquiry(payload);
+  assert.equal(result.id, "GT-SAVED");
+  assert.equal(result.stored, true);
+  assert.equal(result.emailForwarded, false);
+});

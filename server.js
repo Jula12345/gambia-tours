@@ -9,6 +9,9 @@ const SESSION_TTL_SECONDS = 8 * 60 * 60;
 const MAX_BODY_BYTES = 64 * 1024;
 const loginAttempts = new Map();
 const submissionAttempts = new Map();
+const submissionJobs = new Map();
+const offerJobs = new Set();
+const offerAttempts = new Map();
 
 loadEnvFile(path.join(ROOT, ".env"));
 
@@ -201,6 +204,35 @@ function normalizeSubmission(input, request) {
   return submission;
 }
 
+function submissionFingerprint(submission) {
+  const fields = ["tour", "date", "endDate", "guests", "name", "email", "phone", "pickup", "notes"];
+  return crypto.createHash("sha256").update(JSON.stringify(fields.map(key => String(submission[key] || "").trim().toLowerCase()))).digest("hex");
+}
+
+async function receiveSubmission(submission, request) {
+  let existing = [];
+  try { existing = await readSubmissions(); } catch { /* Email can still work without storage. */ }
+  const fingerprint = submissionFingerprint(submission);
+  const duplicate = existing.find(item => Date.now() - Date.parse(item.createdAt) < 10 * 60 * 1000 && submissionFingerprint(item) === fingerprint);
+  if (duplicate) return { ok: true, id: duplicate.id, stored: true, duplicate: true };
+  let stored = false;
+  try {
+    await saveSubmission(submission);
+    stored = true;
+  } catch (error) {
+    console.error(`Submission ${submission.id} could not be stored:`, error.message);
+  }
+  let emailForwarded = false;
+  try {
+    const websiteOrigin = request.headers.origin || `https://${request.headers.host}`;
+    emailForwarded = await forwardSubmission(submission, websiteOrigin);
+  } catch (error) {
+    console.error(`Submission ${submission.id} email forwarding failed:`, error.message);
+  }
+  if (!stored && !emailForwarded) throw Object.assign(new Error("Your request could not be received. Please try again or email info@gambiantour.com."), { status: 503 });
+  return { ok: true, id: submission.id, stored, emailForwarded };
+}
+
 async function saveSubmission(submission) {
   if (USE_BLOB_STORAGE) {
     const { put } = await import("@vercel/blob");
@@ -330,24 +362,17 @@ async function handleApi(request, response, url) {
     const input = await readJson(request);
     if (cleanText(input._honey, 100)) return sendJson(response, 200, { ok: true });
     const submission = normalizeSubmission(input, request);
-    let stored = false;
+    const fingerprint = submissionFingerprint(submission);
+    if (submissionJobs.has(fingerprint)) {
+      return sendJson(response, 200, { ...await submissionJobs.get(fingerprint), duplicate: true });
+    }
+    const task = receiveSubmission(submission, request);
+    submissionJobs.set(fingerprint, task);
     try {
-      await saveSubmission(submission);
-      stored = true;
-    } catch (error) {
-      console.error(`Submission ${submission.id} could not be stored:`, error.message);
+      return sendJson(response, 201, await task);
+    } finally {
+      submissionJobs.delete(fingerprint);
     }
-    let emailForwarded = false;
-    try {
-      const websiteOrigin = request.headers.origin || `https://${request.headers.host}`;
-      emailForwarded = await forwardSubmission(submission, websiteOrigin);
-    } catch (error) {
-      console.error(`Submission ${submission.id} email forwarding failed:`, error.message);
-    }
-    if (!stored && !emailForwarded) {
-      return sendJson(response, 503, { error: "Your request could not be received. Please try again or email info@gambiantour.com." });
-    }
-    return sendJson(response, 201, { ok: true, id: submission.id, stored, emailForwarded });
   }
 
   if (request.method === "POST" && url.pathname === "/api/admin/login") {
@@ -377,6 +402,46 @@ async function handleApi(request, response, url) {
   if (request.method === "GET" && url.pathname === "/api/admin/submissions") {
     if (!validSession(request)) return sendJson(response, 401, { error: "Authentication required." });
     return sendJson(response, 200, { submissions: await readSubmissions() });
+  }
+
+  if (url.pathname === "/api/admin/offers" || url.pathname === "/api/admin/offer-pdf") {
+    if (!validSession(request)) return sendJson(response, 401, { error: "Authentication required." });
+    const { catalog } = require("./lib/offer-catalog");
+    const { getOffers, saveOffer } = require("./lib/offer-store");
+    if (request.method === "GET") {
+      const submissionId = cleanText(url.searchParams.get("submissionId"), 64);
+      const offers = submissionId ? await getOffers(submissionId) : [];
+      if (url.pathname === "/api/admin/offers") {
+        return sendJson(response, 200, { tours: catalog(), offers, configured: Boolean(process.env.OPENAI_API_KEY) });
+      }
+      const offer = offers.find(o => o.id === url.searchParams.get("offerId"));
+      if (!offer) return sendJson(response, 404, { error: "Offer not found." });
+      const { renderOfferPdf } = require("./lib/offer-pdf");
+      const pdf = await renderOfferPdf(offer);
+      response.writeHead(200, {
+        "Content-Type": "application/pdf", "Content-Length": pdf.length,
+        "Content-Disposition": `attachment; filename="GambianTour-offer-${offer.id}.pdf"`,
+        "Cache-Control": "no-store", "X-Content-Type-Options": "nosniff"
+      });
+      return response.end(pdf);
+    }
+    if (request.method !== "POST" || url.pathname !== "/api/admin/offers") return sendJson(response, 405, { error: "Method not allowed." });
+    if (isRateLimited(offerAttempts, ADMIN_USERNAME, 10, 10 * 60 * 1000)) return sendJson(response, 429, { error: "Too many generations. Please try again in a few minutes." });
+    const input = await readJson(request);
+    const submission = (await readSubmissions()).find(s => s.id === input.submissionId);
+    if (!submission) return sendJson(response, 404, { error: "Booking request not found." });
+    if (offerJobs.has(submission.id)) return sendJson(response, 409, { error: "An offer is already being generated for this request." });
+    offerJobs.add(submission.id);
+    try {
+      const { generateOffer } = require("./lib/offer-generator");
+      const previous = input.previousOfferId ? (await getOffers(submission.id)).find(o => o.id === input.previousOfferId) : null;
+      if (input.previousOfferId && !previous) return sendJson(response, 404, { error: "Previous offer not found." });
+      const offer = await generateOffer(submission, input, previous);
+      await saveOffer(offer);
+      return sendJson(response, 201, { offer });
+    } finally {
+      offerJobs.delete(submission.id);
+    }
   }
 
   return sendJson(response, 404, { error: "Not found." });
@@ -436,4 +501,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { handleApi };
+module.exports = { handleApi, submissionFingerprint };

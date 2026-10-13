@@ -18,7 +18,7 @@
     const data = Object.fromEntries(new FormData(form).entries());
     return {
       ...data,
-      requestId: `GT-${Date.now().toString().slice(-6)}`,
+      requestId: `GT-${crypto.randomUUID()}`,
       source: form.dataset.source || "tour-detail-form",
       page: window.location.href,
       language: document.documentElement.lang || "en",
@@ -30,6 +30,7 @@
   forms.forEach((form) => {
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
+      if (form.dataset.sending === "true" || form.dataset.submitted === "true") return;
       if (!form.reportValidity()) return;
 
       const payload = payloadFrom(form);
@@ -42,6 +43,7 @@
       }
 
       button.disabled = true;
+      form.dataset.sending = "true";
       feedback.classList.remove("error");
       feedback.textContent = "Sending your request...";
 
@@ -49,12 +51,26 @@
         const result = await submitWebsiteEnquiry(payload);
         feedback.textContent = `Thank you. Request ${result.id || payload.requestId} has been received. We will contact you shortly.`;
         form.reset();
+        form.dataset.submitted = "true";
+        form.hidden = true;
+        const confirmation = document.createElement("div");
+        confirmation.className = "trip-form";
+        confirmation.setAttribute("role", "status");
+        const heading = document.createElement("h3");
+        heading.className = "wide";
+        heading.textContent = "Your request has been received";
+        const message = document.createElement("p");
+        message.className = "wide";
+        message.textContent = `Reference ${result.id || payload.requestId}. We will contact you shortly.`;
+        confirmation.append(heading, message);
+        form.after(confirmation);
         form.dispatchEvent(new Event("change", { bubbles: true }));
       } catch (error) {
         feedback.classList.add("error");
         feedback.textContent = "Your request could not be sent. Please try again or email info@gambiantour.com. Your form details have been kept.";
       } finally {
-        button.disabled = false;
+        button.disabled = form.dataset.submitted === "true";
+        form.dataset.sending = "false";
       }
     });
   });

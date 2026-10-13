@@ -1,5 +1,6 @@
 async function submitWebsiteEnquiry(payload) {
   let backendResponse;
+  let storedResult;
   try {
     backendResponse = await fetch("/api/submissions", {
       method: "POST",
@@ -12,8 +13,11 @@ async function submitWebsiteEnquiry(payload) {
 
   if (backendResponse) {
     const result = await backendResponse.json().catch(() => ({}));
-    if (backendResponse.ok && result.ok) return result;
-    if (backendResponse.status < 500) {
+    if (backendResponse.ok && result.ok) {
+      if (result.emailForwarded || result.duplicate) return result;
+      storedResult = result;
+    }
+    if (!storedResult && backendResponse.status < 500) {
       throw new Error(result.error || "Your request could not be sent.");
     }
   }
@@ -26,21 +30,26 @@ async function submitWebsiteEnquiry(payload) {
     _captcha: "false",
     _template: "table"
   };
-  const response = await fetch(`https://formsubmit.co/ajax/${recipient}`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Accept: "application/json" },
-    body: JSON.stringify(emailPayload)
-  });
-  const result = await response.json().catch(() => ({}));
-  if (!response.ok || (result.success !== true && result.success !== "true")) {
-    throw new Error("Your request could not be sent.");
+  try {
+    const response = await fetch(`https://formsubmit.co/ajax/${recipient}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(emailPayload)
+    });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok || (result.success !== true && result.success !== "true")) {
+      throw new Error("Your request could not be sent.");
+    }
+    return {
+      ok: true,
+      id: storedResult?.id || payload.requestId || payload["Request ID"],
+      stored: Boolean(storedResult?.stored),
+      emailForwarded: true
+    };
+  } catch (error) {
+    if (storedResult?.stored) return storedResult;
+    throw error;
   }
-  return {
-    ok: true,
-    id: payload.requestId || payload["Request ID"],
-    stored: false,
-    emailForwarded: true
-  };
 }
 
 if (typeof module !== "undefined") module.exports = { submitWebsiteEnquiry };

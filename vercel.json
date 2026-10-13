@@ -1,4 +1,8 @@
 {
+  "functions": {
+    "api/admin/offers.js": { "maxDuration": 60, "includeFiles": "{lib/**,assets/offers/**,tours.js,*-tour.html}" },
+    "api/admin/offer-pdf.js": { "maxDuration": 60, "includeFiles": "{lib/**,assets/offers/**,tours.js,*-tour.html}" }
+  },
   "rewrites": [
     {
       "source": "/admin",

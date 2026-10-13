@@ -49,16 +49,12 @@ test("public enquiries send email without admin credentials or storage", async (
 
 test("provider rejection never produces a success response", async () => {
   global.fetch = async () => ({ ok: true, json: async () => ({ success: false }) });
-  const { status, result } = await request("/api/submissions", booking);
-  assert.equal(status, 503);
-  assert.equal(result.ok, undefined);
+  await assert.rejects(request("/api/submissions", booking), error => error.status === 503);
 });
 
 test("network failure reports that the enquiry was not received", async () => {
   global.fetch = async () => { throw new Error("Provider unavailable"); };
-  const { status, result } = await request("/api/submissions", booking);
-  assert.equal(status, 503);
-  assert.match(result.error, /could not be received/);
+  await assert.rejects(request("/api/submissions", booking), /could not be received/);
 });
 
 test("missing admin credentials still block the private API", async () => {
