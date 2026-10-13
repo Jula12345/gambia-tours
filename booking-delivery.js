@@ -8,16 +8,17 @@ async function submitWebsiteEnquiry(payload) {
       body: JSON.stringify(payload)
     });
   } catch {
-    // Network failures can use the same direct email delivery as the original site.
+    // An interrupted request may already have sent email; do not send it again via a different provider.
+    throw new Error("The connection was interrupted. Please try again or email info@gambiantour.com.");
   }
 
   if (backendResponse) {
     const result = await backendResponse.json().catch(() => ({}));
     if (backendResponse.ok && result.ok) {
-      if (result.emailForwarded || result.duplicate) return result;
+      if (result.emailForwarded || result.duplicate || result.emailFallbackAllowed === false) return result;
       storedResult = result;
     }
-    if (!storedResult && backendResponse.status < 500) {
+    if (!storedResult && (backendResponse.status < 500 || result.emailFallbackAllowed !== true)) {
       throw new Error(result.error || "Your request could not be sent.");
     }
   }

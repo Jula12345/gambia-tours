@@ -229,8 +229,9 @@ async function receiveSubmission(submission, request) {
   } catch (error) {
     console.error(`Submission ${submission.id} email forwarding failed:`, error.message);
   }
-  if (!stored && !emailForwarded) throw Object.assign(new Error("Your request could not be received. Please try again or email info@gambiantour.com."), { status: 503 });
-  return { ok: true, id: submission.id, stored, emailForwarded };
+  const emailFallbackAllowed = !require("./lib/booking-email").smtpRequested() && !DISABLE_EMAIL_FORWARDING;
+  if (!stored && !emailForwarded) throw Object.assign(new Error("Your request could not be received. Please try again or email info@gambiantour.com."), { status: 503, emailFallbackAllowed });
+  return { ok: true, id: submission.id, stored, emailForwarded, emailFallbackAllowed };
 }
 
 async function saveSubmission(submission) {
@@ -308,6 +309,8 @@ async function readSubmissions() {
 
 async function forwardSubmission(submission, websiteOrigin) {
   if (DISABLE_EMAIL_FORWARDING) return false;
+  const { smtpRequested, sendSmtpBooking } = require("./lib/booking-email");
+  if (smtpRequested()) return sendSmtpBooking(submission, FORM_RECIPIENT_EMAIL);
   const payload = {
     _subject: `GambianTour request ${submission.id}: ${submission.tour}`,
     _template: "table",
@@ -553,7 +556,7 @@ const server = http.createServer(async (request, response) => {
     else sendJson(response, 405, { error: "Method not allowed." });
   } catch (error) {
     console.error(error);
-    sendJson(response, error.status || 500, { error: error.status ? error.message : "Server error." });
+    sendJson(response, error.status || 500, { error: error.status ? error.message : "Server error.", emailFallbackAllowed: error.emailFallbackAllowed });
   }
 });
 

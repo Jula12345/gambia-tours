@@ -8,6 +8,9 @@ process.env.SESSION_SECRET = "";
 process.env.BLOB_READ_WRITE_TOKEN = "";
 process.env.VERCEL = "1";
 process.env.DISABLE_EMAIL_FORWARDING = "false";
+process.env.SMTP_HOST = "";
+process.env.SMTP_USER = "";
+process.env.SMTP_PASSWORD = "";
 const { handleApi } = require("../server");
 
 async function request(pathname, body = {}) {

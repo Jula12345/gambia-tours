@@ -18,7 +18,7 @@ test("unavailable server uses direct AJAX email with all form details", async ()
   global.fetch = async (url, options) => {
     calls.push({ url, payload: JSON.parse(options.body) });
     return calls.length === 1
-      ? { ok: false, status: 503, json: async () => ({ error: "Unavailable" }) }
+      ? { ok: false, status: 503, json: async () => ({ error: "Unavailable", emailFallbackAllowed: true }) }
       : { ok: true, json: async () => ({ success: "true" }) };
   };
   const result = await submitWebsiteEnquiry(payload);
@@ -42,7 +42,7 @@ test("rate limiting is not bypassed by direct email", async () => {
 test("failed direct delivery is reported as a failure", async () => {
   let calls = 0;
   global.fetch = async () => ++calls === 1
-    ? { ok: false, status: 503, json: async () => ({}) }
+    ? { ok: false, status: 503, json: async () => ({ emailFallbackAllowed: true }) }
     : { ok: true, json: async () => ({ success: false }) };
   await assert.rejects(submitWebsiteEnquiry(payload), /could not be sent/);
 });
@@ -67,4 +67,29 @@ test("failed backup email does not lose a saved enquiry", async () => {
   assert.equal(result.id, "GT-SAVED");
   assert.equal(result.stored, true);
   assert.equal(result.emailForwarded, false);
+});
+
+test("authenticated sender failures never switch to the shared email service", async () => {
+  let calls = 0;
+  global.fetch = async () => {
+    calls++;
+    return { ok: true, status: 201, json: async () => ({ ok: true, id: "GT-SAVED", stored: true, emailForwarded: false, emailFallbackAllowed: false }) };
+  };
+  const result = await submitWebsiteEnquiry(payload);
+  assert.equal(result.stored, true);
+  assert.equal(result.emailForwarded, false);
+  assert.equal(calls, 1);
+  global.fetch = async () => {
+    calls++;
+    return { ok: false, status: 503, json: async () => ({ error: "Email unavailable", emailFallbackAllowed: false }) };
+  };
+  await assert.rejects(submitWebsiteEnquiry(payload), /Email unavailable/);
+  assert.equal(calls, 2);
+});
+
+test("an interrupted request does not send a second email", async () => {
+  let calls = 0;
+  global.fetch = async () => { calls++; throw new TypeError("Load failed"); };
+  await assert.rejects(submitWebsiteEnquiry(payload), /connection was interrupted/);
+  assert.equal(calls, 1);
 });
