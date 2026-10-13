@@ -27,4 +27,4 @@ The `.env` file and stored submissions are ignored by Git and must never be comm
 
 Every accepted form is saved as a private JSON record before email forwarding is attempted. The admin panel is available at `/admin`, and sessions expire after eight hours.
 
-The local JSON Lines file is intended only for local development. Vercel deployments refuse to accept forms until the private Blob store is connected, preventing requests from appearing successful without persistent storage.
+The local JSON Lines file is intended only for local development. Public enquiries can still be delivered by email when admin credentials or the private Blob store are not configured. Such enquiries are not stored in the admin panel. An enquiry succeeds only when it has been stored or the email provider has accepted it; if both fail, the website keeps the form details and shows an error.

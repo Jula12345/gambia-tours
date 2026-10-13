@@ -303,11 +303,15 @@ async function forwardSubmission(submission) {
     signal: AbortSignal.timeout(10000)
   });
   if (!response.ok) throw new Error(`Email forwarding returned ${response.status}.`);
+  const result = await response.json();
+  if (result.success !== true && result.success !== "true") {
+    throw new Error("The email provider did not accept the submission.");
+  }
   return true;
 }
 
 async function handleApi(request, response, url) {
-  if (CONFIG_ERROR) {
+  if (url.pathname.startsWith("/api/admin/") && CONFIG_ERROR) {
     console.error(CONFIG_ERROR);
     return sendJson(response, 503, { error: "The server is not fully configured." });
   }
@@ -321,14 +325,23 @@ async function handleApi(request, response, url) {
     const input = await readJson(request);
     if (cleanText(input._honey, 100)) return sendJson(response, 200, { ok: true });
     const submission = normalizeSubmission(input, request);
-    await saveSubmission(submission);
+    let stored = false;
+    try {
+      await saveSubmission(submission);
+      stored = true;
+    } catch (error) {
+      console.error(`Submission ${submission.id} could not be stored:`, error.message);
+    }
     let emailForwarded = false;
     try {
       emailForwarded = await forwardSubmission(submission);
     } catch (error) {
-      console.error(`Submission ${submission.id} was saved, but email forwarding failed:`, error.message);
+      console.error(`Submission ${submission.id} email forwarding failed:`, error.message);
     }
-    return sendJson(response, 201, { ok: true, id: submission.id, emailForwarded });
+    if (!stored && !emailForwarded) {
+      return sendJson(response, 503, { error: "Your request could not be received. Please try again or email info@gambiantour.com." });
+    }
+    return sendJson(response, 201, { ok: true, id: submission.id, stored, emailForwarded });
   }
 
   if (request.method === "POST" && url.pathname === "/api/admin/login") {

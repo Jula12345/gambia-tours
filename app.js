@@ -195,7 +195,8 @@ const translations = {
     emailSending: "Sending request to info@gambiantour.com...",
     emailSentMessage: "Thank you. Request {id} has been sent to info@gambiantour.com. We will reply soon.",
     emailSentToast: "Booking request sent.",
-    emailSendError: "Automatic sending did not work. Please use the email draft that opened, or email info@gambiantour.com directly.",
+    emailSendError: "Your request could not be sent. Please try again or email info@gambiantour.com. Your form details are still here.",
+    emailReceivedMessage: "Thank you. Request {id} has been received. We will reply soon.",
     savedMessage: "Request {id} is saved for {tour}. A ready email can be sent to info@gambiantour.com.",
     savedToast: "Booking request {id} is saved.",
     emailSubject: "Gambia tour booking request {id} - {tour}",
@@ -410,7 +411,8 @@ const translations = {
     emailSending: "Wysyłamy zapytanie na info@gambiantour.com...",
     emailSentMessage: "Dziękujemy. Zapytanie {id} zostało wysłane na info@gambiantour.com. Odpowiemy wkrótce.",
     emailSentToast: "Zapytanie zostało wysłane.",
-    emailSendError: "Automatyczna wysyłka nie zadziałała. Użyj otwartej wiadomości email albo napisz bezpośrednio na info@gambiantour.com.",
+    emailSendError: "Nie udało się wysłać zapytania. Spróbuj ponownie lub napisz na info@gambiantour.com. Dane formularza pozostają zapisane tutaj.",
+    emailReceivedMessage: "Dziękujemy. Zapytanie {id} zostało odebrane. Odpowiemy wkrótce.",
     savedMessage: "Zapytanie {id} zapisane dla trasy: {tour}. Gotową wiadomość można wysłać na info@gambiantour.com.",
     savedToast: "Zapytanie {id} zostało zapisane.",
     emailSubject: "Zapytanie o wycieczkę po Gambii {id} - {tour}",
@@ -1060,7 +1062,9 @@ async function sendBookingRequest(booking, title) {
     throw new Error("Booking form email request failed.");
   }
 
-  return response.json().catch(() => ({}));
+  const result = await response.json();
+  if (!result.ok) throw new Error("Booking request was not accepted.");
+  return result;
 }
 
 async function handleBookingSubmit(event) {
@@ -1097,15 +1101,12 @@ async function handleBookingSubmit(event) {
   const title = tourCopy(getTour(booking.tour)).title;
 
   try {
-    await sendBookingRequest(booking, title);
-    selectors.feedback.textContent = template(t("emailSentMessage"), { id: booking.id, tour: title });
+    const result = await sendBookingRequest(booking, title);
+    selectors.feedback.textContent = template(t(result.emailForwarded ? "emailSentMessage" : "emailReceivedMessage"), { id: result.id || booking.id, tour: title });
     showToast(t("emailSentToast"));
   } catch (error) {
-    const emailOpened = openBookingEmail(booking, title);
-    selectors.feedback.textContent = emailOpened
-      ? template(t("emailOpenedMessage"), { id: booking.id, tour: title })
-      : t("emailSendError");
-    showToast(emailOpened ? t("emailOpenedToast") : t("emailNotConfiguredToast"));
+    selectors.feedback.textContent = t("emailSendError");
+    showToast(t("emailSendError"));
   } finally {
     submitButton.disabled = false;
   }

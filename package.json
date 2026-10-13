@@ -5,7 +5,8 @@
   "description": "GambianTour.com website and booking administration panel",
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "test": "node --test tests/*.test.js"
   },
   "dependencies": {
     "@vercel/blob": "^2.3.0"

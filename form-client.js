@@ -52,14 +52,13 @@
           body: JSON.stringify(payload)
         });
         const result = await response.json().catch(() => ({}));
-        if (!response.ok) throw new Error(result.error || "The request could not be sent.");
+        if (!response.ok || !result.ok) throw new Error(result.error || "The request could not be sent.");
         feedback.textContent = `Thank you. Request ${result.id || payload.requestId} has been received. We will contact you shortly.`;
         form.reset();
         form.dispatchEvent(new Event("change", { bubbles: true }));
       } catch (error) {
         feedback.classList.add("error");
-        feedback.textContent = "The booking server is unavailable. Opening the direct email form...";
-        window.setTimeout(() => HTMLFormElement.prototype.submit.call(form), 500);
+        feedback.textContent = "Your request could not be sent. Please try again or email info@gambiantour.com. Your form details have been kept.";
       } finally {
         button.disabled = false;
       }
