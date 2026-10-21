@@ -31,7 +31,7 @@
     <meta property="og:url" content="https://gambiantour.com/" />
     <meta
       property="og:image"
-      content="https://upload.wikimedia.org/wikipedia/commons/a/af/Kotu_Beach%2C_The_Gambia_%2816197149546%29.jpg"
+      content="https://gambiantour.com/assets/trips/coastal-sunset-1600.webp"
     />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/png" href="assets/favicon.png" />
@@ -39,8 +39,8 @@
     <link rel="preconnect" href="https://upload.wikimedia.org" />
     <link rel="preconnect" href="https://commons.wikimedia.org" />
     <link rel="preconnect" href="https://unpkg.com" />
-    <link rel="stylesheet" href="styles.css?v=20261013-offers" />
-    <link rel="stylesheet" href="hotels.css" />
+    <link rel="stylesheet" href="styles.css?v=20261021-media" />
+    <link rel="stylesheet" href="hotels.css?v=20261021-media" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -161,7 +161,7 @@
         ]
       }
     </script>
-  </head>
+  <link rel="stylesheet" href="travel-updates.css?v=20261021" /></head>
   <body>
     <header class="site-header" data-header>
       <a class="brand" href="#top" aria-label="GambianTour.com home" data-i18n-aria-label="brandHome">
@@ -194,30 +194,15 @@
     <main id="top">
       <section class="hero" aria-label="Private Gambia tours and excursions booking" data-i18n-aria-label="heroAria">
         <div class="hero-carousel" data-hero-carousel aria-hidden="true">
-          <img
-            class="hero-slide active"
-            src="https://upload.wikimedia.org/wikipedia/commons/a/af/Kotu_Beach%2C_The_Gambia_%2816197149546%29.jpg"
-            alt=""
-            data-hero-slide
-          />
+          <img class="trip-photo hero-slide active sunset-photo" src="assets/trips/coastal-sunset-960.webp" srcset="assets/trips/coastal-sunset-480.webp 480w, assets/trips/coastal-sunset-960.webp 960w, assets/trips/coastal-sunset-1600.webp 1600w" sizes="(max-width: 700px) 1200px, 100vw" width="1600" height="1200" alt="" fetchpriority="high" data-hero-slide />
           <img
             class="hero-slide"
             src="https://upload.wikimedia.org/wikipedia/commons/5/51/Gambia-river.jpg"
             alt=""
             data-hero-slide
           />
-          <img
-            class="hero-slide"
-            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/That%27s_the_Banjul_market_in_the_Gambia.jpg?width=1800"
-            alt=""
-            data-hero-slide
-          />
-          <img
-            class="hero-slide"
-            src="https://upload.wikimedia.org/wikipedia/commons/5/55/Little_Bee-eater_%28Merops_pusillus_pusillus%29%2C_Kotu_Beach%2C_Gambia.jpg"
-            alt=""
-            data-hero-slide
-          />
+          <img class="trip-photo hero-slide" src="assets/trips/fishing-boats-960.webp" srcset="assets/trips/fishing-boats-480.webp 480w, assets/trips/fishing-boats-960.webp 960w, assets/trips/fishing-boats-1600.webp 1200w" sizes="(max-width: 700px) 1200px, 100vw" width="1200" height="1600" alt="" loading="lazy" decoding="async" data-hero-slide />
+          <img class="trip-photo hero-slide" src="assets/trips/egret-mangroves-960.webp" srcset="assets/trips/egret-mangroves-480.webp 480w, assets/trips/egret-mangroves-960.webp 960w, assets/trips/egret-mangroves-1600.webp 1200w" sizes="(max-width: 700px) 1200px, 100vw" width="1200" height="1600" alt="" loading="lazy" decoding="async" data-hero-slide />
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -245,7 +230,7 @@
           <div class="carousel-dots" data-carousel-dots>
             <button class="carousel-dot active" type="button" data-carousel-dot="0" aria-label="Show beach photo" data-i18n-aria-label="carouselDot1"></button>
             <button class="carousel-dot" type="button" data-carousel-dot="1" aria-label="Show river photo" data-i18n-aria-label="carouselDot2"></button>
-            <button class="carousel-dot" type="button" data-carousel-dot="2" aria-label="Show market photo" data-i18n-aria-label="carouselDot3"></button>
+            <button class="carousel-dot" type="button" data-carousel-dot="2" aria-label="Show fishing coast photo" data-i18n-aria-label="carouselDot3"></button>
             <button class="carousel-dot" type="button" data-carousel-dot="3" aria-label="Show birdwatching photo" data-i18n-aria-label="carouselDot4"></button>
           </div>
           <button class="icon-button carousel-arrow" type="button" data-carousel-next aria-label="Next photo" data-i18n-aria-label="carouselNext">
@@ -443,13 +428,7 @@
       </section>
 
       <section class="feature-split section">
-        <div class="feature-media">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/5/51/Gambia-river.jpg"
-            alt="The Gambia River bordered by palms and dense greenery"
-            data-i18n-alt="featureImageAlt"
-            loading="lazy"
-          />
+        <div class="feature-media"><img class="trip-photo keep-group" src="assets/trips/boat-guests-960.webp" srcset="assets/trips/boat-guests-480.webp 480w, assets/trips/boat-guests-960.webp 960w, assets/trips/boat-guests-1600.webp 1200w" sizes="(max-width: 700px) 100vw, 50vw" width="1200" height="1600" alt="Guests enjoying a boat trip" loading="lazy" decoding="async" />
         </div>
         <div class="feature-copy">
           <div class="section-kicker" data-i18n="featureKicker">Signature private route</div>
@@ -469,9 +448,9 @@
         </div>
       </section>
 
-      <section class="section stay-home" id="hotels"><div class="section-header"><div><div class="section-kicker" data-i18n="staysKicker">Recommended accommodation</div><h2 data-i18n="staysTitle">A comfortable base for your Gambia holiday.</h2></div><a class="stay-text-link" href="hotels.html"><span data-i18n="staysBrowse">Explore our recommended stays</span><i data-lucide="arrow-up-right"></i></a></div><div class="stay-list"><article class="stay-card">        <a class="stay-card-image" href="lalas-complex-brufut.html"><img src="assets/hotels/lalas-complex/pool.jpg" alt="Lala's Complex pool and apartment courtyard in Brufut" width="1050" height="1400" loading="lazy" decoding="async" /><span class="stay-recommendation"><i data-lucide="badge-check"></i><span data-i18n="stayRecommended">Recommended by GambianTour</span></span></a>        <div class="stay-card-body"><div class="stay-location"><i data-lucide="map-pin"></i><span data-i18n="stayLocation">Brufut, The Gambia</span></div><h3><a href="lalas-complex-brufut.html">Lala’s Complex</a></h3><p data-i18n="stayCardCopy">Poolside apartments, space to settle in and a comfortable base for your Gambian adventure. Choose a studio or an apartment with up to four bedrooms.</p><ul class="stay-amenities"><li><i data-lucide="waves"></i><span data-i18n="stayPool">Pool</span></li><li><i data-lucide="wifi"></i>Wi-Fi</li><li><i data-lucide="snowflake"></i>A/C</li></ul><div class="stay-card-bottom"><div><strong data-i18n="stayPrice">From €35</strong><span data-i18n="stayPriceUnit">per apartment / night</span></div><a class="secondary-button dark" href="lalas-complex-brufut.html"><span data-i18n="stayExplore">Explore stay</span><i data-lucide="arrow-up-right"></i></a></div></div>      </article><div class="stay-home-note"><div class="section-kicker" data-i18n="staysSupport">Stay with local support</div><h3 data-i18n="staysNoteTitle">Find your stay. We’ll help with the rest.</h3><p data-i18n="staysNoteCopy">Choose accommodation recommended by GambianTour and ask us about airport transfers, private excursions and English or Polish-speaking guides. Your dates, apartment and final rate are confirmed personally before booking.</p><a class="primary-button inline-button" href="lalas-complex-brufut.html#request"><span data-i18n="staysEnquire">Enquire about Lala’s Complex</span><i data-lucide="arrow-right"></i></a></div></div></section>
+      <section class="section stay-home" id="hotels"><div class="section-header"><div><div class="section-kicker" data-i18n="staysKicker">Recommended accommodation</div><h2 data-i18n="staysTitle">A comfortable base for your Gambia holiday.</h2></div><a class="stay-text-link" href="hotels.html"><span data-i18n="staysBrowse">Explore our recommended stays</span><i data-lucide="arrow-up-right"></i></a></div><div class="stay-list"><article class="stay-card">        <a class="stay-card-image" href="lalas-complex-brufut.html"><img src="assets/hotels/lalas-complex/pool.jpg" alt="Lala's Complex pool and apartment courtyard in Brufut" width="1050" height="1400" loading="lazy" decoding="async" /><span class="stay-recommendation"><i data-lucide="badge-check"></i><span data-i18n="stayRecommended">Recommended by GambianTour</span></span></a>        <div class="stay-card-body"><div class="stay-location"><i data-lucide="map-pin"></i><span data-i18n="stayLocation">Brufut, The Gambia</span></div><h3><a href="lalas-complex-brufut.html">Lala’s Complex</a></h3><p data-i18n="stayCardCopy">Poolside apartments, space to settle in and a comfortable base for your Gambian adventure. Choose a studio or an apartment with up to four bedrooms.</p><ul class="stay-amenities"><li><i data-lucide="waves"></i><span data-i18n="stayPool">Pool</span></li><li><i data-lucide="wifi"></i>Wi-Fi</li><li><i data-lucide="snowflake"></i>A/C</li></ul><div class="stay-card-bottom"><div><strong data-i18n="stayPrice">From €35</strong><span data-i18n="stayPriceUnit">per apartment / night</span></div><a class="secondary-button dark" href="lalas-complex-brufut.html"><span data-i18n="stayExplore">Explore stay</span><i data-lucide="arrow-up-right"></i></a></div></div>      </article><div class="stay-home-note"><div class="section-kicker" data-i18n="staysSupport">Stay with local support</div><h3 data-i18n="staysNoteTitle">Find your stay. We’ll help with the rest.</h3><p data-i18n="staysNoteCopy">Choose accommodation recommended by GambianTour and ask us about airport transfers, private excursions and English or Polish-speaking guides. Your dates, apartment and final rate are confirmed personally before booking.</p><p data-i18n="stayNewIntro">From garden apartments to beachfront resorts, explore seven places we recommend for your Gambia stay.</p><div class="hotel-collection-links"><a href="kairaba-beach-hotel.html">Kairaba Beach Hotel</a><a href="coco-ocean-resort-spa.html">Coco Ocean Resort &amp; Spa</a><a href="tui-blue-tamala.html">TUI BLUE Tamala</a><a href="kololi-sands-apartments.html">Kololi Sands Apartments</a><a href="kololi-beach-resort.html">Kololi Beach Resort</a><a href="senegambia-beach-hotel.html">Senegambia Beach Hotel</a></div><a class="primary-button inline-button" href="hotels.html"><span data-i18n="stayCollection">See all recommended stays</span><i data-lucide="arrow-right"></i></a></div></div></section>
 
-      <section class="section polish-guides" id="polish-guides">
+      <section class="section cruise-teaser"><div class="cruise-teaser-image"><img class="trip-photo " src="assets/trips/fishing-boats-960.webp" srcset="assets/trips/fishing-boats-480.webp 480w, assets/trips/fishing-boats-960.webp 960w, assets/trips/fishing-boats-1600.webp 1200w" sizes="(max-width: 700px) 100vw, 50vw" width="1200" height="1600" alt="Colorful fishing boats on the coast" loading="lazy" decoding="async" /></div><div><div class="section-kicker" data-i18n="cruiseKicker">Visiting by cruise ship?</div><h2 data-i18n="cruiseTitle">Make your day ashore an adventure.</h2><p data-i18n="cruiseCopy">Banjul, nature, boat trips and more — planned around your ship’s schedule, your interests and your pace. Every cruise excursion is individually priced after contact.</p><a class="primary-button inline-button" href="cruise-ship-excursions-tour.html"><i data-lucide="ship"></i><span data-i18n="cruiseButton">Plan your shore excursion</span></a></div></section><section class="section guest-moments"><div class="section-header"><div><div class="section-kicker" data-i18n="galleryKicker">Moments from our journeys</div><h2 data-i18n="galleryTitle">This is what getting out there looks like.</h2></div><p data-i18n="galleryCopy">Good company, wild encounters and days that stay with you. Explore photographs from our tours.</p></div><div class="guest-gallery guest-gallery-teaser"><figure class="guest-photo"><a href="assets/trips/baobab-guests-1600.webp" data-gallery-image data-caption="Together beneath a giant tree" aria-label="Together beneath a giant tree — open full photo"><img class="trip-photo keep-group" src="assets/trips/baobab-guests-960.webp" srcset="assets/trips/baobab-guests-480.webp 480w, assets/trips/baobab-guests-960.webp 960w, assets/trips/baobab-guests-1600.webp 1600w" sizes="(max-width: 650px) 100vw, (max-width: 1000px) 50vw, 33vw" width="1600" height="1200" alt="Guests posing among the roots of a large tree" loading="lazy" decoding="async" /><span class="photo-expand" aria-hidden="true">↗</span></a><figcaption>Together beneath a giant tree</figcaption></figure><figure class="guest-photo"><a href="assets/trips/mangrove-walk-1600.webp" data-gallery-image data-caption="Into the mangroves" aria-label="Into the mangroves — open full photo"><img class="trip-photo " src="assets/trips/mangrove-walk-960.webp" srcset="assets/trips/mangrove-walk-480.webp 480w, assets/trips/mangrove-walk-960.webp 960w, assets/trips/mangrove-walk-1600.webp 1600w" sizes="(max-width: 650px) 100vw, (max-width: 1000px) 50vw, 33vw" width="1600" height="1200" alt="Tour guests walking through a mangrove channel" loading="lazy" decoding="async" /><span class="photo-expand" aria-hidden="true">↗</span></a><figcaption>Into the mangroves</figcaption></figure><figure class="guest-photo"><a href="assets/trips/rhino-safari-1600.webp" data-gallery-image data-caption="A moment on safari" aria-label="A moment on safari — open full photo"><img class="trip-photo " src="assets/trips/rhino-safari-960.webp" srcset="assets/trips/rhino-safari-480.webp 480w, assets/trips/rhino-safari-960.webp 960w, assets/trips/rhino-safari-1600.webp 1600w" sizes="(max-width: 650px) 100vw, (max-width: 1000px) 50vw, 33vw" width="1600" height="1200" alt="Rhinoceros photographed on a safari outing" loading="lazy" decoding="async" /><span class="photo-expand" aria-hidden="true">↗</span></a><figcaption>A moment on safari</figcaption></figure><figure class="guest-photo"><a href="assets/trips/boat-guests-1600.webp" data-gallery-image data-caption="All aboard" aria-label="All aboard — open full photo"><img class="trip-photo keep-group" src="assets/trips/boat-guests-960.webp" srcset="assets/trips/boat-guests-480.webp 480w, assets/trips/boat-guests-960.webp 960w, assets/trips/boat-guests-1600.webp 1200w" sizes="(max-width: 650px) 100vw, (max-width: 1000px) 50vw, 33vw" width="1200" height="1600" alt="Tour group sitting aboard a boat" loading="lazy" decoding="async" /><span class="photo-expand" aria-hidden="true">↗</span></a><figcaption>All aboard</figcaption></figure><figure class="guest-photo"><a href="assets/trips/egret-mangroves-1600.webp" data-gallery-image data-caption="A quieter kind of encounter" aria-label="A quieter kind of encounter — open full photo"><img class="trip-photo " src="assets/trips/egret-mangroves-960.webp" srcset="assets/trips/egret-mangroves-480.webp 480w, assets/trips/egret-mangroves-960.webp 960w, assets/trips/egret-mangroves-1600.webp 1200w" sizes="(max-width: 650px) 100vw, (max-width: 1000px) 50vw, 33vw" width="1200" height="1600" alt="White egret perched among green mangroves" loading="lazy" decoding="async" /><span class="photo-expand" aria-hidden="true">↗</span></a><figcaption>A quieter kind of encounter</figcaption></figure><figure class="guest-photo"><a href="assets/trips/coastal-sunset-1600.webp" data-gallery-image data-caption="The coast at golden hour" aria-label="The coast at golden hour — open full photo"><img class="trip-photo " src="assets/trips/coastal-sunset-960.webp" srcset="assets/trips/coastal-sunset-480.webp 480w, assets/trips/coastal-sunset-960.webp 960w, assets/trips/coastal-sunset-1600.webp 1600w" sizes="(max-width: 650px) 100vw, (max-width: 1000px) 50vw, 33vw" width="1600" height="1200" alt="Sun setting over a palm-lined beach" loading="lazy" decoding="async" /><span class="photo-expand" aria-hidden="true">↗</span></a><figcaption>The coast at golden hour</figcaption></figure></div><a class="secondary-button dark inline-button" href="gallery.html"><span data-i18n="galleryButton">Explore the guest gallery</span><i data-lucide="arrow-right"></i></a></section><section class="section testimonials-section" id="testimonials"><div class="section-header"><div><div class="section-kicker" data-i18n="reviewKicker">Customer testimonials</div><h2 data-i18n="reviewTitle">A place for your travel stories.</h2></div><p data-i18n="reviewCopy">Preview our guest review section. The cards below contain sample text and will be replaced with customer feedback.</p></div><div class="testimonial-grid"><article class="testimonial-card"><span class="sample-review-label" data-i18n="sampleLabel">Sample review</span><span class="review-quote" aria-hidden="true">“</span><p data-i18n="sampleOne">A relaxed day with time to enjoy the coast, stop for photos and ask plenty of questions. The private pace made all the difference.</p><small data-i18n="sampleFooter">Illustrative text · not a customer review</small></article><article class="testimonial-card"><span class="sample-review-label" data-i18n="sampleLabel">Sample review</span><span class="review-quote" aria-hidden="true">“</span><p data-i18n="sampleTwo">From the first message to planning our day ashore, everything felt easy to follow. We loved discovering more beyond the port.</p><small data-i18n="sampleFooter">Illustrative text · not a customer review</small></article><article class="testimonial-card"><span class="sample-review-label" data-i18n="sampleLabel">Sample review</span><span class="review-quote" aria-hidden="true">“</span><p data-i18n="sampleThree">A lovely mix of nature and local life. Having a guide meant we could enjoy the day and spend less time figuring out the route.</p><small data-i18n="sampleFooter">Illustrative text · not a customer review</small></article></div><a class="stay-text-link" href="mailto:info@gambiantour.com?subject=My%20GambianTour%20experience"><span data-i18n="reviewCta">Share your experience</span><i data-lucide="arrow-up-right"></i></a></section><section class="section polish-guides" id="polish-guides">
         <div class="section-header">
           <div>
             <div class="section-kicker" data-i18n="polishKicker">For Polish travelers</div>
@@ -674,6 +653,6 @@
     <div class="toast" data-toast role="status" aria-live="polite"></div>
 
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-    <script src="tours.js"></script><script src="booking-delivery.js?v=20261013-email"></script><script src="app.js?v=20261013-offers"></script>
-  </body>
+    <script src="tours.js?v=20261021-final"></script><script src="booking-delivery.js?v=20261013-email"></script><script src="app.js?v=20261021-final"></script>
+  <dialog class="photo-dialog" data-photo-dialog aria-label="Tour photo viewer"><div class="photo-dialog-tools"><button type="button" data-photo-prev aria-label="Previous photo">←</button><button type="button" data-photo-next aria-label="Next photo">→</button><button type="button" data-photo-close aria-label="Close photo viewer">✕</button></div><img data-full-photo alt="" /><p data-photo-caption aria-live="polite"></p></dialog><script src="gallery.js"></script></body>
 </html>

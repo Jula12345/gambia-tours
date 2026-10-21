@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Kairaba Beach Hotel",
+    "page": "https://kairabahotel.com/",
+    "image": "https://kairabahotel.com/wp-content/uploads/2017/07/Grounds-3-1.jpg",
+    "checked": "2026-10-21",
+    "permission": "User states promotional use is authorized by the hotels."
+  },
+  {
+    "name": "Coco Ocean Resort & Spa",
+    "page": "https://cocoocean.com/",
+    "image": "https://cocoocean.com/wp-content/uploads/2016/09/banner3.jpg",
+    "checked": "2026-10-21",
+    "permission": "User states promotional use is authorized by the hotels."
+  },
+  {
+    "name": "TUI BLUE Tamala",
+    "page": "https://www.tui-blue.com/en/en/hotels/tui-blue-tamala/",
+    "image": "https://static.wixstatic.com/media/9e4730_118c7762b442409a8bc1a3d86243ab31~mv2.jpg",
+    "checked": "2026-10-21",
+    "permission": "User states promotional use is authorized by the hotels."
+  },
+  {
+    "name": "Kololi Sands Apartments",
+    "page": "https://kololisands.com/",
+    "image": "https://kololisands.com/wp-content/uploads/elementor/thumbs/KS-Outside-7-rfme6qkikudzlxjtmupjj78t7bgm42l6h3qm34ji0w.jpg",
+    "checked": "2026-10-21",
+    "permission": "User states promotional use is authorized by the hotels."
+  },
+  {
+    "name": "Kololi Beach Resort",
+    "page": "https://kololi.com/",
+    "image": "https://kololi.com/wp-content/uploads/2022/10/Kololi-Beach-37.jpg",
+    "checked": "2026-10-21",
+    "permission": "User states promotional use is authorized by the hotels."
+  },
+  {
+    "name": "Senegambia Beach Hotel",
+    "page": "https://senegambiahotel.com/",
+    "image": "https://senegambiahotel.com/wp-content/uploads/2023/08/AfterlightImage4-1.jpg",
+    "checked": "2026-10-21",
+    "permission": "User states promotional use is authorized by the hotels."
+  }
+]

@@ -68,6 +68,14 @@ if (menuToggle && nav) {
 }
 
 if (startDate) {
+  startDate.min = toDateValue(new Date());
+  if (document.querySelector('[data-source="cruise-excursion-enquiry"]')) {
+    const params = new URLSearchParams(window.location.search);
+    const preferredDate = params.get("date");
+    if (/^\d{4}-\d{2}-\d{2}$/.test(preferredDate || "") && preferredDate >= startDate.min) startDate.value = preferredDate;
+    const guests = Number(params.get("guests"));
+    if (Number.isInteger(guests) && guests >= 1 && guests <= 100) document.querySelector('[name="guests"]').value = String(guests);
+  }
   startDate.addEventListener("change", updateTripDates);
   updateTripDates();
 }

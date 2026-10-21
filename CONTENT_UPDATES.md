@@ -1,0 +1,40 @@
+# Gambia website content update — 21 October 2026
+
+## Photos and video
+
+All 15 supplied photos have WebP variants at 480, 960 and up to 1600 pixels in `assets/trips/`. Images keep their original frames; responsive HTML/CSS controls card crops and preserves group shots. The gallery opens full frames in a keyboard-accessible viewer. The sunset hero/card is straightened with CSS. Original source filenames are recorded in `assets/trips/manifest.json`; the files in Downloads are unchanged.
+
+The supplied MP4 appears in `gallery.html`, with a poster, native controls, inline mobile playback and `preload="none"`. It does not autoplay.
+
+## Hotel facts and promotional photos
+
+Descriptions are original summaries of the properties' official pages, checked on 21 October 2026. No unverified hotel rates, availability or review scores were added. The user states that hotel promotional image use is authorized. Exact downloaded image URLs are recorded in `assets/hotels/recommended/sources.json`.
+
+- [Kairaba Beach Hotel](https://kairabahotel.com/): Kololi beachfront, gardens, rooms/suites and pools.
+- [Coco Ocean Resort & Spa](https://cocoocean.com/): Moorish-inspired resort architecture, gardens, beach, spa, suites and villas.
+- [TUI BLUE Tamala](https://www.tui-blue.com/en/en/hotels/tui-blue-tamala/): Kotu beachfront, adults only (16+), pool and selected swim-up rooms. Photo from [the resort website](https://www.tamalaresort.com/home).
+- [Kololi Sands Apartments](https://kololisands.com/): studios and apartments, kitchens, balconies/terraces, infinity pool and Bistro Sands.
+- [Kololi Beach Resort](https://kololi.com/): self-catering studios, apartments, townhouses and villas, pools and beach access.
+- [Senegambia Beach Hotel](https://senegambiahotel.com/): Kololi location, beachfront, gardens, pools and dining.
+
+Each property has a static detail page, enquiry form and official source link. Lala's Complex is retained. Hotel facts and services should be reconfirmed when arranging a stay.
+
+## Customer testimonials
+
+The homepage contains three visibly labeled sample reviews. They have no fabricated customer identities, ratings or review structured data. Replace the sample text with authorized customer feedback and remove the sample labels when real reviews are supplied.
+
+## Cruise Ship Excursions
+
+`cruise-ship-excursions-tour.html` and the EN/PL catalogue entry use individual pricing after contact. The enquiry captures ship, port, arrival, all-aboard time, group size and language. Ship details are included in the notes delivered through the existing booking inbox/email flow. Safari and cross-border options depend on the port schedule and are not promised for every sailing. The trip is also available to the existing admin offer generator.
+
+## Hosting
+
+This checkout is the existing GitHub/Vercel project. It has no Sites hosting manifest, and no replacement Sites project was created. Changes are prepared in the local checkout; live publication uses the existing repository/Vercel deployment flow.
+
+## Verification
+
+- All 43 project tests pass, including cruise field delivery and catalogue/admin integration.
+- JSON-LD and local links/assets checked across 23 HTML pages.
+- Browser checks at 390px and 1440px: no horizontal overflow; homepage EN/PL switching, hotel collection, cruise form prefill, required port-call fields and gallery navigation verified.
+- No live booking enquiries were sent during browser checks.
+- Desktop screenshot: `output/website-preview/hotel-recommendations.jpg`.

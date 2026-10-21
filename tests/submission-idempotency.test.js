@@ -65,7 +65,8 @@ test("saved offers keep revisions private to their booking request", async () =>
 test("configured admin can see catalog and missing-key status", async () => {
   const response = await call("/api/admin/offers", null, true);
   assert.equal(response.status, 200);
-  assert.equal(response.result.tours.length, 9);
+  assert.equal(response.result.tours.length, require("../tours").length);
+  assert.ok(response.result.tours.some(tour => tour.id === "cruise-ship-excursions"));
   assert.equal(response.result.configured, false);
 });
 

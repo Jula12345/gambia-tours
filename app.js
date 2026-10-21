@@ -2,6 +2,26 @@ const BOOKING_RECIPIENT_EMAIL = "info@gambiantour.com";
 
 const translations = {
   en: {
+    galleryKicker: "Moments from our journeys",
+    galleryTitle: "This is what getting out there looks like.",
+    galleryCopy: "Good company, wild encounters and days that stay with you. Explore photographs from our tours.",
+    galleryButton: "Explore the guest gallery",
+    cruiseKicker: "Visiting by cruise ship?",
+    cruiseTitle: "Make your day ashore an adventure.",
+    cruiseCopy: "Banjul, nature, boat trips and more — planned around your ship’s schedule, your interests and your pace. Every cruise excursion is individually priced after contact.",
+    cruiseButton: "Plan your shore excursion",
+    reviewKicker: "Customer testimonials",
+    reviewTitle: "A place for your travel stories.",
+    reviewCopy: "Preview our guest review section. The cards below contain sample text and will be replaced with customer feedback.",
+    sampleLabel: "Sample review",
+    sampleOne: "A relaxed day with time to enjoy the coast, stop for photos and ask plenty of questions. The private pace made all the difference.",
+    sampleTwo: "From the first message to planning our day ashore, everything felt easy to follow. We loved discovering more beyond the port.",
+    sampleThree: "A lovely mix of nature and local life. Having a guide meant we could enjoy the day and spend less time figuring out the route.",
+    sampleFooter: "Illustrative text · not a customer review",
+    reviewCta: "Share your experience",
+    stayNewIntro: "From garden apartments to beachfront resorts, explore seven places we recommend for your Gambia stay.",
+    stayCollection: "See all recommended stays",
+
     documentTitle: "Gambia Tours, Senegal Trips & Multi-Day Itineraries | GambianTour.com",
     metaDescription: "Book private Gambia tours, day trips, 7-day and 10-day Gambia and Senegal itineraries with local English and Polish-speaking guides.",
     brandHome: "GambianTour.com home",
@@ -41,7 +61,7 @@ const translations = {
     carouselNext: "Next photo",
     carouselDot1: "Show beach photo",
     carouselDot2: "Show river photo",
-    carouselDot3: "Show market photo",
+    carouselDot3: "Show fishing coast photo",
     carouselDot4: "Show birdwatching photo",
     formTour: "Tour",
     formDate: "Date",
@@ -120,7 +140,7 @@ const translations = {
     completeThreeDay6: "Days 9-10: Return to Dakar, craft shopping, farewell evening and airport transfer.",
     completeBook: "Request this tour",
     completeDetails: "View full itinerary",
-    featureImageAlt: "The Gambia River bordered by palms and dense greenery",
+    featureImageAlt: "Guests enjoying a boat trip",
     featureKicker: "Signature private route",
     featureTitle: "Gambia River tour, Banjul market walk, or a custom day from your hotel.",
     featureCopy: "The best Gambia excursions are not rushed. Start with pickup on the coast, then follow a route shaped around history, nature, markets, local food, photography, family timing or birdwatching.",
@@ -218,6 +238,26 @@ const translations = {
     emailBodyMissing: "not provided"
   },
   pl: {
+    galleryKicker: "Chwile z naszych podróży",
+    galleryTitle: "Tak wyglądają nasze wspólne przygody.",
+    galleryCopy: "Dobre towarzystwo, dzika przyroda i dni, które zostają w pamięci. Zobacz zdjęcia z naszych wycieczek.",
+    galleryButton: "Zobacz galerię gości",
+    cruiseKicker: "Przypływasz statkiem wycieczkowym?",
+    cruiseTitle: "Zamień dzień na lądzie w przygodę.",
+    cruiseCopy: "Banjul, przyroda, rejsy łodzią i nie tylko — według rozkładu statku, Twoich zainteresowań i tempa. Każdą wycieczkę wyceniamy indywidualnie po kontakcie.",
+    cruiseButton: "Zaplanuj wycieczkę z portu",
+    reviewKicker: "Opinie klientów",
+    reviewTitle: "Miejsce na Wasze wspomnienia z podróży.",
+    reviewCopy: "Podgląd sekcji opinii. Poniższe karty zawierają przykładowe teksty, które zastąpimy opiniami klientów.",
+    sampleLabel: "Przykładowa opinia",
+    sampleOne: "Spokojny dzień z czasem na wybrzeże, zdjęcia i mnóstwo pytań. Prywatne tempo pozwoliło nam naprawdę cieszyć się wycieczką.",
+    sampleTwo: "Od pierwszej wiadomości po planowanie dnia w porcie wszystko było jasne. Wspaniale było odkryć coś więcej poza portem.",
+    sampleThree: "Świetne połączenie natury i lokalnego życia. Z przewodnikiem mogliśmy cieszyć się dniem bez martwienia się o trasę.",
+    sampleFooter: "Tekst przykładowy · nie jest opinią klienta",
+    reviewCta: "Podziel się wrażeniami",
+    stayNewIntro: "Od apartamentów w ogrodzie po nadmorskie kurorty — poznaj siedem miejsc, które polecamy na pobyt w Gambii.",
+    stayCollection: "Zobacz wszystkie polecane noclegi",
+
     documentTitle: "Wycieczki Gambia Senegal i trasy kilkudniowe | GambianTour.com",
     metaDescription: "Prywatne wycieczki po Gambii, jednodniowe atrakcje oraz 7- i 10-dniowe trasy Gambia-Senegal z anglojęzycznym lub polskojęzycznym przewodnikiem.",
     brandHome: "Strona główna GambianTour.com",
@@ -257,7 +297,7 @@ const translations = {
     carouselNext: "Następne zdjęcie",
     carouselDot1: "Pokaż zdjęcie plaży",
     carouselDot2: "Pokaż zdjęcie rzeki",
-    carouselDot3: "Pokaż zdjęcie targu",
+    carouselDot3: "Pokaż zdjęcie wybrzeża rybackiego",
     carouselDot4: "Pokaż zdjęcie ptaków",
     formTour: "Wycieczka",
     formDate: "Data",
@@ -675,7 +715,7 @@ function renderTours(filter = activeFilter) {
 
       return `
         <article class="tour-card" data-category="${tour.category}">
-          <img src="${tour.image}" alt="${copy.alt}" loading="lazy">
+          <div class="tour-card-photo"><img src="${tour.image}" ${tour.imageSrcset ? `srcset="${tour.imageSrcset}" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw"` : ""} class="${tour.imageClass || ""}" alt="${copy.alt}" width="960" height="640" loading="lazy" decoding="async"></div>
           <div class="tour-card-content">
             <div class="tour-meta">
               <span><i data-lucide="clock"></i>${copy.duration}</span>
@@ -735,6 +775,13 @@ function setModalTour(tourId, date = selectors.quickDate.value, guests = "2") {
 }
 
 function openModal(tourId = selectors.quickTour.value, date, guests) {
+  if (tourId === "cruise-ship-excursions") {
+    const params = new URLSearchParams();
+    if (date) params.set("date", date);
+    if (guests) params.set("guests", guests);
+    window.location.href = `cruise-ship-excursions-tour.html${params.size ? "?" + params : ""}#request`;
+    return;
+  }
   setModalTour(tourId, date, guests);
   selectors.modal.showModal();
   document.body.classList.add("modal-open");
@@ -982,6 +1029,10 @@ function bindEvents() {
   selectors.quickDate.addEventListener("change", updateDateRangeUI);
   selectors.modalDate.addEventListener("change", updateDateRangeUI);
   selectors.modalTour.addEventListener("change", () => {
+    if (selectors.modalTour.value === "cruise-ship-excursions") {
+      openModal(selectors.modalTour.value, selectors.modalDate.value, selectors.modalForm.elements.guests.value);
+      return;
+    }
     setModalTour(selectors.modalTour.value, selectors.modalDate.value, selectors.modalForm.elements.guests.value);
   });
 

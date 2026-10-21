@@ -1,0 +1,92 @@
+[
+  {
+    "name": "crocodile-encounter",
+    "source": "PHOTO-2026-09-03-20-30-31 3.jpg",
+    "width": 1200,
+    "height": 1600
+  },
+  {
+    "name": "mangrove-walk",
+    "source": "PHOTO-2026-09-03-20-30-31 2.jpg",
+    "width": 1600,
+    "height": 1200
+  },
+  {
+    "name": "rhino-safari",
+    "source": "PHOTO-2026-09-03-20-30-31.jpg",
+    "width": 1600,
+    "height": 1200
+  },
+  {
+    "name": "egret-mangroves",
+    "source": "PHOTO-2026-09-03-20-30-20.jpg",
+    "width": 1200,
+    "height": 1600
+  },
+  {
+    "name": "garden-lunch",
+    "source": "PHOTO-2026-09-03-20-30-17.jpg",
+    "width": 1200,
+    "height": 1600
+  },
+  {
+    "name": "coastal-sunset",
+    "source": "PHOTO-2026-09-03-20-29-21 10.jpg",
+    "width": 1600,
+    "height": 1200
+  },
+  {
+    "name": "crocodile-portrait",
+    "source": "PHOTO-2026-09-03-20-29-21 9.jpg",
+    "width": 1200,
+    "height": 1600
+  },
+  {
+    "name": "fishing-boats",
+    "source": "PHOTO-2026-09-03-20-29-21 8.jpg",
+    "width": 1200,
+    "height": 1600
+  },
+  {
+    "name": "eland-herd",
+    "source": "PHOTO-2026-09-03-20-29-21 7.jpg",
+    "width": 1200,
+    "height": 1600
+  },
+  {
+    "name": "safari-family",
+    "source": "PHOTO-2026-09-03-20-29-21 6.jpg",
+    "width": 1600,
+    "height": 1200
+  },
+  {
+    "name": "village-visit",
+    "source": "PHOTO-2026-09-03-20-29-21 5.jpg",
+    "width": 1600,
+    "height": 1200
+  },
+  {
+    "name": "baobab-guests",
+    "source": "PHOTO-2026-09-03-20-29-21 4.jpg",
+    "width": 1600,
+    "height": 1200
+  },
+  {
+    "name": "boat-guests",
+    "source": "PHOTO-2026-09-03-20-29-21 3.jpg",
+    "width": 1200,
+    "height": 1600
+  },
+  {
+    "name": "fishing-village-guests",
+    "source": "PHOTO-2026-09-03-20-29-21 2.jpg",
+    "width": 1600,
+    "height": 1200
+  },
+  {
+    "name": "fishing-village-group",
+    "source": "PHOTO-2026-09-03-20-29-21.jpg",
+    "width": 1600,
+    "height": 1200
+  }
+]
