@@ -2,7 +2,7 @@ const BOOKING_RECIPIENT_EMAIL = "info@gambiantour.com";
 
 const translations = {
   en: {
-    review3: "Moja Afryka captures the essence of this continent in the heart of a wonderful person, enthusiast, traveler and organizer. Helpful, honest and warm — and, importantly for many people, fluent in Polish. His trips are very interesting, exceptionally well prepared and meet expectations, often accommodating participants’ individual requests. Small, intimate trips with a trusted driver and guide. Thank you: it was a beautiful adventure and a lovely connection.",
+    review3: "GambianTour captures the essence of this continent in the heart of a wonderful person, enthusiast, traveler and organizer. Helpful, honest and warm — and, importantly for many people, fluent in Polish. His trips are very interesting, exceptionally well prepared and meet expectations, often accommodating participants’ individual requests. Small, intimate trips with a trusted driver and guide. Thank you: it was a beautiful adventure and a lovely connection.",
     review2: "Small groups, professional service and excellent trip organization. Highly recommended. The real Gambia — and Paradise Beach is beautiful.",
     review1: "Highly recommended — a very well-organized trip. Lamin speaks Polish very well. I recommend him to anyone who wants to discover the secrets of the beautiful African continent!",
     seasonGuide: "Read the season guide",
@@ -10,7 +10,7 @@ const translations = {
     seasonCopy: "Plan your November 2026–April 2027 escape with local guides, river days, Senegal safaris and time beyond the beach.",
     seasonTitle: "Winter sun. A different kind of discovery.",
     seasonKicker: "2026–2027 · Reservations are open",
-    reviewSource: "Moja Afryka guest",
+    reviewSource: "GambianTour guest",
     galleryKicker: "Moments from our journeys",
     galleryTitle: "This is what getting out there looks like.",
     galleryCopy: "Good company, wild encounters and days that stay with you. Explore photographs from our tours.",
@@ -21,7 +21,7 @@ const translations = {
     cruiseButton: "Plan your shore excursion",
     reviewKicker: "Guest stories",
     reviewTitle: "Good journeys. In their own words.",
-    reviewCopy: "Reviews from our Moja Afryka guests, shared here with their original names. English translations from Polish.",
+    reviewCopy: "Stories from our GambianTour guests, translated from Polish.",
     reviewCta: "Visit our sister website",
     stayNewIntro: "From garden apartments to beachfront resorts, explore seven places we recommend for your Gambia stay.",
     stayCollection: "See all recommended stays",
@@ -190,7 +190,7 @@ const translations = {
     contactCopy: "Tell us your hotel area, group size, language preference and what you want to see. We will confirm the best route before anything is final.",
     contactEmailLabel: "Direct email:",
     contactButton: "Request custom tour",
-    footerCopy: "Private Gambia tours, excursions and day trips with local English and Polish-speaking guides.",
+    footerCopy: "Gambia & Senegal tours with local guides. Personal journeys, lasting memories.",
     footerEmail: "Email",
     footerBook: "Book",
     footerTours: "Tours",
@@ -242,7 +242,7 @@ const translations = {
     emailBodyMissing: "not provided"
   },
   pl: {
-    review3: "Moja Afryka to kwinesencja tego kontynentu w sercu wspaniałego człowieka, miłośnika, podróżnika i organizatora. Pomocny, uczciwy, serdeczny i co dla wielu osob ważne mówiący płynnie po polsku. Wycieczki, ktore organizuje są bardzo ciekawe, znakomicie przygotowane i spełniające standardy , a często prywatne prośby uczestników. Małe, kameralne wycieczki ze sprawdzonym kierowca i przewodnikiem. Dziękujemy, to była piękna przygoda i przemiła znajomość.",
+    review3: "GambianTour to kwinesencja tego kontynentu w sercu wspaniałego człowieka, miłośnika, podróżnika i organizatora. Pomocny, uczciwy, serdeczny i co dla wielu osob ważne mówiący płynnie po polsku. Wycieczki, ktore organizuje są bardzo ciekawe, znakomicie przygotowane i spełniające standardy , a często prywatne prośby uczestników. Małe, kameralne wycieczki ze sprawdzonym kierowca i przewodnikiem. Dziękujemy, to była piękna przygoda i przemiła znajomość.",
     review2: "Kamerlnie, profesjonalnie, polecam, świetna organizacja wycieczek. Prawdziwa Gambia a Rajska Plaża przepiękna",
     review1: "Serdecznie polecam, super zorganizowany wyjazd, Lamin bardzo dobrze rozmawia po polsku. Polecam każdemu kto chce poznać tajemnice pięknego kontynentu Afryki!",
     seasonGuide: "Poradnik na sezon",
@@ -250,7 +250,7 @@ const translations = {
     seasonCopy: "Zaplanuj podróż od listopada 2026 do kwietnia 2027: lokalni przewodnicy, rejsy, safari w Senegalu i Gambia poza plażą.",
     seasonTitle: "Zimowe słońce. Nowe odkrycia.",
     seasonKicker: "2026–2027 · Rezerwacje otwarte",
-    reviewSource: "Gość Moja Afryka",
+    reviewSource: "Gość GambianTour",
     galleryKicker: "Chwile z naszych podróży",
     galleryTitle: "Tak wyglądają nasze wspólne przygody.",
     galleryCopy: "Dobre towarzystwo, dzika przyroda i dni, które zostają w pamięci. Zobacz zdjęcia z naszych wycieczek.",
@@ -261,7 +261,7 @@ const translations = {
     cruiseButton: "Zaplanuj wycieczkę z portu",
     reviewKicker: "Wspomnienia gości",
     reviewTitle: "Udane podróże. Ich własnymi słowami.",
-    reviewCopy: "Opinie naszych gości z Moja Afryka, opublikowane z oryginalnymi podpisami. W wersji angielskiej zostały przetłumaczone z polskiego.",
+    reviewCopy: "Opinie gości GambianTour. Wersja angielska jest tłumaczeniem z języka polskiego.",
     reviewCta: "Odwiedź naszą drugą stronę",
     stayNewIntro: "Od apartamentów w ogrodzie po nadmorskie kurorty — poznaj siedem miejsc, które polecamy na pobyt w Gambii.",
     stayCollection: "Zobacz wszystkie polecane noclegi",
@@ -430,7 +430,7 @@ const translations = {
     contactCopy: "Napisz, gdzie mieszkasz, ile osób jedzie, jaki język preferujesz i co chcesz zobaczyć. Potwierdzimy trasę przed rezerwacją.",
     contactEmailLabel: "Bezpośredni email:",
     contactButton: "Zapytaj o własną trasę",
-    footerCopy: "Prywatne wycieczki po Gambii z lokalnymi przewodnikami anglojęzycznymi i polskojęzycznymi.",
+    footerCopy: "Gambia i Senegal z lokalnymi przewodnikami. Twoja podróż, niezapomniane wspomnienia.",
     footerEmail: "Email",
     footerBook: "Rezerwuj",
     footerTours: "Wycieczki",
@@ -663,6 +663,7 @@ function applyTranslations() {
 
   updateMenuLabel();
   updateDateRangeUI();
+  window.GambianTourLanguage?.apply(currentLang);
 }
 
 function populateTourSelects() {

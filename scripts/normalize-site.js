@@ -55,5 +55,6 @@ module.exports = function normalize() {
  config.redirects=[...(config.redirects||[]).filter(r=>r.source!=='/index.html'),{source:'/index.html',destination:'/',permanent:true}];
  config.headers=[...(config.headers||[]).filter(h=>!['/admin','/admin.html','/api/:path*'].includes(h.source)),...['/admin','/admin.html','/api/:path*'].map(source=>({source,headers:[{key:'X-Robots-Tag',value:'noindex, nofollow, noarchive'}]}))];
  fs.writeFileSync(path.join(root,'vercel.json'),JSON.stringify(config,null,2)+'\n');
+ require('./refresh-presentation')();
 };
 if(require.main===module)module.exports();

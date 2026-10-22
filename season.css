@@ -98,3 +98,60 @@
  .source-tour-intro figure img { max-height:420px; }
 }
 @media(max-width:359px) { .brand > img { width:142px; } .header-actions { gap:4px; } }
+
+/* Subpages use a comfortable reading scale, with the homepage retaining its hero. */
+.polish-site-invite { display:none!important; }
+html[lang="pl"] .polish-site-invite { display:inline-block!important; max-width:42ch; line-height:1.6; }
+.review-guest { display:block; margin-top:6px; color:var(--leaf); font-size:12px; }
+.subpage .page-hero { min-height:0; padding:148px max(24px,calc((100% - 1160px)/2)) 48px; }
+.subpage .page-hero-content { width:min(900px,100%); }
+.subpage .page-hero h1, .subpage .trip-hero h1, .subpage .stay-hero-copy h1 { font-size:clamp(2rem,4.2vw,3.25rem); line-height:1.12; max-width:24ch; letter-spacing:-.025em; margin:14px 0 20px; }
+.subpage .page-hero p, .subpage .trip-hero p, .subpage .stay-hero-copy > p:not(.stay-eyebrow) { font-size:17px; line-height:1.65; max-width:70ch; margin-bottom:0; }
+.subpage .page-hero .eyebrow { font-size:12px; letter-spacing:.08em; }
+.subpage .trip-hero { min-height:480px; padding:148px max(24px,calc((100% - 1160px)/2)) 48px; }
+.subpage .stay-directory-hero, .subpage .stay-property-hero { min-height:480px; padding:148px max(24px,calc((100% - 1160px)/2)) 48px; }
+.subpage .section { padding:56px max(24px,calc((100% - 1160px)/2)); }
+.subpage .section-header { gap:32px; margin-bottom:30px; }
+.subpage h2 { font-size:clamp(1.6rem,2.5vw,2.1rem); line-height:1.22; letter-spacing:-.02em; }
+.subpage h3 { font-size:1.3rem; line-height:1.3; }
+.subpage .trip-facts div { min-height:106px; }
+.subpage .trip-facts strong { font-size:1.15rem; line-height:1.4; }
+.subpage .story-grid { grid-template-columns:1fr; gap:28px; }
+.subpage .story-card { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:0; align-items:stretch; box-shadow:none; }
+.subpage .story-card-media { position:relative; min-height:300px; overflow:hidden; }
+.subpage .story-card-media img { position:absolute; inset:0; display:block; width:100%; height:100%; aspect-ratio:auto; object-fit:cover; }
+.subpage .story-card-content { display:flex; flex-direction:column; align-items:flex-start; gap:12px; padding:28px; }
+.subpage .story-card-content h3, .subpage .story-card-content p { margin:0; }
+.subpage .story-card-content p { font-size:15px; line-height:1.65; }
+.subpage .story-card-content h3 { font-size:24px; }
+.subpage .story-card-content .story-link { margin-top:4px; }
+.subpage .story-card:nth-child(2n) .story-card-media { grid-column:2; grid-row:1; }
+.subpage .story-card:nth-child(2n) .story-card-content { grid-column:1; grid-row:1; }
+.subpage .article-content { padding-top:42px; }
+.subpage .stay-overview { gap:40px; }
+@media(max-width:1280px) {
+ .subpage .site-header { grid-template-columns:auto auto; }
+ .subpage .nav-links:not(.open), .subpage .header-cta { display:none; }
+ .subpage .menu-toggle { display:inline-grid; }
+ .subpage .nav-links.open { position:absolute; display:flex; top:calc(100% + 10px); left:0; right:0; flex-direction:column; gap:4px; padding:18px; border-radius:8px; background:#102a22; box-shadow:var(--shadow); }
+}
+@media(max-width:700px) {
+ .subpage .page-hero { padding:124px 20px 34px; }
+ .subpage .trip-hero, .subpage .stay-directory-hero, .subpage .stay-property-hero { min-height:410px; padding:124px 20px 36px; }
+ .subpage .page-hero h1, .subpage .trip-hero h1, .subpage .stay-hero-copy h1 { font-size:clamp(1.8rem,7.5vw,2.4rem); line-height:1.14; }
+ .subpage .page-hero p, .subpage .trip-hero p, .subpage .stay-hero-copy > p:not(.stay-eyebrow) { font-size:15px; line-height:1.65; }
+ .subpage .section { padding:36px 20px; }
+ .subpage .section-header { gap:16px; margin-bottom:24px; }
+ .subpage .story-card { grid-template-columns:1fr; }
+ .subpage .story-card-media { min-height:0; aspect-ratio:16/10; }
+ .subpage .story-card-content { padding:22px; }
+ .subpage .story-card:nth-child(2n) .story-card-media, .subpage .story-card:nth-child(2n) .story-card-content { grid-column:auto; grid-row:auto; }
+ .subpage .story-card-content h3 { font-size:21px; }
+ .subpage .trip-facts { grid-template-columns:1fr 1fr; }
+ .subpage .trip-facts div { min-height:96px; padding:16px 20px; }
+ .subpage .trip-facts strong { font-size:15px; }
+ .subpage .stay-overview { gap:24px; }
+ .subpage .brand > img { width:156px; }
+ .subpage .header-actions { gap:7px; }
+}
+@media(max-width:359px) { .subpage .brand > img { width:133px; } .subpage .header-actions { gap:3px; } }

@@ -2,6 +2,8 @@
   const forms = document.querySelectorAll(".trip-form");
   if (!forms.length || window.location.protocol === "file:") return;
 
+  function text(value) { return window.GambianTourLanguage?.text(value) || value; }
+
   function feedbackFor(form) {
     let feedback = form.querySelector("[data-form-feedback]");
     if (feedback) return feedback;
@@ -38,14 +40,14 @@
       const button = form.querySelector('button[type="submit"]');
 
       if (payload._honey) {
-        feedback.textContent = "Thank you. Your request has been received.";
+        feedback.textContent = text("Thank you. Your request has been received.");
         return;
       }
 
       button.disabled = true;
       form.dataset.sending = "true";
       feedback.classList.remove("error");
-      feedback.textContent = "Sending your request...";
+      feedback.textContent = text("Sending your request...");
 
       try {
         const result = await submitWebsiteEnquiry(payload);
@@ -58,16 +60,16 @@
         confirmation.setAttribute("role", "status");
         const heading = document.createElement("h3");
         heading.className = "wide";
-        heading.textContent = "Your request has been received";
+        heading.textContent = text("Your request has been received");
         const message = document.createElement("p");
         message.className = "wide";
-        message.textContent = `Reference ${result.id || payload.requestId}. We will contact you shortly.`;
+        message.textContent = document.documentElement.lang === "pl" ? `Numer ${result.id || payload.requestId}. Wkrótce się z Tobą skontaktujemy.` : `Reference ${result.id || payload.requestId}. We will contact you shortly.`;
         confirmation.append(heading, message);
         form.after(confirmation);
         form.dispatchEvent(new Event("change", { bubbles: true }));
       } catch (error) {
         feedback.classList.add("error");
-        feedback.textContent = "Your request could not be sent. Please try again or email info@gambiantour.com. Your form details have been kept.";
+        feedback.textContent = text("Your request could not be sent. Please try again or email info@gambiantour.com. Your form details have been kept.");
       } finally {
         button.disabled = form.dataset.submitted === "true";
         form.dataset.sending = "false";

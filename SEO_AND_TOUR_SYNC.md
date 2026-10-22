@@ -22,11 +22,11 @@ This is a reviewed import, not a background two-way synchronization. Future sour
 
 ## Reviews, brand and contact
 
-Three existing reviews from https://mojaafryka.pl/ replace all sample review text: Łukasz K., Ewa Cz. and Karolina K. English translations and source attribution are visible. Original Polish text is retained in the homepage PL toggle. No review dates, stars, avatars, customer identities or rating schema were fabricated.
+Three existing customer reviews replace all sample review text: Łukasz K., Ewa Cz. and Karolina K. At the owner’s request, the public reviews use the GambianTour brand, including the brand name within the text. English translations and Polish text are available through the language toggle. The original source wording is preserved in the internal content record. No review dates, stars, avatars, customer identities or rating schema were fabricated. The Polish-language footer invites Polish tourists to mojaafryka.pl; this invitation is hidden in English.
 
 The English wordmark uses the current Moja Afryka sunset/baobab/palm/canoe artwork with `GambianTour.com` and an English tagline. The adaptation is an SVG composition using the original artwork, with compressed embedded image data and native SVG text. Favicons and the Apple touch icon match. The original source is retained in `assets/brand/moja-afryka-source.png`.
 
-A fixed, accessible WhatsApp link appears on every public page and uses **+48 504 224 794**, confirmed on the source site's contact page and WhatsApp links. The button opens a prepared message; it does not send a message automatically. An English guide biography connects the two brands without changing the public booking email.
+A fixed, accessible WhatsApp link appears on every public page and uses **+48 504 224 794**, confirmed on the source site's contact page and WhatsApp links. The button opens a prepared message; it does not send a message automatically. An English guide biography introduces Lamin under the GambianTour brand without changing the public booking email.
 
 Twelve additional source photos are stored locally as WebP files. Their original URLs and owner authorization are recorded in `assets/moja-afryka/sources.json`.
 
@@ -52,8 +52,14 @@ Google documentation consulted: [canonicalization](https://developers.google.com
 
 ## Verification and practical limits
 
-- 47 tests pass, including all tour/admin facts, enquiry field delivery, EUR/USD formatting, source-page/schema consistency, genuine-review replacement and site-wide metadata/canonical/sitemap checks.
-- Static audit: 38 public pages, 863 local links, 464 asset references, no errors or warnings. All 38 public pages return HTTP 200 in the local preview.
+- 49 tests pass, including all tour/admin facts, enquiry field delivery, EUR/USD formatting, source-page/schema consistency, genuine-review replacement and site-wide metadata/canonical/sitemap checks.
+- Static audit: 38 public pages, 864 local links, 540 asset references, no errors or warnings. All 38 public pages return HTTP 200 in the local preview.
 - Browser checks cover desktop and mobile layouts, the source booking flow, Polish reviews, multi-day dates, the brand graphics and the fixed contact link. Screenshots are in `output/season-preview/`.
 - No customer messages or live booking requests are sent during verification.
 - Search Console ownership, indexing history, search queries, rankings, backlinks and field Core Web Vitals are not available through this checkout. These changes address the site itself; indexing and client acquisition are not guaranteed. There is no claim that a private Google Search Console audit was performed.
+
+## Bilingual presentation and compact subpages
+
+All 37 public subpages now have EN/PL controls and share the homepage language preference. The curated dictionary covers all 3,658 audited subpage text/attribute occurrences, including tour and hotel descriptions, stories, the blog, forms, image descriptions and navigation labels. Language changes update text nodes and attributes without replacing form elements. Booking option values remain stable when labels change language. Dates and enquiry feedback follow the selected language. Run `npm run check:language` to catch new untranslated content.
+
+Subpage hero headings are capped at 52px on desktop, with smaller phone sizing. Hero heights and section padding are reduced. Stories use image-and-text rows rather than stretched three-column grids. Browser checks found no horizontal overflow on any of the 37 subpages at 390px, and verified language persistence, form values, tour variants, multi-day dates and the homepage footer in both directions.

@@ -13,11 +13,11 @@
       try {
         await video.play();
       } catch {
-        feedback.textContent = "Press play in the video controls to start the tour.";
+        feedback.textContent = window.GambianTourLanguage?.text("Press play in the video controls to start the tour.") || "Press play in the video controls to start the tour.";
       }
     });
     video.addEventListener("error", () => {
-      feedback.textContent = "The video could not be loaded. Please try again or contact us for the property tour.";
+      feedback.textContent = window.GambianTourLanguage?.text("The video could not be loaded. Please try again or contact us for the property tour.") || "The video could not be loaded. Please try again or contact us for the property tour.";
     });
   }
 

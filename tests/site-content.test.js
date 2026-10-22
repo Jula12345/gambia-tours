@@ -43,7 +43,9 @@ test('catalogue links are present without JavaScript and real reviews replace al
  assert.equal(list('.tour-card').length,tours.length);
  for(const r of require('../content/customer-reviews.json'))assert.ok($('#testimonials').text().includes(r.name));
  assert.doesNotMatch($('#testimonials').text(),/sample|illustrative/i);
- assert.equal($('#testimonials a[href="https://mojaafryka.pl/"]').length,4);
+ assert.equal($('#testimonials a[href="https://mojaafryka.pl/"]').length,0);
+ assert.doesNotMatch($('#testimonials').text(),/Moja Afryka|mojaafryka/i);
+ assert.equal($('#testimonials .review-guest').length,3);
 });
 
 test('the booking selector preserves EUR and USD instead of relabeling every price as dollars',()=>{
@@ -51,4 +53,28 @@ test('the booking selector preserves EUR and USD instead of relabeling every pri
  const context={currentLang:'en',Intl};vm.createContext(context);vm.runInContext(code,context);
  assert.match(context.money(60,'EUR'),/€/);assert.match(context.money(85),/\$/);
  assert.ok(read('app.js').includes('money(tour.price, tour.currency || "USD")'));
+});
+
+test('all public subpages offer persistent EN/PL controls with complete Polish content coverage',()=>{
+ const files=fs.readdirSync(root).filter(f=>f.endsWith('.html')&&!['index.html','admin.html'].includes(f));
+ for(const file of files){
+  const $=cheerio.load(read(file));
+  assert.equal($('[data-language=en]').length,1,file);assert.equal($('[data-language=pl]').length,1,file);
+  assert.equal($('script[src^="site-language.js"]').length,1,file);assert.equal($('script[src^="site-language-data.js"]').length,1,file);
+  $('option').each((_,n)=>assert.ok($(n).attr('value')!==undefined,`${file}: stable booking option values`));
+ }
+ const stay=cheerio.load(read('lalas-complex-brufut.html'));
+ assert.equal(stay('select[name=apartment] option').first().attr('value'),'','Apartment prompt must not count as a selected room');
+ const audit=JSON.parse(require('node:child_process').execFileSync(process.execPath,['scripts/audit-language.js'],{cwd:root,encoding:'utf8'}));
+ assert.equal(audit.pages,37);assert.deepEqual(audit.missing,[]);
+});
+
+test('public branding uses GambianTour and only the Polish invitation links to the Polish website',()=>{
+ for(const file of fs.readdirSync(root).filter(f=>f.endsWith('.html')&&f!=='admin.html')){
+  const $=cheerio.load(read(file));const invitation=$('.polish-site-invite');
+  assert.equal(invitation.length,1,file);assert.equal(invitation.attr('lang'),'pl');
+  assert.equal($('a[href*="mojaafryka"]').length,1,file);
+  invitation.remove();$('script,style,svg').remove();
+  assert.doesNotMatch($('body').text(),/Moja Afryka|mojaafryka/i,file);
+ }
 });

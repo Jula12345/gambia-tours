@@ -38,3 +38,11 @@ This checkout is the existing GitHub/Vercel project. It has no Sites hosting man
 - Browser checks at 390px and 1440px: no horizontal overflow; homepage EN/PL switching, hotel collection, cruise form prefill, required port-call fields and gallery navigation verified.
 - No live booking enquiries were sent during browser checks.
 - Desktop screenshot: `output/website-preview/hotel-recommendations.jpg`.
+
+## Branding, subpage scale and languages — 22 October 2026
+
+Public text and reviews now use GambianTour throughout. Only the Polish-language footer invites visitors to mojaafryka.pl, presented as the site for Polish tourists. Original review/source records remain in the content files.
+
+All 37 subpages have English/Polish controls with a remembered language choice, translated content and forms. Story pages use smaller headings and compact image/text rows, and other subpage heroes follow the same reading scale. The build applies these changes through `scripts/refresh-presentation.js`; translations are maintained in `content/subpage-pl.json`.
+
+Validation: 49 passing tests; 38-page local link/asset audit; complete translation coverage; phone-width browser check of all 37 subpages; manual checks of form preservation, booking variants and multi-day dates.
