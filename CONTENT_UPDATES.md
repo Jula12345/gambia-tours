@@ -46,3 +46,11 @@ Public text and reviews now use GambianTour throughout. Only the Polish-language
 All 37 subpages have English/Polish controls with a remembered language choice, translated content and forms. Story pages use smaller headings and compact image/text rows, and other subpage heroes follow the same reading scale. The build applies these changes through `scripts/refresh-presentation.js`; translations are maintained in `content/subpage-pl.json`.
 
 Validation: 49 passing tests; 38-page local link/asset audit; complete translation coverage; phone-width browser check of all 37 subpages; manual checks of form preservation, booking variants and multi-day dates.
+
+## Balanced homepage, header and footer — 22 October 2026
+
+Content now stays within a centered 1,080px reading width and the header within 1,128px, including on wide monitors. Header logo and navigation labels are smaller. The footer reserves space for the logo and wraps its links into a three-column grid, with a two-column arrangement on phones; email, telephone and the Polish invitation have their own rows.
+
+The homepage hero title is capped at 72px rather than 134px (115px at the tested 1,280px viewport). Section headings, image frames and vertical section spacing are also reduced. Mobile controls retain comfortable sizes and readable body text.
+
+Validation: both languages checked at nine widths from 320px to 1,920px, plus all 37 subpages at phone width, with no horizontal overflow. All 49 tests and the site/language audits pass. Preview images are in `output/balance-preview/`.

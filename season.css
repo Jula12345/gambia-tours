@@ -129,7 +129,7 @@ html[lang="pl"] .polish-site-invite { display:inline-block!important; max-width:
 .subpage .story-card:nth-child(2n) .story-card-content { grid-column:1; grid-row:1; }
 .subpage .article-content { padding-top:42px; }
 .subpage .stay-overview { gap:40px; }
-@media(max-width:1280px) {
+@media(max-width:1100px) {
  .subpage .site-header { grid-template-columns:auto auto; }
  .subpage .nav-links:not(.open), .subpage .header-cta { display:none; }
  .subpage .menu-toggle { display:inline-grid; }
@@ -155,3 +155,85 @@ html[lang="pl"] .polish-site-invite { display:inline-block!important; max-width:
  .subpage .header-actions { gap:7px; }
 }
 @media(max-width:359px) { .subpage .brand > img { width:133px; } .subpage .header-actions { gap:3px; } }
+
+/* A shared reading width keeps large screens from stretching the whole site. */
+:root { --content-width:1080px; --page-gutter:max(24px,calc((100% - var(--content-width))/2)); }
+.site-header { inset:14px auto auto 50%; width:calc(100% - 48px); max-width:1128px; transform:translateX(-50%); gap:12px; padding:8px 10px; }
+.site-header .brand { min-height:44px; padding:5px 8px; }
+.site-header .brand > img { width:190px; }
+.site-header .nav-links { gap:0; min-width:0; }
+.site-header .nav-links a, .site-header .header-cta { font-size:13px; min-height:40px; }
+.site-header .nav-links a { padding:0 9px; }
+.site-header .header-cta { padding:0 12px; }
+.site-header .language-toggle button { min-width:32px; }
+.site-header .header-actions { gap:8px; }
+.section, .subpage .section { padding-inline:var(--page-gutter); }
+.subpage .page-hero, .subpage .trip-hero, .subpage .stay-directory-hero, .subpage .stay-property-hero, .stay-support { padding-inline:var(--page-gutter); }
+body[data-page-language="home"] .section { padding-block:64px; }
+body[data-page-language="home"] h2 { font-size:clamp(1.7rem,3vw,2.25rem); line-height:1.18; }
+body[data-page-language="home"] .hero { min-height:640px; padding:132px var(--page-gutter) 24px; }
+body[data-page-language="home"] .hero-content { width:min(660px,100%); padding-bottom:28px; }
+body[data-page-language="home"] .hero h1 { font-size:clamp(2rem,5.8vw,4.5rem); line-height:1.06; max-width:18ch; }
+body[data-page-language="home"] .hero-copy { max-width:56ch; font-size:17px; line-height:1.65; margin-bottom:24px; }
+body[data-page-language="home"] .hero-actions .primary-button, body[data-page-language="home"] .hero-actions .secondary-button { min-height:46px; font-size:14px; }
+body[data-page-language="home"] .booking-strip { width:min(980px,100%); }
+body[data-page-language="home"] .booking-strip .primary-button { font-size:14px; }
+body[data-page-language="home"] .carousel-controls { right:var(--page-gutter); bottom:132px; }
+body[data-page-language="home"] :is(.intro-grid,.section-header,.feature-split,.contact-panel,.cruise-teaser) { gap:36px; }
+body[data-page-language="home"] .section-header p, body[data-page-language="home"] .intro-copy p, body[data-page-language="home"] .feature-copy p { font-size:16px; }
+body[data-page-language="home"] .feature-media, body[data-page-language="home"] .feature-media img { min-height:0; height:380px; }
+body[data-page-language="home"] .season-booking > img { height:280px; }
+body[data-page-language="home"] .cruise-teaser-image img { height:320px; }
+body[data-page-language="home"] .tour-card-photo, body[data-page-language="home"] .tour-card > img { height:200px; }
+body[data-page-language="home"] .complete-tour-card h3 { font-size:24px; line-height:1.25; }
+body[data-page-language="home"] .stay-home .stay-card-image { aspect-ratio:16/9; }
+.site-footer { grid-template-columns:minmax(0,260px) minmax(0,1fr); align-items:start; gap:28px 64px; padding:40px var(--page-gutter) 88px; }
+.site-footer .footer-brand { min-width:0; max-width:100%; gap:14px; }
+.site-footer .footer-logo-image { width:200px; max-width:100%; }
+.site-footer .footer-brand > span { max-width:34ch; font-size:14px; line-height:1.65; }
+.site-footer .footer-links { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); align-items:start; gap:4px 20px; min-width:0; font-size:14px; font-weight:600; }
+.site-footer .footer-links a { display:flex; align-items:center; min-width:0; min-height:32px; line-height:1.45; overflow-wrap:anywhere; }
+.site-footer .footer-links a[href^="mailto:"], .site-footer .footer-links a[href^="tel:"], .site-footer .polish-site-invite { grid-column:1/-1; }
+.site-footer .footer-links a[href^="mailto:"], .site-footer .footer-links a[href^="tel:"] { width:fit-content; gap:3px; font-weight:500; }
+.site-footer .polish-site-invite { margin-top:10px; font-size:13px; font-weight:400; }
+.site-footer .credits { max-width:100ch; font-size:12px; line-height:1.65; padding-top:18px; border-top:1px solid rgba(255,255,255,.12); }
+@media(max-width:1100px) {
+ body[data-page-language="home"] .hero { min-height:0; }
+ body[data-page-language="home"] .booking-strip { grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,.5fr); }
+ body[data-page-language="home"] .booking-strip > button { grid-column:1/-1; min-height:44px; }
+ body[data-page-language="home"] .carousel-controls { bottom:214px; }
+}
+@media(max-width:800px) {
+ .site-footer { grid-template-columns:1fr; gap:24px; }
+ .site-footer .footer-brand > span { max-width:48ch; }
+ .site-footer .footer-links a { min-height:40px; }
+ body[data-page-language="home"] .hero { padding-top:130px; }
+}
+@media(max-width:700px) {
+ :root { --page-gutter:20px; }
+ .site-header { top:10px; width:calc(100% - 24px); padding:6px 8px; gap:8px; }
+ .site-header .brand { padding:4px 6px; min-height:40px; }
+ .site-header .brand > img { width:156px; }
+ .site-header .icon-button { width:40px; height:40px; }
+ .site-header .header-actions { gap:6px; }
+ .site-header .nav-links.open a { min-height:44px; font-size:14px; }
+ body[data-page-language="home"] .section, .subpage .section { padding-block:40px; }
+ body[data-page-language="home"] .hero { padding:148px var(--page-gutter) 24px; }
+ body[data-page-language="home"] .hero h1 { font-size:clamp(1.9rem,8vw,2.5rem); line-height:1.12; }
+ body[data-page-language="home"] h2 { font-size:clamp(1.55rem,6.7vw,1.85rem); }
+ body[data-page-language="home"] .hero-copy { font-size:16px; line-height:1.6; }
+ body[data-page-language="home"] .hero-content { padding-bottom:8px; }
+ body[data-page-language="home"] .hero-actions { flex-direction:row; gap:10px; }
+ body[data-page-language="home"] .hero-actions > a { flex:1 1 145px; width:auto; padding:0 10px; font-size:13px!important; line-height:1.4; }
+ body[data-page-language="home"] .booking-strip { grid-template-columns:1fr; }
+ body[data-page-language="home"] .carousel-controls { top:88px; bottom:auto; left:var(--page-gutter); right:var(--page-gutter); }
+ body[data-page-language="home"] :is(.intro-grid,.section-header,.feature-split,.contact-panel,.cruise-teaser) { gap:24px; }
+ body[data-page-language="home"] .feature-media, body[data-page-language="home"] .feature-media img { height:300px; }
+ body[data-page-language="home"] .season-booking > img { height:230px; }
+ body[data-page-language="home"] .cruise-teaser-image img { height:250px; }
+ .site-footer { padding-block:32px 88px; gap:20px; }
+ .site-footer .footer-logo-image { width:180px; }
+ .site-footer .footer-links { grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:18px; }
+ .site-footer .footer-links a { min-height:44px; }
+}
+@media(max-width:359px) { .site-header .brand > img { width:132px; } .site-header .header-actions { gap:4px; } }

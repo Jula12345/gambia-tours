@@ -4,7 +4,7 @@ const path = require('node:path');
 const cheerio = require('cheerio');
 module.exports = function refresh() {
  const root=path.resolve(__dirname,'..');
- const version='20261022-language';
+ const version='20261022-balance';
  fs.writeFileSync(path.join(root,'site-language-data.js'),'// Curated Polish translations for the public website.\nwindow.GambianTourPolish='+JSON.stringify(JSON.parse(fs.readFileSync(path.join(root,'content/subpage-pl.json')))).replace(/</g,'\\u003c')+';\n');
  for(const file of fs.readdirSync(root).filter(f=>f.endsWith('.html')&&f!=='admin.html')){
   const $=cheerio.load(fs.readFileSync(path.join(root,file),'utf8'));
