@@ -8,6 +8,7 @@ const tripPeriod = document.querySelector("[data-trip-period]");
 function updateMenuLabel() {
   if (!menuToggle || !nav) return;
   menuToggle.setAttribute("aria-label", nav.classList.contains("open") ? "Close navigation" : "Open navigation");
+  menuToggle.setAttribute("aria-expanded", String(nav.classList.contains("open")));
 }
 
 function toDateValue(date) {
@@ -69,7 +70,7 @@ if (menuToggle && nav) {
 
 if (startDate) {
   startDate.min = toDateValue(new Date());
-  if (document.querySelector('[data-source="cruise-excursion-enquiry"]')) {
+  if (document.querySelector(".trip-form")) {
     const params = new URLSearchParams(window.location.search);
     const preferredDate = params.get("date");
     if (/^\d{4}-\d{2}-\d{2}$/.test(preferredDate || "") && preferredDate >= startDate.min) startDate.value = preferredDate;

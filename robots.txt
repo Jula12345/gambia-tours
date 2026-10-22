@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /data/
 
-Sitemap: https://gambiantour.com/sitemap.xml
+Sitemap: https://www.gambiantour.com/sitemap.xml

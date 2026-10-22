@@ -1,0 +1,679 @@
+[
+  {
+    "id": "fathala-safari-lion-walk",
+    "title": "Fathala Safari & Guided Lion Walk",
+    "polishTitle": "Fathala: safari i spacer z lwami",
+    "price": null,
+    "currency": "EUR",
+    "category": "nature",
+    "days": 1,
+    "nights": 0,
+    "sourceUrl": "https://mojaafryka.pl/spacer-z-lwami/",
+    "sourceChecked": "2026-10-22",
+    "detailsUrl": "fathala-safari-lion-walk-tour.html",
+    "photo": "fathala-lion-walk",
+    "summary": "Cross into Senegal for a 4×4 safari in Fathala Wildlife Reserve, with a guided lion-walk option arranged in advance. A full day of wildlife and changing landscapes.",
+    "polishSummary": "Safari 4×4 w Fathala w Senegalu z opcją spaceru z lwami uzgadnianą przed rezerwacją.",
+    "stops": [
+      {
+        "label": "01",
+        "title": "From The Gambia to Senegal",
+        "description": "Travel from your coastal hotel towards Senegal. We plan the crossing and reserve visit around the day’s ferry and border arrangements."
+      },
+      {
+        "label": "02",
+        "title": "A safari through Fathala",
+        "description": "Explore the reserve by 4×4 with time to look for wildlife and take photographs. Animal sightings vary; no particular species is guaranteed."
+      },
+      {
+        "label": "03",
+        "title": "The guided lion-walk option",
+        "description": "Tell us whether you want the lion walk included. Participation, availability and the reserve’s rules are confirmed before booking."
+      },
+      {
+        "label": "04",
+        "title": "Lunch and return",
+        "description": "Pause for a local lunch before the journey back to your hotel in The Gambia."
+      }
+    ],
+    "included": [
+      "Return transport from The Gambia",
+      "4×4 safari and local guiding",
+      "Local lunch and water / soft drinks",
+      "Guided lion walk when confirmed in your booked itinerary"
+    ],
+    "excluded": [
+      "Personal purchases, tips and optional activities not confirmed in the quote."
+    ],
+    "notes": [
+      "Full day; border and ferry conditions affect the overall duration.",
+      "Price and minimum group size are confirmed personally before booking.",
+      "Reserve participation rules apply to the lion walk."
+    ],
+    "group": {
+      "max": 16
+    },
+    "variants": []
+  },
+  {
+    "id": "bijilo-kachikally-serrekunda",
+    "title": "Bijilo Monkeys, Kachikally & Serrekunda",
+    "polishTitle": "Bijilo, Kachikally i targ Serrekunda",
+    "price": 50,
+    "currency": "EUR",
+    "category": "culture",
+    "days": 1,
+    "nights": 0,
+    "sourceUrl": "https://mojaafryka.pl/wycieczka-bijilo-kachikally-serrekunda/",
+    "sourceChecked": "2026-10-22",
+    "detailsUrl": "bijilo-kachikally-serrekunda-tour.html",
+    "photo": "bijilo-monkeys",
+    "summary": "One day, several sides of The Gambia: a guided walk in Bijilo Forest Park, the cultural heritage of Kachikally, Serrekunda Market and a local artist’s studio.",
+    "polishSummary": "Małpy w Bijilo, święte krokodyle w Kachikally, zakupy w Serrekundzie i wizyta u lokalnego artysty.",
+    "stops": [
+      {
+        "label": "01",
+        "title": "Bijilo Forest Park",
+        "description": "Walk through the coastal forest with your guide and look for monkeys among the trees. Leave time to enjoy the setting and observe the animals."
+      },
+      {
+        "label": "02",
+        "title": "Kachikally in Bakau",
+        "description": "Visit the crocodile pool and small museum, learning about the site’s cultural importance and local traditions."
+      },
+      {
+        "label": "03",
+        "title": "Serrekunda Market",
+        "description": "Browse textiles, spices, crafts and everyday market stalls. Your guide helps you navigate the market and understand local shopping customs."
+      },
+      {
+        "label": "04",
+        "title": "A local artist’s studio",
+        "description": "Finish with a studio visit and an introduction to paintings inspired by Gambian life before returning to your hotel."
+      }
+    ],
+    "included": [
+      "Hotel pickup, return and transport",
+      "Guide, with language arranged in advance",
+      "Listed entrance fees",
+      "Mineral water"
+    ],
+    "excluded": [
+      "Lunch, shopping, souvenirs, alcohol and tips."
+    ],
+    "notes": [
+      "Around 7 hours; hotel pickup location affects timings.",
+      "Published group departure: 4–10 guests. Smaller private groups can ask for a separate quote."
+    ],
+    "group": {
+      "min": 4,
+      "max": 10
+    },
+    "variants": []
+  },
+  {
+    "id": "makasutu-forest",
+    "title": "Makasutu Forest & Mangrove Boat Trip",
+    "polishTitle": "Święty Las Makasutu i rejs",
+    "price": 60,
+    "currency": "EUR",
+    "category": "nature",
+    "days": 1,
+    "nights": 0,
+    "sourceUrl": "https://mojaafryka.pl/swiety-las-makasutu/",
+    "sourceChecked": "2026-10-22",
+    "detailsUrl": "makasutu-forest-tour.html",
+    "photo": "makasutu-creek",
+    "summary": "Spend a day among Makasutu’s forest paths and mangrove waterways, with a guided walk, boat trip, outdoor lunch and a traditional dance performance.",
+    "polishSummary": "Las Makasutu, rejs wśród namorzynów, lokalne tradycje, lunch i pokaz tańca afrykańskiego.",
+    "stops": [
+      {
+        "label": "01",
+        "title": "Through the mangroves",
+        "description": "Begin with a boat trip along the forest waterways, watching the riverbanks and looking for birdlife."
+      },
+      {
+        "label": "02",
+        "title": "A walk in the forest",
+        "description": "Explore Makasutu with a local guide and hear about Mandinka traditions and plants used in local culture."
+      },
+      {
+        "label": "03",
+        "title": "Lunch and living traditions",
+        "description": "Enjoy an outdoor lunch and a traditional dance performance. An optional marabout consultation can be discussed locally."
+      },
+      {
+        "label": "04",
+        "title": "Back to the coast",
+        "description": "Return to your hotel after a full day away from the resort bustle."
+      }
+    ],
+    "included": [
+      "Hotel transport and guide",
+      "Mangrove boat trip and forest walk",
+      "Entrance fees",
+      "Outdoor lunch and dance performance"
+    ],
+    "excluded": [
+      "Drinks with lunch, tips and the optional marabout consultation."
+    ],
+    "notes": [
+      "Shared departures are advertised on Sundays, subject to confirmation.",
+      "Usually around 08:00–17:00, depending on pickup.",
+      "Private dates can be requested separately."
+    ],
+    "group": {
+      "min": 4,
+      "max": 20
+    },
+    "variants": []
+  },
+  {
+    "id": "gambia-river-fishing",
+    "title": "Gambia River Cruise & Fishing Day",
+    "polishTitle": "Rejs po rzece Gambia i wędkowanie",
+    "price": 85,
+    "currency": "EUR",
+    "category": "nature",
+    "days": 1,
+    "nights": 0,
+    "sourceUrl": "https://mojaafryka.pl/rzeka-gambia-rejs-wedkowanie/",
+    "sourceChecked": "2026-10-22",
+    "detailsUrl": "gambia-river-fishing-tour.html",
+    "photo": "river-fishing",
+    "summary": "A relaxed day aboard a double-deck boat: try fishing, watch the riverbanks, enjoy lunch on board or simply settle into the slower rhythm of the River Gambia.",
+    "polishSummary": "Całodniowy rejs komfortową łodzią z wędkowaniem, posiłkiem i napojami bezalkoholowymi.",
+    "stops": [
+      {
+        "label": "01",
+        "title": "A morning on the river",
+        "description": "Board the double-deck boat and find a comfortable spot in the shade or on the upper deck."
+      },
+      {
+        "label": "02",
+        "title": "Fishing and river life",
+        "description": "Try fishing at suitable points chosen by the crew according to conditions and tides. Fishing is optional, and catches are not guaranteed."
+      },
+      {
+        "label": "03",
+        "title": "Lunch on board",
+        "description": "Pause for an included meal and soft drinks while enjoying the views."
+      },
+      {
+        "label": "04",
+        "title": "An unhurried afternoon",
+        "description": "Continue cruising, look for birds and take photographs before the return journey."
+      }
+    ],
+    "included": [
+      "River cruise on a double-deck boat",
+      "Captain, crew and fishing equipment",
+      "Meal and non-alcoholic drinks",
+      "Time for fishing, relaxation and photographs"
+    ],
+    "excluded": [
+      "Alcohol, personal expenses and tips; confirm hotel transfer arrangements in your quote."
+    ],
+    "notes": [
+      "Around 8 hours. Maximum published boat group: 10 guests.",
+      "Departure minimum and hotel transfers are confirmed for your date."
+    ],
+    "group": {
+      "max": 10
+    },
+    "variants": []
+  },
+  {
+    "id": "south-gambia",
+    "title": "South Gambia: River, Sanyang & Tanji",
+    "polishTitle": "Południowa Gambia All Inclusive",
+    "price": 60,
+    "currency": "EUR",
+    "category": "coast",
+    "days": 1,
+    "nights": 0,
+    "sourceUrl": "https://mojaafryka.pl/poludniowa-gambia-wycieczka-all-inclusive/",
+    "sourceChecked": "2026-10-22",
+    "detailsUrl": "south-gambia-tour.html",
+    "photo": "south-gambia-coast",
+    "summary": "Discover Kachikally, cruise near Lamin Lodge, pause at Sanyang Paradise Beach and see coastal life in Tanji. A varied day with transport, a boat trip and Gambian lunch.",
+    "polishSummary": "Kachikally, rejs z okolic Lamin Lodge, plaża Sanyang i życie rybaków w Tanji z lunchem w cenie.",
+    "stops": [
+      {
+        "label": "01",
+        "title": "Kachikally and Bakau",
+        "description": "Visit the crocodile pool and discover the traditions surrounding this important local site."
+      },
+      {
+        "label": "02",
+        "title": "Lamin Lodge and the mangroves",
+        "description": "Take a boat trip through river and mangrove landscapes, with the Daranka area and its distinctive elephant-shaped tree on the route."
+      },
+      {
+        "label": "03",
+        "title": "Sanyang Paradise Beach",
+        "description": "Enjoy time by the Atlantic and an included Gambian-style lunch. Beach activities depend on local conditions."
+      },
+      {
+        "label": "04",
+        "title": "Tanji fishing village",
+        "description": "See the working fishing coast and colorful boats before returning to your hotel. Boat arrivals and the light vary with the day."
+      }
+    ],
+    "included": [
+      "Return hotel transport and local guide",
+      "Kachikally entrance",
+      "River / mangrove boat trip",
+      "Gambian-style lunch and beach time"
+    ],
+    "excluded": [
+      "Extra food or drinks not listed, personal purchases and tips."
+    ],
+    "notes": [
+      "Full day; the order of stops may change to suit conditions.",
+      "Group departure: 4–10 guests."
+    ],
+    "group": {
+      "min": 4,
+      "max": 10
+    },
+    "variants": []
+  },
+  {
+    "id": "mangrove-kayaking",
+    "title": "Mangrove Kayaking in The Gambia",
+    "polishTitle": "Kajakiem przez namorzyny",
+    "price": null,
+    "currency": "EUR",
+    "category": "nature",
+    "days": 1,
+    "nights": 0,
+    "sourceUrl": "https://mojaafryka.pl/wycieczki/",
+    "sourceChecked": "2026-10-22",
+    "detailsUrl": "mangrove-kayaking-tour.html",
+    "photo": "mangrove-kayak",
+    "summary": "Explore quiet mangrove channels by kayak, with time for birdlife, river scenery and a closer look at life along the water. Ask us to plan an outing that fits your pace.",
+    "polishSummary": "Aktywna wyprawa kajakiem przez namorzyny i spokojne rozlewiska rzeki Gambia.",
+    "stops": [
+      {
+        "label": "01",
+        "title": "Plan the right outing",
+        "description": "Tell us your kayaking experience, preferred pace and pickup area. We confirm a suitable route and the day’s arrangements."
+      },
+      {
+        "label": "02",
+        "title": "Paddle through the channels",
+        "description": "Explore mangrove waterways and pause to enjoy the changing river scenery and birdlife."
+      },
+      {
+        "label": "03",
+        "title": "Return at an easy pace",
+        "description": "Finish the outing and follow the transfer arrangements agreed for your group."
+      }
+    ],
+    "included": [
+      "Kayaking route and local arrangements confirmed in your personal quote",
+      "Transport, equipment and guiding specified before booking"
+    ],
+    "excluded": [
+      "Meals, drinks and any services not included in your agreed quote."
+    ],
+    "notes": [
+      "Advertised as a full-day outing; exact duration, tide-dependent route and group size are confirmed individually.",
+      "Tell us about swimming ability, children and any mobility needs when enquiring."
+    ],
+    "group": null,
+    "variants": []
+  },
+  {
+    "id": "kunta-kinteh-island",
+    "title": "Kunta Kinteh Island, Albreda & Juffureh",
+    "polishTitle": "Wyspa Kunta Kinteh, Albreda i Juffureh",
+    "price": 110,
+    "currency": "EUR",
+    "category": "culture",
+    "days": 1,
+    "nights": 0,
+    "sourceUrl": "https://mojaafryka.pl/wyspa-kunta-kinteh-rejs-rzeka-gambii/",
+    "sourceChecked": "2026-10-22",
+    "detailsUrl": "kunta-kinteh-island-tour.html",
+    "photo": "kunta-kinteh-river",
+    "summary": "A thoughtful journey into the region’s history: visit Kunta Kinteh Island and the river communities of Albreda and Juffureh, with classic ferry and premium private-boat options.",
+    "polishSummary": "Rejs na Wyspę Kunta Kinteh oraz Albreda i Juffureh — wariant klasyczny i premium.",
+    "stops": [
+      {
+        "label": "01",
+        "title": "Choose your river journey",
+        "description": "The classic route combines the Banjul–Barra ferry, onward road transport and a boat to the island. The premium option uses a private boat from Denton Bridge."
+      },
+      {
+        "label": "02",
+        "title": "Albreda and Juffureh",
+        "description": "The classic itinerary includes these historic river communities, with local stories and heritage stops."
+      },
+      {
+        "label": "03",
+        "title": "Kunta Kinteh Island",
+        "description": "Explore the island and learn about the history of the transatlantic slave trade and the importance of remembrance."
+      },
+      {
+        "label": "04",
+        "title": "Return from the river",
+        "description": "Follow the return route agreed for your chosen variant, allowing for ferry, river and weather conditions."
+      }
+    ],
+    "included": [
+      "Return hotel transport and guide",
+      "Transport, boat trip and entrance fees as listed in the chosen route",
+      "Ferry tickets on the classic route",
+      "Drinks during the excursion"
+    ],
+    "excluded": [
+      "Meals, personal purchases, tips and services not listed for your chosen variant."
+    ],
+    "notes": [
+      "Full day; exact timings depend on your variant and conditions.",
+      "Classic: €110 per person, minimum 4. Premium private boat: €150 per person, minimum 2.",
+      "Confirm whether Albreda and Juffureh are included in your selected premium route."
+    ],
+    "group": {
+      "max": 10
+    },
+    "variants": [
+      {
+        "label": "Classic ferry route — €110 per person, minimum 4",
+        "price": 110,
+        "min": 4
+      },
+      {
+        "label": "Premium private boat — €150 per person, minimum 2",
+        "price": 150,
+        "min": 2
+      }
+    ]
+  },
+  {
+    "id": "banjul-serrekunda-markets",
+    "title": "Banjul City & Serrekunda Markets",
+    "polishTitle": "Banjul i lokalne targi",
+    "price": 50,
+    "currency": "EUR",
+    "category": "culture",
+    "days": 1,
+    "nights": 0,
+    "sourceUrl": "https://mojaafryka.pl/banjul-miasto-i-lokalne-targi/",
+    "sourceChecked": "2026-10-22",
+    "detailsUrl": "banjul-serrekunda-markets-tour.html",
+    "photo": "banjul-local-market",
+    "summary": "Discover historic Banjul, the river mouth and two lively markets in one day. This shared-departure route includes Albert Market and Serrekunda Market, with Thursday departures on request.",
+    "polishSummary": "Banjul, Albert Market i Serrekunda Market — całodzienna wycieczka z planowanymi wyjazdami w czwartki.",
+    "stops": [
+      {
+        "label": "01",
+        "title": "Historic Banjul",
+        "description": "Walk through the former Bathurst with a local guide, taking in McCarthy Square and the city’s architectural history."
+      },
+      {
+        "label": "02",
+        "title": "The port and river mouth",
+        "description": "Pause around the waterfront and discover how the River Gambia shaped the capital’s trading history."
+      },
+      {
+        "label": "03",
+        "title": "Albert Market",
+        "description": "Explore stalls selling fabrics, spices, crafts and everyday essentials."
+      },
+      {
+        "label": "04",
+        "title": "Serrekunda Market",
+        "description": "Continue to Serrekunda for another perspective on local life and shopping, then return to your hotel."
+      }
+    ],
+    "included": [
+      "Hotel pickup and return",
+      "Transport throughout the route",
+      "Local guide"
+    ],
+    "excluded": [
+      "Shopping, food, drinks, personal expenses and tips unless agreed in your quote."
+    ],
+    "notes": [
+      "Full-day group route; Thursday departures subject to confirmation.",
+      "Published group size: 4–10. Private dates can be requested at a separate price.",
+      "This is a longer two-market route than our private half-day Banjul tour."
+    ],
+    "group": {
+      "min": 4,
+      "max": 10
+    },
+    "variants": []
+  },
+  {
+    "id": "janjanbureh-2-day",
+    "title": "2-Day Janjanbureh, River & Wassu",
+    "polishTitle": "2 dni: Janjanbureh, rzeka Gambia i Wassu",
+    "price": null,
+    "currency": "EUR",
+    "category": "multi",
+    "days": 2,
+    "nights": 1,
+    "sourceUrl": "https://mojaafryka.pl/janjanbureh-central-river-2-dni/",
+    "sourceChecked": "2026-10-22",
+    "detailsUrl": "janjanbureh-2-day-tour.html",
+    "photo": "janjanbureh-hippo",
+    "summary": "Travel inland for river scenery around Janjanbureh and Baboon Islands, an overnight stay and the historic Wassu Stone Circles. A deeper look at The Gambia beyond the coast.",
+    "polishSummary": "Dwudniowa wyprawa do Janjanbureh, rejs w okolicach Baboon Islands, nocleg i kamienne kręgi Wassu.",
+    "stops": [
+      {
+        "label": "01",
+        "title": "Into the Central River region",
+        "description": "Travel from the coast to Janjanbureh, watching the scenery and settlements change along the way."
+      },
+      {
+        "label": "02",
+        "title": "River time and an overnight stay",
+        "description": "Take a boat trip towards the Baboon Islands area, looking for birdlife and other wildlife, before an overnight stay in or near Janjanbureh."
+      },
+      {
+        "label": "03",
+        "title": "Wassu and the return journey",
+        "description": "Visit the Wassu Stone Circles on the second day and return towards the coast."
+      }
+    ],
+    "included": [
+      "Return hotel transport and guide",
+      "River Gambia boat trip",
+      "One overnight stay in or near Janjanbureh",
+      "Listed entrances, Wassu visit and a meal as confirmed in the itinerary"
+    ],
+    "excluded": [
+      "Extra meals and drinks not listed, personal expenses and tips."
+    ],
+    "notes": [
+      "2 days / 1 night; wildlife sightings are not guaranteed.",
+      "We confirm the accommodation, meal plan and individual price before booking.",
+      "A separate one-day express version is also available."
+    ],
+    "group": {
+      "min": 4,
+      "max": 16
+    },
+    "variants": []
+  },
+  {
+    "id": "janjanbureh-express",
+    "title": "Janjanbureh & Central River Express",
+    "polishTitle": "Janjanbureh — jednodniowa wyprawa express",
+    "price": 150,
+    "currency": "EUR",
+    "category": "nature",
+    "days": 1,
+    "nights": 0,
+    "sourceUrl": "https://mojaafryka.pl/janjanbureh-central-river-2-dni/",
+    "sourceChecked": "2026-10-22",
+    "detailsUrl": "janjanbureh-express-tour.html",
+    "photo": "janjanbureh-hippo",
+    "summary": "An intensive one-day alternative for travelers who want to reach central Gambia without an overnight stay. Ask us to confirm the river activities and stops that fit the express schedule.",
+    "polishSummary": "Intensywny jednodniowy wariant wyprawy do centralnej Gambii, bez noclegu.",
+    "stops": [
+      {
+        "label": "01",
+        "title": "An early start from the coast",
+        "description": "Set off early for the Central River region. The published express schedule starts around 06:00."
+      },
+      {
+        "label": "02",
+        "title": "Central Gambia in a day",
+        "description": "We confirm which Janjanbureh, river and heritage stops can realistically be included for your date and starting point."
+      },
+      {
+        "label": "03",
+        "title": "Return to your hotel",
+        "description": "Expect a long day, with a late return that may be around 21:00–22:00 depending on the route and conditions."
+      }
+    ],
+    "included": [
+      "Return road transport and local guiding",
+      "Express itinerary, river activities, entrances and meal arrangements confirmed before booking"
+    ],
+    "excluded": [
+      "Overnight accommodation, personal purchases, tips and anything not confirmed in the express quote."
+    ],
+    "notes": [
+      "This is an intensive travel day, not the overnight itinerary compressed without changes.",
+      "€150 per person is the published express rate; the final route is confirmed for your group."
+    ],
+    "group": {
+      "min": 4,
+      "max": 16
+    },
+    "variants": []
+  },
+  {
+    "id": "fathala-saloum-2-day",
+    "title": "2-Day Fathala Safari & Saloum Delta",
+    "polishTitle": "2 dni: Fathala i Delta Saloum",
+    "price": null,
+    "currency": "EUR",
+    "category": "multi",
+    "days": 2,
+    "nights": 1,
+    "sourceUrl": "https://mojaafryka.pl/2-dniowe-safari-fathala-delta-saloum/",
+    "sourceChecked": "2026-10-22",
+    "detailsUrl": "fathala-saloum-2-day-tour.html",
+    "photo": "saloum-safari",
+    "summary": "Combine a 4×4 safari in Senegal’s Fathala Wildlife Reserve with an overnight lodge stay and a boat trip among the mangroves of the Saloum Delta.",
+    "polishSummary": "Safari 4×4 w Fathala, nocleg w lodge i rejs wśród namorzynów Delty Saloum.",
+    "stops": [
+      {
+        "label": "01",
+        "title": "A safari day in Senegal",
+        "description": "Leave The Gambia, complete the border arrangements and head into Fathala for a 4×4 wildlife safari."
+      },
+      {
+        "label": "02",
+        "title": "An evening at your lodge",
+        "description": "After the safari, settle into the lodge selected for your booking. The accommodation standard and meal plan are agreed in your quote."
+      },
+      {
+        "label": "03",
+        "title": "Saloum Delta and Toubakouta",
+        "description": "On day two, head towards Toubakouta for a mangrove boat trip and birdwatching before returning to your hotel in The Gambia."
+      }
+    ],
+    "included": [
+      "Return transport and local guide",
+      "Fathala 4×4 safari and listed entrances",
+      "One lodge night and breakfast",
+      "Saloum Delta boat trip"
+    ],
+    "excluded": [
+      "Other meals or drinks not confirmed in the quote, personal expenses and tips."
+    ],
+    "notes": [
+      "2 days / 1 night. Price depends on lodge standard and group size.",
+      "The practical group size and border arrangements are confirmed before booking."
+    ],
+    "group": {
+      "max": 10
+    },
+    "variants": []
+  },
+  {
+    "id": "gambia-senegal-8-day",
+    "title": "8-Day Gambia & Senegal Discovery",
+    "polishTitle": "8 dni w Gambii i Senegalu",
+    "price": 1450,
+    "currency": "EUR",
+    "category": "multi",
+    "days": 8,
+    "nights": 7,
+    "sourceUrl": "https://mojaafryka.pl/wycieczka-do-gambii-i-senegalu/",
+    "sourceChecked": "2026-10-22",
+    "detailsUrl": "gambia-senegal-8-day-tour.html",
+    "photo": "senegal-painted-boat",
+    "summary": "An eight-day journey from The Gambia to Dakar and back, combining Bandia safari, Gorée Island, the Saloum Delta, Kunta Kinteh Island and time on the coast.",
+    "polishSummary": "8-dniowa wyprawa: Gambia, Dakar, safari Bandia, Gorée, Sine-Saloum i Wyspa Kunta Kinteh.",
+    "stops": [
+      {
+        "label": "Day 1",
+        "title": "Arrival in The Gambia",
+        "description": "Airport transfer to your coastal accommodation and time to settle in. The final hotel is confirmed with your booking."
+      },
+      {
+        "label": "Day 2",
+        "title": "Banjul and Gambian culture",
+        "description": "Explore Banjul and its cultural stops, with Kachikally and a visit to Monkey Park on the proposed route."
+      },
+      {
+        "label": "Day 3",
+        "title": "Into Senegal: Lac Rose and Bandia",
+        "description": "Travel to Senegal, visit the Lac Rose area and enjoy a Bandia reserve safari before continuing to Dakar. The lake’s appearance varies naturally."
+      },
+      {
+        "label": "Day 4",
+        "title": "Dakar and Gorée Island",
+        "description": "Discover Dakar, including the African Renaissance Monument, and take a boat to Gorée for an important encounter with the region’s history."
+      },
+      {
+        "label": "Day 5",
+        "title": "The Saloum Delta",
+        "description": "Head south for a boat trip through Saloum’s mangroves before returning to The Gambia."
+      },
+      {
+        "label": "Day 6",
+        "title": "Kunta Kinteh Island",
+        "description": "Spend the day on the River Gambia and visit Kunta Kinteh Island, with time to reflect on the island’s history."
+      },
+      {
+        "label": "Day 7",
+        "title": "Serrekunda and the coast",
+        "description": "Explore the market and local communities, then enjoy time at Paradise Beach."
+      },
+      {
+        "label": "Day 8",
+        "title": "Departure",
+        "description": "Breakfast and an airport transfer arranged around your flight schedule."
+      }
+    ],
+    "included": [
+      "Seven hotel nights with breakfast; hotels confirmed before booking",
+      "Transfers, ferry and cross-border transport as listed",
+      "Guided visits and Bandia safari",
+      "Kunta Kinteh and Saloum boat trips"
+    ],
+    "excluded": [
+      "International flights, meals other than breakfast, optional activities, personal expenses, tips and applicable entry or airport charges."
+    ],
+    "notes": [
+      "Published package: €2,900 for two guests (€1,450 per person), for October–June departures.",
+      "Published departure group: 6–16 guests. This is a group package rate based on two guests sharing, not a private two-person departure.",
+      "The sequence of stops, hotel choices and availability are confirmed for your dates."
+    ],
+    "group": {
+      "min": 6,
+      "max": 16
+    },
+    "variants": []
+  }
+]

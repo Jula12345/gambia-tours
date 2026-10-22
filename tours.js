@@ -261,6 +261,7 @@ const tours = [
       tags: ["Na zamówienie", "Prywatnie", "Elastycznie"]
     }
   }
+  ,...(typeof module !== "undefined" && module.exports ? require("./source-tours") : syncedTours)
 ];
 
 if (typeof module !== "undefined") module.exports = tours;

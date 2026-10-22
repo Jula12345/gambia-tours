@@ -2,6 +2,15 @@ const BOOKING_RECIPIENT_EMAIL = "info@gambiantour.com";
 
 const translations = {
   en: {
+    review3: "Moja Afryka captures the essence of this continent in the heart of a wonderful person, enthusiast, traveler and organizer. Helpful, honest and warm — and, importantly for many people, fluent in Polish. His trips are very interesting, exceptionally well prepared and meet expectations, often accommodating participants’ individual requests. Small, intimate trips with a trusted driver and guide. Thank you: it was a beautiful adventure and a lovely connection.",
+    review2: "Small groups, professional service and excellent trip organization. Highly recommended. The real Gambia — and Paradise Beach is beautiful.",
+    review1: "Highly recommended — a very well-organized trip. Lamin speaks Polish very well. I recommend him to anyone who wants to discover the secrets of the beautiful African continent!",
+    seasonGuide: "Read the season guide",
+    seasonTours: "Explore all tours",
+    seasonCopy: "Plan your November 2026–April 2027 escape with local guides, river days, Senegal safaris and time beyond the beach.",
+    seasonTitle: "Winter sun. A different kind of discovery.",
+    seasonKicker: "2026–2027 · Reservations are open",
+    reviewSource: "Moja Afryka guest",
     galleryKicker: "Moments from our journeys",
     galleryTitle: "This is what getting out there looks like.",
     galleryCopy: "Good company, wild encounters and days that stay with you. Explore photographs from our tours.",
@@ -10,28 +19,23 @@ const translations = {
     cruiseTitle: "Make your day ashore an adventure.",
     cruiseCopy: "Banjul, nature, boat trips and more — planned around your ship’s schedule, your interests and your pace. Every cruise excursion is individually priced after contact.",
     cruiseButton: "Plan your shore excursion",
-    reviewKicker: "Customer testimonials",
-    reviewTitle: "A place for your travel stories.",
-    reviewCopy: "Preview our guest review section. The cards below contain sample text and will be replaced with customer feedback.",
-    sampleLabel: "Sample review",
-    sampleOne: "A relaxed day with time to enjoy the coast, stop for photos and ask plenty of questions. The private pace made all the difference.",
-    sampleTwo: "From the first message to planning our day ashore, everything felt easy to follow. We loved discovering more beyond the port.",
-    sampleThree: "A lovely mix of nature and local life. Having a guide meant we could enjoy the day and spend less time figuring out the route.",
-    sampleFooter: "Illustrative text · not a customer review",
-    reviewCta: "Share your experience",
+    reviewKicker: "Guest stories",
+    reviewTitle: "Good journeys. In their own words.",
+    reviewCopy: "Reviews from our Moja Afryka guests, shared here with their original names. English translations from Polish.",
+    reviewCta: "Visit our sister website",
     stayNewIntro: "From garden apartments to beachfront resorts, explore seven places we recommend for your Gambia stay.",
     stayCollection: "See all recommended stays",
 
-    documentTitle: "Gambia Tours, Senegal Trips & Multi-Day Itineraries | GambianTour.com",
-    metaDescription: "Book private Gambia tours, day trips, 7-day and 10-day Gambia and Senegal itineraries with local English and Polish-speaking guides.",
+    documentTitle: "Gambia & Senegal Tours 2026–2027 | GambianTour.com",
+    metaDescription: "Book Gambia day trips, Senegal safaris, river cruises and multi-day tours for 2026–2027. Local English and Polish guides. Message Lamin for a personal plan.",
     brandHome: "GambianTour.com home",
     languageToggle: "Language selector",
     menuOpen: "Open navigation",
     menuClose: "Close navigation",
     navTours: "Tours",
-    navWhy: "Why us",
+    navWhy: "Reviews",
     navPolish: "Polish guides",
-    navStories: "Tour stories",
+    navStories: "Travel guide",
     navHotels: "Stays",
     stayRecommended: "Recommended by GambianTour",
     stayLocation: "Brufut, The Gambia",
@@ -51,9 +55,9 @@ const translations = {
     navContact: "Contact",
     headerBook: "Book now",
     heroAria: "Private Gambia tours and excursions booking",
-    heroEyebrow: "Private Gambia tours, Senegal trips and local excursions",
+    heroEyebrow: "Gambia & Senegal tours · private journeys and small groups",
     heroTitle: "Gambia Tours & Excursions",
-    heroCopy: "Explore Banjul, Kololi, Kotu, the River Gambia, local markets, birdwatching routes, Senegal day routes and private multi-day itineraries with a flexible guide.",
+    heroCopy: "Explore Banjul, the River Gambia, mangroves and Senegal’s wildlife with local guides. Choose a day out or a longer journey for the 2026–2027 season.",
     heroReserve: "Request a tour",
     heroExplore: "See Gambia tours",
     carouselAria: "Gambia travel photo carousel",
@@ -84,7 +88,7 @@ const translations = {
     trustFour: "Gambia",
     trustFourCopy: "local day trips",
     toursKicker: "Bookable Gambia excursions",
-    toursTitle: "Popular private tours in The Gambia and Senegal",
+    toursTitle: "Gambia and Senegal tours for every kind of traveler",
     filterAria: "Filter Gambia tours",
     filterAll: "All",
     filterNature: "Nature",
@@ -163,10 +167,10 @@ const translations = {
     keyword7: "7-day Gambia and Senegal tour",
     keyword8: "Gambia and Casamance private itinerary",
     keyword9: "10-day Senegal and Gambia tour",
-    storiesKicker: "Tour stories",
-    storiesTitle: "Stories and route ideas from private Gambia tours.",
-    storiesCopy: "Read inspiring Gambia travel stories before you choose your route: river days, Banjul market walks, birdwatching mornings and flexible private excursions from the coast.",
-    storiesButton: "Read tour stories",
+    storiesKicker: "Travel notes & inspiration",
+    storiesTitle: "A little local knowledge goes a long way.",
+    storiesCopy: "Read our 2026–2027 season guide, discover route ideas and start planning the Gambia journey that fits you.",
+    storiesButton: "Explore the travel guide",
     faqKicker: "Gambia tour FAQ",
     faqTitle: "Questions travelers ask before booking",
     faq1Q: "Do you offer private tours in Gambia?",
@@ -178,9 +182,9 @@ const translations = {
     faq4Q: "Can you build a custom Gambia itinerary?",
     faq4A: "Yes. Share your interests, hotel location, date and group size, and we will suggest a private route.",
     faq5Q: "Do you offer multi-day Gambia and Senegal tours?",
-    faq5A: "Yes. We offer private 7-day and 10-day itineraries combining The Gambia with Senegal routes such as Casamance, Dakar, Fathala, river landscapes and cultural visits.",
+    faq5A: "Yes. Our collection includes two-day journeys and seven-, eight- and ten-day Gambia and Senegal itineraries. Each route has its own programme and booking conditions.",
     faq6Q: "What is included in the multi-day tours?",
-    faq6A: "Private guide/driver, vehicle, fuel, accommodation, airport transfers, border assistance, listed visits and route planning are included. International flights and some meals/drinks are not included unless confirmed in your quote.",
+    faq6A: "Inclusions differ by route. See the itinerary for transport, guiding, accommodation, meals and activities, and review your personal quote before booking. International flights are excluded unless explicitly agreed.",
     contactKicker: "Ready to plan?",
     contactTitle: "Send your preferred date and the Gambia tour you want.",
     contactCopy: "Tell us your hotel area, group size, language preference and what you want to see. We will confirm the best route before anything is final.",
@@ -238,6 +242,15 @@ const translations = {
     emailBodyMissing: "not provided"
   },
   pl: {
+    review3: "Moja Afryka to kwinesencja tego kontynentu w sercu wspaniałego człowieka, miłośnika, podróżnika i organizatora. Pomocny, uczciwy, serdeczny i co dla wielu osob ważne mówiący płynnie po polsku. Wycieczki, ktore organizuje są bardzo ciekawe, znakomicie przygotowane i spełniające standardy , a często prywatne prośby uczestników. Małe, kameralne wycieczki ze sprawdzonym kierowca i przewodnikiem. Dziękujemy, to była piękna przygoda i przemiła znajomość.",
+    review2: "Kamerlnie, profesjonalnie, polecam, świetna organizacja wycieczek. Prawdziwa Gambia a Rajska Plaża przepiękna",
+    review1: "Serdecznie polecam, super zorganizowany wyjazd, Lamin bardzo dobrze rozmawia po polsku. Polecam każdemu kto chce poznać tajemnice pięknego kontynentu Afryki!",
+    seasonGuide: "Poradnik na sezon",
+    seasonTours: "Wszystkie wycieczki",
+    seasonCopy: "Zaplanuj podróż od listopada 2026 do kwietnia 2027: lokalni przewodnicy, rejsy, safari w Senegalu i Gambia poza plażą.",
+    seasonTitle: "Zimowe słońce. Nowe odkrycia.",
+    seasonKicker: "2026–2027 · Rezerwacje otwarte",
+    reviewSource: "Gość Moja Afryka",
     galleryKicker: "Chwile z naszych podróży",
     galleryTitle: "Tak wyglądają nasze wspólne przygody.",
     galleryCopy: "Dobre towarzystwo, dzika przyroda i dni, które zostają w pamięci. Zobacz zdjęcia z naszych wycieczek.",
@@ -246,28 +259,23 @@ const translations = {
     cruiseTitle: "Zamień dzień na lądzie w przygodę.",
     cruiseCopy: "Banjul, przyroda, rejsy łodzią i nie tylko — według rozkładu statku, Twoich zainteresowań i tempa. Każdą wycieczkę wyceniamy indywidualnie po kontakcie.",
     cruiseButton: "Zaplanuj wycieczkę z portu",
-    reviewKicker: "Opinie klientów",
-    reviewTitle: "Miejsce na Wasze wspomnienia z podróży.",
-    reviewCopy: "Podgląd sekcji opinii. Poniższe karty zawierają przykładowe teksty, które zastąpimy opiniami klientów.",
-    sampleLabel: "Przykładowa opinia",
-    sampleOne: "Spokojny dzień z czasem na wybrzeże, zdjęcia i mnóstwo pytań. Prywatne tempo pozwoliło nam naprawdę cieszyć się wycieczką.",
-    sampleTwo: "Od pierwszej wiadomości po planowanie dnia w porcie wszystko było jasne. Wspaniale było odkryć coś więcej poza portem.",
-    sampleThree: "Świetne połączenie natury i lokalnego życia. Z przewodnikiem mogliśmy cieszyć się dniem bez martwienia się o trasę.",
-    sampleFooter: "Tekst przykładowy · nie jest opinią klienta",
-    reviewCta: "Podziel się wrażeniami",
+    reviewKicker: "Wspomnienia gości",
+    reviewTitle: "Udane podróże. Ich własnymi słowami.",
+    reviewCopy: "Opinie naszych gości z Moja Afryka, opublikowane z oryginalnymi podpisami. W wersji angielskiej zostały przetłumaczone z polskiego.",
+    reviewCta: "Odwiedź naszą drugą stronę",
     stayNewIntro: "Od apartamentów w ogrodzie po nadmorskie kurorty — poznaj siedem miejsc, które polecamy na pobyt w Gambii.",
     stayCollection: "Zobacz wszystkie polecane noclegi",
 
-    documentTitle: "Wycieczki Gambia Senegal i trasy kilkudniowe | GambianTour.com",
-    metaDescription: "Prywatne wycieczki po Gambii, jednodniowe atrakcje oraz 7- i 10-dniowe trasy Gambia-Senegal z anglojęzycznym lub polskojęzycznym przewodnikiem.",
+    documentTitle: "Wycieczki Gambia i Senegal 2026–2027 | GambianTour.com",
+    metaDescription: "Wycieczki po Gambii i Senegalu na sezon 2026–2027. Safari, rejsy, kultura i wyprawy z przewodnikiem po angielsku lub po polsku. Zapytaj Lamina o plan.",
     brandHome: "Strona główna GambianTour.com",
     languageToggle: "Wybór języka",
     menuOpen: "Otwórz menu",
     menuClose: "Zamknij menu",
     navTours: "Wycieczki",
-    navWhy: "Dlaczego my",
+    navWhy: "Opinie",
     navPolish: "Polski przewodnik",
-    navStories: "Relacje",
+    navStories: "Poradnik",
     navHotels: "Noclegi",
     stayRecommended: "Polecane przez GambianTour",
     stayLocation: "Brufut, Gambia",
@@ -287,9 +295,9 @@ const translations = {
     navContact: "Kontakt",
     headerBook: "Rezerwuj",
     heroAria: "Rezerwacja prywatnych wycieczek po Gambii",
-    heroEyebrow: "Prywatne wycieczki po Gambii, Senegal i lokalne atrakcje",
+    heroEyebrow: "Gambia i Senegal · prywatne i kameralne wycieczki",
     heroTitle: "Wycieczki po Gambii",
-    heroCopy: "Banjul, Kololi, Kotu, rzeka Gambia, lokalne targi, ptaki, trasy do Senegalu i prywatne programy kilkudniowe z elastycznym przewodnikiem.",
+    heroCopy: "Banjul, rzeka Gambia, namorzyny i przyroda Senegalu z lokalnymi przewodnikami. Wybierz dzień pełen wrażeń lub dłuższą wyprawę w sezonie 2026–2027.",
     heroReserve: "Zapytaj o wycieczkę",
     heroExplore: "Zobacz trasy",
     carouselAria: "Karuzela zdjęć z Gambii",
@@ -320,7 +328,7 @@ const translations = {
     trustFour: "Gambia",
     trustFourCopy: "lokalne wycieczki",
     toursKicker: "Wycieczki gotowe do rezerwacji",
-    toursTitle: "Popularne prywatne trasy po Gambii i Senegalu",
+    toursTitle: "Wycieczki po Gambii i Senegalu dla każdego podróżnika",
     filterAria: "Filtruj wycieczki",
     filterAll: "Wszystkie",
     filterNature: "Natura",
@@ -399,10 +407,10 @@ const translations = {
     keyword7: "7-dniowa wycieczka Gambia Senegal",
     keyword8: "Gambia i Casamance prywatna trasa",
     keyword9: "10-dniowa trasa Senegal i Gambia",
-    storiesKicker: "Relacje z tras",
-    storiesTitle: "Relacje i pomysły na prywatne wycieczki po Gambii.",
-    storiesCopy: "Zainspiruj się trasami po Gambii: spokojny dzień nad rzeką, targ w Banjul, poranna obserwacja ptaków i prywatne wycieczki z wybrzeża.",
-    storiesButton: "Czytaj relacje",
+    storiesKicker: "Porady i inspiracje",
+    storiesTitle: "Lokalna wiedza pomaga odkryć więcej.",
+    storiesCopy: "Przeczytaj poradnik na sezon 2026–2027, poznaj trasy i zaplanuj swoją podróż do Gambii.",
+    storiesButton: "Zobacz poradnik",
     faqKicker: "FAQ",
     faqTitle: "Pytania przed rezerwacją",
     faq1Q: "Czy oferujecie prywatne wycieczki po Gambii?",
@@ -414,9 +422,9 @@ const translations = {
     faq4Q: "Czy można przygotować indywidualny plan?",
     faq4A: "Tak. Podaj zainteresowania, hotel, datę i liczbę osób, a zaproponujemy prywatną trasę.",
     faq5Q: "Czy oferujecie kilkudniowe wycieczki po Gambii i Senegalu?",
-    faq5A: "Tak. Organizujemy prywatne programy 7- i 10-dniowe łączące Gambię z Senegalem, na przykład Casamance, Dakar, Fathala, naturę, rzeki i lokalną kulturę.",
+    faq5A: "Tak. Oferujemy trasy dwudniowe oraz programy siedmio-, ośmio- i dziesięciodniowe po Gambii i Senegalu. Każda wycieczka ma własny program i warunki rezerwacji.",
     faq6Q: "Co zawiera cena kilkudniowej trasy?",
-    faq6A: "W cenie są prywatny przewodnik/kierowca, samochód, paliwo, noclegi, transfery, pomoc przy granicy, wymienione atrakcje i planowanie trasy. Loty i część posiłków/napojów nie są wliczone, chyba że potwierdzimy inaczej w wycenie.",
+    faq6A: "Zakres świadczeń zależy od trasy. Sprawdź transport, przewodnika, noclegi, posiłki i atrakcje w programie oraz indywidualnej wycenie. Loty międzynarodowe nie są wliczone, chyba że ustalono inaczej.",
     contactKicker: "Gotowy na plan?",
     contactTitle: "Wyślij datę i trasę po Gambii, którą chcesz zobaczyć.",
     contactCopy: "Napisz, gdzie mieszkasz, ile osób jedzie, jaki język preferujesz i co chcesz zobaczyć. Potwierdzimy trasę przed rezerwacją.",
@@ -524,10 +532,10 @@ function t(key) {
   return translations[currentLang][key] || translations.en[key] || key;
 }
 
-function money(value) {
+function money(value, currency = "USD") {
   return new Intl.NumberFormat(currentLang === "pl" ? "pl-PL" : "en-US", {
     style: "currency",
-    currency: "USD",
+    currency,
     maximumFractionDigits: 0
   }).format(value);
 }
@@ -619,7 +627,7 @@ function dateRangeText(tour, startValue) {
 }
 
 function formatOption(tour) {
-  const priceLabel = hasNumericPrice(tour) ? `${t("from")} ${money(tour.price)}` : t("quotePrice");
+  const priceLabel = hasNumericPrice(tour) ? `${t("from")} ${money(tour.price, tour.currency || "USD")}` : t("quotePrice");
   return `${tourCopy(tour).title} - ${priceLabel}`;
 }
 
@@ -734,7 +742,7 @@ function renderTours(filter = activeFilter) {
             ${tour.detailsUrl ? `<a class="tour-detail-link" href="${tour.detailsUrl}"><i data-lucide="route"></i>${t("details")}</a>` : ""}
             <div class="price-row">
               <div>
-                <strong>${hasNumericPrice(tour) ? money(tour.price) : t("quotePrice")}</strong>
+                <strong>${hasNumericPrice(tour) ? money(tour.price, tour.currency || "USD") : t("quotePrice")}</strong>
                 <small>${hasNumericPrice(tour) ? t("fromPerPerson") : t("quotePerPerson")}</small>
               </div>
               <button class="secondary-button dark" type="button" data-book-tour="${tour.id}">
@@ -775,11 +783,11 @@ function setModalTour(tourId, date = selectors.quickDate.value, guests = "2") {
 }
 
 function openModal(tourId = selectors.quickTour.value, date, guests) {
-  if (tourId === "cruise-ship-excursions") {
+  if (tourId === "cruise-ship-excursions" || getTour(tourId).sourceUrl) {
     const params = new URLSearchParams();
     if (date) params.set("date", date);
     if (guests) params.set("guests", guests);
-    window.location.href = `cruise-ship-excursions-tour.html${params.size ? "?" + params : ""}#request`;
+    window.location.href = `${getTour(tourId).detailsUrl}${params.size ? "?" + params : ""}#request`;
     return;
   }
   setModalTour(tourId, date, guests);
@@ -940,6 +948,7 @@ async function handleBookingSubmit(event) {
 function updateMenuLabel() {
   const isOpen = selectors.nav.classList.contains("open");
   selectors.menuToggle.setAttribute("aria-label", isOpen ? t("menuClose") : t("menuOpen"));
+  selectors.menuToggle.setAttribute("aria-expanded", String(isOpen));
 }
 
 function showSlide(index) {
@@ -1029,7 +1038,7 @@ function bindEvents() {
   selectors.quickDate.addEventListener("change", updateDateRangeUI);
   selectors.modalDate.addEventListener("change", updateDateRangeUI);
   selectors.modalTour.addEventListener("change", () => {
-    if (selectors.modalTour.value === "cruise-ship-excursions") {
+    if (selectors.modalTour.value === "cruise-ship-excursions" || getTour(selectors.modalTour.value).sourceUrl) {
       openModal(selectors.modalTour.value, selectors.modalDate.value, selectors.modalForm.elements.guests.value);
       return;
     }

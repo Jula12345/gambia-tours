@@ -23,7 +23,7 @@
       page: window.location.href,
       language: document.documentElement.lang || "en",
       date: data.startDate || data.date || "",
-      notes: [data.ship ? `Cruise ship: ${data.ship}` : "", data.port ? `Port / meeting point: ${data.port}` : "", data.arrival ? `Scheduled arrival (port local time): ${data.arrival}` : "", data.allAboard ? `All-aboard (port local time): ${data.allAboard}` : "", data.guideLanguage ? `Guide language: ${data.guideLanguage}` : "", data.apartment ? `Apartment preference: ${data.apartment}` : "", data.notes || ""].filter(Boolean).join("\n")
+      notes: [data.variant ? `Tour option: ${data.variant}` : "", data.ship ? `Cruise ship: ${data.ship}` : "", data.port ? `Port / meeting point: ${data.port}` : "", data.arrival ? `Scheduled arrival (port local time): ${data.arrival}` : "", data.allAboard ? `All-aboard (port local time): ${data.allAboard}` : "", data.guideLanguage ? `Guide language: ${data.guideLanguage}` : "", data.apartment ? `Apartment preference: ${data.apartment}` : "", data.notes || ""].filter(Boolean).join("\n")
     };
   }
 

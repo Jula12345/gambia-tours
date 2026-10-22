@@ -21,7 +21,7 @@ Each property has a static detail page, enquiry form and official source link. L
 
 ## Customer testimonials
 
-The homepage contains three visibly labeled sample reviews. They have no fabricated customer identities, ratings or review structured data. Replace the sample text with authorized customer feedback and remove the sample labels when real reviews are supplied.
+Updated 22 October 2026: the three sample reviews have been replaced with existing reviews by Łukasz K., Ewa Cz. and Karolina K. from Moja Afryka. English translations are credited to the sister website; the Polish toggle retains the original text. No fabricated identities, scores or self-serving review schema were added.
 
 ## Cruise Ship Excursions
 
@@ -29,7 +29,7 @@ The homepage contains three visibly labeled sample reviews. They have no fabrica
 
 ## Hosting
 
-This checkout is the existing GitHub/Vercel project. It has no Sites hosting manifest, and no replacement Sites project was created. Changes are prepared in the local checkout; live publication uses the existing repository/Vercel deployment flow.
+This checkout is the existing GitHub/Vercel project. It has no Sites hosting manifest, and no replacement Sites project was created. Publication uses the existing repository/Vercel deployment flow. See SEO_AND_TOUR_SYNC.md for the 22 October 2026 expansion.
 
 ## Verification
 

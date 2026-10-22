@@ -1,0 +1,100 @@
+/* Shared brand, season editorial, and direct contact styles. */
+.brand > img { display: block; width: 236px; height: auto; max-width: 100%; }
+.footer-logo-image { display:block; width:250px; height:auto; padding:7px 10px; border-radius:6px; background:#fff; }
+.season-booking { display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:center; background:#f6ead0; }
+.season-booking h2 { max-width:15ch; }
+.season-booking p:not(.section-kicker) { color:#4e5b4f; line-height:1.7; max-width:58ch; }
+.season-booking > img { display:block; width:100%; height:320px; object-fit:cover; border-radius:8px; }
+.season-actions { display:flex; gap:22px; flex-wrap:wrap; align-items:center; margin-top:24px; }
+.testimonial-card { margin:0; display:flex; flex-direction:column; }
+.testimonial-card blockquote { padding:0; margin:0; border:0; background:none; box-shadow:none; }
+.testimonial-card blockquote p { font-size:16px; line-height:1.75; color:var(--ink); }
+.testimonial-card .review-quote { margin-top:0; }
+.testimonial-card figcaption { margin-top:auto; padding-top:12px; border-top:1px solid var(--line); }
+.testimonial-card figcaption strong { display:block; font-size:16px; }
+.testimonial-card figcaption a { display:inline-block; margin-top:6px; font-size:12px; color:var(--leaf); text-decoration:underline; }
+.whatsapp-float { position:fixed; z-index:60; right:22px; bottom:calc(20px + env(safe-area-inset-bottom)); display:flex; align-items:center; gap:11px; min-height:56px; padding:14px 20px; color:white; background:#126d41; border:2px solid white; border-radius:40px; box-shadow:0 7px 28px #0a302638; font-size:14px; font-weight:750; text-decoration:none; }
+.whatsapp-float svg { width:26px; height:26px; stroke:none; }
+.whatsapp-float:hover { background:#0b5732; }
+.whatsapp-float:focus-visible { outline:3px solid var(--sun); outline-offset:4px; }
+.site-footer { padding-bottom:105px; }
+.source-tour-intro, .about-lamin { display:grid; grid-template-columns:1.3fr .7fr; gap:64px; align-items:start; }
+.source-tour-intro p, .about-lamin p { line-height:1.8; color:var(--muted); }
+.source-tour-intro figure, .about-lamin figure { margin:0; }
+.source-tour-intro figure img { display:block; width:100%; max-height:520px; object-fit:contain; border-radius:8px; background:#e4e9e2; }
+.source-tour-intro figcaption { font-size:12px; line-height:1.5; color:var(--muted); margin-top:12px; }
+.source-practical { padding-left:19px; color:var(--muted); line-height:1.75; }
+.source-practical li { margin-bottom:10px; }
+.catalogue-jump { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:38px; }
+.catalogue-jump a { padding:12px 18px; border:1px solid var(--line); border-radius:40px; color:var(--leaf); font-size:14px; font-weight:700; }
+.catalogue-jump a:hover { background:#e5ede5; }
+.catalogue-category { margin-bottom:64px; scroll-margin-top:110px; }
+.catalogue-category > h2 { font-size:32px; margin-bottom:28px; }
+.related-links { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin:30px 0; }
+.related-links a { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:24px; border:1px solid var(--line); border-radius:6px; font-weight:700; }
+.related-links svg { flex-shrink:0; }
+.guide-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+.guide-card { border:1px solid var(--line); border-radius:8px; background:white; overflow:hidden; }
+.guide-card > a { display:block; }
+.guide-card img { display:block; width:100%; height:310px; object-fit:cover; }
+.guide-card > a > div { padding:30px; }
+.guide-card h2 { font-size:30px; }
+.guide-card p { color:var(--muted); line-height:1.75; }
+.guide-card time { font-size:13px; color:var(--muted); }
+.article-byline { font-size:14px!important; opacity:.8; }
+.article-content { max-width:900px; margin:0 auto; padding:64px 28px 90px; }
+.article-content p, .article-content li { font-size:17px; line-height:1.85; color:#4d5c53; }
+.article-content h2 { font-size:34px; line-height:1.2; margin-top:50px; scroll-margin-top:120px; }
+.article-content h2:first-child { margin-top:0; }
+.article-content p a, .article-content li a, .article-sources a { color:var(--leaf); text-decoration:underline; text-underline-offset:3px; }
+.article-content .article-lead { font-size:21px; line-height:1.7; color:var(--ink); }
+.article-content li { margin-bottom:12px; }
+.article-toc { display:grid; gap:12px; margin:32px 0; padding:26px; background:#edf2e9; border-radius:8px; }
+.article-toc a { color:var(--leaf); font-size:15px; }
+.article-photo { margin:35px 0; }
+.article-photo img { display:block; width:100%; height:auto; border-radius:8px; }
+.article-photo figcaption { font-size:13px; color:var(--muted); margin-top:10px; line-height:1.5; }
+.article-table { overflow-x:auto; margin:28px 0; }
+.article-table table { width:100%; border-collapse:collapse; font-size:15px; }
+.article-table caption { text-align:left; margin-bottom:14px; color:var(--muted); }
+.article-table th,.article-table td { padding:18px; border-bottom:1px solid var(--line); text-align:left; line-height:1.65; vertical-align:top; }
+.article-table thead { background:var(--leaf-dark); color:white; }
+.article-table tbody th { width:28%; }
+.article-callout { background:#f5ead0; padding:30px; border-radius:8px; margin-top:40px; }
+.article-callout h2 { margin-top:0; }
+.article-sources { margin-top:40px; padding-top:15px; border-top:1px solid var(--line); }
+.article-sources h2 { font-size:20px; margin-top:20px; }
+.article-sources p { font-size:14px; }
+.about-lamin { grid-template-columns:1fr 1fr; align-items:center; }
+.about-lamin img { width:100%; height:auto; border-radius:8px; }
+#request { scroll-margin-top:110px; }
+@media(max-width:1100px) {
+ .site-header { grid-template-columns:auto auto; }
+ .header-actions { grid-column:2; grid-row:1; justify-self:end; }
+ .brand { grid-column:1; grid-row:1; }
+ .nav-links:not(.open), .header-cta { display:none; }
+ .menu-toggle { display:inline-grid; }
+ .nav-links.open { position:absolute; display:flex; top:calc(100% + 10px); left:0; right:0; flex-direction:column; gap:4px; padding:18px; border-radius:8px; background:#102a22; box-shadow:var(--shadow); }
+ .source-tour-intro { gap:32px; }
+}
+@media(max-width:700px) {
+ .brand { padding:4px 6px; }
+ .brand > img { width:172px; }
+ .season-booking, .guide-grid, .source-tour-intro, .about-lamin { grid-template-columns:1fr; gap:28px; }
+ .season-booking > img { height:240px; }
+ .source-tour-intro figure { max-width:390px; margin:0 auto; width:100%; }
+ .related-links { grid-template-columns:1fr; }
+ .source-trip-hero h1 { overflow-wrap:break-word; }
+ .guide-card img { height:250px; }
+ .article-content { padding:36px 20px 65px; }
+ .article-content h2 { font-size:28px; }
+ .article-content p,.article-content li { font-size:16px; }
+ .article-content .article-lead { font-size:19px; }
+ .article-callout { padding:24px; }
+ .article-table th,.article-table td { padding:13px 10px; font-size:13px; }
+ .whatsapp-float { padding:14px; width:58px; height:58px; justify-content:center; right:16px; bottom:calc(16px + env(safe-area-inset-bottom)); }
+ .whatsapp-float span { display:none; }
+ .testimonial-card blockquote p { font-size:16px; }
+ .source-tour-intro figure img { max-height:420px; }
+}
+@media(max-width:359px) { .brand > img { width:142px; } .header-actions { gap:4px; } }
