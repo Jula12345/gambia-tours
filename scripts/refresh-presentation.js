@@ -4,7 +4,7 @@ const path = require('node:path');
 const cheerio = require('cheerio');
 module.exports = function refresh() {
  const root=path.resolve(__dirname,'..');
- const version='20261023-i18n-v4';
+ const version='20261023-layout-v4';
  for(const file of fs.readdirSync(root).filter(f=>f.endsWith('.html')&&f!=='admin.html')){
   const $=cheerio.load(fs.readFileSync(path.join(root,file),'utf8'));
   const home=file==='index.html';

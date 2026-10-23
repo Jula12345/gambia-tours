@@ -27,3 +27,9 @@ International copy leads with English-speaking local guides and personal support
 Google guidance: [Managing multilingual versions](https://developers.google.com/search/docs/specialty/international/managing-multi-regional-sites) and [localized versions / hreflang](https://developers.google.com/search/docs/specialty/international/localized-versions).
 
 These changes make the translated URLs discoverable and eligible for indexing; they do not guarantee indexing or rankings. Search Console indexing, analytics and country-specific search performance were not accessible in this workspace. Submit or refresh the existing sitemap in Search Console if appropriate, then monitor the new language URLs as Google recrawls the site.
+
+## Sitemap and layout follow-up
+
+Production sitemap verification on 23 October 2026 confirmed all 152 canonical language addresses return HTTP 200 without redirects; no URLs are missing, duplicated or stale. The robots.txt sitemap address is correct. `check:site` now checks the exact XML URL set and namespace, including duplicate/unexpected addresses, rather than only searching for each expected URL as text. The sitemap itself did not require URL changes.
+
+The translated header uses single-line desktop labels and a shared 1140px menu breakpoint. Browser inspection covered every public language page at 320, 768, 1024 and 1280px and corrected the observed text/card/form overflows. Older inline navigation/date implementations on three page templates were replaced with the shared translated script.

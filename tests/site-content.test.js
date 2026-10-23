@@ -114,3 +114,28 @@ test('German and Dutch booking vocabulary describes travel enquiries rather than
  }
  for(const tour of tours){assert.ok(de[tour.en.title]);assert.ok(nl[tour.en.title]);}
 });
+
+
+test('the sitemap contains exactly one canonical address for every language page',()=>{
+ const {auditSitemap}=require('../scripts/check-site'),l=require('../lib/site-localization');
+ const expected=l.files().flatMap(file=>Object.keys(l.languages).map(lang=>l.origin+l.route(file,lang)));
+ const xml=read('sitemap.xml');assert.deepEqual(auditSitemap(xml,expected).errors,[]);
+ const duplicate=xml.replace('</urlset>','<url><loc>'+expected[0]+'</loc></url></urlset>');
+ assert.ok(auditSitemap(duplicate,expected).errors.includes('sitemap: duplicate URLs'));
+ const oldURL=xml.replace(expected[0],l.origin+'/nl/index.html');
+ assert.ok(auditSitemap(oldURL,expected).errors.some(e=>e.includes('unexpected URL')));
+ assert.ok(auditSitemap(oldURL,expected).errors.some(e=>e.includes('missing URL')));
+});
+
+
+test('legacy editorial and ten-day pages use shared translated navigation and dates',()=>{
+ for(const lang of ['en','pl','nl','de'])for(const file of ['stories.html','polish-speaking-guide.html','senegal-gambia-10-day-tour.html']){
+  const $=cheerio.load(read((lang==='en'?'':lang+'/')+file));
+  assert.equal($('script[src^="/tour-page.js"]').length,1);
+  assert.doesNotMatch($('script:not([src]):not([type])').text(),/const menuToggle/);
+  if(file==='senegal-gambia-10-day-tour.html'){
+   assert.equal($('[data-trip-start-date]').attr('data-range-days'),'10');
+   assert.equal($('[data-trip-start-date]').attr('data-range-nights'),'9');
+  }
+ }
+});

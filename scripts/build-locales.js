@@ -2,7 +2,7 @@
 const fs=require('node:fs'),path=require('node:path'),c=require('cheerio');
 const l=require('../lib/site-localization');
 const {root,origin,languages,normalize,files,route,textAttributes,schemaTextKeys}=l;
-const version='20261023-i18n-v4';
+const version='20261023-layout-v4';
 const escape=s=>String(s).replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
 const readDict=lang=>lang==='en'?{}:JSON.parse(fs.readFileSync(path.join(root,'content',lang==='pl'?'subpage-pl.json':'locale-'+lang+'.json'),'utf8'));
 const exempt=s=>!/[\p{L}]/u.test(s)||/^(https?:|mailto:|tel:|assets\/|\/assets\/)/.test(s)||/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
@@ -47,6 +47,12 @@ function build(){
   const original=fs.readFileSync(path.join(root,file),'utf8');
   for(const lang of Object.keys(languages)){
    const $=c.load(original);const url=origin+route(file,lang);
+   // Legacy editorial pages share the same translated navigation/date behavior.
+   if(['stories.html','polish-speaking-guide.html','senegal-gambia-10-day-tour.html'].includes(file)){
+    $('script:not([src]):not([type])').filter((_,n)=>$(n).text().includes('const menuToggle = document.querySelector')).remove();
+    if(!$('script[src*="tour-page.js"]').length){const before=$('script[src*="booking-delivery.js"]').first();if(before.length)before.before('<script src="/tour-page.js"></script>');else $('body').append('<script src="/tour-page.js"></script>');}
+    if(file==='senegal-gambia-10-day-tour.html')$('[data-trip-start-date]').attr('data-range-days','10').attr('data-range-nights','9');
+   }
    $('html').attr('lang',lang);$('body').attr('data-site-language',lang).attr('data-source-page',file);
    $('.language-toggle,.language-picker').remove();
    const options=Object.entries(languages).map(([code,info])=>`<a href="${route(file,code)}" hreflang="${code}" lang="${code}" data-language-link="${code}"${code===lang?' aria-current="page"':''}>${info.name}</a>`).join('');
@@ -73,6 +79,7 @@ function build(){
    const first=$('body script[src]').first();if(first.length)first.before(scripts);else $('body').append(scripts);
    $('script[src],link[rel=stylesheet]').each((_,n)=>{const a=n.tagName==='script'?'src':'href';const v=$(n).attr(a);if(v?.startsWith('/')&&!v.startsWith('//'))$(n).attr(a,v.split('?')[0]+'?v='+version);});
    const assetSeen=new Set();$('script[src],link[rel=stylesheet]').each((_,n)=>{const attr=n.tagName==='script'?'src':'href';const key=n.tagName+'|'+$(n).attr(attr).split('?')[0];if(assetSeen.has(key))$(n).remove();else assetSeen.add(key);});
+   $('*').contents().each((_,n)=>{if(n.type==='text'&&!/\S/.test(n.data)&&!$(n).parents('script,style,pre,textarea').length)n.data=n.data.replace(/\n(?:[ \t]*\n)+/g,'\n\n');});
    // The unchanged booking form values identify the same products in every language.
    const dest=path.join(root,lang==='en'?'':lang,file);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.writeFileSync(dest,$.html().replace(/[ \t]+$/gm,'').trimEnd()+'\n');written.push({file,lang,url});
   }

@@ -1,9 +1,19 @@
 const fs=require('node:fs'),path=require('node:path'),c=require('cheerio');
 const {root,origin,languages,files,route}=require('../lib/site-localization');
+function auditSitemap(xml,expected){
+ const $=c.load(xml,{xmlMode:true}),errors=[],urls=$('urlset > url > loc').toArray().map(n=>$(n).text());
+ if($('urlset').attr('xmlns')!=='http://www.sitemaps.org/schemas/sitemap/0.9')errors.push('sitemap: invalid XML namespace');
+ if(new Set(urls).size!==urls.length)errors.push('sitemap: duplicate URLs');
+ const wanted=new Set(expected);
+ for(const url of urls)if(!wanted.has(url))errors.push('sitemap: unexpected URL '+url);
+ for(const url of wanted)if(!urls.includes(url))errors.push('sitemap: missing URL '+url);
+ return {urls,errors};
+}
 function audit(){
  const errors=[],warnings=[],pages=new Map();let links=0,assets=0;
  for(const file of files())for(const lang of Object.keys(languages)){const rel=(lang==='en'?'':lang+'/')+file;pages.set(rel,c.load(fs.readFileSync(path.join(root,rel),'utf8')));}
  const sitemap=fs.readFileSync(path.join(root,'sitemap.xml'),'utf8');
+ const map=auditSitemap(sitemap,files().flatMap(file=>Object.keys(languages).map(lang=>origin+route(file,lang))));errors.push(...map.errors);
  for(const [file,$]of pages){const lang=file.includes('/')?file.split('/')[0]:'en',base=path.basename(file),expected=origin+route(base,lang);
   if($('h1').length!==1)errors.push(file+': expected one H1');
   if($('html').attr('lang')!==lang)errors.push(file+': wrong language');
@@ -17,6 +27,6 @@ function audit(){
   $('a[href],link[rel=stylesheet],script[src],img[src],source[src],video[poster]').each((_,n)=>{const tag=$(n),raw=tag.attr('href')||tag.attr('src')||tag.attr('poster');if(!raw||/^(mailto:|tel:|data:|javascript:)/.test(raw))return;const u=new URL(raw,expected);if(u.origin!==origin)return;let dest=decodeURIComponent(u.pathname.slice(1));if(!dest||dest.endsWith('/'))dest+='index.html';if(!fs.existsSync(path.join(root,dest)))errors.push(file+': missing '+raw);if(n.tagName==='a'){links++;if(u.hash&&pages.has(dest)&&!pages.get(dest)('[id="'+decodeURIComponent(u.hash.slice(1))+'"]').length)errors.push(file+': missing anchor '+raw);}else assets++;});
   $('img').each((_,n)=>{if(!$(n).attr('alt')&&!$(n).is('[aria-hidden=true],[data-full-photo]')&&!$(n).closest('[aria-hidden=true]').length)warnings.push(file+': empty image description');});
  }
- return {pages:pages.size,localLinks:links,localAssets:assets,errors,warnings};
+ return {pages:pages.size,sitemapURLs:map.urls.length,localLinks:links,localAssets:assets,errors,warnings};
 }
-module.exports=audit;if(require.main===module){const result=audit();console.log(JSON.stringify(result,null,2));if(result.errors.length)process.exitCode=1;}
+module.exports=audit;module.exports.auditSitemap=auditSitemap;if(require.main===module){const result=audit();console.log(JSON.stringify(result,null,2));if(result.errors.length)process.exitCode=1;}

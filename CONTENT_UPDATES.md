@@ -58,3 +58,13 @@ Validation: both languages checked at nine widths from 320px to 1,920px, plus al
 ## 23 October 2026 — Dutch, German and multilingual SEO
 
 Added complete Dutch and German versions and published Polish on its own URLs: `/nl/`, `/de/`, `/pl/`. English keeps the existing root addresses. All 38 public pages are available in each language, with translated content and metadata, self-canonicals, reciprocal language links, and a 152-URL sitemap. A compact language menu works on all pages and preserves the current route, query/anchor and enquiry entries. International copy highlights English-speaking local guides; Polish guiding remains available by arrangement and prominent in Polish. No German/Dutch guiding availability is invented. See MULTILINGUAL_SEO.md.
+
+## 23 October 2026 — Sitemap verification and translated layout corrections
+
+Verified the production sitemap against the four-language page inventory: 152 unique canonical URLs (38 in each language), no missing or unexpected URLs, no redirects/errors, and the correct sitemap reference in robots.txt. Added exact-set and duplicate checks to the site audit so future language changes cannot silently leave stale sitemap entries.
+
+The Dutch homepage header now uses the compact `FAQ` label and keeps desktop navigation labels on one line. All public headers switch to the compact navigation at 1140px rather than crowding longer translations. The dropdown has a viewport-height limit so it remains usable on shorter screens.
+
+Fixed clipped homepage highlight labels, narrow-screen tour facts and apartment amenities, long Dutch text in tour inclusion panels, and German hotel enquiry labels. Legacy stories, Polish-guide and ten-day tour pages now share the translated navigation/date code, including accessible expanded state and localized ten-day date ranges.
+
+Validation: 54 tests pass, site/language audits pass, and 608 browser layout checks cover all 152 pages at 320, 768, 1024 and 1280px. Those checks report no page overflow, clipped text containers, wrapped desktop menu labels or header overlap. Compact-menu interactions and ten-day date calculation were checked separately.
