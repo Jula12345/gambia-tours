@@ -19,8 +19,8 @@ module.exports = function normalize() {
   $('meta[property="og:image"]').attr('content',function(_,v){return v?.startsWith('https://upload.wikimedia.org')||v?.startsWith('https://commons.wikimedia.org')?origin+'/assets/trips/coastal-sunset-1600.webp':v;});
   meta('twitter:title',$('meta[property="og:title"]').attr('content'));meta('twitter:description',$('meta[property="og:description"]').attr('content'));meta('twitter:image',$('meta[property="og:image"]').attr('content'));
   $('link[rel=stylesheet]').each((_,el)=>{const href=$(el).attr('href');if(/^(styles|hotels|travel-updates)\.css/.test(href))$(el).attr('href',href.split('?')[0]+'?v=20261022-season');});
-  if(!$('link[href^="season.css"]').length)$('head').append('<link rel="stylesheet" href="season.css?v=20261022-season-final"/>');
-  $('link[href^="season.css"]').attr('href','season.css?v=20261022-season-final');
+  if(!$('link[href^="season.css"],link[href^="/season.css"]').length)$('head').append('<link rel="stylesheet" href="season.css?v=20261022-season-final"/>');
+  $('link[href^="season.css"],link[href^="/season.css"]').attr('href','season.css?v=20261022-season-final');
   $('link[rel=icon]').attr('href','assets/favicon.png?v=20261022-season');
   $('link[rel=apple-touch-icon]').attr('href','assets/apple-touch-icon.png?v=20261022-season');
   $('header .brand').html('<img src="assets/brand/gambiantour-logo.svg" width="250" height="50" alt="GambianTour.com — Gambia and Senegal local guides"/>');

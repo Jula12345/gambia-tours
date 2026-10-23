@@ -27,6 +27,36 @@
       "source": "/index.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/pl",
+      "destination": "/pl/",
+      "permanent": true
+    },
+    {
+      "source": "/pl/index.html",
+      "destination": "/pl/",
+      "permanent": true
+    },
+    {
+      "source": "/nl",
+      "destination": "/nl/",
+      "permanent": true
+    },
+    {
+      "source": "/nl/index.html",
+      "destination": "/nl/",
+      "permanent": true
+    },
+    {
+      "source": "/de",
+      "destination": "/de/",
+      "permanent": true
+    },
+    {
+      "source": "/de/index.html",
+      "destination": "/de/",
+      "permanent": true
     }
   ],
   "headers": [

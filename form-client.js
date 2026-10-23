@@ -63,7 +63,7 @@
         heading.textContent = text("Your request has been received");
         const message = document.createElement("p");
         message.className = "wide";
-        message.textContent = document.documentElement.lang === "pl" ? `Numer ${result.id || payload.requestId}. Wkrótce się z Tobą skontaktujemy.` : `Reference ${result.id || payload.requestId}. We will contact you shortly.`;
+        message.textContent = (window.GambianTourLanguage?.format("Reference {id}. We will contact you shortly.", {id: result.id || payload.requestId})) || `Reference ${result.id || payload.requestId}. We will contact you shortly.`;
         confirmation.append(heading, message);
         form.after(confirmation);
         form.dispatchEvent(new Event("change", { bubbles: true }));

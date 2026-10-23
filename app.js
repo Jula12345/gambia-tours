@@ -27,14 +27,14 @@ const translations = {
     stayCollection: "See all recommended stays",
 
     documentTitle: "Gambia & Senegal Tours 2026–2027 | GambianTour.com",
-    metaDescription: "Book Gambia day trips, Senegal safaris, river cruises and multi-day tours for 2026–2027. Local English and Polish guides. Message Lamin for a personal plan.",
+    metaDescription: "Book Gambia day trips, Senegal safaris, river cruises and multi-day tours for 2026–2027 with local guides. Message Lamin for a personal plan.",
     brandHome: "GambianTour.com home",
     languageToggle: "Language selector",
     menuOpen: "Open navigation",
     menuClose: "Close navigation",
     navTours: "Tours",
     navWhy: "Reviews",
-    navPolish: "Polish guides",
+    navPolish: "Our guides",
     navStories: "Travel guide",
     navHotels: "Stays",
     stayRecommended: "Recommended by GambianTour",
@@ -49,7 +49,7 @@ const translations = {
     staysBrowse: "Explore our recommended stays",
     staysSupport: "Stay with local support",
     staysNoteTitle: "Find your stay. We’ll help with the rest.",
-    staysNoteCopy: "Choose accommodation recommended by GambianTour and ask us about airport transfers, private excursions and English or Polish-speaking guides. Your dates, apartment and final rate are confirmed personally before booking.",
+    staysNoteCopy: "Choose a recommended stay and ask our local team about airport transfers and private excursions. Your dates, accommodation and final rate are confirmed personally before booking.",
     staysEnquire: "Enquire about Lala’s Complex",
     navFaq: "FAQ",
     navContact: "Contact",
@@ -77,14 +77,14 @@ const translations = {
     selectTour: "Choose a Gambia tour",
     introKicker: "Gambia private tours with local guides",
     introTitle: "Easy, flexible Gambia excursions for travelers who want more than a hotel transfer.",
-    introCopy: "Choose a ready-made Gambia day trip or build a private itinerary around your hotel location, pace and interests. We plan tours from Kololi, Kotu, Senegambia, Bijilo, Cape Point and Banjul, with English-speaking guides and Polish-speaking guides available on request.",
+    introCopy: "Choose a ready-made day trip or build a private itinerary around your hotel, pace and interests. Our local guides arrange tours from Kololi, Kotu, Senegambia, Bijilo, Cape Point and Banjul.",
     trustAria: "Tour service highlights",
     trustOne: "Hotel pickup",
     trustOneCopy: "Kololi, Kotu, Banjul",
     trustTwo: "Private tours",
     trustTwoCopy: "your pace, your stops",
-    trustThree: "EN + PL",
-    trustThreeCopy: "Polish-speaking guides",
+    trustThree: "Local guides",
+    trustThreeCopy: "personal travel support",
     trustFour: "Gambia",
     trustFourCopy: "local day trips",
     toursKicker: "Bookable Gambia excursions",
@@ -149,13 +149,13 @@ const translations = {
     featureTitle: "Gambia River tour, Banjul market walk, or a custom day from your hotel.",
     featureCopy: "The best Gambia excursions are not rushed. Start with pickup on the coast, then follow a route shaped around history, nature, markets, local food, photography, family timing or birdwatching.",
     featureCheck1: "Pickup from Kololi, Kotu, Senegambia, Bijilo, Cape Point or Banjul",
-    featureCheck2: "English-speaking guide, with Polish-speaking guide available",
+    featureCheck2: "English-speaking local guides and personal support",
     featureCheck3: "Flexible private itinerary before you confirm the booking",
     featureButton: "Request custom tour",
-    polishKicker: "For Polish travelers",
-    polishTitle: "Polish-speaking tour guides in Gambia",
-    polishCopy: "Traveling from Poland or prefer sightseeing in Polish? We can arrange Gambia tours with a Polish-speaking guide, including Banjul, the River Gambia, local markets, beaches and custom private day trips.",
-    polishButton: "Polish guide details",
+    polishKicker: "Meet your local guides",
+    polishTitle: "Local knowledge. A warm welcome.",
+    polishCopy: "Discover The Gambia with English-speaking local guides who help you feel at home. Polish-language guiding is also available by prior arrangement.",
+    polishButton: "Meet Lamin and the team",
     keywordsKicker: "Trip ideas travelers search for",
     keywordsTitle: "Plan the Gambia day trip that matches your search.",
     keyword1: "Gambia excursions from Kololi and Kotu",
@@ -175,8 +175,8 @@ const translations = {
     faqTitle: "Questions travelers ask before booking",
     faq1Q: "Do you offer private tours in Gambia?",
     faq1A: "Yes. Most tours can be private, with pickup from the main coastal hotel areas and a flexible route.",
-    faq2Q: "Can I book a Polish-speaking guide in Gambia?",
-    faq2A: "Yes, Polish-speaking guides are available on request. It is best to mention Polish language preference when sending the booking request.",
+    faq2Q: "Which languages do your guides speak?",
+    faq2A: "Our tours are led in English. Polish-speaking guides are also available by prior arrangement. Please confirm your preferred guiding language when you enquire.",
     faq3Q: "Where do tours start?",
     faq3A: "Tours can start from Kololi, Kotu, Senegambia, Bijilo, Cape Point, Banjul and nearby hotel areas.",
     faq4Q: "Can you build a custom Gambia itinerary?",
@@ -484,11 +484,12 @@ const translations = {
 };
 
 
+if (window.GambianTourLocale?.ui) translations[document.documentElement.lang] = window.GambianTourLocale.ui;
+
 const selectors = {
   header: document.querySelector("[data-header]"),
   nav: document.querySelector("[data-nav]"),
   menuToggle: document.querySelector("[data-menu-toggle]"),
-  languageButtons: document.querySelectorAll("[data-language]"),
   heroSlides: document.querySelectorAll("[data-hero-slide]"),
   carouselDots: document.querySelectorAll("[data-carousel-dot]"),
   carouselPrev: document.querySelector("[data-carousel-prev]"),
@@ -519,7 +520,7 @@ const selectors = {
 
 const today = new Date();
 const todayValue = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
-let currentLang = window.localStorage.getItem("gambianTourLanguage") || "en";
+let currentLang = document.documentElement.lang || "en";
 let activeFilter = "all";
 let activeSlide = 0;
 let carouselTimer;
@@ -533,7 +534,7 @@ function t(key) {
 }
 
 function money(value, currency = "USD") {
-  return new Intl.NumberFormat(currentLang === "pl" ? "pl-PL" : "en-US", {
+  return new Intl.NumberFormat(({en:"en-US",pl:"pl-PL",nl:"nl-NL",de:"de-DE"})[currentLang] || "en-US", {
     style: "currency",
     currency,
     maximumFractionDigits: 0
@@ -549,7 +550,7 @@ function getTour(id) {
 }
 
 function tourCopy(tour) {
-  return tour[currentLang] || tour.en;
+  return window.GambianTourLocale?.tours?.[tour.id] || tour[currentLang] || tour.en;
 }
 
 function tourDays(tour) {
@@ -588,7 +589,7 @@ function formatDateDisplay(value) {
     return "";
   }
 
-  return new Intl.DateTimeFormat(currentLang === "pl" ? "pl-PL" : "en-GB", {
+  return new Intl.DateTimeFormat(({en:"en-GB",pl:"pl-PL",nl:"nl-NL",de:"de-DE"})[currentLang] || "en-GB", {
     day: "2-digit",
     month: "short",
     year: "numeric"
@@ -655,11 +656,6 @@ function applyTranslations() {
     element.setAttribute("content", t(element.dataset.i18nContent));
   });
 
-  selectors.languageButtons.forEach((button) => {
-    const isActive = button.dataset.language === currentLang;
-    button.classList.toggle("active", isActive);
-    button.setAttribute("aria-pressed", String(isActive));
-  });
 
   updateMenuLabel();
   updateDateRangeUI();
@@ -724,7 +720,7 @@ function renderTours(filter = activeFilter) {
 
       return `
         <article class="tour-card" data-category="${tour.category}">
-          <div class="tour-card-photo"><img src="${tour.image}" ${tour.imageSrcset ? `srcset="${tour.imageSrcset}" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw"` : ""} class="${tour.imageClass || ""}" alt="${copy.alt}" width="960" height="640" loading="lazy" decoding="async"></div>
+          <div class="tour-card-photo"><img src="${tour.image.replace(/^assets\//, "/assets/")}" ${tour.imageSrcset ? `srcset="${tour.imageSrcset.replace(/(^|,\s*)assets\//g, "$1/assets/")}" sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw"` : ""} class="${tour.imageClass || ""}" alt="${copy.alt}" width="960" height="640" loading="lazy" decoding="async"></div>
           <div class="tour-card-content">
             <div class="tour-meta">
               <span><i data-lucide="clock"></i>${copy.duration}</span>
@@ -975,22 +971,6 @@ function restartCarousel() {
   carouselTimer = window.setInterval(nextSlide, 6500);
 }
 
-function setLanguage(language) {
-  if (!translations[language] || language === currentLang) {
-    return;
-  }
-
-  currentLang = language;
-  window.localStorage.setItem("gambianTourLanguage", currentLang);
-  applyTranslations();
-  populateTourSelects();
-  renderTours(activeFilter);
-
-  if (selectors.modal.open) {
-    setModalTour(selectors.modalTour.value, selectors.modalDate.value, selectors.modalForm.elements.guests.value);
-  }
-}
-
 function bindEvents() {
   window.addEventListener("scroll", () => {
     selectors.header.classList.toggle("scrolled", window.scrollY > 20);
@@ -1006,9 +986,6 @@ function bindEvents() {
     updateMenuLabel();
   });
 
-  selectors.languageButtons.forEach((button) => {
-    button.addEventListener("click", () => setLanguage(button.dataset.language));
-  });
 
   selectors.carouselPrev.addEventListener("click", () => {
     showSlide(activeSlide - 1);

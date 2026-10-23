@@ -4,8 +4,7 @@ const path = require('node:path');
 const cheerio = require('cheerio');
 module.exports = function refresh() {
  const root=path.resolve(__dirname,'..');
- const version='20261022-balance';
- fs.writeFileSync(path.join(root,'site-language-data.js'),'// Curated Polish translations for the public website.\nwindow.GambianTourPolish='+JSON.stringify(JSON.parse(fs.readFileSync(path.join(root,'content/subpage-pl.json')))).replace(/</g,'\\u003c')+';\n');
+ const version='20261023-i18n-v4';
  for(const file of fs.readdirSync(root).filter(f=>f.endsWith('.html')&&f!=='admin.html')){
   const $=cheerio.load(fs.readFileSync(path.join(root,file),'utf8'));
   const home=file==='index.html';
@@ -39,6 +38,7 @@ module.exports = function refresh() {
   $('.footer-links a').filter((_,n)=>/^(Moja Afryka|GambianTour) · Polski$/.test($(n).text().trim())).remove();
   $('a[href*="mojaafryka.pl"]').attr('href','tours.html');
   $('.footer-links').append('<a class="polish-site-invite" href="https://mojaafryka.pl/" lang="pl" target="_blank" rel="noopener">Podróżujesz z Polski? Odwiedź mojaafryka.pl — naszą stronę dla polskich turystów.</a>');
+  const footerSeen=new Set();$('.footer-links a').each((_,n)=>{const u=new URL($(n).attr('href'),'https://www.gambiantour.com/');const key=u.href;if(footerSeen.has(key))$(n).remove();else footerSeen.add(key);});
   $('script[type="application/ld+json"]').each((_,n)=>{
    let data=JSON.parse($(n).text());
    function clean(x){if(!x||typeof x!=='object')return;if(file==='polish-speaking-guide.html'&&x['@type']==='Service')x.name='Polish-speaking Gambia guide';for(const key of Object.keys(x)){
@@ -49,10 +49,10 @@ module.exports = function refresh() {
   if(!home&&!$('.language-toggle').length)$('.header-actions').prepend('<div class="language-toggle" role="group" aria-label="Language selector"><button type="button" class="active" data-language="en" aria-pressed="true" aria-label="English">EN</button><button type="button" data-language="pl" aria-pressed="false" aria-label="Polski">PL</button></div>');
   if(home)$('[data-language]').each((_,n)=>$(n).attr('aria-label',$(n).attr('data-language')==='pl'?'Polski':'English'));
   $('.story-card > img').wrap('<div class="story-card-media"></div>');
-  $('option').each((_,n)=>{if($(n).attr('value')===undefined)$(n).attr('value',$(n).text());});
+  $('option').each((_,n)=>{if(n.attribs.value===undefined)$(n).attr('value',$(n).text());});
   $('link[href^="season.css"]').attr('href','season.css?v='+version);
   $('script[src^="site-language"]').remove();
-  $('body').append('<script src="site-language-data.js?v='+version+'"></script><script src="site-language.js?v='+version+'"></script>');
+  $('body').append('<script src="site-language.js?v='+version+'"></script>');
   for(const name of ['app.js','tour-page.js','hotel-page.js','gallery.js','form-client.js'])$(`script[src^="${name}"]`).attr('src',name+'?v='+version);
   fs.writeFileSync(path.join(root,file),$.html().replace(/[ \t]+$/gm,'').trimEnd()+'\n');
  }
@@ -63,5 +63,7 @@ module.exports = function refresh() {
  const footerCopies=['Gambia & Senegal tours with local guides. Personal journeys, lasting memories.','Gambia i Senegal z lokalnymi przewodnikami. Twoja podróż, niezapomniane wspomnienia.'];
  let footerIndex=0;app=app.replace(/^    footerCopy: .*$/gm,()=> '    footerCopy: '+JSON.stringify(footerCopies[footerIndex++])+',');
  fs.writeFileSync(path.join(root,'app.js'),app);
+ require('./international-copy')();
+ if(['locale-nl.json','locale-de.json'].every(f=>fs.existsSync(path.join(root,'content',f)))) require('./build-locales')();
 };
 if(require.main===module)module.exports();

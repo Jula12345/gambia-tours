@@ -1,54 +1,39 @@
-/* English/Polish presentation without replacing forms, links, or page structure. */
+/* Language URLs are authoritative. This script only enhances navigation and booking drafts. */
 (() => {
- const dictionary=window.GambianTourPolish||{};
- const normalize=value=>value.trim().replace(/\s+/g,' ');
- const home=document.body.dataset.pageLanguage==='home';
- const roots=home?[...document.querySelectorAll('.site-footer,[data-whatsapp-contact]')]:[document.body];
- const texts=[],attributes=[];
- let language='en';
- for(const root of roots){
-  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode(node){
-   return node.parentElement?.closest('script,style,svg,noscript,.polish-site-invite') || (home && node.parentElement?.closest('[data-i18n]')) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
-  }});
-  while(walker.nextNode()){
-   const node=walker.currentNode,original=node.nodeValue,key=normalize(original);
-   if(Object.hasOwn(dictionary,key))texts.push({node,original});
-  }
-  for(const element of [root,...root.querySelectorAll('*')]){
-   for(const name of ['placeholder','aria-label','alt','data-caption']){
-    const original=element.getAttribute(name);
-    if(original&&Object.hasOwn(dictionary,normalize(original)))attributes.push({element,name,original,polish:dictionary[normalize(original)]});
-   }
-  }
- }
- // Cache normalized replacements with the original leading/trailing whitespace.
- for(const item of texts){
-  const key=normalize(item.original);
-  item.polish=item.original.match(/^\s*/)[0]+dictionary[key]+item.original.match(/\s*$/)[0];
- }
- const title=document.title;
- function text(value){return language==='pl'?(dictionary[normalize(value)]??value):value;}
- function apply(next){
-  language=next==='pl'?'pl':'en';
-  document.documentElement.lang=language;
-  for(const item of texts)item.node.nodeValue=language==='pl'?item.polish:item.original;
-  for(const item of attributes)item.element.setAttribute(item.name,language==='pl'?item.polish:item.original);
-  if(!home){
-   document.title=text(title);
-   document.querySelectorAll('[data-language]').forEach(button=>{
-    const active=button.dataset.language===language;
-    button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active));
+ const data=window.GambianTourLocale||{};
+ const language=document.documentElement.lang||'en';
+ const source=document.body.dataset.sourcePage||'index.html';
+ const translate=value=>data.text?.[String(value).trim().replace(/\s+/g,' ')]??value;
+ const format=(value,values={})=>Object.entries(values).reduce((s,[key,v])=>s.replaceAll('{'+key+'}',v),translate(value));
+ window.GambianTourLanguage={current:language,locale:data.locale||'en-GB',text:translate,format,apply(){}};
+ const picker=document.querySelector('.language-picker');
+ document.addEventListener('click',event=>{if(picker&&!picker.contains(event.target))picker.open=false;});
+ document.addEventListener('keydown',event=>{if(event.key==='Escape'&&picker?.open){picker.open=false;picker.querySelector('summary').focus();}});
+ const draftKey='gambianTourLanguageDraft:'+source;
+ const fields=form=>[...form.querySelectorAll('input[name],select[name],textarea[name]')].filter(n=>!['hidden','password','file','submit'].includes(n.type)&&!n.name.startsWith('_'));
+ document.querySelectorAll('[data-language-link]').forEach(link=>{
+  const target=new URL(link.href);target.search=location.search;target.hash=location.hash;link.href=target.href;
+  link.addEventListener('click',event=>{
+   if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
+   try{
+    const forms=[...document.querySelectorAll('.trip-form,[data-quick-book]')].map(form=>fields(form).map(n=>({name:n.name,value:n.value,checked:n.checked})));
+    sessionStorage.setItem(draftKey,JSON.stringify({created:Date.now(),forms}));
+    localStorage.setItem('gambianTourLanguage',link.dataset.languageLink);
+   }catch{}
+  });
+ });
+ function restore(){
+  try{
+   const raw=sessionStorage.getItem(draftKey);if(!raw)return;sessionStorage.removeItem(draftKey);
+   const draft=JSON.parse(raw);if(Date.now()-draft.created>30*60*1000)return;
+   document.querySelectorAll('.trip-form,[data-quick-book]').forEach((form,index)=>{
+    for(const saved of draft.forms[index]||[]){const node=fields(form).find(n=>n.name===saved.name);if(!node)continue;
+     if(node.type==='checkbox'||node.type==='radio')node.checked=saved.checked;
+     else if(node.tagName!=='SELECT'||[...node.options].some(o=>o.value===saved.value))node.value=saved.value;
+     node.dispatchEvent(new Event('change',{bubbles:true}));
+    }
    });
-   document.querySelectorAll('[data-menu-toggle]').forEach(button=>button.setAttribute('aria-label',text(document.querySelector('[data-nav]')?.classList.contains('open')?'Close navigation':'Open navigation')));
-   window.dispatchEvent(new CustomEvent('gambiantour:language',{detail:{language}}));
-  }
+  }catch{}
  }
- function set(next){
-  try{window.localStorage.setItem('gambianTourLanguage',next);}catch{}
-  apply(next);
- }
- window.GambianTourLanguage={apply,text,get current(){return language;}};
- if(!home)document.querySelectorAll('[data-language]').forEach(button=>button.addEventListener('click',()=>set(button.dataset.language)));
- let stored='en';try{stored=window.localStorage.getItem('gambianTourLanguage')||'en';}catch{}
- apply(stored);
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',restore,{once:true});else restore();
 })();

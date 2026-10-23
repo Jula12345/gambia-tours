@@ -54,3 +54,7 @@ Content now stays within a centered 1,080px reading width and the header within 
 The homepage hero title is capped at 72px rather than 134px (115px at the tested 1,280px viewport). Section headings, image frames and vertical section spacing are also reduced. Mobile controls retain comfortable sizes and readable body text.
 
 Validation: both languages checked at nine widths from 320px to 1,920px, plus all 37 subpages at phone width, with no horizontal overflow. All 49 tests and the site/language audits pass. Preview images are in `output/balance-preview/`.
+
+## 23 October 2026 — Dutch, German and multilingual SEO
+
+Added complete Dutch and German versions and published Polish on its own URLs: `/nl/`, `/de/`, `/pl/`. English keeps the existing root addresses. All 38 public pages are available in each language, with translated content and metadata, self-canonicals, reciprocal language links, and a 152-URL sitemap. A compact language menu works on all pages and preserves the current route, query/anchor and enquiry entries. International copy highlights English-speaking local guides; Polish guiding remains available by arrangement and prominent in Polish. No German/Dutch guiding availability is invented. See MULTILINGUAL_SEO.md.

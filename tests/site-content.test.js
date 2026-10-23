@@ -55,26 +55,62 @@ test('the booking selector preserves EUR and USD instead of relabeling every pri
  assert.ok(read('app.js').includes('money(tour.price, tour.currency || "USD")'));
 });
 
-test('all public subpages offer persistent EN/PL controls with complete Polish content coverage',()=>{
- const files=fs.readdirSync(root).filter(f=>f.endsWith('.html')&&!['index.html','admin.html'].includes(f));
- for(const file of files){
-  const $=cheerio.load(read(file));
-  assert.equal($('[data-language=en]').length,1,file);assert.equal($('[data-language=pl]').length,1,file);
-  assert.equal($('script[src^="site-language.js"]').length,1,file);assert.equal($('script[src^="site-language-data.js"]').length,1,file);
-  $('option').each((_,n)=>assert.ok($(n).attr('value')!==undefined,`${file}: stable booking option values`));
+test('all language versions have crawlable links, complete translations and stable booking values',()=>{
+ const l=require('../lib/site-localization');
+ for(const file of l.files())for(const lang of Object.keys(l.languages)){
+  const $=cheerio.load(read((lang==='en'?'':lang+'/')+file));
+  assert.equal($('[data-language-link]').length,4,file+' '+lang);
+  assert.equal($('[data-language-link][aria-current=page]').attr('hreflang'),lang);
+  assert.equal($('script[src^="/site-language.js"]').length,1);
+  assert.equal($('body script[src^="/site-language.js"]').length,1,file+': DOM must exist before menu handlers bind');
+  assert.equal($('script[src^="/assets/locales/'+lang+'.js"]').length,1);
+  $('option').each((_,n)=>assert.ok(n.attribs.value!==undefined,file+': stable option value'));
+  const assets=$('script[src],link[rel=stylesheet]').toArray().map(n=>($(n).attr('src')||$(n).attr('href')).split('?')[0]);
+  assert.equal(new Set(assets).size,assets.length,file+': duplicate script or stylesheet');
  }
- const stay=cheerio.load(read('lalas-complex-brufut.html'));
- assert.equal(stay('select[name=apartment] option').first().attr('value'),'','Apartment prompt must not count as a selected room');
- const audit=JSON.parse(require('node:child_process').execFileSync(process.execPath,['scripts/audit-language.js'],{cwd:root,encoding:'utf8'}));
- assert.equal(audit.pages,37);assert.deepEqual(audit.missing,[]);
+ const audit=require('../scripts/audit-language')();assert.equal(audit.pages,152);assert.deepEqual(audit.missing,[]);
+ const stay=cheerio.load(read('de/lalas-complex-brufut.html'));assert.equal(stay('select[name=apartment] option').first().attr('value'),'');
 });
 
-test('public branding uses GambianTour and only the Polish invitation links to the Polish website',()=>{
- for(const file of fs.readdirSync(root).filter(f=>f.endsWith('.html')&&f!=='admin.html')){
-  const $=cheerio.load(read(file));const invitation=$('.polish-site-invite');
-  assert.equal(invitation.length,1,file);assert.equal(invitation.attr('lang'),'pl');
-  assert.equal($('a[href*="mojaafryka"]').length,1,file);
-  invitation.remove();$('script,style,svg').remove();
-  assert.doesNotMatch($('body').text(),/Moja Afryka|mojaafryka/i,file);
+test('only Polish pages invite visitors to the Polish website, and public branding remains GambianTour',()=>{
+ const l=require('../lib/site-localization');
+ for(const file of l.files())for(const lang of Object.keys(l.languages)){
+  const $=cheerio.load(read((lang==='en'?'':lang+'/')+file));const invitation=$('.polish-site-invite');
+  assert.equal(invitation.length,lang==='pl'?1:0,file+' '+lang);
+  assert.equal($('a[href*="mojaafryka"]').length,lang==='pl'?1:0);
+  invitation.remove();$('script,style,svg').remove();assert.doesNotMatch($('body').text(),/Moja Afryka|mojaafryka/i,file);
  }
+});
+
+test('localized pages have self-canonicals, reciprocal hreflang links, translated metadata and sitemap coverage',()=>{
+ const result=require('../scripts/check-site')();assert.equal(result.pages,152);assert.deepEqual(result.errors,[]);
+ const l=require('../lib/site-localization');
+ for(const lang of ['pl','nl','de']){
+  const $=cheerio.load(read(lang+'/index.html'));
+  assert.notEqual($('h1').text(),cheerio.load(read('index.html'))('h1').text());
+  assert.notEqual($('meta[name=description]').attr('content'),cheerio.load(read('index.html'))('meta[name=description]').attr('content'));
+  for(const item of source){
+   const page=cheerio.load(read(lang+'/'+item.detailsUrl));assert.equal(page('[name=tour]').val(),item.title);
+   const graph=JSON.parse(page('script[type="application/ld+json"]').first().text())['@graph'];const trip=graph.find(x=>x['@type']==='TouristTrip');
+   if(item.price!==null){assert.equal(trip.offers.price,item.price);assert.equal(trip.offers.priceCurrency,item.currency);}
+  }
+ }
+});
+
+test('language routing respects explicit URLs and does not claim German or Dutch guiding',()=>{
+ assert.doesNotMatch(read('site-language.js'),/localStorage\.getItem/);
+ assert.match(read('app.js'),/currentLang = document.documentElement.lang/);
+ for(const lang of ['en','pl','nl','de']){
+  const $=cheerio.load(read((lang==='en'?'':lang+'/')+'kunta-kinteh-island-tour.html'));
+  assert.deepEqual($('[name=guideLanguage] option').toArray().map(n=>$(n).attr('value')),['English','Polish']);
+ }
+});
+
+test('German and Dutch booking vocabulary describes travel enquiries rather than quotations or books',()=>{
+ const de=require('../content/locale-de.json'),nl=require('../content/locale-nl.json');
+ assert.equal(de.Book,'Buchen');assert.equal(nl.Book,'Boeken');
+ for(const key of ['custom quote','private quote','Individually quoted']){
+  assert.doesNotMatch(de[key],/Zitat|zitiert/);assert.doesNotMatch(nl[key],/citaat|geciteerd/);
+ }
+ for(const tour of tours){assert.ok(de[tour.en.title]);assert.ok(nl[tour.en.title]);}
 });

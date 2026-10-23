@@ -1,11 +1,4 @@
-const fs=require('node:fs'),c=require('cheerio'),path=require('node:path');
-const root=path.resolve(__dirname,'..');const dictionary=JSON.parse(fs.readFileSync(path.join(root,'content/subpage-pl.json')));
-const norm=s=>s.trim().replace(/\s+/g,' ');const missing=new Map();let pages=0,strings=0;
-for(const file of fs.readdirSync(root).filter(f=>f.endsWith('.html')&&!['index.html','admin.html'].includes(f))){
- const $=c.load(fs.readFileSync(path.join(root,file),'utf8'));pages++;
- function check(text){const key=norm(text);if(!key||!/[a-zA-Z]/.test(key))return;strings++;if(!Object.hasOwn(dictionary,key)&&!missing.has(key))missing.set(key,file);}
- $('body *').contents().each((_,n)=>{if(n.type==='text'&&!$(n).parents('script,style,svg,noscript,.polish-site-invite').length)check(n.data)});
- $('[aria-label],[alt],[placeholder],[data-caption]').each((_,n)=>{for(const name of ['aria-label','alt','placeholder','data-caption'])if($(n).attr(name))check($(n).attr(name));});
- check($('title').text());
-}
-console.log(JSON.stringify({pages,strings,missing:[...missing].map(([text,page])=>({text,page}))},null,2));if(missing.size)process.exitCode=1;
+const fs=require('node:fs'),path=require('node:path'),c=require('cheerio');
+const l=require('../lib/site-localization');
+function audit(){const missing=[];const source=l.strings();for(const lang of ['pl','nl','de']){const dict=JSON.parse(fs.readFileSync(path.join(l.root,'content',lang==='pl'?'subpage-pl.json':'locale-'+lang+'.json')));for(const text of source){if(!Object.hasOwn(dict,text)&&/[\p{L}]/u.test(text)&&!/^https?:|^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(text))missing.push({lang,text});else if(dict[text])for(const tag of text.match(/\{[a-zA-Z][a-zA-Z0-9_]*\}/g)||[])if(!dict[text].includes(tag))missing.push({lang,text,placeholder:tag});}}return {pages:l.files().length*4,languages:Object.keys(l.languages),sourceStrings:source.length,missing};}
+module.exports=audit;if(require.main===module){const result=audit();console.log(JSON.stringify(result,null,2));if(result.missing.length)process.exitCode=1;}

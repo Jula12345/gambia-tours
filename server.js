@@ -519,6 +519,8 @@ async function handleApi(request, response, url) {
 
 async function serveStatic(response, url) {
   let pathname = decodeURIComponent(url.pathname);
+  if (/^\/(pl|nl|de)$/.test(pathname)) { response.writeHead(308, { Location: pathname + "/" + url.search }).end(); return; }
+  if (/^\/(pl|nl|de)\/$/.test(pathname)) pathname += "index.html";
   if (pathname === "/") pathname = "/index.html";
   if (pathname === "/admin") pathname = "/admin.html";
 
